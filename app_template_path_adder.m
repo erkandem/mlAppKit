@@ -1,7 +1,14 @@
+
+% run this function to add the necessary functions and classes into the
+% MATLAB searchpaths
+
+
+
 function app_template_path_adder()
 
-    addpath(fullfile('launch','mfiles'));
-    addpath(fullfile('main','mfiles'));
+    addpath(fullfile('launch' ,'mfiles'));
+    addpath(fullfile('main'   ,'mfiles'));
+    addpath(fullfile('popups','mfiles'));
 
     addpath(fullfile('functions','panel_visibility'));
     addpath(fullfile('functions','mlapp2classdef_edit'));

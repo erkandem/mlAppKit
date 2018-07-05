@@ -7,7 +7,6 @@ classdef app_template < matlab.apps.AppBase
         LaunchMenu         matlab.ui.container.Menu
         ICBMMenu           matlab.ui.container.Menu
         StingerMenu        matlab.ui.container.Menu
-        ShitstormMenu      matlab.ui.container.Menu
         HelpMenu           matlab.ui.container.Menu
         AboutMenu          matlab.ui.container.Menu
         DocumentationMenu  matlab.ui.container.Menu
@@ -54,17 +53,12 @@ classdef app_template < matlab.apps.AppBase
             %create all subpanels from different m-filers
             
             app.m2_launch.m2a_stinger   =  stinger(app.uif);     %
-            %            app.m2_launch.m2b_tow       =  tow(app.uif);         %
-            %            app.m2_launch.m2c_grad      =  grad(app.uif);        %
             app.m2_launch.m2d_icbm      =  icbm(app.uif);        %
-            app.m2_launch.m2e_shitstorm    =  shitstorm(app.uif);        %
             
             
             % set visibility to "off" by default
             
             app.m2_launch.m2a_stinger.main_Panel.Visible       ='off'; %
-            %            app.m2_launch.m2b_tow.Visible         ='off'; %
-            %            app.m2_launch.m2c_grad.Visible        ='off'; %
             app.m2_launch.m2d_icbm.main_Panel.Visible          ='off'; %
             app.m2_launch.m2e_shitstorm.main_Panel.Visible     ='off'; %
             
@@ -93,33 +87,21 @@ classdef app_template < matlab.apps.AppBase
         % Menu selected function: HomeMenu
         function HomeMenuSelected(app, event)
             panel_visibility_switch(app,event);
-            
-            %   app.HomePanel.Visible                     ='on';
-            %   app.m2_launch.m2d_icbm.main_Panel.Visible         ='off';
         end
 
         % Menu selected function: SettingsMenu
         function SettingsMenuSelected(app, event)
-            popup_settings % singleton
+            d=popup_settings; % singleton
         end
 
         % Menu selected function: ICBMMenu
         function ICBMMenuSelected(app, event)
             panel_visibility_switch(app,event)
-            
-            %    app.HomePanel.Visible                   ='off';
-            %     app.m2_launch.m2d_icbm.main_Panel.Visible          ='on';
         end
 
         % Menu selected function: StingerMenu
         function StingerMenuSelected(app, event)
             panel_visibility_switch(app,event)
-        end
-
-        % Menu selected function: ShitstormMenu
-        function ShitstormMenuSelected(app, event)
-            panel_visibility_switch(app,event)
-            
         end
     end
 
@@ -154,11 +136,6 @@ classdef app_template < matlab.apps.AppBase
             app.StingerMenu = uimenu(app.LaunchMenu);
             app.StingerMenu.MenuSelectedFcn = createCallbackFcn(app, @StingerMenuSelected, true);
             app.StingerMenu.Text = 'Stinger';
-
-            % Create ShitstormMenu
-            app.ShitstormMenu = uimenu(app.LaunchMenu);
-            app.ShitstormMenu.MenuSelectedFcn = createCallbackFcn(app, @ShitstormMenuSelected, true);
-            app.ShitstormMenu.Text = 'Shitstorm';
 
             % Create HelpMenu
             app.HelpMenu = uimenu(app.uif);
