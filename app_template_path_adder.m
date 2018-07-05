@@ -1,7 +1,8 @@
 
 % run this function to add the necessary functions and classes into the
 % MATLAB searchpaths
-
+% todo: automate this in the style of conversion_launcher 
+% which was fullfilled by autochild registerer
 
 
 function app_template_path_adder()
