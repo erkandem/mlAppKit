@@ -8,7 +8,7 @@ function app_template_path_adder()
     addpath(fullfile('functions','mlapp2classdef'));
     addpath(fullfile('functions','main_extractor'));
     addpath(fullfile('functions','conversion_launcher'));
-    % addpath(fullfile('functions','butchered_mlapp2classdef'));
+    addpath(fullfile('functions','auto_child_registerer'));
     
 
 end
