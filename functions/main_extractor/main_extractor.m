@@ -5,7 +5,7 @@ function main_extractor(appname)
 % inspired and butchered from components in "mlapp2classdef"
 
 if nargin ==0
-    appname='app_template';
+    appname='host_app';
 end
 
 
