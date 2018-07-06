@@ -7,6 +7,7 @@ classdef app_template < matlab.apps.AppBase
         LaunchMenu         matlab.ui.container.Menu
         ICBMMenu           matlab.ui.container.Menu
         StingerMenu        matlab.ui.container.Menu
+        scudMenu           matlab.ui.container.Menu
         HelpMenu           matlab.ui.container.Menu
         AboutMenu          matlab.ui.container.Menu
         DocumentationMenu  matlab.ui.container.Menu
@@ -38,7 +39,7 @@ classdef app_template < matlab.apps.AppBase
         % so this property could be a  class of it self.
         % However, it was just ok for me to leave it at this degree of seperating code
         
-        m2_launch   %
+        m2_launch   % plugin
         
         m3help     % plugin
         
@@ -54,13 +55,14 @@ classdef app_template < matlab.apps.AppBase
             
             app.m2_launch.m2a_stinger   =  stinger(app.uif);     %
             app.m2_launch.m2d_icbm      =  icbm(app.uif);        %
-            
+            app.m2_launch.m2e_scud      =  scud(app.uif);        %
+
             
             % set visibility to "off" by default
             
             app.m2_launch.m2a_stinger.main_Panel.Visible       ='off'; %
             app.m2_launch.m2d_icbm.main_Panel.Visible          ='off'; %
-            app.m2_launch.m2e_shitstorm.main_Panel.Visible     ='off'; %
+            app.m2_launch.m2e_scud.main_Panel.Visible     ='off'; %
             
             app.HomePanel.Visible                    ='on';
             
@@ -103,6 +105,12 @@ classdef app_template < matlab.apps.AppBase
         function StingerMenuSelected(app, event)
             panel_visibility_switch(app,event)
         end
+
+        % Menu selected function: scudMenu
+        function scudMenuSelected(app, event)
+            panel_visibility_switch(app,event)
+            
+        end
     end
 
     % App initialization and construction
@@ -136,6 +144,11 @@ classdef app_template < matlab.apps.AppBase
             app.StingerMenu = uimenu(app.LaunchMenu);
             app.StingerMenu.MenuSelectedFcn = createCallbackFcn(app, @StingerMenuSelected, true);
             app.StingerMenu.Text = 'Stinger';
+
+            % Create scudMenu
+            app.scudMenu = uimenu(app.LaunchMenu);
+            app.scudMenu.MenuSelectedFcn = createCallbackFcn(app, @scudMenuSelected, true);
+            app.scudMenu.Text = 'scud';
 
             % Create HelpMenu
             app.HelpMenu = uimenu(app.uif);
