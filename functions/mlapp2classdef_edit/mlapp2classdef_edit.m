@@ -1,5 +1,8 @@
 function mlapp2classdef_edit(pathToMLapp, varargin)
 % TODO: butcher
+% TODO: functions parts get commented which have nothing to do with  the
+% UI figure. Needs a more selective implenetation of commenting out code.
+% 
 % MLAPP2CLASSDEF converts an App Designer GUI's class definition, packaged 
 % as a *.mlapp file, from XML to a standalone *.m class definition.
 %
