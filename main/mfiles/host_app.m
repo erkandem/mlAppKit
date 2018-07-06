@@ -8,9 +8,6 @@ classdef host_app < matlab.apps.AppBase
         ICBMMenu           matlab.ui.container.Menu
         StingerMenu        matlab.ui.container.Menu
         scudMenu           matlab.ui.container.Menu
-        contentMenu        matlab.ui.container.Menu
-        PingPongMenu       matlab.ui.container.Menu
-        etchAsketchMenu    matlab.ui.container.Menu
         HelpMenu           matlab.ui.container.Menu
         AboutMenu          matlab.ui.container.Menu
         DocumentationMenu  matlab.ui.container.Menu
@@ -45,8 +42,7 @@ classdef host_app < matlab.apps.AppBase
         m2_launch   % plugin
         
         m3help     % plugin
-        
-        m4_content     %external
+       
         
         %todo: menu entries must be the same as the TITLE of the panel in the class
     end
@@ -63,8 +59,6 @@ classdef host_app < matlab.apps.AppBase
             app.m2_launch.m2e_scud      =  scud(app.uif);        %
 
        
-            app.m4_content.m2a_pingpoong        =  pingpong(app.uif);        %
-            app.m4_content.m2e_etchasketch      =      etchasketch(app.uif);        %  
             % set visibility to "off" by default
             
             app.m2_launch.m2a_stinger.main_Panel.Visible       ='off'; %
@@ -72,10 +66,7 @@ classdef host_app < matlab.apps.AppBase
             app.m2_launch.m2e_scud.main_Panel.Visible     ='off'; %
             
             %
-            
-            app.m4_content.m2a_pingpoong.main_Panel.Visible     ='off'; %        
-            app.m4_content.m2e_etchasketch.main_Panel.Visible     ='off'; %      
-            
+                 
             app.HomePanel.Visible                    ='on';
             
             
@@ -127,18 +118,6 @@ classdef host_app < matlab.apps.AppBase
         function AboutMenuSelected(app, event)
             d=popup_about;
         end
-
-        % Menu selected function: PingPongMenu
-        function PingPongMenuSelected(app, event)
-                        panel_visibility_switch(app,event)
-
-        end
-
-        % Menu selected function: etchAsketchMenu
-        function etchAsketchMenuSelected(app, event)
-                        panel_visibility_switch(app,event)
-
-        end
     end
 
     % App initialization and construction
@@ -177,20 +156,6 @@ classdef host_app < matlab.apps.AppBase
             app.scudMenu = uimenu(app.LaunchMenu);
             app.scudMenu.MenuSelectedFcn = createCallbackFcn(app, @scudMenuSelected, true);
             app.scudMenu.Text = 'scud';
-
-            % Create contentMenu
-            app.contentMenu = uimenu(app.uif);
-            app.contentMenu.Text = 'content';
-
-            % Create PingPongMenu
-            app.PingPongMenu = uimenu(app.contentMenu);
-            app.PingPongMenu.MenuSelectedFcn = createCallbackFcn(app, @PingPongMenuSelected, true);
-            app.PingPongMenu.Text = 'PingPong';
-
-            % Create etchAsketchMenu
-            app.etchAsketchMenu = uimenu(app.contentMenu);
-            app.etchAsketchMenu.MenuSelectedFcn = createCallbackFcn(app, @etchAsketchMenuSelected, true);
-            app.etchAsketchMenu.Text = 'etchAsketch';
 
             % Create HelpMenu
             app.HelpMenu = uimenu(app.uif);

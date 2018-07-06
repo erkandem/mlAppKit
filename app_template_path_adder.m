@@ -11,7 +11,7 @@ function app_template_path_adder()
     addpath(fullfile('launch' ,'mfiles'));
     addpath(fullfile('popups','mfiles'));
     addpath(fullfile('main'   ,'mfiles'));
-    addpath(fullfile('content'   ,'mfiles')); %TODO: if mfiles folder does not exist create one
+   % addpath(fullfile('content'   ,'mfiles')); %TODO: if mfiles folder does not exist create one
 
     % vital functions
     addpath(fullfile('functions','panel_visibility'));
