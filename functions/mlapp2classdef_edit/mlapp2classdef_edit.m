@@ -80,7 +80,9 @@ else
    %------------------- Core ------------------------------                                     
     processapp(pathname, filename, appname, optionflags)
   %  newname=[appname,'M.m'];
-    
+    if exist(fullfile(pathname,'mfiles'))~=7
+        mkdir(fullfile(pathname,'mfiles'));
+    end
     copyfile(fullfile(pathname,[appname,'.m']),...
              fullfile(pathname,'mfiles',[appname,'.m'] )) ;
          

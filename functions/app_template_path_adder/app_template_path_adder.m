@@ -1,6 +1,7 @@
 function app_template_path_adder()
    addpath(fullfile('content','mfiles'));
    addpath(fullfile('functions','app_launch'));
+   addpath(fullfile('functions','app_template_path_adder'));
    addpath(fullfile('functions','auto_child_registerer'));
    addpath(fullfile('functions','conversion_launcher'));
    addpath(fullfile('functions','main_extractor'));
