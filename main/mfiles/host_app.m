@@ -8,6 +8,8 @@ classdef host_app < matlab.apps.AppBase
         ICBMMenu           matlab.ui.container.Menu
         StingerMenu        matlab.ui.container.Menu
         scudMenu           matlab.ui.container.Menu
+        CalculateMenu      matlab.ui.container.Menu
+        CMEcalcpanelMenu   matlab.ui.container.Menu
         HelpMenu           matlab.ui.container.Menu
         AboutMenu          matlab.ui.container.Menu
         DocumentationMenu  matlab.ui.container.Menu
@@ -42,7 +44,8 @@ classdef host_app < matlab.apps.AppBase
         m2_launch   % plugin
         
         m3help     % plugin
-       
+        
+        m4_calculate
         
         %todo: menu entries must be the same as the TITLE of the panel in the class
     end
@@ -57,18 +60,28 @@ classdef host_app < matlab.apps.AppBase
             app.m2_launch.m2a_stinger   =  stinger(app.uif);     %
             app.m2_launch.m2d_icbm      =  icbm(app.uif);        %
             app.m2_launch.m2e_scud      =  scud(app.uif);        %
-
-       
+            
+            app.m4_calculate.m4e_cme=  cmeCalcPanel(app.uif);        %
+            
             % set visibility to "off" by default
             
-            app.m2_launch.m2a_stinger.main_Panel.Visible       ='off'; %
-            app.m2_launch.m2d_icbm.main_Panel.Visible          ='off'; %
-            app.m2_launch.m2e_scud.main_Panel.Visible     ='off'; %
+            app.m2_launch.m2a_stinger.main_Panel.Visible       = 'off'; %
+            app.m2_launch.m2d_icbm.main_Panel.Visible          = 'off'; %
+            app.m2_launch.m2e_scud.main_Panel.Visible          = 'off'; %
             
+            app.m4_calculate.m4e_cme.main_Panel.Visible        ='off'; %
             %
-                 
             app.HomePanel.Visible                    ='on';
+            % assign tags
+
+            app.m2_launch.m2a_stinger.main_Panel.Tag    = 'stinger'; %
+            app.m2_launch.m2d_icbm.main_Panel.Tag       = 'icbm'; %
+            app.m2_launch.m2e_scud.main_Panel.Tag       = 'scud'; %
             
+            app.m4_calculate.m4e_cme.main_Panel.Tag     ='cmepanel' ;%
+            %----
+            app.HomePanel.Tag   ='home';
+
             
             %--- Center window and apply target resultion
             value = '1024x640'; % target resolution
@@ -91,7 +104,8 @@ classdef host_app < matlab.apps.AppBase
 
         % Menu selected function: HomeMenu
         function HomeMenuSelected(app, event)
-            panel_visibility_switch(app,event);
+            target_tag='home';
+            panel_visibility_switch(app,target_tag);
         end
 
         % Menu selected function: SettingsMenu
@@ -101,22 +115,32 @@ classdef host_app < matlab.apps.AppBase
 
         % Menu selected function: ICBMMenu
         function ICBMMenuSelected(app, event)
-            panel_visibility_switch(app,event)
+            target_tag='icbm';
+            panel_visibility_switch(app,target_tag)
         end
 
         % Menu selected function: StingerMenu
         function StingerMenuSelected(app, event)
-            panel_visibility_switch(app,event)
+            target_tag='stinger';
+            panel_visibility_switch(app,target_tag)
         end
 
         % Menu selected function: scudMenu
         function scudMenuSelected(app, event)
-            panel_visibility_switch(app,event)
+            target_tag='scud';
+            panel_visibility_switch(app,target_tag)
         end
 
         % Menu selected function: AboutMenu
         function AboutMenuSelected(app, event)
             d=popup_about;
+        end
+
+        % Menu selected function: CMEcalcpanelMenu
+        function CMEcalcpanelMenuSelected(app, event)
+            target_tag='cmepanel';
+            panel_visibility_switch(app,target_tag)
+            
         end
     end
 
@@ -156,6 +180,15 @@ classdef host_app < matlab.apps.AppBase
             app.scudMenu = uimenu(app.LaunchMenu);
             app.scudMenu.MenuSelectedFcn = createCallbackFcn(app, @scudMenuSelected, true);
             app.scudMenu.Text = 'scud';
+
+            % Create CalculateMenu
+            app.CalculateMenu = uimenu(app.uif);
+            app.CalculateMenu.Text = 'Calculate';
+
+            % Create CMEcalcpanelMenu
+            app.CMEcalcpanelMenu = uimenu(app.CalculateMenu);
+            app.CMEcalcpanelMenu.MenuSelectedFcn = createCallbackFcn(app, @CMEcalcpanelMenuSelected, true);
+            app.CMEcalcpanelMenu.Text = 'CMEcalcpanel';
 
             % Create HelpMenu
             app.HelpMenu = uimenu(app.uif);
