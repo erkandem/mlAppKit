@@ -9,7 +9,7 @@ if nargin ==0
 end
 
 
-% pst r214 the code can be easily extracted via 2 lines of code ;)
+% post r2014 the code can be easily extracted via 2 lines of code ;)
     evalcstr = sprintf('type(''%s'')', fullfile('main', [appname,'.mlapp']));
     mymcode = evalc(evalcstr);
      if isspace(mymcode(1))

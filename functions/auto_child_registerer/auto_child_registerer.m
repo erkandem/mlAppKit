@@ -166,7 +166,7 @@ num_main = size(fHead_main,1) ;
 total_num_lines= num_c1   +num_c2 +   num_main +2; % func_dec func_end 
 k=1;
     code_cell=cell(total_num_lines,1);
-    for n= 1:3 % 3 types of codes
+    for n= 1:3 % 3 types of codes; views .mlapp, popups, and main .mlapp
         %--------------------
         if n==1
             code_cell(k)=func_dec;
