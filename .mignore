@@ -1,0 +1,10 @@
+% this file is an analogon to th .gitignore files
+% which serve as tool to seperate the grain from the chaff
+% only for matlab
+% only for my purpose
+
+.
+..
+.git
+__overhead
+settings
