@@ -112,18 +112,18 @@ func_end={'end'};
     
 one_sp={' '};
 
-fHead_views ='mlapp2classdef_edit';
-fHead_popups ='mlapp2classdef_edit';
-fHead_main ={'main_extractor();'} ;
+fHead_views  ='ad_to_m';
+fHead_popups ='ad_to_m';
+fHead_main   ='ad_to_m';
 
 rb_o  ='(';
 rb_c  =')';
 
-ffoot_views =[char(39),'ReplaceAppUI',char(39),',','true);'] ;
-ffoot_popups =[char(39),'ReplaceAppUI',char(39),',','false);'] ;
+ffoot_views =[char(39),'plugin',char(39),');'] ;
+ffoot_popups =[char(39),'popup',char(39),');'] ;
+ffoot_host =[char(39),'host',char(39),');'] ;
 
-dir_name = 'default';
-fName    = 'default';
+
 %----------------views------------------------
 folder_names = fieldnames(opt.views);
 k=1;
@@ -157,10 +157,18 @@ k=1;
 clear k  i j
 %----------------popups------------------------
 
+
+%-----host
+k=1;
+c3(k,1) = {[fHead_popups,rb_o,'fullfile',rb_o,char(39),'main',char(39),',',char(39),'host_app','.mlapp',char(39),rb_c,',',ffoot_host ]};
+k=k+1;        
+clear k  i j
+%-----host
+
 % collect number of lines
 num_c1   = size(c1,1) ;
 num_c2   = size(c2,1) ;
-num_main = size(fHead_main,1) ;
+num_main = size(c3,1) ;
 %-----------------------------------
 %------------------------------------
 total_num_lines= num_c1   +num_c2 +   num_main +2; % func_dec func_end 
@@ -185,7 +193,7 @@ k=1;
         %--------------------
         elseif n==3
             
-            code_cell(k,1)= fHead_main;
+            code_cell(k,1)= c3;
             k=k+1;
         
             code_cell(k)=func_end;
