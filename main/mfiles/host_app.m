@@ -71,7 +71,7 @@ classdef host_app < matlab.apps.AppBase
             %----
             app.HomePanel.Tag                           = 'home';
 
-        end
+        
             %--- Center window and apply target resultion
             value = '1024x640'; % target resolution
             

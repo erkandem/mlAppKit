@@ -1,8 +1,8 @@
 function conversion_launcher()
-mlapp2classdef_edit(fullfile('launch','icbm.mlapp'),'ReplaceAppUI',true);
-mlapp2classdef_edit(fullfile('launch','scud.mlapp'),'ReplaceAppUI',true);
-mlapp2classdef_edit(fullfile('launch','stinger.mlapp'),'ReplaceAppUI',true);
-mlapp2classdef_edit(fullfile('popups','popup_about.mlapp'),'ReplaceAppUI',false);
-mlapp2classdef_edit(fullfile('popups','popup_settings.mlapp'),'ReplaceAppUI',false);
-main_extractor();
+ad_to_m(fullfile('launch','icbm.mlapp'),'plugin');
+ad_to_m(fullfile('launch','scud.mlapp'),'plugin');
+ad_to_m(fullfile('launch','stinger.mlapp'),'plugin');
+ad_to_m(fullfile('popups','popup_about.mlapp'),'popup');
+ad_to_m(fullfile('popups','popup_settings.mlapp'),'popup');
+ad_to_m(fullfile('main','host_app.mlapp'),'host');
 end
