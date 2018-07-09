@@ -25,7 +25,7 @@ classdef icbm < matlab.apps.AppBase
     methods (Access = private)
 
         % Create UIFigure and components
-        function  createComponents(app,external_handle) % $_$ replaced 
+        function createComponents(app)
 
             % Create uif_icbm
 %            app.uif_icbm = uifigure;
@@ -51,13 +51,13 @@ classdef icbm < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-            function app = icbm(external_handle) % $_$ replaced 
+        function app = icbm
 
             % Create and configure components
-             createComponents(app,external_handle) % $_$ replaced 
+            createComponents(app)
 
             % Register the app with App Designer
-            % Function call removed
+%            registerApp(app, app.uif_icbm)
 
             if nargout == 0
                 clear app
@@ -68,7 +68,7 @@ classdef icbm < matlab.apps.AppBase
         function delete(app)
 
             % Delete UIFigure when app is deleted
-%%            delete(app.uif_icbm)
+%            delete(app.uif_icbm)
         end
     end
 end

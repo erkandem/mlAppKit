@@ -1,10 +1,13 @@
+
+
+
 function panel_visibility_switch(app,target_tag)
-%todo: menu entries must be the same as the TITLE of the panel in the class
-% purpose: regulates the visibility of panels/views in the main app. so
-% instead of replicating on/off switches with each menu selection we would
-% prefer to to know
-% [ 1 ] which panel/view needs to be set to visible
-% [ 2 ] -[1] implies which panels need to be turned off
+
+% purpose:  regulates the visibility of panels/views in the main app. so
+%           instead of replicating on/off switches with each menu
+%           selection we would prefer to to know
+%               [ 1 ] which panel/view needs to be set to visible
+%               [ 2 ] -[1] implies which panels need to be turned off
 
 
 fn_app      = fieldnames(app );

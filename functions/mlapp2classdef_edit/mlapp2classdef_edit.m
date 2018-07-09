@@ -202,10 +202,11 @@ if uielementflag.ReplaceAppUI
     % As a starting point the UI elements will be addressed on an
     % individual basis.
     functionstoswap = fieldnames(regexdict);
+    
     for ii = 1:length(functionstoswap)
         expression = regexdict.(functionstoswap{ii}).expression;
-        replace = regexdict.(functionstoswap{ii}).replace;
-        mymcode = regexprep(mymcode, expression, replace);
+        replace    = regexdict.(functionstoswap{ii}).replace;
+        mymcode    = regexprep(mymcode, expression, replace);
     end
     
     % Convert property declarations to backwards-compatible format
@@ -309,17 +310,25 @@ if ~isempty(propblockstart)
         %$_$ commented out              
         % tmpblock = regexprep(tmpblock, '^(\s*\w+)(\s+)(?![\%])', '$1\@');
         
-        % $_$  added
+
+        %% TODO: ERROR ON SECOND RUN 
+        % TODO: ERROR ON SECOND RUN 
+        % $_$  comment out the UI FIgure property
+        if ii==1
         [tmpblock, uif_handle ]=uif_commenter(tmpblock);
+        
+        % $_$ comment out the creation of the UI Figure
          mymcode=uif_create_commenter(mymcode, uif_handle);
+        
          % replace the input to the "main" uipanel with the parent
          % parent_handel obviously need to be defined
          % 
          mymcode=uif_panel_paramater_switcher(mymcode,uif_handle);       
          % $_$ original
          mymcode(propertyblockpair(ii,1) + 1:propertyblockpair(ii,2) - 1) = tmpblock;
+        end
          %-----
-         
+         %%
     end
 end
 end

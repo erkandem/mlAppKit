@@ -8,8 +8,6 @@ classdef host_app < matlab.apps.AppBase
         ICBMMenu           matlab.ui.container.Menu
         StingerMenu        matlab.ui.container.Menu
         scudMenu           matlab.ui.container.Menu
-        CalculateMenu      matlab.ui.container.Menu
-        CMEcalcpanelMenu   matlab.ui.container.Menu
         HelpMenu           matlab.ui.container.Menu
         AboutMenu          matlab.ui.container.Menu
         DocumentationMenu  matlab.ui.container.Menu
@@ -25,29 +23,27 @@ classdef host_app < matlab.apps.AppBase
     end
     
     properties (Access = public)
-        %----About---
+
+        m1home
+        
+        m2_launch   % plugin (content)
+        
+     % [ ... ]
+        
+        m3_help     % plugin (about, help licence etc...)
+    
+        %m4_calculate % plugin
+        
+        %todo: menu entries must be the same as the TITLE of the panel in the class
+         %----About---
         % instead of bloating the number of elements like I did in my first apps
         % I turned to create properties as placeholders for the windows or views to be loaded.
         %
         %---advantages: maintainability
-        %
         %---drawbacks: more complex file and pathmanagement
         %
         % Always Always give menus and buttons a meaningful names. m1a4  makes sence but UX sucks.
         %  "m1home" would suck, too.  But seems ok for codeside of things
-        m1home
-        
-        
-        % so this property could be a  class of it self.
-        % However, it was just ok for me to leave it at this degree of seperating code
-        
-        m2_launch   % plugin
-        
-        m3help     % plugin
-        
-        m4_calculate
-        
-        %todo: menu entries must be the same as the TITLE of the panel in the class
     end
     
 
@@ -55,34 +51,27 @@ classdef host_app < matlab.apps.AppBase
 
         % Code that executes after component creation
         function startupFcn(app)
-            %create all subpanels from different m-filers
             
-            app.m2_launch.m2a_stinger   =  stinger(app.uif);     %
-            app.m2_launch.m2d_icbm      =  icbm(app.uif);        %
-            app.m2_launch.m2e_scud      =  scud(app.uif);        %
+        %create all subpanels from different m-filers
+            app.m2_launch.m2a_stinger   =  stinger(app.uif);        %
+            app.m2_launch.m2d_icbm      =  icbm   (app.uif);        %
+            app.m2_launch.m2e_scud      =  scud   (app.uif);        %
             
-            app.m4_calculate.m4e_cme=  cmeCalcPanel(app.uif);        %
             
-            % set visibility to "off" by default
-            
+       % set visibility to "off" by default
             app.m2_launch.m2a_stinger.main_Panel.Visible       = 'off'; %
             app.m2_launch.m2d_icbm.main_Panel.Visible          = 'off'; %
             app.m2_launch.m2e_scud.main_Panel.Visible          = 'off'; %
+            app.HomePanel.Visible                              ='on';
             
-            app.m4_calculate.m4e_cme.main_Panel.Visible        ='off'; %
-            %
-            app.HomePanel.Visible                    ='on';
-            % assign tags
-
+       % assign tags
             app.m2_launch.m2a_stinger.main_Panel.Tag    = 'stinger'; %
-            app.m2_launch.m2d_icbm.main_Panel.Tag       = 'icbm'; %
-            app.m2_launch.m2e_scud.main_Panel.Tag       = 'scud'; %
-            
-            app.m4_calculate.m4e_cme.main_Panel.Tag     ='cmepanel' ;%
+            app.m2_launch.m2d_icbm.main_Panel.Tag       = 'icbm';    %
+            app.m2_launch.m2e_scud.main_Panel.Tag       = 'scud';    %
             %----
-            app.HomePanel.Tag   ='home';
+            app.HomePanel.Tag                           = 'home';
 
-            
+        end
             %--- Center window and apply target resultion
             value = '1024x640'; % target resolution
             
@@ -110,7 +99,7 @@ classdef host_app < matlab.apps.AppBase
 
         % Menu selected function: SettingsMenu
         function SettingsMenuSelected(app, event)
-            d=popup_settings; % singleton
+            d=popup_settings; % new ui 
         end
 
         % Menu selected function: ICBMMenu
@@ -134,13 +123,6 @@ classdef host_app < matlab.apps.AppBase
         % Menu selected function: AboutMenu
         function AboutMenuSelected(app, event)
             d=popup_about;
-        end
-
-        % Menu selected function: CMEcalcpanelMenu
-        function CMEcalcpanelMenuSelected(app, event)
-            target_tag='cmepanel';
-            panel_visibility_switch(app,target_tag)
-            
         end
     end
 
@@ -181,15 +163,6 @@ classdef host_app < matlab.apps.AppBase
             app.scudMenu.MenuSelectedFcn = createCallbackFcn(app, @scudMenuSelected, true);
             app.scudMenu.Text = 'scud';
 
-            % Create CalculateMenu
-            app.CalculateMenu = uimenu(app.uif);
-            app.CalculateMenu.Text = 'Calculate';
-
-            % Create CMEcalcpanelMenu
-            app.CMEcalcpanelMenu = uimenu(app.CalculateMenu);
-            app.CMEcalcpanelMenu.MenuSelectedFcn = createCallbackFcn(app, @CMEcalcpanelMenuSelected, true);
-            app.CMEcalcpanelMenu.Text = 'CMEcalcpanel';
-
             % Create HelpMenu
             app.HelpMenu = uimenu(app.uif);
             app.HelpMenu.Text = 'Help';
@@ -220,7 +193,7 @@ classdef host_app < matlab.apps.AppBase
 
             % Create MessageTextArea
             app.MessageTextArea = uitextarea(app.HomePanel);
-            app.MessageTextArea.Position = [468 294 315 224];
+            app.MessageTextArea.Position = [531 130 315 80];
             app.MessageTextArea.Value = {''; ''; 'option for static or dynamic welcome content'};
         end
     end

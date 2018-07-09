@@ -1,21 +1,20 @@
 
+function mycode  =   uif_createComponents_switcher(mycode, appname)
 
+% purpose: add a parameter to the creator function in the class definition
+% 
+%
+%  input 1 : MATLAB-code of classdef 
+%  input 2 : appname
+%
+% output:  class replaced with a additional parameters input in creator
+%
+%
 % app.icbm_Panel = uipanel(ext_hand);
-function mycode=uif_createComponents_switcher(mycode, appname)
-
-% My purpose: add a parameter to the creator function in the class
-% definition
-%
-%  input: MATLAB-code of classdef 
-%  input: appname
-%
-% output:  class replaced with a additionol parameters input in creator
-%
 
 if isa(appname,'cell')
     appname=appname{1};
 end
-
 
 %----- $_$ core 
 %----- $_$ replace function definition with one with parameter

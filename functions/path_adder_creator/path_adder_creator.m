@@ -1,16 +1,16 @@
 function path_adder_creator()
-%% python virtual environment ...
-% what?
-% is a standard option when creating a new project.
+% short story:
+% An analogon to "import this from that" in python for a session
+%
+% long story:
+% ... is a standard option when creating a new python project.
 % dependencies are more clear to analyze.
 % MATLABs works different but to keep things tidy
 % I decided to add the file paths in a function.
 %
-% An analogon to this would be a "requirements.txt" file in the master
-% directory and and "import this from that"
 %
 % How?
-% 1. gather intel in a struct 
+% 1. gather intel in a struct about project directory 
 % 2. send that to a processor
 % 3. and save the file to function directory with a predefined* filename
 %

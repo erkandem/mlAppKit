@@ -1,13 +1,13 @@
 function mycode=uif_create_commenter(mycode, uif_handle)
 
-% My purpose: plugin function to mlappp2classdefm
+% purpose: plugin function to mlappp2classdefm
 %             comment the uifigure property in the private porperty class
 %             as a result the class defines a panel
 %
-%  input: MATLAB-code of classdef 
-%  input: name of the handle to the uifigue
+% input 1 : MATLAB-code of classdef 
+% input 2 : name of the handle to the uifigue
 %
-% output: same input cell array with the difference that the 
+% output:   same input cell array with the difference that the 
 %           LINES in the creator function are commented
 %
 
@@ -24,11 +24,12 @@ end
 %          app.uif_handle.Name = 'Title'; % property after handle
 
 %----- $_$ core $_$
-            ui_index1  =  find( ~cellfun('isempty',(regexp(mycode,['[.]',uif_handle,'[.]']) ) ));
-            ui_index2  =  find( ~cellfun('isempty',(regexp(mycode,['[.]',uif_handle,'\s']) ) ));
-            ui_index3  =  find( ~cellfun('isempty',(regexp(mycode,['delete(app[.]',uif_handle]) )) );
-            
-            ui_index   =   unique([ui_index1  ;ui_index2 ; ui_index3 ]);
+ui_index1  =  find( ~cellfun('isempty',(regexp(mycode,['[.]',uif_handle,'[.]']) ) ));
+ui_index2  =  find( ~cellfun('isempty',(regexp(mycode,['[.]',uif_handle,'\s']) ) ));
+ui_index3  =  find( ~cellfun('isempty',(regexp(mycode,['delete(app[.]',uif_handle]) )) );
+ui_index4  =  find( ~cellfun('isempty',(regexp(mycode,'(registerApp.*)'           ) )) );
+
+ui_index   =   unique([ui_index1  ;ui_index2; ui_index3; ui_index4]);
 
             % now loop through and 
             % just add a " % " at the front 
