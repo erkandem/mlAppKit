@@ -56,7 +56,10 @@ code_cell = path_adder_creator_core(opt);
 %% [3] write it down
 
 path_adder_creator_writer(code_cell)
-disp('Paths_adder created')
+
+out= [datestr(now()),'  |  app_template_path_adder() created'];
+disp(out)
+
 end
 
 

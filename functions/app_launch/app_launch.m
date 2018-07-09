@@ -13,7 +13,9 @@ function app_launch()
     fName  =  a_Name_dir(1:dotloc-1);
     
     %
-    disp(" Running l'App " )
+    out=[datestr(now()),'  |  starting app'];
+    disp( out )
+    
     eval(fName);
 
 end
