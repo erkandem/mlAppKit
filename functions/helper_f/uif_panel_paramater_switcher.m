@@ -17,7 +17,6 @@ end
             
             ui_index   =   unique([ui_index3 ]);
             
-% the function does not need to know anything about the outside world
             for z = 1: numel(ui_index)
                 mycode(ui_index(z)) ={ regexprep( mycode{ui_index(z)},['app[.]',uif_handle],'external_handle') };
             end

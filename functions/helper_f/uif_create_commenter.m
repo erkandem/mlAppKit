@@ -1,4 +1,4 @@
-function mycode=uif_create_commenter(mycode, uif_handle)
+function my_m_code=uif_create_commenter(my_m_code, uif_handle)
 
 % purpose: plugin function to mlappp2classdefm
 %             comment the uifigure property in the private porperty class
@@ -24,17 +24,17 @@ end
 %          app.uif_handle.Name = 'Title'; % property after handle
 
 %----- $_$ core $_$
-ui_index1  =  find( ~cellfun('isempty',(regexp(mycode,['[.]',uif_handle,'[.]']) ) ));
-ui_index2  =  find( ~cellfun('isempty',(regexp(mycode,['[.]',uif_handle,'\s']) ) ));
-ui_index3  =  find( ~cellfun('isempty',(regexp(mycode,['delete(app[.]',uif_handle]) )) );
-ui_index4  =  find( ~cellfun('isempty',(regexp(mycode,'(registerApp.*)'           ) )) );
+ui_index1  =  find( ~cellfun('isempty',(regexp(my_m_code,['[.]',uif_handle,'[.]']) ) ));
+ui_index2  =  find( ~cellfun('isempty',(regexp(my_m_code,['[.]',uif_handle,'\s']) ) ));
+ui_index3  =  find( ~cellfun('isempty',(regexp(my_m_code,['delete(app[.]',uif_handle]) )) );
+ui_index4  =  find( ~cellfun('isempty',(regexp(my_m_code,'(registerApp.*)'           ) )) );
 
 ui_index   =   unique([ui_index1  ;ui_index2; ui_index3; ui_index4]);
 
             % now loop through and 
             % just add a " % " at the front 
             for z = 1: numel(ui_index)
-                mycode(ui_index(z)) ={['%', mycode{ui_index(z)}]};
+                my_m_code(ui_index(z)) ={['%', my_m_code{ui_index(z)}]};
             end
     
 %---- $_$  
