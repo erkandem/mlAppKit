@@ -24,6 +24,7 @@ app_template_path_adder();
 %
 % exceptions: ".git" "settings" "__overhead" "functions" folder included in the
 % ".mignore" file
+% .mignore not implemented.
 
 auto_child_registerer();
 % creates the "conversion_launcher()" function.
@@ -43,6 +44,10 @@ auto_child_registerer();
 %
 % output: classdef saved in a ".m" file
 conversion_launcher();
+
+% TODO: compatibility to mlapp2classdef() could offer compatibility to
+% ealier versions of MATLAB ( new elements like light switch etc. have to
+% be removed first)
 
 %% re-run the path search
 % in order to capture the location of the new m-files
