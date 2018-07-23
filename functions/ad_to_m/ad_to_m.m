@@ -134,7 +134,7 @@ for i = 1:numel(my_m_code)
 end
 fclose(fid);
 
-out= [datestr(now()),'  |  ',fullfile(fpath, 'mfiles',[appname,'.m']),'created'];
+out= [datestr(now()),'  |  ',fullfile(fpath, 'mfiles',[appname,'.m']),' created'];
 disp(out)
 end
 

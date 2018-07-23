@@ -78,3 +78,48 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 [wiki]: https://github.com/yourname/yourproject/wiki
 
 Thanks for the Readme Template: https://dbader.org/blog/write-a-great-readme-for-your-github-project
+
+
+
+
+# appFlex
+> toolset to enhence your work with MATLAB App Designer (.mlapp)
+> ease maintenace, changes and reusing elements
+---
+
+## Creating Apps ...
+
+... usign MATLAB App Designer us  as almost as easy
+as creating an Excel spreadsheet.
+
+
+
+![Excel like drag and drop](https://raw.githubusercontent.com/pandakan/appFlex/master/img/readme/create_joy.gif "joy")
+  
+## maintianing
+However maintianing App Designer projects can be a nightmare
+Problems emerge only for more sophisticated apps since:
+
+*  the editor starts to laaaAAAAaaaag
+*  no possiblity for further code folding
+  
+![maintianing App Designer Projects can be a nightmare](https://raw.githubusercontent.com/pandakan/appFlex/master/img/readme/maintain_horror.gif "nightmare")
+
+
+
+
+## reusing
+.... your created application parts is almost impossible.
+Copy paste takes care of the UI Elments but that's it.
+Callbacks need to be copied and adjuste manually. 
+Every manual step is just one more possibility to **@!&%$** up everything.
+It is more safe to create a new app than to risk night sessions of debugging.
+
+* **Effectivly, the Aps are Single Use Apps** *
+
+
+# Concept
+
+  <!-- ![concept](https://raw.githubusercontent.com/pandakan/appFlex/master/img/readme/concept.png "concept") -->
+
+
