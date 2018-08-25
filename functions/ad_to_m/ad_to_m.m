@@ -129,10 +129,19 @@ end
 
 
     fid=fopen(fullfile(fpath, 'mfiles',[appname,'.m']),'w');
-
+  
+  %   fid = fopen('lol.m','w');
+  % UTF-8 for compatibility reasons-
+  % e.g. documenting the project with sphinx ( takes only utf8 input)
+  
 for i = 1:numel(my_m_code)
-    fprintf(fid, '%s\n', my_m_code{i});
+    % fprintf(fid, '%s\n', my_m_code{i}); % dependend on local encoding
+    encoded_str = unicode2native(my_m_code{i}, 'UTF-8'); 
+    fwrite(fid, [encoded_str, 10], 'uint8');
+
 end
+
+
 fclose(fid);
 
 out= [datestr(now()),'  |  ',fullfile(fpath, 'mfiles',[appname,'.m']),' created'];
