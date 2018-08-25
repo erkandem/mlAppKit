@@ -6,18 +6,18 @@ function panel_visibility_switch(app,target_tag)
 % [ 2 ] -[ 1 ] implies which panels need to be turned off
 %
 %
-% :param app: an ``app`` MATLAB class to which contains all parts of the
-% applications. Important in this case are the handles to each panel which
-% can be comfortably access via ``app`` instead of collecting and passing
-% it manually to this function
+% :param app: an  MATLAB ``app`` class to which contains all parts of the
+%             applications. Important in this case are the handles to each panel which
+%             can be comfortably access via ``app`` instead of collecting and passing
+%             it manually to this function
+% :type app: app
 % :param target_tag: marks the tag of the tab which raised the function
-% call, as such, that panel is going to be made visible while every other
-% panel will be set to invisable
-% :returns ``void``: the function does not return
+%                    call, as such, that panel is going to be made visible while every other
+%                    panel will be set to invisable
 %
+% :type target_tag: str
+% :returns: `` void ``
 %
-%
-
 fn_app      = fieldnames(app );
 fn_app_type = cell(numel(fn_app),1);
 
@@ -54,7 +54,7 @@ for i =1: numel( fn_app )
                     
                     if isa(app.(fn_app{i}).(level3_fn{z}).main_Panel,'matlab.ui.container.Panel')
                         % compare the title
-                        %todo: menu entries must be the same as the TITLE of the panel in the class
+                        % todo: menu entries must be the same as the TITLE of the panel in the class
                         % Example: app.m2_launch.m2a_stinger.main_Panel.Title
                         % app.(fn_app{i}).(level3_fn{z}).main_Panel.Title='Stinger'
                         % call_raised_by = CMEcalcpanel

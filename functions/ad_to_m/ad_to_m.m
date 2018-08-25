@@ -2,9 +2,10 @@
 function ad_to_m(mlappfile_loc,view_type)
 % Hardest part is to identify the methods and properties to edit
 
-% input 1: filepath (relative is ok)                 
-% input 2: replace UI Figure etc    true/false 
-% input 3:
+% :param mlappfile_loc: filepath to the .mlapp file which is going to be linked
+%
+% :param view_type: one of the three specific view types
+
 
 %% [I] get the code from the mlapp file
 
@@ -141,8 +142,10 @@ end
         
 
 function excerpt = p_block(my_m_code)
-
-% courtesy of 
+% a subfunction which takes care of paring keywords with their respective
+% ``end`` tag - This part is  in courtesy of `mlapp2classdef <https://github.com/StackOverflowMATLABchat/mlapp2classdef>`_
+%
+%
 
 p_block_start = ...
 find(~cellfun('isempty', regexp(my_m_code, '^\s*properties', 'start')));

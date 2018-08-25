@@ -1,10 +1,8 @@
 function auto_child_registerer()
-% once completed this will be an add-on to the registration functions 
-%
+%% add-on to the registration functions 
 % Specifically, this file should collect information about the current
 % project and generate an parameter structure to generate
 %--- [1] "app_template_path_adder" functions
-
 % ---[2] m-file extractions via "conversion_launcher"
 
 %% filter out any level 1  directory 
@@ -19,12 +17,14 @@ a_Name_dir=a_Name_dir(:);
 % usual candidates from unix dir query but could also include folder for
 % whatever reason, which are not part of the production code
 %
+% TODO: this list could be externally stored in the .mignore file
 ignore_list={'.git';...
     '__overhead';...
     'settings';...
     '.';...
     '..';...
-    'functions'};
+    'functions';...
+    'docs'};
 
 [bool, l_num]=ismember(ignore_list,a_Name_dir);
 

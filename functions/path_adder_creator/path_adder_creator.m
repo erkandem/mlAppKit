@@ -1,20 +1,24 @@
 function path_adder_creator()
-% short story:
-% An analogon to "import this from that" in python for a session
-%
-% long story:
+%%An analogon to python ``*import* this *from* that`` 
+% the idea is to NOT SAVE THE PATHDEF since MATLAB will get confused when
+% you are working on multiple projects using the ``mlAppFlex`` tool
+% the reason is that ``mlAppFlex`` does not have project specific
+% functionsnames. Combine this with a First on List type of of selection
+% process on the MATLAB ``pathdef`` and you get functions firing up on the
+% hole disk
+% 
 % ... is a standard option when creating a new python project.
 % dependencies are more clear to analyze.
 % MATLABs works different but to keep things tidy
 % I decided to add the file paths in a function.
 %
 %
-% How?
+% How It Works:
 % 1. gather intel in a struct about project directory 
 % 2. send that to a processor
-% 3. and save the file to function directory with a predefined* filename
+% 3. and save the file to function directory with a predefined(1) filename
 %
-%  *( notice how I am trying to avoid the term "hardcoded")
+%  (1)( notice how I am trying to avoid the term "hardcoded")
 %-----------Function Start----
 %% filter out any level 1  directory 
 a=dir;
@@ -64,6 +68,8 @@ end
 
 
 function c = mignore_reader()
+% Subfunction handling files and folders to ignore with respect to building
+% the application / ``classdef`` files
 
 fid =fopen('.mignore');
 y = 1;
@@ -173,7 +179,7 @@ for i = 1:numel(cPar_array)
 
 cPar = cPar_array{i} ;
 cf   = fieldnames(opt.(cPar));
-    
+    % sure,... preallocate and stuff
     for jj= 1: numel(cf)
    
      code_cell{k,1}= [three_spaces,...
