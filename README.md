@@ -114,14 +114,14 @@ You may want to add single panel at most  (a welcome page, or a 404 page ).
 which will load all the elements into the dummy properties. The properties do not need to be defined and can therefore be anything from a double to an abstract object.
 
 ```matlab
-properties (Access = public)
+ properties (Access = public)
         m1home
         m2_launch    % plugin (content)
-     %  [ ... ] 	 % more plugins
+     %  [ ... ]      % more plugins
         m3_help      % plugin (about, help, licence, etc...)
-        m4_calculate %plugin
+        m4_calculate % plugin
      %  [ ... ] 
-end
+ end
 ```
 
 If there is no `properties` section you can create one in the `editor` panel:
@@ -136,9 +136,9 @@ Now call the creator methods of the classes to be embedded in your host
 
 ### 5)  use a `UI Panel` for all your`UI elements ` 
 
-|    ![t](img/readme/baseline_cancel_black_48dp.png)    | ![ a working example and a better one](img/readme/wwb.png)  |
+|   ![NoNo](img/readme/baseline_cancel_black_48dp.png)    | ![ a working example and a better one](img/readme/wwb.png)  |
 | :---------------------------------------------------: | :---------------------------------------------------------: |
-| ![t](img/readme/baseline_check_circle_black_48dp.png) | ![ a working example and a better one](img/readme/wwb2.png) |
+| ![GoodBoy](img/readme/baseline_check_circle_black_48dp.png) | ![ a working example and a better one](img/readme/wwb2.png) |
 
 ### 6) popups  
 
@@ -150,7 +150,7 @@ is well documented
 
 
 ```matlab
-% in courtesy of https://github.com/StackOverflowMATLABchat
+% in courtesy of [StackOverflowMATLABchat](https://github.com/StackOverflowMATLABchat)
 evalcstr = sprintf('type(''%s‘’)’, 'app.mlapp')); % Output: 'type('app.mlapp')'
 myMcode = evalc(evalcstr); 
 
