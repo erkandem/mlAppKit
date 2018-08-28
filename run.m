@@ -1,32 +1,27 @@
-% ANY CHANGE in AUTOMATICALLY CREATED FUNCTIONS WILL BE LOST
-% RATHER CHANGE THE AUTOMATION PROCESS OR APPEND YOUR CODE TO THIS SCRIPT
-%
 % This script is going to "build" and run the app 
 
-%% first some dependencies need to be investigated
-% An analogon to "import this from that" in python for a session
+%% Look at the  dependencies 
+% An analogon to `import this from that` in python 
 % add dependencies without saving them. 
 % every restart of MATLAB will forget the added paths.
 % MATLAB pathdef stays clean
 
-addpath(fullfile('functions','path_adder_creator'));
-path_adder_creator
+addpath(fullfile('functions','building'));
+addPath_creator()
 
-%% add the project files to matlab search path
+%% add the project files to MATLAB's <session> search  path
 % this function was auto created by "path_adder_creator"
-addpath(fullfile('functions','app_template_path_adder'));
-app_template_path_adder();
+addpath(fullfile('functions','auto_generated'));
+builder_addpath();
 
 %%  prepare m-code extraction
 % app_template_path_adder has to have the following functions included
 % "auto_child_registerer" will recognize every folder as 
 % a part of the application to be created.
 %
-% exceptions: ".git" "settings" "__overhead" "functions" folder included in the
 % ".mignore" file
-% .mignore not implemented.
 
-auto_child_registerer();
+conversion_func_generator();
 % creates the "conversion_launcher()" function.
 %% extract m-code
 % essentially a script turned into a funtion
@@ -45,14 +40,12 @@ auto_child_registerer();
 % output: classdef saved in a ".m" file
 conversion_launcher();
 
-% TODO: compatibility to mlapp2classdef() could offer compatibility to
-% ealier versions of MATLAB ( new elements like light switch etc. have to
-% be removed first)
+% :TODO: compatibility to mlapp2classdef() ?
 
 %% re-run the path search
 % in order to capture the location of the new m-files
-path_adder_creator()
-app_template_path_adder();
+addPath_creator()
+builder_addpath();
 
 %% launch the app 
 % started from the obtained m-files not the .mlapp file
