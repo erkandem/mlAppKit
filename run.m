@@ -12,7 +12,7 @@ addPath_creator()
 %% add the project files to MATLAB's <session> search  path
 % this function was auto created by "path_adder_creator"
 addpath(fullfile('functions','auto_generated'));
-builder_addpath();
+builder_addPath();
 
 %%  prepare m-code extraction
 % app_template_path_adder has to have the following functions included
@@ -45,7 +45,7 @@ conversion_launcher();
 %% re-run the path search
 % in order to capture the location of the new m-files
 addPath_creator()
-builder_addpath();
+builder_addPath();
 
 %% launch the app 
 % started from the obtained m-files not the .mlapp file
