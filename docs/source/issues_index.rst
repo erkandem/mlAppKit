@@ -9,7 +9,8 @@ But here are some aspect which I came across:
 
 
 flush the cache
-^°°°°°^^^^^^^^^
+^^^^^^^^^^^^^^^^
+
 If you change large parts of your application in app designer, maker sure to 
 clear the `mfiles` directories from the old mfiles.
 This is pretty much like clearing a cache of the webserver.

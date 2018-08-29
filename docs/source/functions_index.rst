@@ -14,8 +14,9 @@ But a flow schema or .gif animation would really be nice here...
 
 run
 ^^^
+will initiate the conversion of .mlapp to m and run the app from the m.files obtained
 
-Call this function when you want to build the app
+.. todo:: automate the removal of paths associated with the application on close
 
 
 panel_visibility
@@ -97,3 +98,35 @@ builder_addPath
 
 .. automodule:: functions.auto_generated
 .. autofunction:: builder_addPath
+
+
+mignore_reader
+^^^^^^^^^^^^^^
+
+.. automodule:: functions.building
+.. autofunction:: mignore_reader
+
+
+
+
+add_subfolder
+^^^^^^^^^^^^^^
+
+.. automodule:: functions.building
+.. autofunction:: add_subfolder
+
+
+
+app_launch
+^^^^^^^^^^^^^^
+
+.. automodule:: functions.building
+.. autofunction:: app_launch
+
+
+
+levelOneDirQuery
+^^^^^^^^^^^^^^
+
+.. automodule:: functions.building
+.. autofunction:: levelOneDirQuery

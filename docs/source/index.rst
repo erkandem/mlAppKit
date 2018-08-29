@@ -14,7 +14,7 @@ Welcome to mlAppBinder's documentation!
    functions_index
    views_index
    issues_index
-   credits
+   attributions
 
 Indices and tables
 ==================

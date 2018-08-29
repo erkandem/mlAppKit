@@ -32,10 +32,10 @@ classdef host_app < matlab.apps.AppBase
                  % I kept it to serve as some kind of landing/404/503 equivalent
                  % for example: a dashboard with charts and news could be set up
         
-        m2_launch   % plugin, for launch submenu carrying scud, icbc and stinger
+        launch   % plugin, for launch submenu carrying scud, icbc and stinger
         
    
-         m3_help     % plugin, placeholder for in-app about, help/documentation, license,  web links, etc...
+        m3_help     % plugin, placeholder for in-app about, help/documentation, license,  web links, etc...
     
         % m4_calculate % plugin
         
@@ -63,25 +63,36 @@ classdef host_app < matlab.apps.AppBase
         %
         % :param app: a reference to itself
         % :type app: :class: `matlab.apps.AppBase`
-        %
+        
         % create all subpanels from different m-filers
-            app.m2_launch.m2a_stinger   =  stinger(app.uif);        %
-            app.m2_launch.m2d_icbm      =  icbm   (app.uif);        %
-            app.m2_launch.m2e_scud      =  scud   (app.uif);        %
-            
+        %
+        % :todo: mandatory name `app.uif` for UIFigure of host app? (app.uif)
+        %
+        % :todo: autogenerate the connections 
+        %
+            app.launch.stinger   =  stinger(app.uif);        %
+            app.launch.icbm      =  icbm   (app.uif);        %
+            app.launch.scud      =  scud   (app.uif);        %
+        %
+        % :todo: mandatory name  `main_Panel` for UIPanel  of plugins? (main_Panel)
+        %            
             
        % set visibility to "off" by default
-            app.m2_launch.m2a_stinger.main_Panel.Visible       = 'off'; %
-            app.m2_launch.m2d_icbm.main_Panel.Visible          = 'off'; %
-            app.m2_launch.m2e_scud.main_Panel.Visible          = 'off'; %
-            app.HomePanel.Visible                              =  'on';
-            
+            app.launch.stinger.main_Panel.Visible       = 'off'; %
+            app.launch.icbm.main_Panel.Visible          = 'off'; %
+            app.launch.scud.main_Panel.Visible          = 'off'; %
+            app.HomePanel.Visible                       =  'on';
+           
+        %
+        % :todo: mandatory tag names  of plugins? Way to automate them ? 
+        %           
+        
        % assign tags
-            app.m2_launch.m2a_stinger.main_Panel.Tag    = 'stinger'; %
-            app.m2_launch.m2d_icbm.main_Panel.Tag       = 'icbm';    %
-            app.m2_launch.m2e_scud.main_Panel.Tag       = 'scud';    %
+            app.launch.stinger.main_Panel.Tag    = 'stinger'; %
+            app.launch.icbm.main_Panel.Tag       = 'icbm';    %
+            app.launch.scud.main_Panel.Tag       = 'scud';    %
             %----
-            app.HomePanel.Tag                           = 'home';
+            app.HomePanel.Tag                    = 'home';
 
         
             %--- Center window and apply target resultion
@@ -141,7 +152,7 @@ classdef host_app < matlab.apps.AppBase
 
         % Menu selected function: AboutMenu
         function AboutMenuSelected(app, event)
-            % launch an about :class:`popup_about`
+            % launch   :class:`popup_about`
             d=popup_about;
         end
     end
@@ -156,7 +167,7 @@ classdef host_app < matlab.apps.AppBase
             app.uif = uifigure;
             app.uif.AutoResizeChildren = 'off';
             app.uif.Position = [1 1 1024 640];
-            app.uif.Name = 'Ultra Mega Super Duper Bien App';
+            app.uif.Name = 'mlAppBinder Boilerplate';
             app.uif.Resize = 'off';
 
             % Create HomeMenu
@@ -213,7 +224,7 @@ classdef host_app < matlab.apps.AppBase
 
             % Create MessageTextArea
             app.MessageTextArea = uitextarea(app.HomePanel);
-            app.MessageTextArea.Position = [301 300 315 80];
+            app.MessageTextArea.Position = [321 300 315 80];
             app.MessageTextArea.Value = {''; 'option for static or dynamic welcome content'; 'but could be removed'};
         end
     end

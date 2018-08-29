@@ -1,5 +1,7 @@
 function app_launch()
-    % scans the main directory for the app name and launches it
+%% scans the root directory for the app name and launches it
+% 
+%
 
     a=dir('host/mfiles');
     a_IsDir = {a.isdir};

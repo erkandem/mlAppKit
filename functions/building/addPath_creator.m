@@ -1,10 +1,10 @@
 function addPath_creator()
-%%An analogon to python ``*import* this *from* that`` 
+%% An analogon to python `*import* this *from* that``
 % the idea is to NOT SAVE THE PATHDEF since MATLAB will get confused when
-% you are working on multiple projects using the ``mlAppFlex`` tool
-% the reason is that ``mlAppFlex`` does not have project specific
+% you are working on multiple projects using the `mlAppFlex` tool
+% the reason is that `mlAppFlex` does not have project specific
 % functionsnames. Combine this with a First on List type of of selection
-% process on the MATLAB ``pathdef`` and you get functions firing up on the
+% process on the MATLAB `pathdef` and you get functions firing up on the
 % hole disk
 % 
 % ... is a standard option when creating a new python project.
@@ -106,20 +106,10 @@ cf   = fieldnames(opt.(cPar));
         k=k+1;
     end
 end 
-%-----
-% add the app_template_path_adder itself
-% % % % %     code_cell{k,1}= [three_spaces,...
-% % % % %                         ap,rb_o,...
-% % % % %                               ff,rb_o,...
-% % % % %                                      char(39),'functions',char(39),comma,...
-% % % % %                                      char(39),'app_template_path_adder',char(39),...
-% % % % %                                 rb_c,...
-% % % % %                           rb_c,semicolon...
-% % % % %                        ];
-    % + 1 loop counter
+
     k=k+1;
-%-----
-% collect number of lines
+
+    % insert comment header
 header = {...
     '%% adds `builder` and custom function folders(only first level)';
     '% in a second run this function will also add the `mfiles` subdirectories';
