@@ -138,7 +138,7 @@ header = {...
     '% :todo: define/declare/offer standerdized `hooks` like in WordPress ';
     '% ';
     '% ';
-    '% see also :ref:`addPath_creator` ';
+    '% :note: see also: :ref:`addPath_creator() <addPath_creator>` ';
     '% ';
     '% ';
     ' ';

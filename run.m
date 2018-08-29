@@ -50,4 +50,4 @@ builder_addPath();
 %% launch the app 
 % started from the obtained m-files not the .mlapp file
 
-app_launch();
+%app_launch();

@@ -127,9 +127,7 @@ classdef host_app < matlab.apps.AppBase
         function StingerMenuSelected(app, event)
             % switch the view
             % 
-            % :note: static? :func:`panel_visibility_switch`
-            % 
-            % :note: link? :ref:`panel_visibility_switch`
+            % see also: :ref:`panel_visibility_switch() <panel_visibility>`
             %
             target_tag='stinger';
             panel_visibility_switch(app,target_tag)

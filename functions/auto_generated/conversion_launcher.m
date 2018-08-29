@@ -9,7 +9,7 @@ function conversion_launcher()
 %           a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`conversion_func_generator` 
 %           b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW
 % 
-% :note: see also :func:`conversion_func_generator` 
+% :note: see also: :ref:`conversion_func_generator() <conversion_func_generator>` 
 % 
  
 mlapp_to_m(fullfile('launch','icbm.mlapp'),'plugin');

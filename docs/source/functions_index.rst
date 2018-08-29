@@ -64,7 +64,6 @@ Also you may insert any text
 app_launch
 ^^^^^^^^^^
 
-.. automodule:: functions.building
 .. autofunction:: app_launch
 
 
@@ -73,14 +72,13 @@ addPath_creator
 
 .. warning:: automatically created. any changes will be discarded if the :func:`run` is executed
 
-.. automodule:: functions.building
 .. autofunction:: addPath_creator
+
 
 conversion_func_generator
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. automodule:: functions.building
 .. autofunction:: conversion_func_generator
 
 conversion_launcher

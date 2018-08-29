@@ -16,7 +16,7 @@ function builder_addPath()
 % :todo: define/declare/offer standerdized `hooks` like in WordPress 
 % 
 % 
-% see also :func:`addPath_creator` 
+% :note: see also: :ref:`addPath_creator() <addPath_creator>` 
 % 
 % 
  

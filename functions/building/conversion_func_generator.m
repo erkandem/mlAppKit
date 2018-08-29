@@ -190,7 +190,7 @@ k=1;
     '%           a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`conversion_func_generator` ';
     '%           b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW';
     '% ';
-    '% :note: see also :func:`conversion_func_generator` ';
+    '% :note: see also: :ref:`conversion_func_generator() <conversion_func_generator>` ';
     '% ';
     ' ';
     };
