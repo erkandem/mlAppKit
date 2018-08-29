@@ -43,6 +43,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.githubpages',
     'sphinxcontrib.matlab',
+    'sphinx.ext.autosectionlabel',
 ]
 
 matlab_src_dir = os.path.abspath('../..')

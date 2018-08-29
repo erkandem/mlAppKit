@@ -7,11 +7,14 @@ Welcome to mlAppBinder's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
-   onething
    includeme
+   functions_index
+   views_index
+   issues_index
+   credits
 
 Indices and tables
 ==================

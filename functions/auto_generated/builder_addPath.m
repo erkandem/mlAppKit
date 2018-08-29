@@ -2,18 +2,23 @@ function builder_addPath()
 %% adds `builder` and custom function folders(only first level)
 % in a second run this function will also add the `mfiles` subdirectories
 % of each .mlapp-file.
-% :TODO: save your code in `mfiles` folder aswell 
-%  - currently a level beneeth is not recognized 
-% see also :func:`addPath_creator` 
 % 
 % :input: no input 
 % :returns: void
 % 
-% ANY CHANGE IN THIS AUTOMATICALLY CREATED FUNCTION WILL BE LOST
-% a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`addPath_creator` 
-% b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW
+% :warning: ANY CHANGE IN THIS FUNCTION AUTOMATICALLY CREATED FUNCTION WILL BE LOST
+%           a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`addPath_creator` 
+%           b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW
 % 
-% :TODO: define/declare/offer standerdized `hooks` like in WordPress 
+% :todo: save your code in `mfiles` folder aswell 
+%        currently, a level beneeth `mfiles` is not recognized 
+% 
+% :todo: define/declare/offer standerdized `hooks` like in WordPress 
+% 
+% 
+% see also :func:`addPath_creator` 
+% 
+% 
  
    addpath(fullfile('functions','auto_generated'));
    addpath(fullfile('functions','building'));

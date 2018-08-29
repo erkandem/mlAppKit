@@ -14,7 +14,7 @@ Getting started
 
 
 
-`Full documentation <https://erkandem.github.io/hw3/index.html>`_
+`Full documentation </index.html>`_
    
 Documentation
 =============

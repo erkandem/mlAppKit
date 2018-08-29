@@ -1,20 +1,17 @@
 function conversion_func_generator()
-%% add-on to the registration functions 
+%% document me 
 % Specifically, this file should collect information about the current
 % project and generate an parameter structure to generate
 %--- [1] "app_template_path_adder" functions
 % ---[2] m-file extractions via "conversion_launcher"
 
+
 %% filter out any level 1  directory 
+a_Name_dir            = levelOneDirQuery();
+ignore_list           = [mignore_reader();{'functions'}];
+[del_index, line_num] = ismember(ignore_list,a_Name_dir);
+a_Name_dir_filted     = a_Name_dir;
 
-a_Name_dir=levelOneDirQuery();
-
-%% ignore list
-ignore_list = [mignore_reader();{'functions'}];
-
-[del_index, line_num]=ismember(ignore_list,a_Name_dir);
-
-a_Name_dir_filted=a_Name_dir;
 a_Name_dir_filted(line_num(del_index))=[];
 
 %% the main 
@@ -24,7 +21,6 @@ a_Name_dir_filted(line_num(del_index))=[];
 % remove "main"
 [a,b] = ismember('host',a_Name_dir_filted);
 a_Name_dir_filted(b(a)) = [];
-
 clear a b 
 %% the pop-ups folder...
 % contains code for windows with an UI Figure
@@ -190,11 +186,12 @@ k=1;
     '% :input: no input '; 
     '% :returns: void';
     '% ';
-    '% ANY CHANGE IN THIS AUTOMATICALLY CREATED FUNCTION WILL BE LOST';
-    '% a) RATHER CHANGE APPEND YOUR CODE TO MOTHER FUNCTIONS';
-    '% b) or  OR WRITE YOUR OWN FUNCTION AND APPEND IT TO THE FLOW';
+    '% :warning: ANY CHANGE IN THIS FUNCTION AUTOMATICALLY CREATED FUNCTION WILL BE LOST';
+    '%           a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`conversion_func_generator` ';
+    '%           b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW';
     '% ';
-    '% see also :func:`conversion_func_generator` ';
+    '% :note: see also :func:`conversion_func_generator` ';
+    '% ';
     ' ';
     };
     % split codel_cell

@@ -5,11 +5,12 @@ function conversion_launcher()
 % :input: no input 
 % :returns: void
 % 
-% ANY CHANGE IN THIS AUTOMATICALLY CREATED FUNCTION WILL BE LOST
-% a) RATHER CHANGE APPEND YOUR CODE TO MOTHER FUNCTIONS
-% b) or  OR WRITE YOUR OWN FUNCTION AND APPEND IT TO THE FLOW
+% :warning: ANY CHANGE IN THIS FUNCTION AUTOMATICALLY CREATED FUNCTION WILL BE LOST
+%           a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`conversion_func_generator` 
+%           b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW
 % 
-% see also :func:`conversion_func_generator` 
+% :note: see also :func:`conversion_func_generator` 
+% 
  
 mlapp_to_m(fullfile('launch','icbm.mlapp'),'plugin');
 mlapp_to_m(fullfile('launch','scud.mlapp'),'plugin');
