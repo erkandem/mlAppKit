@@ -23,10 +23,11 @@ classdef host_app < matlab.apps.AppBase
     end
     
     properties (Access = public)
-    % the properties of the :class:`host_app` are empty atfirst (only declared)
-    % They could serve as in-app database `struct()` if some data is preferably kept in RAM
-    % or - what they intended to by this project: get initialized as a `struct()` holding views
-    % in the form of `tabs`
+    %% the properties of the :class:`host_app` are only declared
+    % They could serve as:
+    % :in-app database: keep data in RAM avoid Disk I/O   via `struct()` 
+    % :plugins:  `struct()` holding views 
+    % 
     
         m1home   % plugin, one placeholder is left for in-*host*-app tabs, but could be modified to be loaded externally aswell
                  % I kept it to serve as some kind of landing/404/503 equivalent
@@ -35,20 +36,31 @@ classdef host_app < matlab.apps.AppBase
         launch   % plugin, for launch submenu carrying scud, icbc and stinger
         
    
-        m3_help     % plugin, placeholder for in-app about, help/documentation, license,  web links, etc...
+        help     % plugin, placeholder for in-app about, help/documentation, license,  web links, etc...
     
         % m4_calculate % plugin
+        %
+        % :todo: menu entries must be the same as the TITLE of the panel in the class ?
+        % 
+        % :Note: instead of bloating the number of elements like I did in my first apps
+        %        I turned to create properties as placeholders for the windows or views to be loaded.
+        %        *advantages*: maintainability
+        %        *drawbacks*: complexity
+        % 
+    end
+
+    methods (Access = public)
+    
+        function r = dummyPublicMethod(app)
+            %% a dummy public mehtod
+            %
+            % :props app: handle
+            % :type app: :class:`matlab.apps.AppBase`
+            %
+            
+            % do something meaningful like developing 
+        end
         
-        % TODO: menu entries must be the same as the TITLE of the panel in the class
-        % Note:
-        % instead of bloating the number of elements like I did in my first apps
-        % I turned to create properties as placeholders for the windows or views to be loaded.
-        %
-        % *advantages*: maintainability
-        % *drawbacks*: more complex file and pathmanagement
-        %
-        %  Always Always give menus and buttons a meaningful names. m1a4  makes sence but UX sucks.
-        %  "m1home" would suck, too.  But seems ok for codeside of things
     end
     
 
@@ -56,14 +68,14 @@ classdef host_app < matlab.apps.AppBase
 
         % Code that executes after component creation
         function startupFcn(app)
-        % The :func:`startupfnc`    is used to:
-        %   - intatiate the plugins
-        %   - assign appropriate tags to the plugins
-        %   - and resize the window and center it on the user screen
-        %
+        %% The :func:`startupFnc`    is used to:
+        %   + intatiate the plugins
+        %   + assign appropriate tags to the plugins
+        %   + and resize the window and center it on the user screen
+        % 
         % :param app: a reference to itself
         % :type app: :class: `matlab.apps.AppBase`
-        
+        % 
         % create all subpanels from different m-filers
         %
         % :todo: mandatory name `app.uif` for UIFigure of host app? (app.uif)
@@ -81,7 +93,7 @@ classdef host_app < matlab.apps.AppBase
             app.launch.stinger.main_Panel.Visible       = 'off'; %
             app.launch.icbm.main_Panel.Visible          = 'off'; %
             app.launch.scud.main_Panel.Visible          = 'off'; %
-            app.HomePanel.Visible                       =  'on';
+            app.HomePanel.Visible                       = 'on';
            
         %
         % :todo: mandatory tag names  of plugins? Way to automate them ? 

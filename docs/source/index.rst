@@ -3,11 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to mlAppBinder's documentation!
+Welcome to mlAppBinder’s documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
    :caption: Contents:
 
    includeme
@@ -15,6 +15,7 @@ Welcome to mlAppBinder's documentation!
    views_index
    issues_index
    attributions
+   about
 
 Indices and tables
 ==================

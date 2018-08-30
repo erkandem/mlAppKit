@@ -22,8 +22,10 @@ function builder_addPath()
  
    addpath(fullfile('functions','auto_generated'));
    addpath(fullfile('functions','building'));
+   addpath(fullfile('functions','package'));
    addpath(fullfile('functions','panel_visibility'));
    addpath(fullfile('host','mfiles'));
+   addpath(fullfile('icons','svg'));
    addpath(fullfile('launch','mfiles'));
    addpath(fullfile('popups','mfiles'));
 end

@@ -50,7 +50,9 @@ end
 code_cell = addPath_creator_core(opt);
 
 %% [3] write it down
-
+%
+% :todo: change addpath to addpath(genpath('file'))
+%
 addPath_creator_write(code_cell)
 
 out= [datestr(now()),'  |  builder_addpath() created'];

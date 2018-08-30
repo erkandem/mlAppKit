@@ -22,6 +22,8 @@ Nonentheless here are those I worked through.
 
 `Restructured Text (reST) and Sphinx CheatSheet #2 <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
 
+http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html
+
 http://rst.ninjs.org/?theme=basic
 
 

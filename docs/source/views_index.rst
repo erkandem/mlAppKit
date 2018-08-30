@@ -89,8 +89,7 @@ new features which are not yet fully integrated into the GUI.
 Example usages would be  options, license details, update checks.
 I included two samples :class:`popup_about` and :class:`popup_settings` 
 
-about
-^^^^^
+
 
 .. automodule:: popups.mfiles
 .. autoclass:: popup_about

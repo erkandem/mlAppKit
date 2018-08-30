@@ -11,6 +11,11 @@ But a flow schema or .gif animation would really be nice here...
 .. warning:: Always clone a fresh set from git for a new project.
              Pull requests welcome =)
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   
+   functions_index
 
 run
 ^^^
@@ -60,6 +65,7 @@ uif_commenter
 Also you may insert any text 
 
 .. autofunction:: uif_commenter
+
 
 
 app_launch
@@ -117,16 +123,9 @@ add_subfolder
 
 
 
-app_launch
-^^^^^^^^^^^^^^
-
-.. automodule:: functions.building
-.. autofunction:: app_launch
-
-
 
 levelOneDirQuery
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: functions.building
 .. autofunction:: levelOneDirQuery

@@ -1,25 +1,33 @@
-.. hw3 documentation master file, created by
-   sphinx-quickstart on Sun Aug 26 17:50:39 2018.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Readme
-======
-This is the top level readme file which is also available on github.
-Using the description found at `daler/sphinxdoc-test <https://daler.github.io/sphinxdoc-test/includeme.html>`_
-
+a tool to bridge the gap between visual and programmatic app design in MATLAB App Designer 
+More to be found in the About section
 
 Getting started
 ^^^^^^^^^^^^^^^
 
+System / Requirements
+""""""""""""""""""""""
+
+* Win / Linux / Mac
+* R2016b > MATLAB 
+* tested with MATLAB R2018a on Windows
+
+Installation
+"""""""""""""""""""""""""""""""""""""""
+
+First Steps
+""""""""""""""""""""""""""""""""""""""""""""
 
 
-`Full documentation </index.html>`_
+
+further reading
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+Full documentation  available only or ( in theory) within  the build package as PDF
+
+`https://github.com/erkandem/ <https://github.com/erkandem/>`_
    
-Documentation
-=============
-
-.. todo:: add something to the index
 
 
 

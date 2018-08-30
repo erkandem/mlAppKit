@@ -6,7 +6,8 @@ function meta_Name_dir  = levelOneDirQuery(qPar)
 %
 % :returns: foldernames in the queryed directory
 % :rtype: cell-array
-% Level one ( one subdirecotry below, as defined by qPar);
+%
+% Level one ( one subdirecotry below, as defined by qPar)
 
        if nargin == 0
            qPar=pwd;
