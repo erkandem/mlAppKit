@@ -2,19 +2,19 @@ classdef host_app < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-        uif                matlab.ui.Figure
-        HomeMenu           matlab.ui.container.Menu
-        LaunchMenu         matlab.ui.container.Menu
-        ICBMMenu           matlab.ui.container.Menu
-        StingerMenu        matlab.ui.container.Menu
-        scudMenu           matlab.ui.container.Menu
-        HelpMenu           matlab.ui.container.Menu
-        AboutMenu          matlab.ui.container.Menu
-        SettingsMenu       matlab.ui.container.Menu
-        DocumentationMenu  matlab.ui.container.Menu
-        LicenceMenu        matlab.ui.container.Menu
-        HomePanel          matlab.ui.container.Panel
-        MessageTextArea    matlab.ui.control.TextArea
+        uif                  matlab.ui.Figure
+        HomeMenu             matlab.ui.container.Menu
+        firstPluginMenu      matlab.ui.container.Menu
+        bigredoneMenu        matlab.ui.container.Menu
+        secondbigredoneMenu  matlab.ui.container.Menu
+        smallredoneMenu      matlab.ui.container.Menu
+        HelpMenu             matlab.ui.container.Menu
+        AboutMenu            matlab.ui.container.Menu
+        SettingsMenu         matlab.ui.container.Menu
+        DocumentationMenu    matlab.ui.container.Menu
+        LicenceMenu          matlab.ui.container.Menu
+        HomePanel            matlab.ui.container.Panel
+        MessageTextArea      matlab.ui.control.TextArea
     end
 
     
@@ -33,7 +33,7 @@ classdef host_app < matlab.apps.AppBase
                  % I kept it to serve as some kind of landing/404/503 equivalent
                  % for example: a dashboard with charts and news could be set up
         
-        launch   % plugin, for launch submenu carrying scud, icbc and stinger
+        firstplugin   % plugin, for firstplugin carrying the red buttons
         
    
         help     % plugin, placeholder for in-app about, help/documentation, license,  web links, etc...
@@ -82,17 +82,17 @@ classdef host_app < matlab.apps.AppBase
         %
         % :todo: autogenerate the connections 
         %
-            app.launch.stinger   =  stinger(app.uif);        %
-            app.launch.icbm      =  icbm   (app.uif);        %
-            app.launch.scud      =  scud   (app.uif);        %
+            app.firstplugin.bigredone           =  bigredone(app.uif);        %
+            app.firstplugin.secondbigredone     =  secondbigredone(app.uif);        %
+            app.firstplugin.smallredone         =  smallredone(app.uif);        %
         %
         % :todo: mandatory name  `main_Panel` for UIPanel  of plugins? (main_Panel)
         %            
             
        % set visibility to "off" by default
-            app.launch.stinger.main_Panel.Visible       = 'off'; %
-            app.launch.icbm.main_Panel.Visible          = 'off'; %
-            app.launch.scud.main_Panel.Visible          = 'off'; %
+            app.firstplugin.bigredone.main_Panel.Visible       = 'off'; %
+            app.firstplugin.secondbigredone.main_Panel.Visible          = 'off'; %
+            app.firstplugin.smallredone.main_Panel.Visible          = 'off'; %
             app.HomePanel.Visible                       = 'on';
            
         %
@@ -100,9 +100,9 @@ classdef host_app < matlab.apps.AppBase
         %           
         
        % assign tags
-            app.launch.stinger.main_Panel.Tag    = 'stinger'; %
-            app.launch.icbm.main_Panel.Tag       = 'icbm';    %
-            app.launch.scud.main_Panel.Tag       = 'scud';    %
+            app.firstplugin.bigredone.main_Panel.Tag    = 'bigredone'; %
+            app.firstplugin.secondbigredone.main_Panel.Tag       = 'secondbigredone';    %
+            app.firstplugin.smallredone.main_Panel.Tag       = 'smallredone';    %
             %----
             app.HomePanel.Tag                    = 'home';
 
@@ -135,19 +135,19 @@ classdef host_app < matlab.apps.AppBase
 
         % Menu selected function: SettingsMenu
         function SettingsMenuSelected(app, event)
-            % launch a pop-up :class:`popup_settings`
+            % firstplugin a pop-up :class:`popup_settings`
             d=popup_settings; % new ui 
         end
 
-        % Menu selected function: ICBMMenu
-        function ICBMMenuSelected(app, event)
+        % Menu selected function: bigredoneMenu
+        function bigredoneMenuSelected(app, event)
             % switch the view
             target_tag='icbm';
             panel_visibility_switch(app,target_tag)
         end
 
-        % Menu selected function: StingerMenu
-        function StingerMenuSelected(app, event)
+        % Menu selected function: secondbigredoneMenu
+        function secondbigredoneMenuSelected(app, event)
             % switch the view
             % 
             % see also: :ref:`panel_visibility_switch() <panel_visibility>`
@@ -156,15 +156,15 @@ classdef host_app < matlab.apps.AppBase
             panel_visibility_switch(app,target_tag)
         end
 
-        % Menu selected function: scudMenu
-        function scudMenuSelected(app, event)
+        % Menu selected function: smallredoneMenu
+        function smallredoneMenuSelected(app, event)
             target_tag='scud';
             panel_visibility_switch(app,target_tag)
         end
 
         % Menu selected function: AboutMenu
         function AboutMenuSelected(app, event)
-            % launch   :class:`popup_about`
+            % firstplugin   :class:`popup_about`
             d=popup_about;
         end
     end
@@ -187,24 +187,24 @@ classdef host_app < matlab.apps.AppBase
             app.HomeMenu.MenuSelectedFcn = createCallbackFcn(app, @HomeMenuSelected, true);
             app.HomeMenu.Text = 'Home';
 
-            % Create LaunchMenu
-            app.LaunchMenu = uimenu(app.uif);
-            app.LaunchMenu.Text = 'Launch';
+            % Create firstPluginMenu
+            app.firstPluginMenu = uimenu(app.uif);
+            app.firstPluginMenu.Text = 'Red Buttons';
 
-            % Create ICBMMenu
-            app.ICBMMenu = uimenu(app.LaunchMenu);
-            app.ICBMMenu.MenuSelectedFcn = createCallbackFcn(app, @ICBMMenuSelected, true);
-            app.ICBMMenu.Text = 'ICBM';
+            % Create bigredoneMenu
+            app.bigredoneMenu = uimenu(app.firstPluginMenu);
+            app.bigredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @bigredoneMenuSelected, true);
+            app.bigredoneMenu.Text = 'Red Button 1';
 
-            % Create StingerMenu
-            app.StingerMenu = uimenu(app.LaunchMenu);
-            app.StingerMenu.MenuSelectedFcn = createCallbackFcn(app, @StingerMenuSelected, true);
-            app.StingerMenu.Text = 'Stinger';
+            % Create secondbigredoneMenu
+            app.secondbigredoneMenu = uimenu(app.firstPluginMenu);
+            app.secondbigredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @secondbigredoneMenuSelected, true);
+            app.secondbigredoneMenu.Text = 'Red Button 2';
 
-            % Create scudMenu
-            app.scudMenu = uimenu(app.LaunchMenu);
-            app.scudMenu.MenuSelectedFcn = createCallbackFcn(app, @scudMenuSelected, true);
-            app.scudMenu.Text = 'scud';
+            % Create smallredoneMenu
+            app.smallredoneMenu = uimenu(app.firstPluginMenu);
+            app.smallredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @smallredoneMenuSelected, true);
+            app.smallredoneMenu.Text = 'Red Button 3';
 
             % Create HelpMenu
             app.HelpMenu = uimenu(app.uif);
