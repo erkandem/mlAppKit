@@ -55,27 +55,27 @@ of its  `UIfigure` and load it into a plugin view
 
 I would recommend changing the content of the existing samples:
 
-icbm
-^^^^
+bigredone
+^^^^^^^^^^
 
-.. automodule:: launch.mfiles
-.. autoclass:: icbm
+.. automodule:: firstplugin.mfiles
+.. autoclass:: bigredone
     :members:
     :show-inheritance:
     :undoc-members:
     
     
-scud
-^^^^
-.. autoclass:: scud
+secondbigredone
+^^^^^^^^^^^^^^^^
+.. autoclass:: secondbigredone
     :members:
     :show-inheritance:
     :undoc-members:
 
-stinger
-^^^^^^^	
+smallredone
+^^^^^^^^^^^^
 
-.. autoclass:: stinger
+.. autoclass:: smallredone
     :members:
     :show-inheritance:
     :undoc-members:

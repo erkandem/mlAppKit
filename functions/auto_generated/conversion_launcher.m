@@ -12,6 +12,7 @@ function conversion_launcher()
 % :note: see also: :ref:`conversion_func_generator() <conversion_func_generator>` 
 % 
  
+mlapp_to_m(fullfile('appbuildingapp','app2.mlapp'),'plugin');
 mlapp_to_m(fullfile('firstplugin','bigredone.mlapp'),'plugin');
 mlapp_to_m(fullfile('firstplugin','secondbigredone.mlapp'),'plugin');
 mlapp_to_m(fullfile('firstplugin','smallredone.mlapp'),'plugin');

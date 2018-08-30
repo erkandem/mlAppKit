@@ -100,8 +100,8 @@ classdef host_app < matlab.apps.AppBase
         %           
         
        % assign tags
-            app.firstplugin.bigredone.main_Panel.Tag    = 'bigredone'; %
-            app.firstplugin.secondbigredone.main_Panel.Tag       = 'secondbigredone';    %
+            app.firstplugin.bigredone.main_Panel.Tag         = 'bigredone'; %
+            app.firstplugin.secondbigredone.main_Panel.Tag   = 'secondbigredone';    %
             app.firstplugin.smallredone.main_Panel.Tag       = 'smallredone';    %
             %----
             app.HomePanel.Tag                    = 'home';
@@ -142,7 +142,7 @@ classdef host_app < matlab.apps.AppBase
         % Menu selected function: bigredoneMenu
         function bigredoneMenuSelected(app, event)
             % switch the view
-            target_tag='icbm';
+            target_tag='bigredone';
             panel_visibility_switch(app,target_tag)
         end
 
@@ -152,13 +152,13 @@ classdef host_app < matlab.apps.AppBase
             % 
             % see also: :ref:`panel_visibility_switch() <panel_visibility>`
             %
-            target_tag='stinger';
+            target_tag='secondbigredone';
             panel_visibility_switch(app,target_tag)
         end
 
         % Menu selected function: smallredoneMenu
         function smallredoneMenuSelected(app, event)
-            target_tag='scud';
+            target_tag='smallredone';
             panel_visibility_switch(app,target_tag)
         end
 

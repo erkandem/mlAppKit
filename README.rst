@@ -13,6 +13,8 @@ System / Requirements
 
 Installation
 """""""""""""""""""""""""""""""""""""""
+#. > mkdir yourNewPorjectFolder
+#. > git clone 'mlAppKit'
 
 First Steps
 """"""""""""""""""""""""""""""""""""""""""""
