@@ -1,7 +1,6 @@
 function app_launch()
-%% scans the root directory for the app name and launches it
-% 
-%
+%% scans the root directory for the host app and launches it from it's .m-file
+
 
     a=dir('host/mfiles');
     a_IsDir = {a.isdir};

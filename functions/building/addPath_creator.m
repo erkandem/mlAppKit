@@ -1,30 +1,13 @@
 function addPath_creator()
-%% An analogon to python `*import* this *from* that``
-% the idea is to NOT SAVE THE PATHDEF since MATLAB will get confused when
-% you are working on multiple projects using the `mlAppFlex` tool
-% the reason is that `mlAppFlex` does not have project specific
-% functionsnames. Combine this with a First on List type of of selection
-% process on the MATLAB `pathdef` and you get functions firing up on the
-% hole disk
-% 
-% ... is a standard option when creating a new python project.
-% dependencies are more clear to analyze.
-% MATLABs works different but to keep things tidy
-% I decided to add the file paths in a function.
-%
-%
-% How It Works:
-% 1. gather intel in a struct about project directory 
-% 2. send that to a processor
-% 3. and save the file to function directory with a predefined(1) filename
-%
-%  (1)( notice how I am trying to avoid the term "hardcoded")
-%-----------Function Start----
-%% filter out any level 1  directory 
+%% create a function to add all relevant folders to the **current** MATLAB path
+% [1] filter out any level 1  directory 
+% [2] create the file calls 
+% [3] write the function to an .m-file 
 
+%% [1] filter out any level 1  directory
 pFolder_dirNames = levelOneDirQuery();
 
-%read in .mignore file
+% read in .mignore file
 delList           = mignore_reader();
 [del_index, ~]    = ismember(pFolder_dirNames , delList);
 
@@ -32,10 +15,7 @@ delList           = mignore_reader();
 pFolder_dirNames_screened = pFolder_dirNames(~del_index) ;
 
 % options struct to hold the configureation options 
-% which will passed over to the processor/core
-
 opt     =   struct();
-%----cut
 for i =1 :numel(pFolder_dirNames_screened)
     
     qPar       = pFolder_dirNames_screened{i};
@@ -49,7 +29,7 @@ end
 
 code_cell = addPath_creator_core(opt);
 
-%% [3] write it down
+%% [3] write the function to an .m-file 
 %
 % :todo: change addpath to addpath(genpath('file'))
 %
@@ -65,8 +45,12 @@ end
 
 
 function code_cell = addPath_creator_core(opt)
+%% creates the addPath function from the previously obtained configuration
+% :param opt: hold the configurations 
+% :type opt: struct
 
-% define strings to put tegether
+
+% define some strings 
 func_dec={'function builder_addPath()'};
 func_end={'end'};
 
@@ -83,12 +67,11 @@ three_spaces='   ';
 
 %% create the code for the functions folders
 
-%cPar_array={'functions','main','popups','views'};
+
 cPar_array=fieldnames(opt);
 
-k=1;
+k=1; %line counter
 
-%----
 for i = 1:numel(cPar_array)
 
 cPar = cPar_array{i} ;
@@ -146,9 +129,9 @@ end
 
 
 function addPath_creator_write(code_cell)
-% write the results in a .m file
-% if necessary create the folder for that file
+%% writes the created function to a .m file
 
+% if necessary create the folder for that file
 ext=exist(fullfile('functions','auto_generated'),'dir');
 if ext~=7
     mkdir(fullfile('functions','auto_generated'));
