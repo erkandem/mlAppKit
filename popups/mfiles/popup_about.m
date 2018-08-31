@@ -51,7 +51,6 @@ classdef popup_about < matlab.apps.AppBase
             % Create linkedbutton
             app.linkedbutton = uibutton(app.AboutPanel, 'push');
             app.linkedbutton.ButtonPushedFcn = createCallbackFcn(app, @linkedbuttonPushed, true);
-            app.linkedbutton.Icon = 'linkedin-in.png';
             app.linkedbutton.Position = [451 8 31 22];
             app.linkedbutton.Text = '';
 
@@ -83,7 +82,6 @@ classdef popup_about < matlab.apps.AppBase
 
             % Create ghbutton
             app.ghbutton = uibutton(app.AboutPanel, 'push');
-            app.ghbutton.Icon = 'github.png';
             app.ghbutton.Position = [411 8 31 22];
             app.ghbutton.Text = '';
         end

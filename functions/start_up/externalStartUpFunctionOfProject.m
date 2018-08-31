@@ -1,5 +1,5 @@
 function externalStartUpFunctionOfProject(app)
-        %% The :func:`startupFnc`    is used to:
+%% The :func:`startupFnc`    is used to:
         %   + intatiate the plugins
         %   + assign appropriate tags to the plugins
         %   + and resize the window and center it on the user screen
@@ -22,9 +22,9 @@ function externalStartUpFunctionOfProject(app)
             
        % set visibility to "off" by default
             app.firstplugin.bigredone.main_Panel.Visible       = 'off'; %
-            app.firstplugin.secondbigredone.main_Panel.Visible          = 'off'; %
-            app.firstplugin.smallredone.main_Panel.Visible          = 'off'; %
-            app.HomePanel.Visible                       = 'on';
+            app.firstplugin.secondbigredone.main_Panel.Visible = 'off'; %
+            app.firstplugin.smallredone.main_Panel.Visible     = 'off'; %
+            app.HomePanel.Visible                              = 'on';
            
         %
         % :todo: mandatory tag names  of plugins? Way to automate them ? 
@@ -54,6 +54,4 @@ function externalStartUpFunctionOfProject(app)
             nSize=[xDif, yDif, d1, d2];
             app.uif.Position = nSize;
             n2Size=[1,1,1024,640];
-            %--- Center window and apply target resultion
-            
-end
+end  
