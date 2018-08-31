@@ -20,7 +20,6 @@ function builder_addPath()
 % 
 % 
  
-   addpath(fullfile('appbuildingapp','mfiles'));
    addpath(fullfile('firstplugin','mfiles'));
    addpath(fullfile('functions','auto_generated'));
    addpath(fullfile('functions','building'));

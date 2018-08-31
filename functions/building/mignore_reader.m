@@ -8,11 +8,17 @@ function c = mignore_reader(migDir)
 % :rtype: cell-array
 %
    
-	if nargin ==1
+    if nargin ==1        
         fid =fopen(fullfile(migDir,'.mignore'));
     else
         fid =fopen('.mignore');
-	end
+    end
+    
+    if fid ==-1
+        msgbox({'There is no .mignore file in the project';...
+                'Shell I create one?';...
+                });
+    end
 
 	y = 1;
 	c     = cell(1);
