@@ -23,42 +23,25 @@ classdef host_app < matlab.apps.AppBase
     end
     
     properties (Access = public)
-    %% the properties of the :class:`host_app` are only declared
-    % They could serve as:
+    % could serve as:
     % :in-app database: keep data in RAM avoid Disk I/O   via `struct()` 
     % :plugins:  `struct()` holding views 
     % 
-    
-        m1home   % plugin, one placeholder is left for in-*host*-app tabs, but could be modified to be loaded externally aswell
-                 % I kept it to serve as some kind of landing/404/503 equivalent
-                 % for example: a dashboard with charts and news could be set up
+        m1home   % plugin, 
         
         firstplugin   % plugin, for firstplugin carrying the red buttons
-        
-   
-        help     % plugin, placeholder for in-app about, help/documentation, license,  web links, etc...
     
-        % m4_calculate % plugin
-        %
-        % :todo: menu entries must be the same as the TITLE of the panel in the class ?
-        % 
-        % :Note: instead of bloating the number of elements like I did in my first apps
-        %        I turned to create properties as placeholders for the windows or views to be loaded.
-        %        *advantages*: maintainability
-        %        *drawbacks*: complexity
-        % 
     end
 
     methods (Access = public)
     
-        function r = dummyPublicMethod(app)
+        function  dummyPublicMethod(app)
             %% a dummy public mehtod
             %
             % :props app: handle
             % :type app: :class:`matlab.apps.AppBase`
             %
             
-            externalStartUpFunctionOfProject(app);
 
             % do something meaningful like developing 
         end
@@ -70,7 +53,7 @@ classdef host_app < matlab.apps.AppBase
 
         % Code that executes after component creation
         function startupFcn(app)
-             dummyPublicMethod(app);
+            externalStartUpFunctionOfProject(app);
         end
 
         % Menu selected function: HomeMenu
