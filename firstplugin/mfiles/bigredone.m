@@ -1,10 +1,10 @@
-classdef scud < matlab.apps.AppBase
+classdef bigredone < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-%        uif_icbm      matlab.ui.Figure
-        main_Panel    matlab.ui.container.Panel
-        LAUNCHButton  matlab.ui.control.Button
+%        uif_bigredbutton  matlab.ui.Figure
+        main_Panel        matlab.ui.container.Panel
+        LAUNCHButton      matlab.ui.control.Button
     end
 
     
@@ -27,14 +27,14 @@ classdef scud < matlab.apps.AppBase
         % Create UIFigure and components
         function  createComponents(app,external_handle) % $_$ replaced 
 
-            % Create uif_icbm
-%            app.uif_icbm = uifigure;
-%            app.uif_icbm.Position = [1 1 1024 640];
-%            app.uif_icbm.Name = 'Ultra Mega Super Duper Bien App';
+            % Create uif_bigredbutton
+%            app.uif_bigredbutton = uifigure;
+%            app.uif_bigredbutton.Position = [1 1 1024 640];
+%            app.uif_bigredbutton.Name = 'Ultra Mega Super Duper Bien App';
 
             % Create main_Panel
             app.main_Panel = uipanel(external_handle);
-            app.main_Panel.Title = 'scud';
+            app.main_Panel.Title = 'BugRedOne';
             app.main_Panel.Position = [1 1 1024 640];
 
             % Create LAUNCHButton
@@ -43,7 +43,7 @@ classdef scud < matlab.apps.AppBase
             app.LAUNCHButton.BackgroundColor = [1 0 0];
             app.LAUNCHButton.FontSize = 26;
             app.LAUNCHButton.FontWeight = 'bold';
-            app.LAUNCHButton.Position = [131 350 125 110];
+            app.LAUNCHButton.Position = [449 313 125 110];
             app.LAUNCHButton.Text = 'LAUNCH';
         end
     end
@@ -51,13 +51,13 @@ classdef scud < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-            function app = scud(external_handle) % $_$ replaced 
+            function app = bigredone(external_handle) % $_$ replaced 
 
             % Create and configure components
              createComponents(app,external_handle) % $_$ replaced 
 
             % Register the app with App Designer
-%            registerApp(app, app.uif_icbm)
+%            registerApp(app, app.uif_bigredbutton)
 
             if nargout == 0
                 clear app
@@ -68,7 +68,7 @@ classdef scud < matlab.apps.AppBase
         function delete(app)
 
             % Delete UIFigure when app is deleted
-%            delete(app.uif_icbm)
+%            delete(app.uif_bigredbutton)
         end
     end
 end

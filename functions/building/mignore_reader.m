@@ -15,9 +15,9 @@ function c = mignore_reader(migDir)
     end
     
     if fid ==-1
-        msgbox({'There is no .mignore file in the project';...
-                'Shell I create one?';...
-                });
+        msgbox({'There is no .mignore file in the project'  });
+             %   'Shell I create one?';...
+              
     end
 
 	y = 1;

@@ -1,10 +1,10 @@
-classdef stinger < matlab.apps.AppBase
+classdef smallredone < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-%        uif_icbm      matlab.ui.Figure
-        main_Panel    matlab.ui.container.Panel
-        LAUNCHButton  matlab.ui.control.Button
+%        uif_smallredone  matlab.ui.Figure
+        main_Panel       matlab.ui.container.Panel
+        LAUNCHButton     matlab.ui.control.Button
     end
 
     
@@ -27,14 +27,14 @@ classdef stinger < matlab.apps.AppBase
         % Create UIFigure and components
         function  createComponents(app,external_handle) % $_$ replaced 
 
-            % Create uif_icbm
-%            app.uif_icbm = uifigure;
-%            app.uif_icbm.Position = [1 1 1024 640];
-%            app.uif_icbm.Name = 'Ultra Mega Super Duper Bien App';
+            % Create uif_smallredone
+%            app.uif_smallredone = uifigure;
+%            app.uif_smallredone.Position = [1 1 1024 640];
+%            app.uif_smallredone.Name = 'Ultra Mega Super Duper Bien App';
 
             % Create main_Panel
             app.main_Panel = uipanel(external_handle);
-            app.main_Panel.Title = 'Stinger';
+            app.main_Panel.Title = 'Small Red One';
             app.main_Panel.Position = [1 1 1024 640];
 
             % Create LAUNCHButton
@@ -51,13 +51,13 @@ classdef stinger < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-            function app = stinger(external_handle) % $_$ replaced 
+            function app = smallredone(external_handle) % $_$ replaced 
 
             % Create and configure components
              createComponents(app,external_handle) % $_$ replaced 
 
             % Register the app with App Designer
-%            registerApp(app, app.uif_icbm)
+%            registerApp(app, app.uif_smallredone)
 
             if nargout == 0
                 clear app
@@ -68,7 +68,7 @@ classdef stinger < matlab.apps.AppBase
         function delete(app)
 
             % Delete UIFigure when app is deleted
-%            delete(app.uif_icbm)
+%            delete(app.uif_smallredone)
         end
     end
 end

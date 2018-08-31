@@ -1,10 +1,10 @@
-classdef icbm < matlab.apps.AppBase
+classdef secondbigredone < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-%        uif_icbm      matlab.ui.Figure
-        main_Panel    matlab.ui.container.Panel
-        LAUNCHButton  matlab.ui.control.Button
+%        uif_bigredtwo  matlab.ui.Figure
+        main_Panel     matlab.ui.container.Panel
+        LAUNCHButton   matlab.ui.control.Button
     end
 
     
@@ -27,14 +27,14 @@ classdef icbm < matlab.apps.AppBase
         % Create UIFigure and components
         function  createComponents(app,external_handle) % $_$ replaced 
 
-            % Create uif_icbm
-%            app.uif_icbm = uifigure;
-%            app.uif_icbm.Position = [1 1 1024 640];
-%            app.uif_icbm.Name = 'Ultra Mega Super Duper Bien App';
+            % Create uif_bigredtwo
+%            app.uif_bigredtwo = uifigure;
+%            app.uif_bigredtwo.Position = [1 1 1024 640];
+%            app.uif_bigredtwo.Name = 'Ultra Mega Super Duper Bien App';
 
             % Create main_Panel
             app.main_Panel = uipanel(external_handle);
-            app.main_Panel.Title = 'ICBM';
+            app.main_Panel.Title = 'The 2. Big Red One';
             app.main_Panel.Position = [1 1 1024 640];
 
             % Create LAUNCHButton
@@ -43,7 +43,7 @@ classdef icbm < matlab.apps.AppBase
             app.LAUNCHButton.BackgroundColor = [1 0 0];
             app.LAUNCHButton.FontSize = 26;
             app.LAUNCHButton.FontWeight = 'bold';
-            app.LAUNCHButton.Position = [449 313 125 110];
+            app.LAUNCHButton.Position = [131 350 125 110];
             app.LAUNCHButton.Text = 'LAUNCH';
         end
     end
@@ -51,13 +51,13 @@ classdef icbm < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-            function app = icbm(external_handle) % $_$ replaced 
+            function app = secondbigredone(external_handle) % $_$ replaced 
 
             % Create and configure components
              createComponents(app,external_handle) % $_$ replaced 
 
             % Register the app with App Designer
-%            registerApp(app, app.uif_icbm)
+%            registerApp(app, app.uif_bigredtwo)
 
             if nargout == 0
                 clear app
@@ -68,7 +68,7 @@ classdef icbm < matlab.apps.AppBase
         function delete(app)
 
             % Delete UIFigure when app is deleted
-%            delete(app.uif_icbm)
+%            delete(app.uif_bigredtwo)
         end
     end
 end
