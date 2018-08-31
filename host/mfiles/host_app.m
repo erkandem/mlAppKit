@@ -24,10 +24,10 @@ classdef host_app < matlab.apps.AppBase
     
     properties (Access = public)
     % could serve as:
-    % :in-app database: keep data in RAM avoid Disk I/O   via `struct()` 
-    % :plugins:  `struct()` holding views 
+    % *in-app database, keep data in RAM to avoid Disk I/O via `struct()` 
+    % *plugins, again a `struct()` holding views 
     % 
-        m1home   % plugin, 
+        home   % internal usage, 
         
         firstplugin   % plugin, for firstplugin carrying the red buttons
     
@@ -166,7 +166,7 @@ classdef host_app < matlab.apps.AppBase
 
             % Create MessageTextArea
             app.MessageTextArea = uitextarea(app.HomePanel);
-            app.MessageTextArea.Position = [321 300 315 80];
+            app.MessageTextArea.Position = [291 460 315 80];
             app.MessageTextArea.Value = {''; 'option for static or dynamic welcome content'; 'but could be removed'};
         end
     end

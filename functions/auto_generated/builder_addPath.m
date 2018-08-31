@@ -27,6 +27,5 @@ function builder_addPath()
    addpath(fullfile('functions','panel_visibility'));
    addpath(fullfile('functions','start_up'));
    addpath(fullfile('host','mfiles'));
-   addpath(fullfile('icons','svg'));
    addpath(fullfile('popups','mfiles'));
 end
