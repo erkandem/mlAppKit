@@ -25,7 +25,7 @@ classdef secondbigredone < matlab.apps.AppBase
     methods (Access = private)
 
         % Create UIFigure and components
-        function  createComponents(app,external_handle) % $_$ replaced 
+        function  createComponents(app,external_handle) % $_$ flipped 
 
             % Create uif_bigredtwo
 %            app.uif_bigredtwo = uifigure;
@@ -51,10 +51,10 @@ classdef secondbigredone < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-            function app = secondbigredone(external_handle) % $_$ replaced 
+            function app = secondbigredone(external_handle) % $_$ flipped 
 
             % Create and configure components
-             createComponents(app,external_handle) % $_$ replaced 
+             createComponents(app,external_handle) % $_$ flipped 
 
             % Register the app with App Designer
 %            registerApp(app, app.uif_bigredtwo)

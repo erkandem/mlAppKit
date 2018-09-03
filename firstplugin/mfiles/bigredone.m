@@ -25,7 +25,7 @@ classdef bigredone < matlab.apps.AppBase
     methods (Access = private)
 
         % Create UIFigure and components
-        function  createComponents(app,external_handle) % $_$ replaced 
+        function  createComponents(app,external_handle) % $_$ flipped 
 
             % Create uif_bigredbutton
 %            app.uif_bigredbutton = uifigure;
@@ -51,10 +51,10 @@ classdef bigredone < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-            function app = bigredone(external_handle) % $_$ replaced 
+            function app = bigredone(external_handle) % $_$ flipped 
 
             % Create and configure components
-             createComponents(app,external_handle) % $_$ replaced 
+             createComponents(app,external_handle) % $_$ flipped 
 
             % Register the app with App Designer
 %            registerApp(app, app.uif_bigredbutton)

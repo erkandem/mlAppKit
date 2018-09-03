@@ -1,13 +1,16 @@
 function conversion_func_generator()
-%% creates the  f(x) to extract the .m-files out of the .mlapp file
-
+    %% creates the  f(x) to extract the .m-files out of the .mlapp file
     opt= project_parts();
 
-%% generate the f(x) from the configuration struct
+    %% generate the f(x) from the configuration struct
     code_cell = mat_codegen(opt);
 
-%% write result into an .m-file
-    write_conversion_launcher(code_cell);
+    %% write result into an .m-file
+    % write_conversion_launcher(code_cell);
+   
+	target_path = fullfile('functions','auto_generated');
+	file_name   = 'conversion_launcher.m';
+	utf8_write_to_file(target_path, file_name, code_cell )
 
 end
 
@@ -136,28 +139,28 @@ end
 
 
 
-function write_conversion_launcher(code_cell)
-%% writes the composed function to an .m-file
-
-    ext = exist(fullfile('functions','auto_generated'),'dir');
-    if ext~=7
-        mkdir(fullfile('functions','auto_generated'));
-    end
-
-    fid=fopen(fullfile('functions','auto_generated','conversion_launcher.m'),'w');
-    if fid<3
-         error('conversion_launcher.m could not be created (the file itself not the code)')
-    end
-
-    % Write a cell array of strings to a *.m-file
-    % Assumes each cell is a separate line
-    for ii = 1:size(code_cell,1)
-    
-        encoded_str = unicode2native(code_cell{ii}, 'UTF-8');
-        fwrite(fid, [encoded_str, 10], 'uint8');
-    
-    end
-
-    fclose(fid);
-
-end
+% function write_conversion_launcher(code_cell)
+% %% writes the composed function to an .m-file
+% 
+%     ext = exist(fullfile('functions','auto_generated'),'dir');
+%     if ext~=7
+%         mkdir(fullfile('functions','auto_generated'));
+%     end
+% 
+%     fid=fopen(fullfile('functions','auto_generated','conversion_launcher.m'),'w');
+%     if fid<3
+%          error('conversion_launcher.m could not be created (the file itself not the code)')
+%     end
+% 
+%     % Write a cell array of strings to a *.m-file
+%     % Assumes each cell is a separate line
+%     for ii = 1:size(code_cell,1)
+%     
+%         encoded_str = unicode2native(code_cell{ii}, 'UTF-8');
+%         fwrite(fid, [encoded_str, 10], 'uint8');
+%     
+%     end
+% 
+%     fclose(fid);
+% 
+% end

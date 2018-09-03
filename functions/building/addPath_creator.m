@@ -27,10 +27,14 @@ function addPath_creator()
     %
     % :todo: change addpath to addpath(genpath('file')) ?
     %
-    addPath_creator_write(code_cell)
-
-    out= [datestr(now()),'  |  builder_addpath() created'];
-    disp(out)
+    target_path = fullfile('functions','auto_generated');
+    file_name = ('builder_addPath.m');
+    
+    utf8_write_to_file(target_path, file_name, code_cell )
+%     addPath_creator_write(code_cell)
+% 
+%     out= [datestr(now()),'  |  builder_addpath() created'];
+%     disp(out)
 
 end
 
@@ -117,31 +121,31 @@ function code_cell = addPath_creator_core(opt)
 
 end
 
-
-function addPath_creator_write(code_cell)
-    %% writes the created function to a .m file
-
-    % if necessary create the folder for that file
-    ext=exist(fullfile('functions','auto_generated'),'dir');
-    if ext~=7
-        mkdir(fullfile('functions','auto_generated'));
-    end
-
-    fid=fopen(fullfile('functions','auto_generated','builder_addPath.m'),'w');
-    if fid <3
-        error('builder_addPath.m could not be created (the file itself not the code)')
-    end
-
-    % Write a cell array of strings to a *.m file
-    % Assumes each cell is a separate line
-    for ii = 1:size(code_cell,1)
-        
-        encoded_str = unicode2native(code_cell{ii}, 'UTF-8'); 
-        fwrite(fid, [encoded_str, 10], 'uint8');
-
-    end
-
-    fclose(fid);
-
-end
+% 
+% function addPath_creator_write(code_cell)
+%     %% writes the created function to a .m file
+% 
+%     % if necessary create the folder for that file
+%     ext=exist(fullfile('functions','auto_generated'),'dir');
+%     if ext~=7
+%         mkdir(fullfile('functions','auto_generated'));
+%     end
+% 
+%     fid=fopen(fullfile('functions','auto_generated','builder_addPath.m'),'w');
+%     if fid <3
+%         error('builder_addPath.m could not be created (the file itself not the code)')
+%     end
+% 
+%     % Write a cell array of strings to a *.m file
+%     % Assumes each cell is a separate line
+%     for ii = 1:size(code_cell,1)
+%         
+%         encoded_str = unicode2native(code_cell{ii}, 'UTF-8'); 
+%         fwrite(fid, [encoded_str, 10], 'uint8');
+% 
+%     end
+% 
+%     fclose(fid);
+% 
+% end
 
