@@ -1,10 +1,12 @@
 function o = add_subfolder(p)
 % What does it do ?
+%
 % :param p:    opt - struct carrying configuration for processor/core
-% :param type: struct
+% :type p: struct
 % :returns:  opt - added substructs and fields (boolean)
 % :rtype: struct
-    gustav=1+1;  %debgging hook
+%
+    gustav=1+1;  %debugging hook
 
    if isa(p,'char')
       o.(p)=   struct();

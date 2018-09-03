@@ -1,8 +1,10 @@
 function addPath_creator()
     %% create a function to add all relevant folders to the **current** MATLAB path
-    % [1] filter out any level 1  directory 
-    % [2] create the file calls 
-    % [3] write the function to an .m-file 
+    %
+    % 1. filter out any level 1  directory 
+    % 2. create the file calls 
+    % 3. write the function to an .m-file
+    %
 
     %% [1] 
     pFolder_dirNames = levelOneDirQuery();

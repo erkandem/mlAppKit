@@ -1,6 +1,9 @@
 %% extract modify save
 function mlapp_to_m(mlappfile_loc,view_type)
-    % Hardest part is to identify the methods and properties to edit
+    %% depending on the viewtype of the input file, the classdef .m is eiher 
+    %  1. just stripped from the .mlapp file
+    %  2. or additionally modified to be compatible
+    %
     % :param mlappfile_loc: filepath to the .mlapp file which is going to be linked
     % :param view_type: one of the three specific view types
 

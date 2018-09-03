@@ -1,4 +1,7 @@
 function opt = project_parts()
+% Analyze the project structure
+% Uses the :ref:`mignore_reader() <mignore_reader>`
+%
 
 %% filter out any level 1  directory 
     a_Name_dir            = levelOneDirQuery();

@@ -1,12 +1,19 @@
-Sample Content 
+Examples
 ===================
 
-The git  project comes with a basic  but nontheless working axample
+Built in 
+------------------
+The git  project comes with a basic but nontheless working example
 consisting of:
 
-* host application 
-*  pop-up views
-*  plugin views
+#. documentation sample
+#. host application 
+#. pop-up views
+#. one group of thee plugin views
+
+
+Structuring your own documentation on the go
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 here is an example on how easy it to include basic documentation
@@ -24,22 +31,23 @@ and basic comments into a MATLAB project:
 	the next classdef
 	----------------
 	
-For more details see the spinx documentation 
-
+For more details see the spinx documentation or take a look in the appendix
 
 
 Host Application
-----------------
+^^^^^^^^^^^^^^^^^^
+
 For a more general introduction you may want to look at the getting started or readme part.
 Apart from some naming conventions, declare but uninitialized properties, a startup function
 and callbacks for the navigation menu there is nothing special about the  file
 
 Except that:
 
-* it is located in the `main` folder within the project root folder
-* and that their may only be one  host
+1. it is located in the `host` folder within the project root folder
+2. and that their may only be one host
 
 Of course, you could chain up multiple `classdef` files in a series.
+But I did not go to far into that
 
 .. automodule:: host.mfiles
 .. autoclass:: host_app
@@ -48,7 +56,7 @@ Of course, you could chain up multiple `classdef` files in a series.
 
 
 Plugin Views
-------------
+^^^^^^^^^^^^^^^^^^
 You may create any amount of plugin  views, which may have multiple other plugins
 That is exactly the idea. For example create a file selection/navigation app strip it off
 of its  `UIfigure` and load it into a plugin view
@@ -56,7 +64,7 @@ of its  `UIfigure` and load it into a plugin view
 I would recommend changing the content of the existing samples:
 
 bigredone
-^^^^^^^^^^
+""""""""""""""""""
 
 .. automodule:: firstplugin.mfiles
 .. autoclass:: bigredone
@@ -66,14 +74,14 @@ bigredone
     
     
 secondbigredone
-^^^^^^^^^^^^^^^^
+"""""""""""""""""
 .. autoclass:: secondbigredone
     :members:
     :show-inheritance:
     :undoc-members:
 
 smallredone
-^^^^^^^^^^^^
+""""""""""""""""""""""""
 
 .. autoclass:: smallredone
     :members:
@@ -82,15 +90,15 @@ smallredone
 	
 
 Popup Views
------------
+^^^^^^^^^^^^^^^^^^
 PopUps are essential to save real estate or introducing 
 new features which are not yet fully integrated into the GUI.
 
 Example usages would be  options, license details, update checks.
 I included two samples :class:`popup_about` and :class:`popup_settings` 
 
-
-
+popup_about
+"""""""""""""""""""""""
 .. automodule:: popups.mfiles
 .. autoclass:: popup_about
     :members:
@@ -99,7 +107,7 @@ I included two samples :class:`popup_about` and :class:`popup_settings`
 
 
 settings
-^^^^^^^^
+"""""""""""""""""""""""
 
 .. autoclass:: popup_settings
     :members:

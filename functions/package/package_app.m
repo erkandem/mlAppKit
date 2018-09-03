@@ -1,9 +1,12 @@
 function package_app(confi)
-%% enable the user to create  files to compile or distribute as source
+%% enable the user to create copy all dependencies into a single folder
 %
 % :param confi: configuration struct (optional)
-% :type struct:
-%
+% :type confi: struct
+% 
+% :warning: beware of duplicate filenames !
+%        
+% 
     if nargin == 0
         confi    = struct();
         confi    = package_app_query_part(confi);

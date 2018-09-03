@@ -82,7 +82,7 @@ classdef host_app < matlab.apps.AppBase
         function secondbigredoneMenuSelected(app, event)
             % switch the view
             % 
-            % see also: :ref:`panel_visibility_switch() <panel_visibility>`
+            % see also: :ref:`panel_visibility_switch() <panel_visibility_switch>`
             %
             target_tag='secondbigredone';
             panel_visibility_switch(app,target_tag)
