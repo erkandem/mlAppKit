@@ -17,7 +17,8 @@ function code_cell=mat_codegen(opt)
     func_dec={'function conversion_launcher()'};
     func_end={'end'};
     
-    one_sp={' '};
+    one_sp=' ';
+    four_sp= '    ';
 
     fHead_views  ='mlapp_to_m';
     fHead_popups ='mlapp_to_m';
@@ -39,7 +40,7 @@ function code_cell=mat_codegen(opt)
 
         for j =1:numel(file_names)
                 
-                c1(k,1) = {[fHead_views,rb_o,'fullfile',rb_o,char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_views ]};
+                c1(k,1) = {[four_sp,fHead_views,rb_o,'fullfile',rb_o,char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_views ]};
                 k=k+1;        
         end
     end
@@ -54,17 +55,24 @@ function code_cell=mat_codegen(opt)
 
         for j =1:numel(file_names)
                 
-                c2(k,1) = {[fHead_popups,rb_o,'fullfile',rb_o,char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_popups ]};
+                c2(k,1) = {[four_sp,fHead_popups,rb_o,'fullfile',rb_o,char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_popups ]};
                 k=k+1;        
         end
     end
 clear k  i j
 %% ----------------host------------------------
-    k=1;
-    c3(k,1) = {[fHead_popups,rb_o,'fullfile',rb_o,char(39),'host',char(39),',',char(39),'host_app','.mlapp',char(39),rb_c,',',ffoot_host ]};
-    k=k+1;        
+    folder_names ={'host'};
+    k = 1;
+    for i = 1: numel(folder_names)
+        
+        file_names = fieldnames(opt.(folder_names{i})) ;
+        for j =1:numel(file_names)
+            
+            c3(k,1) ={[four_sp,fHead_popups,rb_o,'fullfile',rb_o,char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_host ]};
+            k = k+1;        
+        end
+    end
     clear k  i j
-
 %% -------------collect number of lines----------------------
     num_c1   = size(c1,1) ;
     num_c2   = size(c2,1) ;
@@ -104,19 +112,19 @@ clear k  i j
 %% add a comment header to the created f(x)
 % contains sphinx rst formatting
     header = {...
-    '%% generates the `classdef` .m-files in the subdirectory' 
-    '% of each .mlapp-file called `mfiles` ';
-    '% ';
-    '% :input: no input '; 
-    '% :returns: void';
-    '% ';
-    '% :warning: ANY CHANGE IN THIS FUNCTION AUTOMATICALLY CREATED FUNCTION WILL BE LOST';
-    '%           a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`conversion_func_generator` ';
-    '%           b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW';
-    '% ';
-    '% :note: see also: :ref:`conversion_func_generator() <conversion_func_generator>` ';
-    '% ';
-    ' ';
+    '    %% generates the `classdef` .m-files in the subdirectory' 
+    '    % of each .mlapp-file called `mfiles` ';
+    '    % ';
+    '    % :input: no input '; 
+    '    % :returns: void';
+    '    % ';
+    '    % :warning: ANY CHANGE IN THIS FUNCTION AUTOMATICALLY CREATED FUNCTION WILL BE LOST';
+    '    %           a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`conversion_func_generator` ';
+    '    %           b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW';
+    '    % ';
+    '    % :note: see also: :ref:`conversion_func_generator() <conversion_func_generator>` ';
+    '    % ';
+    '     ';
     };
 
     % split codel_cell
@@ -137,7 +145,7 @@ function write_conversion_launcher(code_cell)
     end
 
     fid=fopen(fullfile('functions','auto_generated','conversion_launcher.m'),'w');
-    if fid~=3
+    if fid<3
          error('conversion_launcher.m could not be created (the file itself not the code)')
     end
 

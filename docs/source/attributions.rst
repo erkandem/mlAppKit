@@ -34,3 +34,8 @@ online .rst editor
 http://rst.ninjs.org/?theme=nature
 
 https://github.com/anru/rsted
+
+JSON SYNTAX CHECK
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://www.beautifyconverter.com/json-beautifier.php

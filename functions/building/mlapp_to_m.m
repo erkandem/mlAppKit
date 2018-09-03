@@ -29,10 +29,10 @@ function mlapp_to_m(mlappfile_loc,view_type)
     % Convert to cell array for compatibility with other routines
     my_m_code = strsplit(my_m_code, '\n', 'CollapseDelimiters', 0)';
 
-%% [II] edit the aquired code 
-% [0] find the component declarations and edit it 
-%           currently (R2018a/b) buttons menu etc are defined 
-%           in the first paragraf after the "calssdef" string 
+%% [II] edit the acquired code 
+% [0] find the component declarations and edit them 
+%           currently (R2018a/b) buttons, menu, etc. are defined 
+%           in the first paragraph after the "calssdef" string 
     switch view_type
     case {'popup'}    
     case {'host'}    
@@ -49,7 +49,14 @@ function mlapp_to_m(mlappfile_loc,view_type)
             error('no p-block identified');
         end
         % [1.1]   cache the UI Figure component name for later replacement
-        [tmpblock, uif_handle ]   = uif_commenter(tmpblock);
+       % [tmpblock, uif_handle ]   = uif_commenter(tmpblock);
+        
+        ui_index     = find( ~cellfun('isempty',(regexp(tmpblock,'\w*matlab.ui.Figure\w*') ) ));
+        uif_handle   = split(strtrim(tmpblock{1}));
+        uif_handle   = uif_handle(1); % boooooOOOOOOoooooombaaaaaaaa ;)
+
+        tmpblock(ui_index)={['%', tmpblock{ui_index} ]};
+    
         uif_handle= uif_handle{1};
 
         my_m_code(p_start: p_end,1) =               tmpblock;
@@ -93,7 +100,8 @@ function mlapp_to_m(mlappfile_loc,view_type)
             end
         end
     
-% [1.6] switch out the parameter passed to the main_Panel 
+% [1.6] switch out the parameter passed to the main_Panel from `self.UIFigure` to
+% `host.UIFigure`
  %my_m_code  =  uif_panel_paramater_switcher(my_m_code,uif_handle);
         for gamma =1
             ui_index3  =  find( ~cellfun('isempty',(regexp(my_m_code,['uipanel(app[.]',uif_handle]) )) );
@@ -120,12 +128,8 @@ function mlapp_to_m(mlappfile_loc,view_type)
     % [2] create file write code
     fid=fopen(fullfile(fpath, 'mfiles',[appname,'.m']),'w');
   
-    %   fid = fopen('lol.m','w');
-    % UTF-8 for compatibility reasons-
-      % e.g. documenting the project with sphinx ( takes only utf8 input)
-  
+
     for i = 1:numel(my_m_code)
-        % fprintf(fid, '%s\n', my_m_code{i}); % dependend on local encoding
         encoded_str = unicode2native(my_m_code{i}, 'UTF-8'); 
         fwrite(fid, [encoded_str, 10], 'uint8');
     end
@@ -158,26 +162,26 @@ function excerpt = p_block(my_m_code)
         n_p_blocks       = length(p_block_start );
         p_block_pair = zeros(n_p_blocks, 2);
     
-    for j = 1 
-        p_block_pair(j, 1) = p_block_start(j);
+        for j = 1 
+            p_block_pair(j, 1) = p_block_start(j);
+            
+            % Find first end statement after the property block declaration
+            end_statements_after       = end_statements(end_statements > p_block_start(j));
+            p_block_pair(j, 2) = (min(end_statements_after));
+            
+            % excerpt
+            
+            p_start = p_block_pair(j,1)+ 1 ;
+            p_end   = p_block_pair(j,2)- 1;
         
-        % Find first end statement after the property block declaration
-        end_statements_after       = end_statements(end_statements > p_block_start(j));
-        p_block_pair(j, 2) = (min(end_statements_after));
+            excerpt.tmpblock = my_m_code(p_start : p_end);   
+            
+            
+            excerpt.p_start = p_start ;
+            excerpt.p_end   = p_end ;
         
-        % excerpt
-        
-        p_start = p_block_pair(j,1)+ 1 ;
-        p_end   = p_block_pair(j,2)- 1;
-        
-        excerpt.tmpblock = my_m_code(p_start : p_end);   
-        
-        
-        excerpt.p_start = p_start ;
-        excerpt.p_end   = p_end ;
+        end
         
     end
-        
-end
     
 end

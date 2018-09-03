@@ -4,7 +4,7 @@ function o = add_subfolder(p)
 % :param type: struct
 % :returns:  opt - added substructs and fields (boolean)
 % :rtype: struct
-   
+    gustav=1+1;  %debgging hook
 
    if isa(p,'char')
       o.(p)=   struct();

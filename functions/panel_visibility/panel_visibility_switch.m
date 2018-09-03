@@ -15,7 +15,7 @@ function panel_visibility_switch(app,target_tag)
 % :type target_tag: str
 % :returns: ` void `
 %
-    fn_app      = fieldnames(app );
+    fn_app      = fieldnames(app);
     fn_app_type = cell(numel(fn_app),1);
 
     for i = 1 : numel(fn_app)
@@ -48,10 +48,6 @@ function panel_visibility_switch(app,target_tag)
                     if ismember('main_Panel',level4_fn)
                         if isa(app.(fn_app{i}).(level3_fn{z}).main_Panel,'matlab.ui.container.Panel')
                         % compare the title
-                        % :todo: menu entries must be the same as the TITLE of the panel in the class
-                        % Example: app.m2_launch.m2a_stinger.main_Panel.Title
-                        % app.(fn_app{i}).(level3_fn{z}).main_Panel.Title='Stinger'
-                        % call_raised_by = CMEcalcpanel
 
                         
                             if strcmp(call_raised_by,app.(fn_app{i}).(level3_fn{z}).main_Panel.Tag)

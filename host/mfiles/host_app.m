@@ -29,7 +29,9 @@ classdef host_app < matlab.apps.AppBase
     % 
         home   % internal usage, 
         
-        firstplugin   % plugin, for firstplugin carrying the red buttons
+        plugins   % plugin, for firstplugin carrying the red buttons
+        
+        cache     % in app cache (unused in boilerplate)
     
     end
 
