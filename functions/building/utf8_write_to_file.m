@@ -1,5 +1,13 @@
 
 function     utf8_write_to_file(target_path, file_name, my_m_code )
+    %% Write code [n x 1] cell array to text-file in unicode encoding
+    % :param target_path: relative path to target 
+    % :type target_path: Char Array
+    % :param file_name: filename including fileextension
+    % :type file_name: Char Array
+    % :param my_m_code: code to be written to file
+    % :type file_name: Cell Array
+    %
     
     % [1] check for an existing 
     if exist(target_path ,'dir')~=7

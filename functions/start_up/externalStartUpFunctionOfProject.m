@@ -1,5 +1,5 @@
 function externalStartUpFunctionOfProject(app)
-%% The :func:`startupFnc`    is used to:
+    %% The :func:`startupFnc`    is used to:
     %   + intatiate the plugins
     %   + assign appropriate tags to the plugins
     %   + and resize the window and center it on the user screen
@@ -11,7 +11,7 @@ function externalStartUpFunctionOfProject(app)
     %
     % :todo: mandatory name `app.uif` for UIFigure of host app? (app.uif)
     %
-    % :todo: autogenerate the connections 
+    % :todo: autogenerate the connections below
     %
     
     % get the name of the ui figure
@@ -26,9 +26,9 @@ function externalStartUpFunctionOfProject(app)
     
     f = cell2mat(fn_app(isisnot));
     %-----------------------Edit this part------------------------%         
-    app.plugins.bigredone           =  bigredone(app.(f));        %
-    app.plugins.secondbigredone     =  secondbigredone(app.(f));  %
-    app.plugins.smallredone         =  smallredone(app.(f));      %
+    app.plugins.firstplugin.bigredone           =  bigredone(app.(f));        %
+    app.plugins.firstplugin.secondbigredone     =  secondbigredone(app.(f));  %
+    app.plugins.firstplugin.smallredone         =  smallredone(app.(f));      %
     %-----------------until here freely   ------------------------%
     %--- The syntax hereafter is given then derived from above
     
@@ -37,9 +37,9 @@ function externalStartUpFunctionOfProject(app)
     %            
             
     % set visibility to "off" by default
-    app.plugins.bigredone.main_Panel.Visible       = 'off'; %
-    app.plugins.secondbigredone.main_Panel.Visible = 'off'; %
-    app.plugins.smallredone.main_Panel.Visible     = 'off'; %
+    app.plugins.bigredone.firstplugin.main_Panel.Visible       = 'off'; %
+    app.plugins.secondbigredone.firstplugin.main_Panel.Visible = 'off'; %
+    app.plugins.smallredone.firstplugin.main_Panel.Visible     = 'off'; %
     
     app.HomePanel.Visible                          = 'on';
            
@@ -48,9 +48,9 @@ function externalStartUpFunctionOfProject(app)
     %           
         
     % assign tags
-    app.plugins.bigredone.main_Panel.Tag         = 'bigredone'; %
-    app.plugins.secondbigredone.main_Panel.Tag   = 'secondbigredone';    %
-    app.plugins.smallredone.main_Panel.Tag       = 'smallredone';    %
+    app.plugins.firstplugin.bigredone.main_Panel.Tag         = 'bigredone'; %
+    app.plugins.firstplugin.secondbigredone.main_Panel.Tag   = 'secondbigredone';    %
+    app.plugins.firstplugin.smallredone.main_Panel.Tag       = 'smallredone';    %
             %----
     app.HomePanel.Tag                    = 'home';
 
