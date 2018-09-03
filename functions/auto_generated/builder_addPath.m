@@ -28,4 +28,5 @@ function builder_addPath()
     addpath(fullfile('functions','start_up'));
     addpath(fullfile('host','mfiles'));
     addpath(fullfile('popups','mfiles'));
+    addpath(genpath(fullfile('static')));
 end
