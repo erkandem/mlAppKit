@@ -11,7 +11,7 @@ Welcome to mlAppBinder’s documentation!
    :caption: Contents:
 
    includeme
-   functions_index
+   f_index
    views_index
    issues_index
    attributions

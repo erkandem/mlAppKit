@@ -37,9 +37,9 @@ function externalStartUpFunctionOfProject(app)
     %            
             
     % set visibility to "off" by default
-    app.plugins.bigredone.firstplugin.main_Panel.Visible       = 'off'; %
-    app.plugins.secondbigredone.firstplugin.main_Panel.Visible = 'off'; %
-    app.plugins.smallredone.firstplugin.main_Panel.Visible     = 'off'; %
+    app.plugins.firstplugin.bigredone.main_Panel.Visible       = 'off'; %
+    app.plugins.firstplugin.secondbigredone.main_Panel.Visible = 'off'; %
+    app.plugins.firstplugin.smallredone.main_Panel.Visible     = 'off'; %
     
     app.HomePanel.Visible                          = 'on';
            

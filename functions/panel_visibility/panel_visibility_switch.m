@@ -37,6 +37,7 @@ function panel_visibility_switch(app,target_tag)
 
     for i =1: numel( fn_app )
     % skip if it is the uifigure
+    fgh = 1 + 1; % debugging hook
         if isa(app.(fn_app{i}),'matlab.ui.Figure')
             continue
         end
@@ -45,11 +46,34 @@ function panel_visibility_switch(app,target_tag)
             for z =1:numel( level3_fn)
                 try
                     level4_fn=fieldnames(app.(fn_app{i}).(level3_fn{z}));
+                    if isa(app.(fn_app{i}).(level3_fn{z}), 'struct')
+                        % new
+                        for jj = 1:numel(level4_fn) 
+                            level5_fn=fieldnames(app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}));
+                            if ismember('main_Panel',level5_fn)
+                         
+                                if isa(app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}).main_Panel,'matlab.ui.container.Panel')
+                                    % compare the tag
+                                    if strcmp(call_raised_by,app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}).main_Panel.Tag)
+                                        app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}).main_Panel.Visible ='On';
+                                    else
+                                        app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}).main_Panel.Visible ='Off';
+                                    end
+                            
+                                end    
+                        
+                            end
+
+                        end
+                        
+                    else 
+                        % old
+                    end
                     if ismember('main_Panel',level4_fn)
                         if isa(app.(fn_app{i}).(level3_fn{z}).main_Panel,'matlab.ui.container.Panel')
-                        % compare the title
-
-                        
+                        % compare the tag
+                            
+                            
                             if strcmp(call_raised_by,app.(fn_app{i}).(level3_fn{z}).main_Panel.Tag)
                                 app.(fn_app{i}).(level3_fn{z}).main_Panel.Visible ='On';
                             else
