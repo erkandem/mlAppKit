@@ -6,16 +6,16 @@ function mlappkit_quickstart_execution(project_dir)
 % ask for the project name ?
 % known structure `? or build as you go ?
 % run the manual ?
-
+error ('not operational yet')
 
 mkdir (project_dir)
 mkdir (project_dir,'-docs');
 
 mkdir (fullfile( project_dir, 'functions'))
 mkdir (fullfile( project_dir, 'host_app') );
-mkdir (fullfile ( project_dir, 'popups' ));
-mkdir (fullfile ( project_dir, 'settings' ));
-mkdir (fullfile ( project_dir, 'docs' ));
+mkdir (fullfile( project_dir, 'popups' ));
+mkdir (fullfile( project_dir, 'settings' ));
+mkdir (fullfile( project_dir, 'docs' ));
 
 % create files
 mig= fopen(fullfile ( project_dir, '.mignore' ));
