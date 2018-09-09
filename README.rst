@@ -158,7 +158,9 @@ Installing
 
    mkdir yourNewPorjectFolder
 
+   
 .. code:: bash
+
    git clone 'mlAppKit'
 
 

@@ -13,8 +13,7 @@ function conversion_launcher()
     % 
      
     mlapp_to_m(fullfile('firstplugin','bigredone.mlapp'),'plugin');
-    mlapp_to_m(fullfile('firstplugin','secondbigredone.mlapp'),'plugin');
-    mlapp_to_m(fullfile('firstplugin','smallredone.mlapp'),'plugin');
+    mlapp_to_m(fullfile('firstplugin','calculator.mlapp'),'plugin');
     mlapp_to_m(fullfile('popups','popup_about.mlapp'),'popup');
     mlapp_to_m(fullfile('popups','popup_settings.mlapp'),'popup');
     mlapp_to_m(fullfile('host','host_app.mlapp'),'host');

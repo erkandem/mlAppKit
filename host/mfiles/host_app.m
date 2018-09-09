@@ -7,7 +7,6 @@ classdef host_app < matlab.apps.AppBase
         firstPluginMenu      matlab.ui.container.Menu
         bigredoneMenu        matlab.ui.container.Menu
         secondbigredoneMenu  matlab.ui.container.Menu
-        smallredoneMenu      matlab.ui.container.Menu
         HelpMenu             matlab.ui.container.Menu
         AboutMenu            matlab.ui.container.Menu
         SettingsMenu         matlab.ui.container.Menu
@@ -79,18 +78,12 @@ classdef host_app < matlab.apps.AppBase
         end
 
         % Menu selected function: secondbigredoneMenu
-        function secondbigredoneMenuSelected(app, event)
+        function calculatorMenuSelected(app, event)
             % switch the view
             % 
             % see also: :ref:`panel_visibility_switch() <panel_visibility_switch>`
             %
-            target_tag='secondbigredone';
-            panel_visibility_switch(app,target_tag)
-        end
-
-        % Menu selected function: smallredoneMenu
-        function smallredoneMenuSelected(app, event)
-            target_tag='smallredone';
+            target_tag='calculator';
             panel_visibility_switch(app,target_tag)
         end
 
@@ -126,17 +119,12 @@ classdef host_app < matlab.apps.AppBase
             % Create bigredoneMenu
             app.bigredoneMenu = uimenu(app.firstPluginMenu);
             app.bigredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @bigredoneMenuSelected, true);
-            app.bigredoneMenu.Text = 'Red Button 1';
+            app.bigredoneMenu.Text = 'Rocket Launch';
 
             % Create secondbigredoneMenu
             app.secondbigredoneMenu = uimenu(app.firstPluginMenu);
-            app.secondbigredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @secondbigredoneMenuSelected, true);
-            app.secondbigredoneMenu.Text = 'Red Button 2';
-
-            % Create smallredoneMenu
-            app.smallredoneMenu = uimenu(app.firstPluginMenu);
-            app.smallredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @smallredoneMenuSelected, true);
-            app.smallredoneMenu.Text = 'Red Button 3';
+            app.secondbigredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @calculatorMenuSelected, true);
+            app.secondbigredoneMenu.Text = 'Calculator';
 
             % Create HelpMenu
             app.HelpMenu = uimenu(app.uif);

@@ -26,9 +26,8 @@ function externalStartUpFunctionOfProject(app)
     
     f = cell2mat(fn_app(isisnot));
     %-----------------------Edit this part------------------------%         
-    app.plugins.firstplugin.bigredone           =  bigredone(app.(f));        %
-    app.plugins.firstplugin.secondbigredone     =  secondbigredone(app.(f));  %
-    app.plugins.firstplugin.smallredone         =  smallredone(app.(f));      %
+    app.plugins.firstplugin.bigredone      =  bigredone(app.(f));        %
+    app.plugins.firstplugin.calculator     =  calculator(app.(f));  %    %
     %-----------------until here freely   ------------------------%
     %--- The syntax hereafter is given then derived from above
     
@@ -38,9 +37,8 @@ function externalStartUpFunctionOfProject(app)
             
     % set visibility to "off" by default
     app.plugins.firstplugin.bigredone.main_Panel.Visible       = 'off'; %
-    app.plugins.firstplugin.secondbigredone.main_Panel.Visible = 'off'; %
-    app.plugins.firstplugin.smallredone.main_Panel.Visible     = 'off'; %
-    
+    app.plugins.firstplugin.calculator.main_Panel.Visible = 'off'; %
+ 
     app.HomePanel.Visible                          = 'on';
            
     %
@@ -49,8 +47,7 @@ function externalStartUpFunctionOfProject(app)
         
     % assign tags
     app.plugins.firstplugin.bigredone.main_Panel.Tag         = 'bigredone'; %
-    app.plugins.firstplugin.secondbigredone.main_Panel.Tag   = 'secondbigredone';    %
-    app.plugins.firstplugin.smallredone.main_Panel.Tag       = 'smallredone';    %
+    app.plugins.firstplugin.calculator.main_Panel.Tag   = 'calculator';    %
             %----
     app.HomePanel.Tag                    = 'home';
 

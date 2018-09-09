@@ -73,21 +73,14 @@ bigredone
     :undoc-members:
     
     
-secondbigredone
+calculator
 """""""""""""""""
-.. autoclass:: secondbigredone
+.. autoclass:: calculator
     :members:
     :show-inheritance:
     :undoc-members:
 
-smallredone
-""""""""""""""""""""""""
 
-.. autoclass:: smallredone
-    :members:
-    :show-inheritance:
-    :undoc-members:
-	
 
 Popup Views
 ^^^^^^^^^^^^^^^^^^
