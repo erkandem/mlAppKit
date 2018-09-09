@@ -5,10 +5,14 @@ function make(pdir)
     if nargin ==0
         projectDir = pwd;
     else 
-        currentdir = pdir;
+        projectDir = pdir;
     end
-
+    
+    try
     addpath(fullfile('functions','building'));
+    catch
+        sprintf('%s',"warning: function/building doesn't exist yet")
+    end
     addPath_creator()
 
 %% add the project files to MATLAB's <session> search  path
@@ -36,6 +40,6 @@ function make(pdir)
 
 %% launch the app 
 % started from the obtained m-files not the .mlapp file
-  %  app_launch();
- sprintf('%s','Aplication built successfully! ')
+ app_launch();
+ sprintf('%s','Aplication built successfully! ');
 end

@@ -1,5 +1,8 @@
-function conversion_func_generator()
+function conversion_func_generator(project_dir)
     %% creates the  f(x) to extract the .m-files out of the .mlapp file
+    if nargin ==0
+        project_dir =pwd();
+    end
     opt= project_parts();
 
     %% generate the f(x) from the configuration struct
@@ -8,7 +11,7 @@ function conversion_func_generator()
     %% write result into an .m-file
     % write_conversion_launcher(code_cell);
    
-	target_path = fullfile('functions','auto_generated');
+	target_path = fullfile(project_dir,'functions','auto_generated');
 	file_name   = 'conversion_launcher.m';
 	utf8_write_to_file(target_path, file_name, code_cell )
 

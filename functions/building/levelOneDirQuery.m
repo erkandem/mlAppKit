@@ -9,7 +9,7 @@ function meta_Name_dir  = levelOneDirQuery(qPar)
 % Level one ( one subdirecotry below, as defined by qPar)
 
 	if nargin == 0
-		qPar=pwd;
+		qPar=pwd();
 	end
         
 	meta          = dir ( fullfile(qPar));

@@ -1,10 +1,14 @@
-function addPath_creator()
+function addPath_creator(project_dir)
     %% create a function to add all relevant folders to the **current** MATLAB path
     %
     % 1. filter out any level 1  directory 
     % 2. create the file calls 
     % 3. write the function to an .m-file
     %
+    if nargin == 1
+    elseif nargin == 0
+        project_dir = pwd();
+    end
 
     %% [1] 
     pFolder_dirNames = levelOneDirQuery();
@@ -29,7 +33,7 @@ function addPath_creator()
     %
     % :todo: change addpath to addpath(genpath('file')) ?
     %
-    target_path = fullfile('functions','auto_generated');
+    target_path = fullfile(project_dir,'functions','auto_generated');
     file_name = ('builder_addPath.m');
     
     utf8_write_to_file(target_path, file_name, code_cell )

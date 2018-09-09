@@ -11,13 +11,12 @@ function c = mignore_reader(migDir)
     if nargin ==1        
         fid =fopen(fullfile(migDir,'.mignore'));
     else
-        fid =fopen('.mignore');
+        fid =fopen('.mignore'); % assumes .mignore is in the working directory
     end
     
     if fid ==-1
-        msgbox({'There is no .mignore file in the project'  });
+        msgbox({'Warning: There is no .mignore file in the project'  });
              %   'Shell I create one?';...
-              
     end
 
 	y = 1;
