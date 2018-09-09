@@ -1,12 +1,13 @@
 Known Issues
 ============
 
-If you come across a Bug or other issue please report it  in the `Github Section <https://github.com/erkandem/mlAppFlex/issues>`_
+If you come across a Bug or other issue please report it in 
+the `Github Section <https://github.com/erkandem/mlAppFlex/issues>`_
 Let's keep this going until Mathworks finds a way to ***** it up.
 
-Since this file is static any reference in the issues section on github should be checked first.
+Since this file is static any reference in the issues 
+section on GitHub should be checked first.
 But here are some aspect which I came across:
-
 
 flush the cache
 ^^^^^^^^^^^^^^^^

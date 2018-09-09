@@ -4,9 +4,9 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = mlAppSDK
+SPHINXPROJ    = mlAppKit
 SOURCEDIR     = source
-BUILDDIR      = ../../mlAppSDK
+BUILDDIR      = ../../mlAppKit
 
 # Put it first so that "make" without argument is like "make help".
 help:

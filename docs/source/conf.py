@@ -16,15 +16,23 @@ import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+# support for gif type media
+from sphinx.builders.html import StandaloneHTMLBuilder
+StandaloneHTMLBuilder.supported_image_types = [
+    'image/svg+xml',
+    'image/gif',
+    'image/png',
+    'image/jpeg'
+]
 
 # -- Project information -----------------------------------------------------
 
-project = 'mlAppSDK'
+project = 'mlAppKit'
 copyright = '2018, Erkan Demiralay'
 author = 'Erkan Demiralay'
 
 # The short X.Y version
-version = '3.1'
+version = '4.1'
 # The full version, including alpha/beta/rc tags
 release = 'v2018'
 
@@ -44,6 +52,8 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinxcontrib.matlab',
     'sphinx.ext.autosectionlabel',
+    'sphinx.ext.autosummary',
+    'sphinx_git'
 ]
 
 matlab_src_dir = os.path.abspath('../..')
@@ -129,6 +139,8 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+#html_logo = '_static/icons/initialgreeks.png'
+
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
@@ -143,12 +155,16 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'mlAppSDKdoc'
+htmlhelp_basename = 'mlAppKitdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
+'papersize': 'letterpaper',
+'pointsize': '11pt'
+}
+
     # The paper size ('letterpaper' or 'a4paper').
     #
     # 'papersize': 'letterpaper',
@@ -164,13 +180,13 @@ latex_elements = {
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
-}
+
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'mlAppSDK.tex', 'mlAppSDK Documentation',
+    (master_doc, 'mlAppKit.tex', 'mlAppKit Documentation',
      'Erkan Demiralay', 'manual'),
 ]
 
@@ -180,7 +196,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'mlAppSDK', 'mlAppSDK Documentation',
+    (master_doc, 'mlAppKit', 'mlAppKit Documentation',
      [author], 1)
 ]
 
@@ -191,8 +207,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'mlAppSDK', 'mlAppSDK Documentation',
-     author, 'mlAppSDK', 'One line description of project.',
+    (master_doc, 'mlAppKit', 'mlAppKit Documentation',
+     author, 'mlAppKit', 'One line description of project.',
      'Miscellaneous'),
 ]
 

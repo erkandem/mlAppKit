@@ -1,9 +1,9 @@
-.. mlAppBinder documentation master file, created by
+.. mlAppKit documentation master file, created by
    sphinx-quickstart on Wed Aug 29 01:18:17 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to mlAppBinder’s documentation!
+Welcome to mlAppKit's documentation!
 =======================================
 
 .. toctree::
@@ -16,6 +16,7 @@ Welcome to mlAppBinder’s documentation!
    issues_index
    attributions
    about
+   changelog
 
 Indices and tables
 ==================

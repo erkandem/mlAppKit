@@ -1,7 +1,7 @@
 Examples
 ===================
 
-Built in 
+Built in  Example
 ------------------
 The git  project comes with a basic but nontheless working example
 consisting of:

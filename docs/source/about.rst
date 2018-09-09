@@ -2,18 +2,23 @@
 
 About 
 ================
-NAME is an toolbox to  enhence your app development workflow.
+mlAppKit was written to enhence app development workflow.
 
 
-The general idea is to bridge the gap between the highly customizable but intensly labourous and bugprone programmatic and drag and drop comfy way using App Designer.
-
-App Desinger i going to abreviated by AD
+The general idea is to bridge the gap between the highly 
+customizable but intensly labourous and bugprone programmatic 
+and drag and drop comfy way using App Designer.
+App Desinger is going to abreviated by AD
 
 Background
 """"""""""
 
-Mathworks Developers did a great job in creating AD. It was the first GUI design tool I worked with which obvously results in a bias towards it.
-Looking at what's genrally possible to create for desktop apps and what's possible with AD I took a look at couple of points are unsatifying
+Mathworks Developers did a great job in creating AD. 
+It was the first GUI design tool I worked with which 
+obvously results in a bias towards it.
+Looking at what's genrally possible to create for desktop 
+apps and what's possible with AD I took a look at 
+couple of points are unsatifying
 
 * creating apps is easy peasy, combining existing applications into a single app can get very messy.
 * the coding experience in AD is pretty weak and gets quite sluggish passing a system specific magic number of lines
@@ -27,11 +32,15 @@ As a result of  these issues the general result is an monstrous monolithic apps 
 * aglomates unneeded code
 * performance is slowed down.
 
-The other extreme is that you might have couple of apps which are started from one menu.
-This keeps every sub app clean but having 10 applications on your desktop is not the way to go.
+The other extreme is that you might have couple of 
+apps which are started from one menu. This keeps every 
+sub app clean but having 10 applications on your desktop 
+is not the way to go.
 
-Creating some apps for myself I realized that most of what I created was single use only. 
-This is cynic since the rockbottom of these apps are classes which are intended to be reusable objects.
+Creating some apps for myself I realized that most of 
+what I created was single use only. This is cynic since the 
+rockbottom of these apps are classes which are intended 
+to be reusable objects.
 
 Trying to get more experience I used tools like:
 

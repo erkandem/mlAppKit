@@ -12,16 +12,21 @@ Functions
 ===============
 
 
-Routine Summary
---------------------
+Connecting the different Parts
+---------------------------------
 
-Single Entry Point
-^^^^^^^^^^^^^^^^^^^
+Internal Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^
 
-buildTheApp
-""""""""""""""
+externalStartUpFunctionOfProject
+""""""""""""""""""""""""""""""""""
+.. automodule:: functions.start_up
+.. autofunction:: externalStartUpFunctionOfProject
 
-.. function:: buildTheApp
+
+
+
+
 
 
 Core 
@@ -44,7 +49,6 @@ conversion_func_generator
 mlapp_to_m
 """""""""""""
 .. autofunction:: mlapp_to_m
-
 
 
 Utilities to the auto-functions
@@ -75,23 +79,14 @@ mignore_reader
 .. autofunction:: mignore_reader 
 
 
-Connecting the different Parts
----------------------------------
-
-Internal Dependencies
-^^^^^^^^^^^^^^^^^^^^^^^
-
-externalStartUpFunctionOfProject
-""""""""""""""""""""""""""""""""""
-.. automodule:: functions.start_up
-.. autofunction:: externalStartUpFunctionOfProject
-
 
 The Remote Controle
 ----------------------------
 
 GUIs to create GUIs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. warning:: This part is in development
+
 
 mlAppKit
 """""""""""""""""""""""""""""
@@ -162,3 +157,13 @@ panel_visibility_switch
 .. autofunction:: panel_visibility_switch
 
 
+The final step
+--------------------
+
+Building the app 
+^^^^^^^^^^^^^^^^^^^
+
+buildTheApp
+""""""""""""""
+
+.. function:: buildTheApp
