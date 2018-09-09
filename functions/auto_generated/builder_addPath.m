@@ -26,6 +26,7 @@ function builder_addPath()
     addpath(fullfile('functions','package'));
     addpath(fullfile('functions','panel_visibility'));
     addpath(fullfile('functions','start_up'));
+    addpath(fullfile('functions','templates'));
     addpath(fullfile('host','mfiles'));
     addpath(fullfile('popups','mfiles'));
     addpath(genpath(fullfile('static')));

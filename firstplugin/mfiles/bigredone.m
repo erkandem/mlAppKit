@@ -18,9 +18,9 @@ classdef bigredone < matlab.apps.AppBase
         % Button pushed function: LAUNCHButton
         function LAUNCHButtonPushed(app, event)
             msgbox('WooOOOOOooooosh!');
-            [y, Sr]=audioread( fullfile( pwd(), 'static', 'audio', 'launch.mp3'));
+          %  [y, Sr]=audioread( fullfile( pwd(), 'static', 'audio', 'launch.mp3'));
           
-            sound(y, Sr)
+           % sound(y, Sr)
         end
     end
 

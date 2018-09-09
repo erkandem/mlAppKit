@@ -12,8 +12,8 @@ Functions
 ===============
 
 
-Connecting the different Parts
----------------------------------
+Connecting the Host with Plugins and Pop Ups
+---------------------------------------------
 
 Internal Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -22,10 +22,6 @@ externalStartUpFunctionOfProject
 """"""""""""""""""""""""""""""""""
 .. automodule:: functions.start_up
 .. autofunction:: externalStartUpFunctionOfProject
-
-
-
-
 
 
 
@@ -51,8 +47,8 @@ mlapp_to_m
 .. autofunction:: mlapp_to_m
 
 
-Utilities to the auto-functions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Utilities to the Automatically Created Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 app_launch
 """"""""""""""""
@@ -80,8 +76,8 @@ mignore_reader
 
 
 
-The Remote Controle
-----------------------------
+The GUI to Develope GUIs
+----------------------------------------
 
 GUIs to create GUIs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,7 +143,7 @@ creates a scriptlike function to extract and edit the classef files
 Application Utilities
 -------------------------------
 
-Switching between Panels
+Switching Between Panels
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 panel_visibility_switch
@@ -160,10 +156,10 @@ panel_visibility_switch
 The final step
 --------------------
 
-Building the app 
+Building the App 
 ^^^^^^^^^^^^^^^^^^^
 
-buildTheApp
+make
 """"""""""""""
 
-.. function:: buildTheApp
+.. function:: make
