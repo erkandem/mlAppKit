@@ -51,7 +51,7 @@ classdef calculator < matlab.apps.AppBase
                     end
                 end
                 
-            else isa(value, 'double')
+            elseif isa(value, 'double')
                 
                 if isempty (app.screenField.Value{1} ) 
                     
