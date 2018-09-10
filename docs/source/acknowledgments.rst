@@ -1,5 +1,8 @@
-Attributions
-============
+
+
+
+Acknowledgments
+----------------
 I won't reinvent the wheel. There Are sources I get inspired to.
 Unlike the main project, these links are collected and or recreated after most of both the code and documentation was written.
 It is updated occasionaly

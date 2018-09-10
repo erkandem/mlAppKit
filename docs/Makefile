@@ -6,7 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = mlAppKit
 SOURCEDIR     = source
-BUILDDIR      = ../../mlAppKit
+BUILDDIR      = ../../mlAppKit-docs
 
 # Put it first so that "make" without argument is like "make help".
 help:

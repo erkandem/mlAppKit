@@ -11,16 +11,12 @@ Welcome to mlAppKit's documentation!
    :caption: Contents:
 
    includeme
+   cutOutFromReadme
    f_index
    views_index
    issues_index
-   attributions
    about
-   changelog
+   appendix_index
+   
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

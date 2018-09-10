@@ -28,7 +28,7 @@ externalStartUpFunctionOfProject
 Core 
 -----------------
 
-The three auto functions 
+The Three Core Functions 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -97,11 +97,6 @@ mlappkit_quickstart
 .. class:: mlappkit_quickstart
 
 inspired by the sphinx_quickstart way of creating a boilerplate 
-
-mlappkit_quickstart_execution
-"""""""""""""""""""""""""""""""""""""""""""""
-.. autofunction:: mlappkit_quickstart_execution
-
 Not working yet.
 routine which is executed. kept sepererate from the GUI file for easier access
 

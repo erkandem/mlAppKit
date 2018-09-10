@@ -53,7 +53,7 @@ extensions = [
     'sphinxcontrib.matlab',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.autosummary',
-    'sphinx_git'
+    'sphinx_git',
 ]
 
 matlab_src_dir = os.path.abspath('../..')
@@ -158,10 +158,11 @@ html_static_path = ['_static']
 htmlhelp_basename = 'mlAppKitdoc'
 
 
+	
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
-'papersize': 'letterpaper',
+'papersize': 'a4paper',
 'pointsize': '11pt'
 }
 
