@@ -128,6 +128,11 @@ classdef calculator < matlab.apps.AppBase
 
     methods (Access = private)
 
+        % Code that executes after component creation
+        function startupFcn(app)
+            
+        end
+
         % Button pushed function: dial_one
         function dial_oneButtonPushed(app, event)
             dial_button_pushed(app, 1);
@@ -355,6 +360,9 @@ classdef calculator < matlab.apps.AppBase
 
             % Register the app with App Designer
 %            registerApp(app, app.UIFigure)
+
+            % Execute the startup function
+            runStartupFcn(app, @startupFcn)
 
             if nargout == 0
                 clear app
