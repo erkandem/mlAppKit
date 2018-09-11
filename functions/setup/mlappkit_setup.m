@@ -27,9 +27,10 @@ function mlappkit_setup()
     opt.Interpreter = 'tex';
     opt.Resize      = 'on';
     prompt = ['\fontsize{12} mlAppKit will be installed here ',... 
-              '(will be created if it doesn`t existing)'];
+              '(will be created if it doesn`t exist)'];
 
     install_path = inputdlg(prompt, ...  % question
+                           'Setup',...
                  [1 90],...              % window size
                  {install_path},...      % suggestion
                  opt);                   % styling options
