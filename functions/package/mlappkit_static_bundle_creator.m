@@ -1,4 +1,4 @@
-function mlappkit_setup_bundle_creator()
+function mlappkit_static_bundle_creator()
 
     currentPrj = pwd();
     
