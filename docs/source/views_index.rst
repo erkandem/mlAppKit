@@ -63,11 +63,11 @@ of its  `UIfigure` and load it into a plugin view
 
 I would recommend changing the content of the existing samples:
 
-bigredone
+redbutton
 """"""""""""""""""
 
 .. automodule:: firstplugin.mfiles
-.. autoclass:: bigredone
+.. autoclass:: redbutton
     :members:
     :show-inheritance:
     :undoc-members:

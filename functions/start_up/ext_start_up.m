@@ -39,14 +39,14 @@ function ext_start_up(app)
     % .firstplugin : a specific term to group certain plugins
     % .calculator :  for simplicity reasons same as the application name
     % 
-    app.plugins.firstPlugin.bigredone      =  bigredone(app.(f));         %
+    app.plugins.firstPlugin.redbutton      =  redbutton(app.(f));         %
     app.plugins.firstPlugin.calculator     =  calculator(app.(f));        %
     % YOUR NEW APPLICATION HERE ( or replace the ones above)
     % example:
     % app.plugins.yourGroup.yourApp        =  yourApp(app.(f));
     
 	%% [ 2 ] assign a tag to each individual app ( simply use its appname e.g.)
-    app.plugins.firstPlugin.bigredone.main_Panel.Tag    = 'bigredone';    %
+    app.plugins.firstPlugin.bigredone.main_Panel.Tag    = 'redbutton';    %
     app.plugins.firstPlugin.calculator.main_Panel.Tag   = 'calculator';   %
     %app.plugins.yourGroup.yourApp.main_Panel.Tag       = 'yourApp';      %
     app.HomePanel.Tag                    = 'home';
