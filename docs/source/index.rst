@@ -3,8 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
+
+   
 Welcome to mlAppKit's documentation!
 =======================================
+
+
+
 
 .. toctree::
    :maxdepth: 1
@@ -18,5 +24,6 @@ Welcome to mlAppKit's documentation!
    about
    appendix_index
    
-
-
+   
+   
+   

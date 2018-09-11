@@ -2,18 +2,18 @@ classdef host_app < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-        uif                  matlab.ui.Figure
-        HomeMenu             matlab.ui.container.Menu
-        firstPluginMenu      matlab.ui.container.Menu
-        bigredoneMenu        matlab.ui.container.Menu
-        secondbigredoneMenu  matlab.ui.container.Menu
-        HelpMenu             matlab.ui.container.Menu
-        AboutMenu            matlab.ui.container.Menu
-        SettingsMenu         matlab.ui.container.Menu
-        DocumentationMenu    matlab.ui.container.Menu
-        LicenceMenu          matlab.ui.container.Menu
-        HomePanel            matlab.ui.container.Panel
-        MessageTextArea      matlab.ui.control.TextArea
+        uif                matlab.ui.Figure
+        HomeMenu           matlab.ui.container.Menu
+        firstPluginMenu    matlab.ui.container.Menu
+        bigredoneMenu      matlab.ui.container.Menu
+        calculatorMenu     matlab.ui.container.Menu
+        HelpMenu           matlab.ui.container.Menu
+        AboutMenu          matlab.ui.container.Menu
+        SettingsMenu       matlab.ui.container.Menu
+        DocumentationMenu  matlab.ui.container.Menu
+        LicenceMenu        matlab.ui.container.Menu
+        HomePanel          matlab.ui.container.Panel
+        MessageTextArea    matlab.ui.control.TextArea
     end
 
     
@@ -54,7 +54,7 @@ classdef host_app < matlab.apps.AppBase
 
         % Code that executes after component creation
         function startupFcn(app)
-            externalStartUpFunctionOfProject(app);
+            ext_start_up(app);
         end
 
         % Menu selected function: HomeMenu
@@ -77,7 +77,7 @@ classdef host_app < matlab.apps.AppBase
             panel_visibility_switch(app,target_tag)
         end
 
-        % Menu selected function: secondbigredoneMenu
+        % Menu selected function: calculatorMenu
         function calculatorMenuSelected(app, event)
             % switch the view
             % 
@@ -121,10 +121,10 @@ classdef host_app < matlab.apps.AppBase
             app.bigredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @bigredoneMenuSelected, true);
             app.bigredoneMenu.Text = 'Rocket Launch';
 
-            % Create secondbigredoneMenu
-            app.secondbigredoneMenu = uimenu(app.firstPluginMenu);
-            app.secondbigredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @calculatorMenuSelected, true);
-            app.secondbigredoneMenu.Text = 'Calculator';
+            % Create calculatorMenu
+            app.calculatorMenu = uimenu(app.firstPluginMenu);
+            app.calculatorMenu.MenuSelectedFcn = createCallbackFcn(app, @calculatorMenuSelected, true);
+            app.calculatorMenu.Text = 'Calculator';
 
             % Create HelpMenu
             app.HelpMenu = uimenu(app.uif);

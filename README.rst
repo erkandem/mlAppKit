@@ -1,100 +1,139 @@
 
-mlAppKit - Getting started
+mlAppKit
 ===========================
-
-a tool to enhance your work with ``MATLAB App Designer`` (.mlapp) ease
-maintenance, changes and reusing elements
+*build better GUIs more efficiently*
 
 --------------------------------
 
-:Author: Erkan Demiralay – Chemical Engineer
-:GitHub: `@erkandem <https://github.com/erkandem/>`_
-:Email:   ed@ivsurface.com
-:Web:    `erkan.io <http:/erkan.io>`_
-:Twitter: @kaninchen
-:Date: 06 Sept 2018
+:Author: Erkan Demiralay
+:Email:   `ed@m2py.com <mailto:ed@m2py.com>`_
+:Web:    `erkan.io <https://erkan.io>`_
+:GitHub: `erkandem/mlAppKit <https://github.com/erkandem/mlAppKit>`_
 
+:Requirement: MATLAB R 2016b or later
 
-Executive Summary
+Getting Started
+===================
+
+Summary
 ---------------------
-| 1
-| 2
-| 3
-| 4
-| 5
-| 6
+
+Creating GUIs with *MATLAB* has become very easy with *App Designer*.
+However, these GUIs usually stay either quite simple or
+get too big to maintain. Leverage your work with *App Designer* by using **mlAppKit** 
+which joins multiple standalone apps to one production app. This way you can keep 
+your standalone apps small and easy to maintain. Create more complex Apps 
+more professionaly  without loosing the benefits of the drag and drop experience 
+of *App Designer* once you go offroad by editing the underlying classdef code.
 
 
-Installing 
------------------
-
-As a Developer of mlAppKit
-"""""""""""""""""""""""""""
-
-.. code:: bash
-
-   $ git clone 'mlAppKit'
-
-As a User of mlAppKit
-""""""""""""""""""""""""""""""""
-
-.. code:: bash
-
-   $ git clone 'mlAppKit'
-   $ matlab functions/setup/setup.m
-
-
-
-Usage
+Installing and Usage
 ----------------------
-.. warning:: EXPAND `How To Use` Section
+
+Use the git clone command or download the zipped repository and run the :ref:`mlappkit_setup`
 
 .. code:: matlab
 
-   >> mlappkit_quickstart
+   >> mlappkit_setup()
 
 
-Build  a New Project
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The :ref:`mlappkit_quickstart` command will launch a dialog to install
-a boilerplate in the desired location of the files necessary to create your app.
+The :ref:`mlappkit_quickstart` command will launch a dialog to clone
+a boilerplate
 
-After that you can edit the the files.
+.. code:: matlab
+
+   >> mlappkit_quickstart()
+
+`CD`   into the directory and run the make command.
+
+.. code:: matlab
+
+   >> make()
+
+
+**Congrats**
+   
+adding your own app
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you already have an app:
+
+   #. Create a new folder within the project root directory and
+   #. Place your `.mlapp` file inside it
  
-Migrate Existing Projects
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Preparing Your Application
-""""""""""""""""""""""""""""""""""
-#. Create a toplevel `uipanel` from withing MATLAB App Designer
-   and put all of the content of your apllication in this container
-
-#. name this `uipanel`  **main_Panel**
+**I Preparing Your App**
+   
+   #. open your app in MATLAB App Designer
+   #. Create a new `uipanel` and rename it to **main_Panel**
+   #. copy paste your content into this  container
 
 
-Connectiong Your Application
-""""""""""""""""""""""""""""""""""
-.. warning:: EXPAND THIS 
+**II Connecting Your App**
 
-#. open `function/start_up/external.... .m` and create the bindings to your application
+Open up the :ref:`ext_start_up` and edit two sections
 
+.. code:: bash
 
+   .
+   └── functions  
+         └── start_up
+               └── ext_start_up.m 
+   
+.. code:: matlab
+   
+   % 1. Change `yourApp` with  the name of your `.mlapp` file.
+   % `yourGroup` is used for keep it tidy and is optional
+   app.plugins.yourGroup.yourApp        =  yourApp(app.(f));
 
-Outlook 
-------------------------------
-This is most properly an overkill, but anyway here it is.
+   % 2. assign a tag to each individual app ( simply use its appname e.g.)
+   app.plugins.yourGroup.yourApp.main_Panel.Tag           = 'yourApp';
 
+   % 3. Save And Exit
 
-Support, Issues, Featur Requests, Comments
+   
+**III Creating a Menu Enty for you App**
+
+Open the `host_app` from App Designer
+   
+.. code:: bash
+
+   .
+   └── host
+        └── host_app.mlapp
+   
+
+Add a menu item and a corresponding `Menu Selected Callback`
+
+.. code:: matlab 
+
+   % Menu selected function: yourAppMenu
+       function yourAppMenuSelected(app, event)
+          target_tag='yourApp';
+          panel_visibility_switch(app,target_tag)
+       end
+
+Hit :ref:`make` again and  its done.	
+   
+.. code:: bash
+   
+   >> make()
+
+**Wuhuuu** 
+
+Support, Feature Requests, Suggestions
 -------------------------------------------
-If you encounter issues you please check the issues section.
-If you would like to propose feature go for the issues section.
-materially support my work buy me a coffee.
 
-Particapating
----------------------
+If you need more info intel check out the  :ref:`documentation` .
+Generally, take a look at the `Issues Section <https://github.com/erkandem/mlAppKit/issues>`_
 
 
-Further Reading
-------------------------------------
-If you need more info please refer to the  `documentation <lol>`_
+:Commercial: contact-
+:Individuals: Community support
+
+
+Final Notes
+---------------
+
+The project is licensed with the MIT :ref:`License` .
+
+If your interested in :ref:`Contributing` 
