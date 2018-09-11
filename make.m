@@ -3,7 +3,7 @@ function make(pdir)
 
 %% Look at the  dependencies 
     if nargin ==0
-        projectDir = pwd;
+        projectDir = pwd();
     else 
         projectDir = pdir;
     end
@@ -13,7 +13,7 @@ function make(pdir)
     % loaded bundle has it centrally on the MATLABpath and doesn't
     % need to have the `building` in each project
     try
-        if exist (fullfile('functions','building'),'dir')==7 
+        if exist (fullfile(projectDir ,'functions','building'),'dir')==7 
             addpath(fullfile('functions','building'));
         end
     catch
