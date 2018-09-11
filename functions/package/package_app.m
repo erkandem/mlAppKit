@@ -4,9 +4,17 @@ function package_app(confi)
 % :param confi: configuration struct (optional)
 % :type confi: struct
 % 
-% :warning: beware of duplicate filenames !
+% .. todo:: (a) beware of duplicate filename conflict !
 %        
 % 
+% .. todo:: (b) offer option to reproduce source directory structure 
+%
+% 
+% .. todo:: (c) also copy the `static` folder, with assets like icon...
+%
+% .. todo:: (d) some kind of `launch_app` routine, to account fot the
+%           different file locations seethe  `todos` (a), (b) and(c)
+%
     if nargin == 0
         confi    = struct();
         confi    = package_app_query_part(confi);
@@ -24,6 +32,8 @@ function confi = package_app_query_part(confi)
     fn_confi = fieldnames(confi);
     
     % make a default selection of the parts of the application to package
+    % .. todo:: simplifiy, with pathsep() ?
+    %
     currentDir = pwd();
     if ismac || isunix
         pathsep= '/';
@@ -79,7 +89,8 @@ function package_app_export_part(confi)
     
     for i = 1: numel(confi.('fList'))
         % copies files into one single directory
-        % :todo: write a filename check to prevent overwriting
+        % .. todo:: write a filename check to prevent overwriting
+        %
         slashpos = regexp(confi.('fList'){i}, pathsep);
         
         fName    = confi.('fList'){i}(slashpos (end)+1 :end);

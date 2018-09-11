@@ -5,7 +5,7 @@ The Long Story
 
 
 State of App Designer
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 using MATLAB App Designer (AD) is almost as easy as working with a spreadsheets. 
 However, anyone with some experience with spreadsheets, knows that with 
 increasing complexity you're likly to hit an efficiency wall.
@@ -22,7 +22,7 @@ It is not different with AD:
 As a result apps tend to be single use apps.
 
 Existing Workarounds
----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most of the issues can be simply avoided by calling an external script, function, class or application from within the editable area:
 
@@ -49,32 +49,18 @@ The key to the success of this approach would be:
 Is there a way to bridge the gap between programmatic and visual app design in MATLAB?
 Since .mlapp files are container files the source code could be modified and zipped back.
 While it sounds like a easy patch. Note that surgery is avoided for a reason.
-It may work now, but the next version could break everything. [alpha]_
+It may work now, but the next version could break everything. [1]_
 In other words the procedure should be noninvasive - or - at least not rely upon keeping the patient alive.
 
-.. [alpha] Some analysis on the .mlapp file format `<https://undocumentedmatlab.com/blog/appdesigner-mlapp-file-format>`_
+.. [1] Some analysis on the .mlapp file format `<https://undocumentedmatlab.com/blog/appdesigner-mlapp-file-format>`_
 
 Approach Presented Via **mlAppKit**
------------------------------------
-This toolkit offers relief. 
-
-Extract Code from .mlapp
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-in courtesy of `StackOverflowMATLABchat <https://github.com/StackOverflowMATLABchat>`_
-
-.. code:: matlab
-   
-   evalcstr = sprintf('type(''%s‘’)’, 'app.mlapp'));
-   myMcode  = evalc(evalcstr); % evalcstr: 'type('app.mlapp')'
-
-
-Theory
----------------
 
 Anatomy
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""""""""""""""""
 Let's ... borrow ... the concept of **views** and **activities** from
 other IDEs such as Android Studio or any other.
 
@@ -98,6 +84,20 @@ views/activities:
    | serves as...                | socket board  | content      | both  |
    +-----------------------------+---------------+--------------+-------+
 
+   
+Extract Code from .mlapp
+""""""""""""""""""""""""""""""""""""""""""""""
+
+
+in courtesy of `StackOverflowMATLABchat <https://github.com/StackOverflowMATLABchat>`_
+
+.. code:: matlab
+   
+   evalcstr = sprintf('type(''%s‘’)’, 'app.mlapp'));
+   myMcode  = evalc(evalcstr); % evalcstr: 'type('app.mlapp')'
+
+
+   
 Project File and Folder  Structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -114,10 +114,10 @@ Project File and Folder  Structure
    │    │        └──host_app.m       # 
    │    │                            
    │    ├── firstplugin              # plugin: a standalone app byitself
-   │    │    ├── bigredone.mlapp     #         into your project
+   │    │    ├── redbutton.mlapp     #         into your project
    │    │    ├── [ ... ]             #
    │    │    └── mfiles              # extracted and edited classdef code 
-   │    │        └── bigredone.m     # 
+   │    │        └── redbutton.m     # 
    │    │        └── [ ... ]         
    │    │                            
    │    ├── [ ... ]                  # the key is that you may have as much 

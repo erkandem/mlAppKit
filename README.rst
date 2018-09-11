@@ -41,17 +41,19 @@ The :ref:`mlappkit_quickstart` command will launch a dialog to clone
 a boilerplate
 
 .. code:: matlab
-
-   >> mlappkit_quickstart()
+   
+   >> target_dir = pwd();
+   >> prj_name   = 'helloWorld' 
+   >> mlappkit_quickstart( target_dir , prj_name )
 
 `CD`   into the directory and run the make command.
 
 .. code:: matlab
-
+   
+   >> cd helloWorld
    >> make()
 
 
-**Congrats**
    
 adding your own app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -118,7 +120,7 @@ Hit :ref:`make` again and  its done.
    
    >> make()
 
-**Wuhuuu** 
+
 
 Support, Feature Requests, Suggestions
 -------------------------------------------
@@ -136,4 +138,4 @@ Final Notes
 
 The project is licensed with the MIT :ref:`License` .
 
-If your interested in :ref:`Contributing` 
+If you're interested in :ref:`Contributing` 

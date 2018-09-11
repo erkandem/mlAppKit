@@ -19,7 +19,7 @@ mlappkit_static_bundle_creator
 package_app
 """"""""""""""""""""""""""""""""""""""""""
 
-.. warning:: This part is in development
+.. warning:: This function is in development
 
 .. autofunction:: package_app
 
@@ -27,9 +27,7 @@ package_app
 plugger
 """"""""""""""""""""""""""""""""""""""""""
 
-.. warning:: This part is in development
+.. warning:: This function is in development
 
 .. autofunction:: plugger
-
-not working yet
 

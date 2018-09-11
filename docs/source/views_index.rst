@@ -9,7 +9,7 @@ consisting of:
 #. documentation sample
 #. host application 
 #. pop-up views
-#. one group of thee plugin views
+#. one group of plugin views
 
 
 Structuring your own documentation on the go

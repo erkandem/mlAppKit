@@ -6,6 +6,7 @@
 # ============
 *.m             text
 *.mu            text
+*.rst           text
 
 # Caution: *.m also matches Mathematica packages.
 
@@ -24,5 +25,5 @@
 *.mltbx         binary
 *.mlappinstall  binary
 *.mlpkginstall  binary
-*.mn binary
-*zip binary
+*.mn            binary
+*.zip           binary
