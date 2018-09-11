@@ -5,7 +5,7 @@ classdef host_app < matlab.apps.AppBase
         uif                matlab.ui.Figure
         HomeMenu           matlab.ui.container.Menu
         firstPluginMenu    matlab.ui.container.Menu
-        bigredoneMenu      matlab.ui.container.Menu
+        redbuttonMenu      matlab.ui.container.Menu
         calculatorMenu     matlab.ui.container.Menu
         HelpMenu           matlab.ui.container.Menu
         AboutMenu          matlab.ui.container.Menu
@@ -70,10 +70,10 @@ classdef host_app < matlab.apps.AppBase
             d=popup_settings; % new ui 
         end
 
-        % Menu selected function: bigredoneMenu
-        function bigredoneMenuSelected(app, event)
+        % Menu selected function: redbuttonMenu
+        function redbuttonMenuSelected(app, event)
             % switch the view
-            target_tag='bigredone';
+            target_tag='redbutton';
             panel_visibility_switch(app,target_tag)
         end
 
@@ -114,12 +114,12 @@ classdef host_app < matlab.apps.AppBase
 
             % Create firstPluginMenu
             app.firstPluginMenu = uimenu(app.uif);
-            app.firstPluginMenu.Text = 'Red Buttons';
+            app.firstPluginMenu.Text = 'A Group of Apps';
 
-            % Create bigredoneMenu
-            app.bigredoneMenu = uimenu(app.firstPluginMenu);
-            app.bigredoneMenu.MenuSelectedFcn = createCallbackFcn(app, @bigredoneMenuSelected, true);
-            app.bigredoneMenu.Text = 'Rocket Launch';
+            % Create redbuttonMenu
+            app.redbuttonMenu = uimenu(app.firstPluginMenu);
+            app.redbuttonMenu.MenuSelectedFcn = createCallbackFcn(app, @redbuttonMenuSelected, true);
+            app.redbuttonMenu.Text = 'Red Button';
 
             % Create calculatorMenu
             app.calculatorMenu = uimenu(app.firstPluginMenu);

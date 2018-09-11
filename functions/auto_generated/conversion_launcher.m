@@ -12,8 +12,8 @@ function conversion_launcher()
     % :note: see also: :ref:`conversion_func_generator() <conversion_func_generator>` 
     % 
      
-    mlapp_to_m(fullfile('firstplugin','bigredone.mlapp'),'plugin');
     mlapp_to_m(fullfile('firstplugin','calculator.mlapp'),'plugin');
+    mlapp_to_m(fullfile('firstplugin','redbutton.mlapp'),'plugin');
     mlapp_to_m(fullfile('popups','popup_about.mlapp'),'popup');
     mlapp_to_m(fullfile('popups','popup_settings.mlapp'),'popup');
     mlapp_to_m(fullfile('host','host_app.mlapp'),'host');
