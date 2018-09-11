@@ -46,7 +46,7 @@ function ext_start_up(app)
     % app.plugins.yourGroup.yourApp        =  yourApp(app.(f));
     
 	%% [ 2 ] assign a tag to each individual app ( simply use its appname e.g.)
-    app.plugins.firstPlugin.bigredone.main_Panel.Tag    = 'redbutton';    %
+    app.plugins.firstPlugin.redbutton.main_Panel.Tag    = 'redbutton';    %
     app.plugins.firstPlugin.calculator.main_Panel.Tag   = 'calculator';   %
     %app.plugins.yourGroup.yourApp.main_Panel.Tag       = 'yourApp';      %
     app.HomePanel.Tag                    = 'home';

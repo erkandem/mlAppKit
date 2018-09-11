@@ -8,11 +8,18 @@ function make(pdir)
         projectDir = pdir;
     end
     
+    
+    % git clone has it
+    % loaded bundle has it centrally on the MATLABpath and doesn't
+    % need to have the `building` in each project
     try
-    addpath(fullfile('functions','building'));
+        if exist (fullfile('functions','building'),'dir')==7 
+            addpath(fullfile('functions','building'));
+        end
     catch
         sprintf('%s',"warning: function/building doesn't exist yet")
     end
+    
     addPath_creator()
 
 %% add the project files to MATLAB's <session> search  path
