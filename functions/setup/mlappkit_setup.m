@@ -4,11 +4,10 @@ function mlappkit_setup()
     % the Setup will:
     %
     % #. suggest and let you confirm the target directory
-    % #. unpack the generic files into the confirmed location
+    % #. unpack the static files into the confirmed location
     % #. add those particular files to your MATLAB searchpath
     % #. save your current MATLAB searchpath
     %
-    % :todo: CREATE THE INSTALLATION BUNDLE / PACKAGE A RELEASE
     %
     % If at any time you should notice that something broke on your 
     % system please report the issue o the respective GitHub page with
@@ -23,7 +22,7 @@ function mlappkit_setup()
 
 
     % make  a default selection on the installation path
-    install_path    =  fullfile ( userpath, 'mlAppKit');
+    install_path    =  fullfile ( userpath(), 'mlAppKit');
     opt.Interpreter = 'tex';
     opt.Resize      = 'on';
     prompt = ['\fontsize{12} mlAppKit will be installed here ',... 
@@ -46,14 +45,14 @@ function mlappkit_setup()
     %
 
     % unzip bundle in target location
-    unzip ('mlAppKit_bundle.zip',path_to_project);
+    unzip ('mlappkit_static_bundle.zip',install_path);
 
     % rename if nececary
     % movefile(fullfile(path_to_project,'test'),complete_path ,'f');
 
     % run the addpath cascade for the generic function and templates
 
-    addpath(genpath ( path_to_project));
+    addpath(genpath ( install_path));
     savepath;
 
     % drop log, save log, and I dialog, run next steps / getting started /
