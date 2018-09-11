@@ -1,5 +1,12 @@
 function mlappkit_static_bundle_creator()
-
+    % creates s bundle of static parts of mlappkkit
+    % these functions are share with each project, since there is nothing
+    % project specific about them
+    %
+    % .. warning:: untested
+    %
+    % system(['tree ',pwd(),' /f /a > foo.txt '])
+    %
     currentPrj = pwd();
     
     projectName     = 'mlappkit_static_bundle';
@@ -58,7 +65,10 @@ function mlappkit_static_bundle_creator()
    if  exist(fullfile(currentPrj,'functions','templates'),'dir')~= 7 
        mkdir (fullfile(currentPrj,'functions','templates'));
    end
-   
+   if exist(fullfile(currentPrj,'functions','templates','mlappkit_static_bundle.zip'),'file') ~= 2
+        error ( 'run the generic bundle packager first')
+        
+   end
    zip(fullfile(currentPrj,'functions','templates','mlappkit_static_bundle.zip'),...
        complete_path);
  

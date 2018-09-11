@@ -1,10 +1,10 @@
-classdef bigredone < matlab.apps.AppBase
+classdef redbutton < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-%        uif_bigredbutton  matlab.ui.Figure
-        main_Panel        matlab.ui.container.Panel
-        LAUNCHButton      matlab.ui.control.Button
+%        uif_redbutton  matlab.ui.Figure
+        main_Panel     matlab.ui.container.Panel
+        LAUNCHButton   matlab.ui.control.Button
     end
 
     
@@ -30,14 +30,14 @@ classdef bigredone < matlab.apps.AppBase
         % Create UIFigure and components
         function  createComponents(app,external_handle) % $_$ flipped 
 
-            % Create uif_bigredbutton
-%            app.uif_bigredbutton = uifigure;
-%            app.uif_bigredbutton.Position = [1 1 1024 640];
-%            app.uif_bigredbutton.Name = 'Ultra Mega Super Duper Bien App';
+            % Create uif_redbutton
+%            app.uif_redbutton = uifigure;
+%            app.uif_redbutton.Position = [1 1 1024 640];
+%            app.uif_redbutton.Name = 'Ultra Mega Super Duper Bien App';
 
             % Create main_Panel
             app.main_Panel = uipanel(external_handle);
-            app.main_Panel.Title = 'BugRedOne';
+            app.main_Panel.Title = 'Do not Push the Red Button';
             app.main_Panel.Position = [1 1 1024 640];
 
             % Create LAUNCHButton
@@ -54,13 +54,13 @@ classdef bigredone < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-            function app = bigredone(external_handle) % $_$ flipped 
+            function app = redbutton(external_handle) % $_$ flipped 
 
             % Create and configure components
              createComponents(app,external_handle) % $_$ flipped 
 
             % Register the app with App Designer
-%            registerApp(app, app.uif_bigredbutton)
+%            registerApp(app, app.uif_redbutton)
 
             if nargout == 0
                 clear app
@@ -71,7 +71,7 @@ classdef bigredone < matlab.apps.AppBase
         function delete(app)
 
             % Delete UIFigure when app is deleted
-%            delete(app.uif_bigredbutton)
+%            delete(app.uif_redbutton)
         end
     end
 end

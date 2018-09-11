@@ -123,7 +123,7 @@ Hit :ref:`make` again and  its done.
 Support, Feature Requests, Suggestions
 -------------------------------------------
 
-If you need more info intel check out the  :ref:`documentation` .
+If you need more info intel check out the  documentation.
 Generally, take a look at the `Issues Section <https://github.com/erkandem/mlAppKit/issues>`_
 
 

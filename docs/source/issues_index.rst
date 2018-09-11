@@ -9,10 +9,26 @@ Since this file is static any reference in the issues
 section on GitHub should be checked first.
 But here are some aspect which I came across:
 
+Migration
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+"My apps  already have  a menu" 
+""""""""""""""""""""""""""""""""""""""""""""""
+Three  considerations:
+   
+   #. Change the menu bar to an panel of buttons 
+   #. make this as your new :ref:`host_app`
+   #. use it as a :ref:`popup`
+   
+
+   
+
 Errors
 ^^^^^^^^^^^^^^^^^^^^
-flush the cache
-"""""""""""""""""""""""
+
+"My changes are not reflected in the project files."
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Flush the cache.
 
 If you change large parts of your application in app designer, maker sure to 
 clear the `mfiles` directories from the old mfiles.
@@ -24,8 +40,8 @@ This is valid for:
 + LaTeX files
 
 
-Too many input arguments
-""""""""""""""""""""""""
+"Too many input arguments ..."
+""""""""""""""""""""""""""""""""""""""""""""""""
 
 .. code:: matlab 
 
@@ -43,7 +59,7 @@ Too many input arguments
 
 
 
-Unable to find function
+Unable to find function ...""
 """"""""""""""""""""""""""""""""
 .. code:: matlab
 
