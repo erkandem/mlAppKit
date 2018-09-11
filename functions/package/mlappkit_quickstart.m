@@ -8,7 +8,7 @@ function mlappkit_quickstart(path_to_project, projectName)
     % error ('not operational yet')
     
     complete_path = fullfile(path_to_project,projectName);
-    unzip ('mlAppKit_template.zip',path_to_project);
+    unzip ('mlappkit_qst.zip',path_to_project);
     
     movefile(fullfile(path_to_project,'test'),complete_path ,'f');
 
