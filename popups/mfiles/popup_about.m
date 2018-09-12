@@ -6,12 +6,14 @@ classdef popup_about < matlab.apps.AppBase
         AboutPanel             matlab.ui.container.Panel
         creditLabel            matlab.ui.control.Label
         linkedbutton           matlab.ui.control.Button
-        allrightsreservedErkanDemiralayLabel  matlab.ui.control.Label
-        HistoryTextAreaLabel   matlab.ui.control.Label
-        HistoryTextArea        matlab.ui.control.TextArea
+        crLabel                matlab.ui.control.Label
+        LicenseBoilerplateAppTextAreaLabel  matlab.ui.control.Label
+        LicenseTextArea        matlab.ui.control.TextArea
         FeedbackTextAreaLabel  matlab.ui.control.Label
-        FeedbackTextArea       matlab.ui.control.TextArea
+        AboutTextArea          matlab.ui.control.TextArea
         ghbutton               matlab.ui.control.Button
+        mailButton             matlab.ui.control.Button
+        linkToProject          matlab.ui.control.TextArea
     end
 
     methods (Access = private)
@@ -20,7 +22,17 @@ classdef popup_about < matlab.apps.AppBase
         function linkedbuttonPushed(app, event)
             % launch the system browser to open a (company/ project) specific webpage
             % 
-            web('https://github.com/erkandem/');
+            web('https://erkan.io');
+        end
+
+        % Button pushed function: mailButton
+        function mailButtonButtonPushed(app, event)
+            web('mailto:ed@erkan.io');
+        end
+
+        % Button pushed function: ghbutton
+        function ghbuttonButtonPushed(app, event)
+            web('https://github.com/erkandem');
         end
     end
 
@@ -46,44 +58,66 @@ classdef popup_about < matlab.apps.AppBase
             % Create creditLabel
             app.creditLabel = uilabel(app.AboutPanel);
             app.creditLabel.Position = [151 28 251 22];
-            app.creditLabel.Text = 'This file was created using an app template by ';
+            app.creditLabel.Text = 'This app was created using template by ';
 
             % Create linkedbutton
             app.linkedbutton = uibutton(app.AboutPanel, 'push');
             app.linkedbutton.ButtonPushedFcn = createCallbackFcn(app, @linkedbuttonPushed, true);
-            app.linkedbutton.Position = [451 8 31 22];
+            app.linkedbutton.Icon = 'ic_insert_link_black_48dp.png';
+            app.linkedbutton.IconAlignment = 'center';
+            app.linkedbutton.Position = [451 8 30 32];
             app.linkedbutton.Text = '';
 
-            % Create allrightsreservedErkanDemiralayLabel
-            app.allrightsreservedErkanDemiralayLabel = uilabel(app.AboutPanel);
-            app.allrightsreservedErkanDemiralayLabel.Position = [151 8 260 22];
-            app.allrightsreservedErkanDemiralayLabel.Text = '© 2018 all rights reserved --- Erkan Demiralay';
+            % Create crLabel
+            app.crLabel = uilabel(app.AboutPanel);
+            app.crLabel.Position = [151 8 260 22];
+            app.crLabel.Text = '© 2018 all rights reserved --- Erkan Demiralay';
 
-            % Create HistoryTextAreaLabel
-            app.HistoryTextAreaLabel = uilabel(app.AboutPanel);
-            app.HistoryTextAreaLabel.HorizontalAlignment = 'center';
-            app.HistoryTextAreaLabel.Position = [31 408 43 22];
-            app.HistoryTextAreaLabel.Text = 'History';
+            % Create LicenseBoilerplateAppTextAreaLabel
+            app.LicenseBoilerplateAppTextAreaLabel = uilabel(app.AboutPanel);
+            app.LicenseBoilerplateAppTextAreaLabel.HorizontalAlignment = 'center';
+            app.LicenseBoilerplateAppTextAreaLabel.Position = [55 220 134 22];
+            app.LicenseBoilerplateAppTextAreaLabel.Text = 'License - Boilerplate App:';
 
-            % Create HistoryTextArea
-            app.HistoryTextArea = uitextarea(app.AboutPanel);
-            app.HistoryTextArea.Position = [31 230 260 170];
-            app.HistoryTextArea.Value = {'a) License Information'};
+            % Create LicenseTextArea
+            app.LicenseTextArea = uitextarea(app.AboutPanel);
+            app.LicenseTextArea.Editable = 'off';
+            app.LicenseTextArea.Position = [31 70 579 142];
+            app.LicenseTextArea.Value = {'MIT License'; ''; 'Copyright (c) 2018 Erkan Demiralay'; ''; 'Permission is hereby granted, free of charge, to any person obtaining a copy'; 'of this software and associated documentation files (the "Software"), to deal'; 'in the Software without restriction, including without limitation the rights'; 'to use, copy, modify, merge, publish, distribute, sublicense, and/or sell'; 'copies of the Software, and to permit persons to whom the Software is'; 'furnished to do so, subject to the following conditions:'; ''; 'The above copyright notice and this permission notice shall be included in all'; 'copies or substantial portions of the Software.'; ''; 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR'; 'IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,'; 'FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE'; 'AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER'; 'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,'; 'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE'; 'SOFTWARE.'};
 
             % Create FeedbackTextAreaLabel
             app.FeedbackTextAreaLabel = uilabel(app.AboutPanel);
-            app.FeedbackTextAreaLabel.Position = [386 398 55 22];
+            app.FeedbackTextAreaLabel.Position = [31 408 55 22];
             app.FeedbackTextAreaLabel.Text = 'Feedback';
 
-            % Create FeedbackTextArea
-            app.FeedbackTextArea = uitextarea(app.AboutPanel);
-            app.FeedbackTextArea.Position = [388 230 199 160];
-            app.FeedbackTextArea.Value = {'a) email link'; 'b) in app email response'};
+            % Create AboutTextArea
+            app.AboutTextArea = uitextarea(app.AboutPanel);
+            app.AboutTextArea.Editable = 'off';
+            app.AboutTextArea.Position = [33 310 567 90];
+            app.AboutTextArea.Value = {'This Project is based on mlAppKit.'; ''; 'mlAppKit was developed to bridge the gap between programmatic GUI design'; 'and the semi automatic drag and drop experience from MATLAB App Designer.'; 'The project is available at Github:'};
 
             % Create ghbutton
             app.ghbutton = uibutton(app.AboutPanel, 'push');
-            app.ghbutton.Position = [411 8 31 22];
+            app.ghbutton.ButtonPushedFcn = createCallbackFcn(app, @ghbuttonButtonPushed, true);
+            app.ghbutton.Icon = 'github.png';
+            app.ghbutton.IconAlignment = 'center';
+            app.ghbutton.Position = [411 8 30 32];
             app.ghbutton.Text = '';
+
+            % Create mailButton
+            app.mailButton = uibutton(app.AboutPanel, 'push');
+            app.mailButton.ButtonPushedFcn = createCallbackFcn(app, @mailButtonButtonPushed, true);
+            app.mailButton.Icon = 'ic_email_48pt_3x.png';
+            app.mailButton.IconAlignment = 'center';
+            app.mailButton.Position = [491 8 30 32];
+            app.mailButton.Text = '';
+
+            % Create linkToProject
+            app.linkToProject = uitextarea(app.AboutPanel);
+            app.linkToProject.Editable = 'off';
+            app.linkToProject.HorizontalAlignment = 'center';
+            app.linkToProject.Position = [33 283 567 20];
+            app.linkToProject.Value = {'https/github.com/erkandem/mlappkit'};
         end
     end
 

@@ -46,15 +46,23 @@ function mlappkit_setup()
 
     % unzip bundle in target location
     unzip ('mlappkit_static_bundle.zip',install_path);
-
+    
     % rename if nececary
     % movefile(fullfile(path_to_project,'test'),complete_path ,'f');
-
+    
     % run the addpath cascade for the generic function and templates
-
+    
     addpath(genpath ( install_path));
     savepath;
-
+    
     % drop log, save log, and I dialog, run next steps / getting started /
     % readme etc....
+    
+    sprintf('%s','  Done. mlAppKit is installed in: ')
+    sprintf('%s',   install_path );
+    sprintf('%s','  ');
+    sprintf('%s','  ');
+    
+    
+    
 end

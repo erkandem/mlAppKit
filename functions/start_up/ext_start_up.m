@@ -49,7 +49,7 @@ function ext_start_up(app)
     app.plugins.firstPlugin.redbutton.main_Panel.Tag    = 'redbutton';    %
     app.plugins.firstPlugin.calculator.main_Panel.Tag   = 'calculator';   %
     %app.plugins.yourGroup.yourApp.main_Panel.Tag       = 'yourApp';      %
-    app.HomePanel.Tag                    = 'home';
+    app.homePanel.Tag                    = 'home';
     
     %---------------------------------------------------------------------%  
     %----------95% of the users can save and exit ;) ---------------------% 

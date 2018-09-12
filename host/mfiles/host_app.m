@@ -12,8 +12,7 @@ classdef host_app < matlab.apps.AppBase
         SettingsMenu       matlab.ui.container.Menu
         DocumentationMenu  matlab.ui.container.Menu
         LicenceMenu        matlab.ui.container.Menu
-        HomePanel          matlab.ui.container.Panel
-        MessageTextArea    matlab.ui.control.TextArea
+        homePanel          matlab.ui.container.Panel
     end
 
     
@@ -148,16 +147,11 @@ classdef host_app < matlab.apps.AppBase
             app.LicenceMenu = uimenu(app.HelpMenu);
             app.LicenceMenu.Text = 'Licence';
 
-            % Create HomePanel
-            app.HomePanel = uipanel(app.uif);
-            app.HomePanel.AutoResizeChildren = 'off';
-            app.HomePanel.Title = 'Home';
-            app.HomePanel.Position = [1 1 1024 640];
-
-            % Create MessageTextArea
-            app.MessageTextArea = uitextarea(app.HomePanel);
-            app.MessageTextArea.Position = [291 460 315 80];
-            app.MessageTextArea.Value = {''; 'option for static or dynamic welcome content'; 'but could be removed'};
+            % Create homePanel
+            app.homePanel = uipanel(app.uif);
+            app.homePanel.AutoResizeChildren = 'off';
+            app.homePanel.BackgroundColor = [1 1 1];
+            app.homePanel.Position = [1 1 1024 640];
         end
     end
 

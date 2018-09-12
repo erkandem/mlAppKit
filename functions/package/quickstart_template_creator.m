@@ -4,6 +4,8 @@ function quickstart_template_creator()
    %
    % working directory == currentPrj
    %
+   % .. todo:: automate the quickstart template generation
+   %
     currentPrj = pwd();
     
     projectName     = 'mlappkit_qst';
@@ -21,7 +23,7 @@ function quickstart_template_creator()
     mkdir (fullfile( complete_path , 'functions','panel_visibility'))
     mkdir (fullfile( complete_path , 'settings' ));
     mkdir (fullfile( complete_path , 'docs' ));
-    mkdir (fullfile( complete_path , 'static' ));
+    mkdir (fullfile( complete_path , 'static' , 'icons' ));
     
     %% create files
     mig= fopen(fullfile ( complete_path , '.mignore' ),'w');
@@ -67,30 +69,53 @@ function quickstart_template_creator()
     %    matlab.codetools.requiredFilesAndProducts(fullfile(pwd(), 'host','host_app.mlapp'))';
 
     [~,~,~] =...
-      copyfile( fullfile(currentPrj ,'functions','panel_visibility','panel_visibility_switch.m'),...
+      copyfile( fullfile( currentPrj ,'functions','panel_visibility','panel_visibility_switch.m'),...
                 fullfile( complete_path , 'functions','panel_visibility' ),...
                 'f') ;
     [~,~,~] =...
-      copyfile( fullfile(currentPrj ,'make.m'),...
+      copyfile( fullfile( currentPrj ,'make.m'),...
                 fullfile( complete_path ),...
                 'f') ;
     [~,~,~] =...
-      copyfile( fullfile(currentPrj ,'functions','start_up','ext_start_up.m'),...
+      copyfile( fullfile( currentPrj ,'functions','start_up','ext_start_up.m'),...
                 fullfile( complete_path , 'functions','start_up' ),...
                 'f') ;
     % create a readme
     % write  a licence
-
-   %% package it  
-   % zip it   % copy it into template folder
-   if  exist(fullfile(currentPrj,'functions','templates'),'dir')~= 7 
-       mkdir (fullfile(currentPrj,'functions','templates'));
-   end
-   
-   zip(fullfile(currentPrj,'functions','templates','mlappkit_qst.zip'),...
-       complete_path);
- 
-   % delete temporary files
-   rmdir(complete_path, 's');
+    %% add COMPLETE contents of the static/icons folder
+       
+    m = dir (fullfile ( currentPrj,'static', 'icons' ));
+    isfile = ~cell2mat({m.isdir}');
+    
+    
+    m = m(isfile);
+    s = cell(1,1);
+    
+    for i = 1 : numel(m) 
+        s{end+1,1} = fullfile( m(i).folder, m(i).name);
+    end
+    s= s(2:end); % delete the empty first cell
+    
+    for i = 1:numel ( s) 
+    [~,~,~] =...
+             copyfile( s{i},...
+                       fullfile( complete_path , 'static','icons' ),...
+                       'f') ;
+    end
+    
+    clear m i s 
+    
+    
+    %% package it  
+    % zip it   % copy it into template folder
+    if  exist(fullfile(currentPrj,'functions','templates'),'dir')~= 7 
+        mkdir (fullfile(currentPrj,'functions','templates'));
+    end
+    
+    zip(fullfile(currentPrj,'functions','templates','mlappkit_qst.zip'),...
+        complete_path);
+    
+    % delete temporary files
+    rmdir(complete_path, 's');
    
 end

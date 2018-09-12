@@ -32,24 +32,18 @@ function confi = package_app_query_part(confi)
     fn_confi = fieldnames(confi);
     
     % make a default selection of the parts of the application to package
-    % .. todo:: simplifiy, with pathsep() ?
     %
-    currentDir = pwd();
-    if ismac || isunix
-        pathsep= '/';
-    elseif ispc
-        pathsep = '\';
-    end
-    
-    slashesPos      = regexp(currentDir,pathsep);
+    currentDir      = pwd();
+    slashesPos      = regexp(currentDir,filesep() );
     projectFolder   = currentDir (slashesPos(end)+1:end);
     folderPath      = currentDir (1:slashesPos(end)-1);
     fullProjectPath = currentDir;
         
-    confi.('projectFolder')        = projectFolder ;
+    confi.('projectFolder')      = projectFolder ;
     confi.('fullProjectPath')    = fullProjectPath ;
      
-    % ask for the default file and folder name
+    % ask for the default file and folder name?
+    % default rojectname + timestamp for now
     if  isempty(fn_confi)
         confi.('fileName') = [projectFolder,'_',datestr(now(),'yyyymmddHHMMSS')];
     end
@@ -58,16 +52,31 @@ function confi = package_app_query_part(confi)
         confi.('folderPath') =         folderPath ;
     end
     
-    % parts to package
+    % parts to package - run MATLABs dependency analysis
     if  isempty(fn_confi)
 
-    fList = matlab.codetools.requiredFilesAndProducts(...
-        fullfile(confi.('fullProjectPath'),'host','mfiles','host_app.m'));
-    fList = fList(:);
-    confi.('fList')=fList;
+        fList = matlab.codetools.requiredFilesAndProducts(...
+            fullfile(confi.('fullProjectPath'),'host','mfiles','host_app.m'));
+        fList = fList(:);
+        confi.('fList')=fList;
     
     end
     
+    % add the icon folder content
+    
+         m = dir (fullfile ( confi.('fullProjectPath'),'static', 'icons' ));
+    isfile = ~cell2mat({m.isdir}');
+    
+    m = m(isfile);
+    s = cell(1,1);
+    
+    for i = 1 : numel(m) 
+        s{end+1,1} = fullfile( m(i).folder, m(i).name);
+    end
+    s= s(2:end); % delete the empty first cell
+    
+    confi.('fList')=[ confi.('fList');s];
+  
 end
 
 function package_app_export_part(confi)
@@ -81,17 +90,12 @@ function package_app_export_part(confi)
         mkdir(confi.('targetDir'));
     end
 
-    if ismac || isunix
-        pathsep= '/';
-    elseif ispc
-        pathsep = '\';
-    end
-    
+
     for i = 1: numel(confi.('fList'))
         % copies files into one single directory
         % .. todo:: write a filename check to prevent overwriting
         %
-        slashpos = regexp(confi.('fList'){i}, pathsep);
+        slashpos = regexp(confi.('fList'){i}, filesep());
         
         fName    = confi.('fList'){i}(slashpos (end)+1 :end);
         
@@ -101,12 +105,13 @@ function package_app_export_part(confi)
         
     end
     
-    target_dir = dir ( confi.('targetDir'));
+    target_dir   = dir ( confi.('targetDir'));
     target_names = {target_dir.name};
     target_isdir = [target_dir.isdir];
     target_names= target_names(~target_isdir );
      
-    zip(fullfile ( confi.('targetDir'), [confi.fileName,'.zip']) ,...
+    % zip(zipfilename,filenames,rootfolder)
+    zip( fullfile ( confi.('targetDir'), [confi.fileName,'.zip']) ,...
         target_names,...
         confi.('targetDir'))
     

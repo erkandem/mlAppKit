@@ -31,5 +31,7 @@ function builder_addPath()
     addpath(fullfile('functions','templates'));
     addpath(fullfile('host','mfiles'));
     addpath(fullfile('popups','mfiles'));
+    addpath(fullfile('static','audio'));
+    addpath(fullfile('static','icons'));
     addpath(genpath(fullfile('static')));
 end
