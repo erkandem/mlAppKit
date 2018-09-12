@@ -33,5 +33,7 @@ function builder_addPath()
     addpath(fullfile('popups','mfiles'));
     addpath(fullfile('static','audio'));
     addpath(fullfile('static','icons'));
+    addpath(fullfile('static','img'));
+    addpath(fullfile('static','weyw'));
     addpath(genpath(fullfile('static')));
 end
