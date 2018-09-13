@@ -7,22 +7,29 @@ function mlappkit_static_bundle_creator()
     %
     % system(['tree ',pwd(),' /f /a > foo.txt '])
     %
-    currentPrj = pwd();
     
-    projectName     = 'mlappkit_static_bundle';
-    path_to_project = fullfile ( userpath()      , 'mlappkit_static_bundle');
-    complete_path   = fullfile ( path_to_project , projectName) ;
+    %% path intel
     
-    %% create the minimum folder structure
-    mkdir (complete_path)
+    conf.currentDir      = pwd();
+    conf.slashesPos      = regexp(conf.currentDir,filesep() );
+    conf.projectFolder   = conf.currentDir (conf.slashesPos(end)+1:end);
+    conf.folderPath      = conf.currentDir (1:conf.slashesPos(end)-1);
+    conf.fullProjectPath = conf.currentDir;
 
-    mkdir (fullfile( complete_path , 'functions','building'))
-    mkdir (fullfile( complete_path , 'functions','package'))
-    mkdir (fullfile( complete_path , 'functions','templates'))
-    mkdir (fullfile( complete_path , 'functions','setup'))
+    conf.projectName     = [conf.projectFolder,'_static_bundle'];
+    conf.path_to_project = fullfile ( userpath()      ,  conf.projectName);
+    conf.complete_path   = fullfile ( conf.path_to_project , conf.projectName) ;
+    
+    %% create a  minimum folder structure
+    mkdir (conf.complete_path)
 
-    %% copy buidling functions
-    m = dir (fullfile ( currentPrj,'functions', 'building','*.m' ));
+    mkdir (fullfile( conf.complete_path , 'functions','building'))  % [ i   ]
+    mkdir (fullfile( conf.complete_path , 'functions','package'))   % [ ii  ]
+    mkdir (fullfile( conf.complete_path , 'functions','setup'))     % [ iii ]
+    mkdir (fullfile( conf.complete_path , 'functions','templates')) % [ iv  ]
+
+    %% copy buidling functions [ i   ]
+    m = dir (fullfile ( conf.currentDir  ,'functions', 'building','*.m' ));
     
     s = cell(1,1);
     for i = 1 : numel(m) 
@@ -33,14 +40,14 @@ function mlappkit_static_bundle_creator()
     for i = 1:numel ( s) 
     [~,~,~] =...
              copyfile( s{i},...
-                       fullfile( complete_path , 'functions','building' ),...
+                       fullfile( conf.complete_path , 'functions','building' ),...
                        'f') ;
     end
     
     clear m i s 
-    %% copy package functions
+    %% copy package functions [ ii  ]
     
-    m = dir (fullfile ( currentPrj,'functions', 'package','*.m' ));
+    m = dir (fullfile ( conf.currentDir  ,'functions', 'package','*.m' ));
     
     s = cell(1,1);
     for i = 1 : numel(m) 
@@ -51,48 +58,48 @@ function mlappkit_static_bundle_creator()
     for i = 1:numel ( s) 
         [~,~,~] =...
                  copyfile( s{i},...
-                           fullfile( complete_path , 'functions','package' ),...
+                           fullfile( conf.complete_path , 'functions','package' ),...
                             'f') ;
     end
        clear m i s 
-    %% copy the quickstart function
+    %% copy the quickstart function  [ iii ]
     
    [~,~,~] =...
-         copyfile( fullfile( currentPrj,'functions','setup' ,'mlappkit_quickstart.m'),...
-                   fullfile( complete_path , 'functions','setup' ),...
+         copyfile( fullfile( conf.currentDir  ,'functions','setup' ,'mlappkit_quickstart.m'),...
+                   fullfile( conf.complete_path , 'functions','setup' ),...
                     'f') ;    
-    %% copy the quickstart template
-    if exist(fullfile(currentPrj,'functions','templates','mlappkit_qst.zip'),'file') ~= 2
+    %% copy the quickstart template    [ iv  ]
+    if exist(fullfile(conf.currentDir  ,'functions','templates','mlappkit_qst.zip'),'file') ~= 2
         error ( 'run the generic bundle packager first')
     end
     
     [~,~,~] =...
-         copyfile( fullfile( currentPrj,'functions','templates' ,'mlappkit_qst.zip'),...
-                   fullfile( complete_path , 'functions','templates' ),...
+         copyfile( fullfile( conf.currentDir  ,'functions','templates' ,'mlappkit_qst.zip'),...
+                   fullfile( conf.complete_path , 'functions','templates' ),...
                     'f') ;
 
-   %% package it  
+   %% zip it  [ v ]
    % zip it   % copy it into template folder
-   if  exist(fullfile(currentPrj,'functions','templates'),'dir')~= 7 
-       mkdir (fullfile(currentPrj,'functions','templates'));
+   if  exist(fullfile(conf.currentDir  ,'functions','templates'),'dir')~= 7 
+       mkdir (fullfile(conf.currentDir  ,'functions','templates'));
    end
    
-   zip(complete_path,complete_path);
-    %% copy the setupfile on the toplevel
+   zip(conf.complete_path,conf.complete_path);
+    %% copy the setupfile into the toplevel  [ vi ]
     
     [~,~,~] =...
-         copyfile( fullfile( currentPrj,'functions','setup' ,'mlappkit_setup.m'),...
-                   fullfile( path_to_project ),...
+         copyfile( fullfile( conf.currentDir  ,'functions','setup' ,'mlappkit_setup.m'),...
+                   fullfile( conf.path_to_project ),...
                     'f') ;    
-   rmdir(complete_path, 's');
+   rmdir(conf.complete_path, 's');
 
-    %% copy the package into the templates directory
-    zip(fullfile(currentPrj,'functions','templates','mlappkit_static_bundle.zip'),...
-       path_to_project);
+    %% copy the package into the templates directory [ vii ]
+    zip(fullfile(conf.currentDir  ,'functions','templates',[conf.projectName,'.zip']),...
+       conf.path_to_project);
    
    
-   % delete temporary files
-   rmdir(path_to_project, 's');
+   %% delete temporary files and folders [ vii ]
+   rmdir(conf.path_to_project, 's');
    
    
 end

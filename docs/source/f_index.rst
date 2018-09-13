@@ -8,17 +8,17 @@
 
 Functions
 ===================	
-	
+   
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   setup_functions
-   packaging_functions
-   building_functions
-   utility_functions
-   gui_functions
-   
+   functions/setup_functions
+   functions/packaging_functions
+   functions/building_functions
+   functions/utility_functions
+   functions/gui_functions
+   functions/update_functions
    
    
    

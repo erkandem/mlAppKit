@@ -8,6 +8,7 @@ Appendix
    :maxdepth: 1
    :caption: Contents:
    
+   contributing
    disclaimer
    license
    acknowledgments

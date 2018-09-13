@@ -61,22 +61,28 @@ function confi = package_app_query_part(confi)
         confi.('fList')=fList;
     
     end
+
+    %% add  contents of the static/icons .. folder
+    fn_static = {'icons','audio','img','misc'};
+
+    for j = 1:numel(fn_static)
+        
+        m = dir (fullfile ( confi.('fullProjectPath'),'static',  fn_static{j} ));
+        isfile = ~cell2mat({m.isdir}');
     
-    % add the icon folder content
+        m = m(isfile);
+        s = cell(1,1);
     
-         m = dir (fullfile ( confi.('fullProjectPath'),'static', 'icons' ));
-    isfile = ~cell2mat({m.isdir}');
+        for i = 1 : numel(m) 
+            s{end+1,1} = fullfile( m(i).folder, m(i).name);
+        end
+        s= s(2:end); % delete the empty first cell
     
-    m = m(isfile);
-    s = cell(1,1);
+        confi.('fList')=[ confi.('fList');s];
+
     
-    for i = 1 : numel(m) 
-        s{end+1,1} = fullfile( m(i).folder, m(i).name);
     end
-    s= s(2:end); % delete the empty first cell
-    
-    confi.('fList')=[ confi.('fList');s];
-  
+ 
 end
 
 function package_app_export_part(confi)

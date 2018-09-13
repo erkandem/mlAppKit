@@ -15,6 +15,7 @@ function quickstart_template_creator()
     %% create the minimum folder structure
     mkdir (complete_path)
     mkdir (fullfile(path_to_project,[projectName,'-docs']));
+    
 
     mkdir (fullfile( complete_path , 'host') );
     mkdir (fullfile( complete_path , 'popups' ));
@@ -23,14 +24,20 @@ function quickstart_template_creator()
     mkdir (fullfile( complete_path , 'functions','panel_visibility'))
     mkdir (fullfile( complete_path , 'settings' ));
     mkdir (fullfile( complete_path , 'docs' ));
-    mkdir (fullfile( complete_path , 'static' , 'icons' ));
     
+    fn_static = {'icons','audio','img','misc'};
+    
+    for j = 1: numel ( fn_static)
+        mkdir (fullfile( complete_path , 'static' ,fn_static{j}));
+    end
+    
+    clear j 
     %% create files
     mig= fopen(fullfile ( complete_path , '.mignore' ),'w');
-    fprintf(mig,'%s',['docs',newline()]);
-    fprintf(mig,'%s',['static',newline()]);
-    fprintf(mig,'%s',['readme',newline()]);
-    fprintf(mig,'%s',['license',newline()]);
+        fprintf(mig,'%s',['docs',   newline()]);
+        fprintf(mig,'%s',['static', newline()]);
+        fprintf(mig,'%s',['readme', newline()]);
+        fprintf(mig,'%s',['license',newline()]);
     fclose(mig);
 
     gitig=fopen(fullfile ( complete_path , '.gitignore' ),'w');
@@ -82,30 +89,31 @@ function quickstart_template_creator()
                 'f') ;
     % create a readme
     % write  a licence
-    %% add COMPLETE contents of the static/icons folder
-       
-    m = dir (fullfile ( currentPrj,'static', 'icons' ));
-    isfile = ~cell2mat({m.isdir}');
+    %% add  contents of the static/icons .. folder
+
+    for j = 1:numel(fn_static)
+        
+        m = dir (fullfile ( currentPrj,'static',  fn_static{j} ));
+        isfile = ~cell2mat({m.isdir}');
     
+        m = m(isfile);
+        s = cell(1,1);
     
-    m = m(isfile);
-    s = cell(1,1);
+        for i = 1 : numel(m) 
+            s{end+1,1} = fullfile( m(i).folder, m(i).name);
+        end
+        s= s(2:end); % delete the empty first cell
     
-    for i = 1 : numel(m) 
-        s{end+1,1} = fullfile( m(i).folder, m(i).name);
+        for i = 1:numel (s) 
+            [~,~,~] =...
+                copyfile(   s{i},...
+                            fullfile( complete_path , 'static', fn_static{j}  ),...
+                            'f') ;
+        end
+    
+        clear m i s 
+    
     end
-    s= s(2:end); % delete the empty first cell
-    
-    for i = 1:numel ( s) 
-    [~,~,~] =...
-             copyfile( s{i},...
-                       fullfile( complete_path , 'static','icons' ),...
-                       'f') ;
-    end
-    
-    clear m i s 
-    
-    
     %% package it  
     % zip it   % copy it into template folder
     if  exist(fullfile(currentPrj,'functions','templates'),'dir')~= 7 
