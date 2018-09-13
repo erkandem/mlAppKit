@@ -58,14 +58,14 @@ function mlappkit_setup()
     % drop log, save log, and I dialog, run next steps / getting started /
     % readme etc....
     
-    sprintf('%s','  Done. mlAppKit is installed in: ')
-    sprintf('%s',   install_path );
-    sprintf('%s','  ');
-    sprintf('%s',' Next Steps:');
-    sprintf('%s','  ');
-    sprintf('%s',' target_dir = pwd(); ');
-    sprintf('%s',' prj_name = ''helloWorld'' ');
-    sprintf('%s',' mlappkit_quickstart( target_dir , prj_name ) ');
+    fprintf('%s\n','  Done. mlAppKit is installed in: ')
+    fprintf('%s\n',   install_path );
+    fprintf('%s\n','  ');
+    fprintf('%s\n',' Next Steps:');
+    fprintf('%s\n','  ');
+    fprintf('%s\n',' target_dir = pwd(); ');
+    fprintf('%s\n',' prj_name = ''helloWorld'' ');
+    fprintf('%s\n',' mlappkit_quickstart( target_dir , prj_name ) ');
     
     
 end

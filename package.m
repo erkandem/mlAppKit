@@ -36,7 +36,7 @@ copyfile( fullfile ( '..',s.folderName,'latex',[s.projectFolder,'.pdf']),...
 
 
 
-s.new_folderName          = [s.projectFolder,'-egg-',datestr(now(),'yyyymmddHHMMSS')];
+s.new_folderName          = [s.projectFolder,'-egg-',datestr(now(),'yyyymmdd_HHMMSS')];
 s.new_fullProjectPath     = fullfile (s.folderPath ,s.new_folderName );
     
 mkdir (s.new_fullProjectPath );
