@@ -91,6 +91,13 @@ classdef host_app < matlab.apps.AppBase
             % firstplugin   :class:`popup_about`
             d=popup_about;
         end
+
+        % Close request function: uif
+        function uifCloseRequest(app, event)
+            delete(app)
+          %  builder_rmPath();
+            
+        end
     end
 
     % App initialization and construction
@@ -102,9 +109,11 @@ classdef host_app < matlab.apps.AppBase
             % Create uif
             app.uif = uifigure;
             app.uif.AutoResizeChildren = 'off';
+            app.uif.Color = [0.9412 0.9412 0.9412];
             app.uif.Position = [1 1 1024 640];
-            app.uif.Name = 'mlAppBinder Boilerplate';
+            app.uif.Name = 'mlAppKit Boilerplate';
             app.uif.Resize = 'off';
+            app.uif.CloseRequestFcn = createCallbackFcn(app, @uifCloseRequest, true);
 
             % Create HomeMenu
             app.HomeMenu = uimenu(app.uif);

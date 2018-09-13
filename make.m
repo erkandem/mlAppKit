@@ -42,9 +42,10 @@ function make(pdir)
 %
 %% re-run the path search
 % in order to capture the location of the new m-files
-    addPath_creator()
+    addPath_creator();
     builder_addPath();
 
+    rmPath_creator(); % could be run as a deletefnc() from host
 %% launch the app 
 % started from the obtained m-files not the .mlapp file
  app_launch();

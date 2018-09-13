@@ -1,5 +1,5 @@
 function mlappkit_setup()
-
+    
     % This is Setup script to installl mlAppKit 
     % the Setup will:
     %
@@ -18,32 +18,32 @@ function mlappkit_setup()
     %
     % Before submit and files or content please clean them of your 
     % personal data.
-
-
-
+    
+    
+    
     % make  a default selection on the installation path
     install_path    =  fullfile ( userpath(), 'mlAppKit');
     opt.Interpreter = 'tex';
     opt.Resize      = 'on';
     prompt = ['\fontsize{12} mlAppKit will be installed here ',... 
               '(will be created if it doesn`t exist)'];
-
+    
     install_path = inputdlg(prompt, ...  % question
                            'Setup',...
                  [1 90],...              % window size
                  {install_path},...      % suggestion
                  opt);                   % styling options
-
+    
     install_path = install_path{1};      % cast from cell
-
+    
     if exist( install_path  ,'dir') ~=7  % create directory
         mkdir( install_path  )
     end
-
+    
     %
     % :todo: CREATE THE INSTALLATION BUNDLE / PACKAGE A RELEASE
     %
-
+    
     % unzip bundle in target location
     unzip ('mlappkit_static_bundle.zip',install_path);
     
@@ -61,8 +61,11 @@ function mlappkit_setup()
     sprintf('%s','  Done. mlAppKit is installed in: ')
     sprintf('%s',   install_path );
     sprintf('%s','  ');
+    sprintf('%s',' Next Steps:');
     sprintf('%s','  ');
-    
+    sprintf('%s',' target_dir = pwd(); ');
+    sprintf('%s',' prj_name = ''helloWorld'' ');
+    sprintf('%s',' mlappkit_quickstart( target_dir , prj_name ) ');
     
     
 end

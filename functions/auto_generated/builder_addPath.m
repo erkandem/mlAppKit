@@ -6,17 +6,17 @@ function builder_addPath()
     % :input: no input 
     % :returns: void
     % 
-    % :warning: ANY CHANGE IN THIS FUNCTION AUTOMATICALLY CREATED FUNCTION WILL BE LOST
-    %           a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`addPath_creator` 
-    %           b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW
+    % .. warning:: ANY CHANGE IN THIS AUTOMATICALLY CREATED FUNCTION WILL BE LOST
+    %              a) RATHER APPEND YOUR CODE TO :ref:`addPath_creator` 
+    %              b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW
     % 
-    % :todo: save your code in `mfiles` folder aswell 
-    %        currently, a level beneeth `mfiles` is not recognized 
+    % .. todo:: save your code in `mfiles` folder aswell 
+    %           currently, a level beneeth `mfiles` is not recognized 
     % 
-    % :todo: define/declare/offer standerdized `hooks` like in WordPress 
+    % .. todo:: define/declare/offer standerdized `hooks` like in WordPress 
     % 
     % 
-    % :note: see also: :ref:`addPath_creator() <addPath_creator>` 
+    % 
     % 
     % 
      

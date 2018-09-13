@@ -1,11 +1,9 @@
-function addPath_creator(project_dir)
-    %% create a function to add all relevant folders to the **current** MATLAB path
-    %
-    % 1. filter out any level 1  directory 
-    % 2. create the file calls 
-    % 3. write the function to an .m-file
-    %
+function rmPath_creator(project_dir) 
+ %% create a function to remove app realted folders from the **current** MATLAB path
+ % .. seealso:: :ref:`addPath_creator`_
+ %   
     if nargin == 1
+    
     elseif nargin == 0
         project_dir = pwd();
     end
@@ -27,14 +25,14 @@ function addPath_creator(project_dir)
         opt.(qPar) = m;
     end
     %% [2] 
-    code_cell = addPath_creator_core(opt);
+    code_cell = rmPath_creator_core(opt);
 
     %% [3] 
     %
     % :todo: change addpath to addpath(genpath('file')) ?
     %
     target_path = fullfile(project_dir,'functions','auto_generated');
-    file_name = ('builder_addPath.m');
+    file_name = ('builder_rmPath.m');
     
     utf8_write_to_file(target_path, file_name, code_cell )
 %     addPath_creator_write(code_cell)
@@ -46,14 +44,14 @@ end
 
 
 
-function code_cell = addPath_creator_core(opt)
+function code_cell = rmPath_creator_core(opt)
     %% creates the addPath function from the previously obtained configuration
     % :param opt: configuration
     % :type opt: struct
     % 
 
     % define some strings 
-	func_dec={'function builder_addPath()'};
+	func_dec={'function builder_rmPath()'};
     func_end={'end'};
 
     rb_o  = '(';
@@ -61,11 +59,11 @@ function code_cell = addPath_creator_core(opt)
     comma = ',';
     sm = ';';
     gp = 'genpath';
-    ap = 'addpath';
+    ap = 'rmpath';
     ff = 'fullfile';
     st = 'static';
     
-    four_spaces='    ';
+    four_spaces='    '; % equal one tab
 
     %% create the code for the functions folders
 
@@ -96,15 +94,13 @@ function code_cell = addPath_creator_core(opt)
 
     % insert comment header
     header = {...
-        '    %% adds `builder` and custom function folders(only first level)';
-        '    % in a second run this function will also add the `mfiles` subdirectories';
+        '    %% REMOVES `builder` and custom function folders(only first level)';
+        '    % in a second run this function will also add the `.m-files` subdirectories';
         '    % of each .mlapp-file.';
         '    % ';
-        '    % :input: no input '; 
-        '    % :returns: void';
         '    % ';
         '    % .. warning:: ANY CHANGE IN THIS AUTOMATICALLY CREATED FUNCTION WILL BE LOST';
-        '    %              a) RATHER APPEND YOUR CODE TO :ref:`addPath_creator` ';
+        '    %              a) RATHER APPEND YOUR CODE TO :ref:`rmPath_creator` ';
         '    %              b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW';
         '    % ';
         '    % .. todo:: save your code in `mfiles` folder aswell ';
@@ -127,6 +123,7 @@ function code_cell = addPath_creator_core(opt)
                 code_cell;
                 static_folder;
                 func_end];
+
 
 
 end
