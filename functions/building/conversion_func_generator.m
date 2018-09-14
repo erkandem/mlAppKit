@@ -20,7 +20,7 @@ end
 function code_cell=mat_codegen(opt)
 %% generate conversion_launcher 
 
-    func_dec={'function conversion_launcher()'};
+    func_dec={'function conversion_launcher(project_dir)'};
     func_end={'end'};
     
     one_sp=' ';
@@ -46,7 +46,7 @@ function code_cell=mat_codegen(opt)
 
         for j =1:numel(file_names)
                 
-                c1(k,1) = {[four_sp,fHead_views,rb_o,'fullfile',rb_o,char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_views ]};
+                c1(k,1) = {[four_sp,fHead_views,rb_o,'fullfile',rb_o,'project_dir',',',char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_views ]};
                 k=k+1;        
         end
     end
@@ -61,7 +61,7 @@ function code_cell=mat_codegen(opt)
 
         for j =1:numel(file_names)
                 
-                c2(k,1) = {[four_sp,fHead_popups,rb_o,'fullfile',rb_o,char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_popups ]};
+                c2(k,1) = {[four_sp,fHead_popups,rb_o,'fullfile',rb_o,'project_dir',',',char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_popups ]};
                 k=k+1;        
         end
     end
@@ -74,7 +74,7 @@ clear k  i j
         file_names = fieldnames(opt.(folder_names{i})) ;
         for j =1:numel(file_names)
             
-            c3(k,1) ={[four_sp,fHead_popups,rb_o,'fullfile',rb_o,char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_host ]};
+            c3(k,1) ={[four_sp,fHead_popups,rb_o,'fullfile',rb_o,'project_dir',',',char(39),folder_names{i},char(39),',',char(39),(file_names{j}),'.mlapp',char(39),rb_c,',',ffoot_host ]};
             k = k+1;        
         end
     end
@@ -133,9 +133,24 @@ clear k  i j
     '     ';
     };
 
+    % bugifx: call with abs rather than rel path 
+    
+    abs_path={...
+    '    ';
+    '    if nargin == 1 ';
+    '    elseif nargin == 0 ';
+    '        project_dir = pwd(); ';
+    '    end  ';
+    '    ';
+    };
+
     % split codel_cell
     fDef      = code_cell(1,:);
     fBody     = code_cell(2:end,:);
-    code_cell =[fDef;header;fBody];
+    
+    code_cell =[ fDef;
+                 header;
+                 abs_path;
+                 fBody];
     
 end
