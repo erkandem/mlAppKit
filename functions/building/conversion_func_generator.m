@@ -124,11 +124,11 @@ clear k  i j
     '    % :input: no input '; 
     '    % :returns: void';
     '    % ';
-    '    % :warning: ANY CHANGE IN THIS FUNCTION AUTOMATICALLY CREATED FUNCTION WILL BE LOST';
-    '    %           a) RATHER APPEND YOUR CODE TO the MOTHER FUNCTIONS :func:`conversion_func_generator` ';
-    '    %           b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW';
+    '    % .. warning:: ANY CHANGE IN THIS AUTOMATICALLY CREATED FUNCTION WILL BE LOST';
+    '    %              a) RATHER APPEND YOUR CODE TO :func:`conversion_func_generator` ';
+    '    %              b) OR WRITE YOUR OWN FUNCTIONS AND APPEND THEM TO THE FLOW';
     '    % ';
-    '    % :note: see also: :ref:`conversion_func_generator() <conversion_func_generator>` ';
+    '    % .. see also:: :ref:`conversion_func_generator() <conversion_func_generator>`_ ';
     '    % ';
     '     ';
     };
@@ -137,8 +137,8 @@ clear k  i j
     
     abs_path={...
     '    ';
-    '    if nargin == 1 ';
-    '    elseif nargin == 0 ';
+    '    if nargin == 1 '          ;
+    '    elseif nargin == 0 '      ;
     '        project_dir = pwd(); ';
     '    end  ';
     '    ';
