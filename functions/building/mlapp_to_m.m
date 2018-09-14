@@ -92,6 +92,9 @@ function mlapp_to_m(mlappfile_loc,view_type)
     end
 
     %% [III] write and quit
+    
+
+    
     target_path = fullfile(fpath, 'mfiles');
     file_name   = [appname,'.m'];
     utf8_write_to_file(target_path, file_name, my_m_code )
@@ -99,23 +102,23 @@ function mlapp_to_m(mlappfile_loc,view_type)
 end
 
 
-
-
-function     utf8_write_to_file(target_path, file_name, my_m_code )
-    % [1] check for an existing filepath to "mfiles" subdirectory
-    if exist(target_path ,'dir')~=7
-        mkdir(target_path );
-    end
-    
-    % [2] create file write code
-    fid=fopen(fullfile(target_path,file_name),'w');
-  
-    for i = 1:numel(my_m_code)
-        encoded_str = unicode2native(my_m_code{i}, 'UTF-8'); 
-        fwrite(fid, [encoded_str, 10], 'uint8');
-    end
-
-    fclose(fid);
-    out= [datestr(now()),'  |  ',fullfile(target_path,file_name),' created'];
-    disp(out)
-end
+% 
+% 
+% function     utf8_write_to_file(target_path, file_name, my_m_code )
+%     % [1] check for an existing filepath to "mfiles" subdirectory
+%     if exist(target_path ,'dir')~=7
+%         mkdir(target_path );
+%     end
+%     
+%     % [2] create file write code
+%     fid=fopen(fullfile(target_path,file_name),'w');
+%   
+%     for i = 1:numel(my_m_code)
+%         encoded_str = unicode2native(my_m_code{i}, 'UTF-8'); 
+%         fwrite(fid, [encoded_str, 10], 'uint8');
+%     end
+% 
+%     fclose(fid);
+%     out= [datestr(now()),'  |  ',fullfile(target_path,file_name),' created'];
+%     disp(out)
+% end
