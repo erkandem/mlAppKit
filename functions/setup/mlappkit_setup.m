@@ -45,7 +45,7 @@ function mlappkit_setup()
     %
     
     % unzip bundle in target location
-    unzip ('mlappkit_static_bundle.zip',install_path);
+    unzip ('mlAppKit_static_bundle.zip',install_path);
     
     % rename if nececary
     % movefile(fullfile(path_to_project,'test'),complete_path ,'f');
