@@ -17,7 +17,7 @@ classdef host_app < matlab.apps.AppBase
 
     
     properties (Access = private)
-        
+        dummy_private_var    
     end
     
     properties (Access = public)
@@ -25,14 +25,15 @@ classdef host_app < matlab.apps.AppBase
     % *in-app database, keep data in RAM to avoid Disk I/O via `struct()` 
     % *plugins, again a `struct()` holding views 
     % 
-        home   % internal usage, 
-        
+        home      % e.g. display a welcome message
         plugins   % plugin, for firstplugin carrying the red buttons
-        
-        cache     % in app cache (unused in boilerplate)
-    
+        cache     % in-app cache (unused in boilerplate)
     end
-
+    
+    methods (Static)
+        % dummy
+    end     
+    
     methods (Access = public)
     
         function  dummyPublicMethod(app)
@@ -42,8 +43,6 @@ classdef host_app < matlab.apps.AppBase
             % :type app: :class:`matlab.apps.AppBase`
             %
             
-
-            % do something meaningful like developing 
         end
         
     end
@@ -53,27 +52,31 @@ classdef host_app < matlab.apps.AppBase
 
         % Code that executes after component creation
         function startupFcn(app)
+            % instead of hardcoding plugins, this app (host_app)
+            % is rahter meant to put the pieces together.
+            % Likewise, the 'recipe' is layed out in :func:`ext_start_up`
+            %
             ext_start_up(app);
         end
 
         % Menu selected function: HomeMenu
         function HomeMenuSelected(app, event)
             % change the view to the landing / home / neutral page 
-            target_tag='home';
-            panel_visibility_switch(app,target_tag);
+            target_tag = 'home';
+            panel_visibility_switch(app, target_tag);
         end
 
         % Menu selected function: SettingsMenu
         function SettingsMenuSelected(app, event)
             % firstplugin a pop-up :class:`popup_settings`
-            d=popup_settings; % new ui 
+            d = popup_settings;
         end
 
         % Menu selected function: redbuttonMenu
         function redbuttonMenuSelected(app, event)
             % switch the view
-            target_tag='redbutton';
-            panel_visibility_switch(app,target_tag)
+            target_tag = 'redbutton';
+            panel_visibility_switch(app, target_tag)
         end
 
         % Menu selected function: calculatorMenu
@@ -82,21 +85,39 @@ classdef host_app < matlab.apps.AppBase
             % 
             % see also: :ref:`panel_visibility_switch() <panel_visibility_switch>`
             %
-            target_tag='calculator';
-            panel_visibility_switch(app,target_tag)
+            target_tag = 'calculator';
+            panel_visibility_switch(app, target_tag)
         end
 
         % Menu selected function: AboutMenu
         function AboutMenuSelected(app, event)
             % firstplugin   :class:`popup_about`
-            d=popup_about;
+            d = popup_about;
         end
 
         % Close request function: uif
         function uifCloseRequest(app, event)
             delete(app)
           %  builder_rmPath();
-            
+        end
+
+        % Menu selected function: DocumentationMenu
+        function DocumentationMenuSelected(app, event)
+            % e.g. open a fil or website, launch a second application
+            %
+            link = 'https://erkandem.github.io/mlappkit';
+            if ispc()
+                system(sprintf('start %s', link));
+            elseif ismac()
+                system(sprintf('open %s', link));
+            elseif isunix()
+                system(sprintf('xdg-open %s', link));
+            end
+        end
+
+        % Menu selected function: LicenceMenu
+        function LicenceMenuSelected(app, event)
+            uialert(app.uif, 'MIT for this example, GPLv3 for mlappkit', 'License', 'Icon','info')
         end
     end
 
@@ -150,10 +171,12 @@ classdef host_app < matlab.apps.AppBase
 
             % Create DocumentationMenu
             app.DocumentationMenu = uimenu(app.HelpMenu);
+            app.DocumentationMenu.MenuSelectedFcn = createCallbackFcn(app, @DocumentationMenuSelected, true);
             app.DocumentationMenu.Text = 'Documentation';
 
             % Create LicenceMenu
             app.LicenceMenu = uimenu(app.HelpMenu);
+            app.LicenceMenu.MenuSelectedFcn = createCallbackFcn(app, @LicenceMenuSelected, true);
             app.LicenceMenu.Text = 'Licence';
 
             % Create homePanel

@@ -58,7 +58,7 @@ classdef popup_about < matlab.apps.AppBase
             % Create creditLabel
             app.creditLabel = uilabel(app.AboutPanel);
             app.creditLabel.Position = [151 28 251 22];
-            app.creditLabel.Text = 'This app was created using template by ';
+            app.creditLabel.Text = 'This app was created using a template by ';
 
             % Create linkedbutton
             app.linkedbutton = uibutton(app.AboutPanel, 'push');
@@ -81,7 +81,6 @@ classdef popup_about < matlab.apps.AppBase
 
             % Create LicenseTextArea
             app.LicenseTextArea = uitextarea(app.AboutPanel);
-            app.LicenseTextArea.Editable = 'off';
             app.LicenseTextArea.Position = [31 70 579 142];
             app.LicenseTextArea.Value = {'MIT License'; ''; 'Copyright (c) 2018 Erkan Demiralay'; ''; 'Permission is hereby granted, free of charge, to any person obtaining a copy'; 'of this software and associated documentation files (the "Software"), to deal'; 'in the Software without restriction, including without limitation the rights'; 'to use, copy, modify, merge, publish, distribute, sublicense, and/or sell'; 'copies of the Software, and to permit persons to whom the Software is'; 'furnished to do so, subject to the following conditions:'; ''; 'The above copyright notice and this permission notice shall be included in all'; 'copies or substantial portions of the Software.'; ''; 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR'; 'IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,'; 'FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE'; 'AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER'; 'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,'; 'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE'; 'SOFTWARE.'};
 
@@ -117,7 +116,7 @@ classdef popup_about < matlab.apps.AppBase
             app.linkToProject.Editable = 'off';
             app.linkToProject.HorizontalAlignment = 'center';
             app.linkToProject.Position = [33 283 567 20];
-            app.linkToProject.Value = {'https/github.com/erkandem/mlappkit'};
+            app.linkToProject.Value = {'https://github.com/erkandem/mlappkit'};
         end
     end
 

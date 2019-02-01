@@ -49,7 +49,7 @@ function panel_visibility_switch(app, target_tag)
                         % new
                         for jj = 1 : numel(level_4_fn) 
                            level_5_fn = fieldnames(app.(fn_app{i}).(level_3_fn{z}).(level_4_fn{jj}));
-                            if ismember('main_Panel',level5_fn)
+                            if ismember('main_Panel', level_5_fn)
                                 if isa(app.(fn_app{i}).(level_3_fn{z}).(level_4_fn{jj}).main_Panel, 'matlab.ui.container.Panel')
                                     % compare the tag
                                     if strcmp(call_raised_by, app.(fn_app{i}).(level_3_fn{z}).(level_4_fn{jj}).main_Panel.Tag)

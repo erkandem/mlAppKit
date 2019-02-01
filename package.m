@@ -46,5 +46,5 @@ copyfile(fullfile('..', s.folderName, 'latex', [s.projectFolder, '.pdf']), ...
      
 copyfile(fullfile('functions', 'templates', [s.projectFolder, '_static_bundle.zip']), ...
                 s.new_fullProjectPath);
-            
-sprintf('%s', 'The egg was sucessfully [did not check] layed');
+   
+fprintf('The egg was sucessfully layed.\nHowever the egg was not tested\n');

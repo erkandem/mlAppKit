@@ -20,20 +20,20 @@ function builder_addPath()
     % 
     % 
      
-    addpath(fullfile('firstplugin','mfiles'));
-    addpath(fullfile('functions','auto_generated'));
-    addpath(fullfile('functions','building'));
-    addpath(fullfile('functions','package'));
-    addpath(fullfile('functions','panel_visibility'));
-    addpath(fullfile('functions','setup'));
-    addpath(fullfile('functions','sphinx'));
-    addpath(fullfile('functions','start_up'));
-    addpath(fullfile('functions','templates'));
-    addpath(fullfile('host','mfiles'));
-    addpath(fullfile('popups','mfiles'));
-    addpath(fullfile('static','audio'));
-    addpath(fullfile('static','icons'));
-    addpath(fullfile('static','img'));
-    addpath(fullfile('static','misc'));
+    addpath(fullfile('firstplugin', 'mfiles'));
+    addpath(fullfile('functions', 'auto_generated'));
+    addpath(fullfile('functions', 'building'));
+    addpath(fullfile('functions', 'package'));
+    addpath(fullfile('functions', 'panel_visibility'));
+    addpath(fullfile('functions', 'setup'));
+    addpath(fullfile('functions', 'sphinx'));
+    addpath(fullfile('functions', 'start_up'));
+    addpath(fullfile('functions', 'templates'));
+    addpath(fullfile('host', 'mfiles'));
+    addpath(fullfile('popups', 'mfiles'));
+    addpath(fullfile('static', 'audio'));
+    addpath(fullfile('static', 'icons'));
+    addpath(fullfile('static', 'img'));
+    addpath(fullfile('static', 'misc'));
     addpath(genpath(fullfile('static')));
 end

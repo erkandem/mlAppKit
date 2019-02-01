@@ -22,37 +22,16 @@ function code_cell = mat_codegen(opt)
 
     func_dec = {'function conversion_launcher(project_dir)'};
     func_end = {'end'};
-    
-    one_sp = ' ';
-    four_sp = '    ';
-
-    fHead_views  = 'mlapp_to_m';
-    fHead_popups = 'mlapp_to_m';
-    fHead_host   = 'mlapp_to_m';
-
-    rb_o  = '(';
-    rb_c  = ')';
-    
-    % ffoot_views = ''''
-
-    ffoot_views  = [char(39), 'plugin', char(39), ');']; 
-    ffoot_popups = [char(39), 'popup',  char(39), ');']; %
-    ffoot_host   = [char(39), 'host',   char(39), ');']; %
-
 
 %% ----------------views------------------------
     folder_names = fieldnames(opt.views);
     k=1;
     for i = 1 : numel(folder_names)
-        file_names = fieldnames(opt.views.(folder_names{i})) ;
- %   mlapp_to_m(fullfile(project_dir,'firstplugin','calculator.mlapp'),'plugin');
-
+        file_names = fieldnames(opt.views.(folder_names{i}));
         for j = 1 : numel(file_names)
-                %fmt = '    mlapp_to_m(fullfile(project_dir, ''%s'', ''%s.mlapp'')), ''plugin'');';
-                %c1(k, 1) = {sprintf(fmt, folder_names{i}, file_names{j})};
-                
-                c1(k, 1) = {[four_sp, fHead_views, rb_o, 'fullfile', rb_o, 'project_dir' ,',', char(39), folder_names{i}, char(39), ',', char(39), (file_names{j}), '.mlapp', char(39), rb_c, ',', ffoot_views]};
-                k=k+1;        
+                fmt = '    mlapp_to_m(fullfile(project_dir, ''%s'', ''%s.mlapp''), ''plugin'');';
+                c1(k, 1) = {sprintf(fmt, folder_names{i}, file_names{j})};
+                k = k + 1;        
         end
     end
     clear k  i j 
@@ -63,14 +42,10 @@ function code_cell = mat_codegen(opt)
     k = 1;
     for i = 1 : numel(folder_names)
         file_names = fieldnames(opt.popups.(folder_names{i})) ;
-
         for j = 1 : numel(file_names)
-                %     mlapp_to_m(fullfile(project_dir,'popups','popup_about.mlapp'),'popup');
-
-                %fmt = '    mlapp_to_m(fullfile(project_dir, ''popups'', ''%s.mlapp''), ''popup'');';
-                %c2(k, 1) = {sprintf(fmt, folder_names{i}, file_names{j})};
-                c2(k,1) = {[four_sp, fHead_popups,rb_o, 'fullfile', rb_o, 'project_dir', ',', char(39), folder_names{i}, char(39), ',', char(39), (file_names{j}), '.mlapp', char(39),rb_c, ',', ffoot_popups ]};
-                k = k + 1;        
+                fmt = '    mlapp_to_m(fullfile(project_dir, ''%s'', ''%s.mlapp''), ''popup'');';
+                c2(k, 1) = {sprintf(fmt, folder_names{i}, file_names{j})};
+                k = k + 1;
         end
     end
 clear k  i j
@@ -82,18 +57,16 @@ clear k  i j
         file_names = fieldnames(opt.(folder_names{i})) ;
         for j = 1 : numel(file_names)
             % mlapp_to_m(fullfile(project_dir,'host','host_app.mlapp'),'host');
-            %fmt = '    mlapp_to_m(fullfile(projectdir, ''%s'', ''%s.mlapp''), ''host'');';
-            %c3(k, 1) = {sprintf(fmt, folder_names{i}, file_names{j})};
-           
-            c3(k, 1) = {[four_sp, fHead_popups, rb_o, 'fullfile', rb_o, 'project_dir', ',', char(39), folder_names{i}, char(39), ',', char(39), (file_names{j}), '.mlapp', char(39),rb_c, ',', ffoot_host ]};
+            fmt = '    mlapp_to_m(fullfile(project_dir, ''%s'', ''%s.mlapp''), ''host'');';
+            c3(k, 1) = {sprintf(fmt, folder_names{i}, file_names{j})};
             k = k + 1;        
         end
     end
     clear k  i j
 %% -------------collect number of lines----------------------
-    num_c1   = size(c1, 1) ;
-    num_c2   = size(c2, 1) ;
-    num_main = size(c3, 1) ;
+    num_c1   = size(c1, 1);
+    num_c2   = size(c2, 1);
+    num_main = size(c3, 1);
 
     total_num_lines = num_c1 + num_c2 + num_main +2; % func_dec func_end 
 %% ------------- put the pieces together ----------------------
@@ -159,7 +132,7 @@ clear k  i j
     fDef      = code_cell(1, :);
     fBody     = code_cell(2:end, :);
     
-    code_cell =[ fDef;
+    code_cell = [fDef;
                  header;
                  abs_path;
                  fBody];

@@ -5,8 +5,6 @@ function mlappkit_uninstall(install_path)
     install_path
    % rmpath(genpath ( install_path));
    % rmdir (install_path,'s' ) 
-
-
-
-
+    fprintf('not working yet\n');
+    
 end

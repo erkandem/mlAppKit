@@ -29,40 +29,41 @@ function ext_start_up(app)
     
     %% [ 1 ] create an instance...
     % ... of your plugin class and save its handle inside
-    % a the `plugin `property of the application
+    % a the `plugin` property of the application
     % 
     %
     %  Syntax: 
     %
-    %  app :         handle to host application
-    % .plugins :     property to hold the plugin handles
-    % .firstplugin : a specific term to group certain plugins
-    % .calculator :  for simplicity reasons same as the application name
+    %  app :         handle to host app
+    % .plugins :     property of host app which plugin handles are going to be assigned to 
+    % .firstplugin : a specific term to group your plugins
+    % .calculator :  for simplicity reasons same as the plugin name
     % 
-    app.plugins.firstPlugin.redbutton      =  redbutton(app.(f));         %
-    app.plugins.firstPlugin.calculator     =  calculator(app.(f));        %
-    % YOUR NEW APPLICATION HERE ( or replace the ones above)
-    % example:
-    % app.plugins.yourGroup.yourApp        =  yourApp(app.(f));
     
-	%% [ 2 ] assign a tag to each individual app ( simply use its appname e.g.)
-    app.plugins.firstPlugin.redbutton.main_Panel.Tag    = 'redbutton';    %
-    app.plugins.firstPlugin.calculator.main_Panel.Tag   = 'calculator';   %
-    %app.plugins.yourGroup.yourApp.main_Panel.Tag       = 'yourApp';      %
-    app.homePanel.Tag                    = 'home';
+    app.plugins.firstPlugin.redbutton = redbutton(app.(f));
+    app.plugins.firstPlugin.calculator = calculator(app.(f));
+    % YOUR NEW APPLICATION HERE (or replace the ones above)
+    % syntax example:
+    % app.plugins.<yourGroup>.<yourApp>        =  <yourApp>(app.(f));
     
-    %---------------------------------------------------------------------%  
-    %----------95% of the users can save and exit ;) ---------------------% 
-    %---------------------------------------------------------------------%
-    % turn off everyone else but "home"
+	%% [ 2 ] assign a tag to each individual app (simply use its appname e.g.)
+    app.plugins.firstPlugin.redbutton.main_Panel.Tag = 'redbutton';
+    app.plugins.firstPlugin.calculator.main_Panel.Tag = 'calculator';
+    
+    % YOUR NEW APPLICATION TAG HERE (or replace the ones above)
+    % syntax example:
+    % app.plugins.<yourGroup>.<yourApp>.main_Panel.Tag       = <'yourApp'>;
+    app.homePanel.Tag = 'home';
+
+    % turn visibility "Off" for everything but "home"
     panel_visibility_switch(app, 'home')
 
-    
+    %----------95% of the users can save and exit ;) ---------------------% 
     %% Center window and apply deployment target resultion
     % see wikipedia for a list some default resolutions
-    value = '1024x640'; % a default target resolution
+    value = '1024x640';  % a default target resolution
             
-    xPos = regexp(value,'x');
+    xPos = regexp(value, 'x');
     d1 = str2double(value(1      : xPos-1));
     d2 = str2double(value(xPos+1 : end   ));
             

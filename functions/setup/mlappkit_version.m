@@ -34,5 +34,5 @@ function  mlappkit_version()
     %
     %
     
-    disp('Doesn`t work yet ')
+    fprintf('not working yet\n');
 end

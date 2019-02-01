@@ -18,9 +18,9 @@ function conversion_launcher(project_dir)
         project_dir = pwd(); 
     end  
     
-    mlapp_to_m(fullfile(project_dir,'firstplugin','calculator.mlapp'),'plugin');
-    mlapp_to_m(fullfile(project_dir,'firstplugin','redbutton.mlapp'),'plugin');
-    mlapp_to_m(fullfile(project_dir,'popups','popup_about.mlapp'),'popup');
-    mlapp_to_m(fullfile(project_dir,'popups','popup_settings.mlapp'),'popup');
-    mlapp_to_m(fullfile(project_dir,'host','host_app.mlapp'),'host');
+    mlapp_to_m(fullfile(project_dir, 'firstplugin', 'calculator.mlapp'), 'plugin');
+    mlapp_to_m(fullfile(project_dir, 'firstplugin', 'redbutton.mlapp'), 'plugin');
+    mlapp_to_m(fullfile(project_dir, 'popups', 'popup_about.mlapp'), 'popup');
+    mlapp_to_m(fullfile(project_dir, 'popups', 'popup_settings.mlapp'), 'popup');
+    mlapp_to_m(fullfile(project_dir, 'host', 'host_app.mlapp'), 'host');
 end

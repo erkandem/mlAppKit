@@ -17,7 +17,7 @@ function opt = project_parts()
     meta = dir(fullfile('host', '*mlapp') );
     lfn = {meta.name};
     opt.host = struct();
-    emsg = ['Sad to say: the dir query in the `host` folder resulted in more than one `.mlapp` file'];
+    emsg = 'Sad to say: the dir query in the `host` folder resulted in more than one `.mlapp` file';
     if  numel(lfn) > 1; error(emsg); end
     j = 1;
     % strip of file extension

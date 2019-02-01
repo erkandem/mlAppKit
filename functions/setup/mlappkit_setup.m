@@ -16,7 +16,6 @@ function mlappkit_setup()
     % personal data.
     %
     
-    
     % suggest a installation path
     install_path    =  fullfile(userpath(), 'mlAppKit');
     opt.Interpreter = 'tex';
@@ -24,35 +23,23 @@ function mlappkit_setup()
     prompt = ['\fontsize{12} mlAppKit will be installed here ',... 
               '(will be created if it doesn`t exist)'];
     
-    install_path = inputdlg(prompt, ...   % question
-                           'Setup', ...
-                 [1 90], ...              % window size
-                 {install_path}, ...      % suggestion
-                 opt);                    % styling options
+    install_path = inputdlg(...
+        prompt, ...         % question
+        'Setup', ...        % window title
+        [1 90], ...         % window size
+        {install_path}, ... % suggestion
+        opt);               % styling options
     
     install_path = install_path{1};      % cast from cell
     
-    if exist(install_path, 'dir') ~= 7  % create directory
+    if exist(install_path, 'dir') ~= 7  
         mkdir(install_path)
     end
     
-    %
-    % :todo: CREATE THE INSTALLATION BUNDLE / PACKAGE A RELEASE
-    %
-
-    % unzip bundle in target location
     unzip('mlAppKit_static_bundle.zip', install_path);
-    
-    % rename if nececary
-    % movefile(fullfile(path_to_project,'test'),complete_path ,'f');
-    
-    % run the addpath cascade for the generic function and templates
-    
     addpath(genpath(install_path));
     savepath;
     
-    % drop log, save log, and I dialog, run next steps / getting started /
-    % readme etc....
     
     fprintf('%s\n', '  Done. mlAppKit is installed in: ')
     fprintf('%s\n',   install_path );

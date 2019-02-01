@@ -31,7 +31,7 @@ function rmPath_creator(project_dir)
     %
     % :todo: change addpath to addpath(genpath('file')) ?
     %
-    target_path = fullfile(project_dir,v'functions',v'auto_generated');
+    target_path = fullfile(project_dir, 'functions', 'auto_generated');
     file_name = ('builder_rmPath.m');
     
     utf8_write_to_file(target_path, file_name, code_cell )
@@ -43,54 +43,27 @@ function rmPath_creator(project_dir)
 end
 
 
-
 function code_cell = rmPath_creator_core(opt)
     %% creates the addPath function from the previously obtained configuration
     % :param opt: configuration
     % :type opt: struct
     % 
 
-    % define some strings 
-	func_dec={'function builder_rmPath()'};
-    func_end={'end'};
-
-    rb_o  = '(';
-    rb_c  = ')';
-    comma = ',';
-    sm = ';';
-    gp = 'genpath';
-    ap = 'rmpath';
-    ff = 'fullfile';
-    st = 'static';
-    
-    four_spaces='    '; % equal one tab
-
     %% create the code for the functions folders
 
     cPar_array=fieldnames(opt);
-    k=1; % line counter
-
+    k = 1; % line counter
     for i = 1:numel(cPar_array)
-
         cPar = cPar_array{i} ;
         cf   = fieldnames(opt.(cPar));
-    % sure,... preallocate and stuff
         for jj= 1: numel(cf)
-   
-            code_cell{k,1}= [four_spaces,...
-                            ap,rb_o,...
-                            ff,rb_o,...
-                            char(39),cPar,char(39),comma,...
-                            char(39),cf{jj},char(39),...
-                            rb_c,...
-                            rb_c,sm...
-                            ];
-            
-            k=k+1; % +1 loop counter
+            fmt = '    addpath(fullfile(''%s'', ''%s''));';
+            code_cell{k, 1} = sprintf(fmt, cPar, cf{jj});
+            k = k + 1; 
         end
     end
     
-    k=k+1;
+    k = k + 1;
 
     % insert comment header
     header = {...
@@ -114,15 +87,14 @@ function code_cell = rmPath_creator_core(opt)
         '    % ';
         '     ';
         };
-        
-    static_folder={[four_spaces,ap,rb_o, gp,rb_o, ff, rb_o, char(39),st, char(39),rb_c,rb_c,rb_c,sm]};
+    
+    static_folder = {sprintf('    addpath(genpath(fullfile(''static'')));')};    
 
-
-    code_cell=[ func_dec;
+    code_cell = [{'function builder_rmPath()'};
                 header;
                 code_cell;
                 static_folder;
-                func_end];
+                {'end'}];
 
 
 

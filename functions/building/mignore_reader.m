@@ -15,7 +15,7 @@ function c = mignore_reader(migDir)
     end
     
     if fid == -1
-        msgbox({'Warning: There is no .mignore file in the project'  });
+        msgbox({'Warning: There is no .mignore file in the project'});
              %   'Shell I create one?';...
     end
 
@@ -30,7 +30,7 @@ function c = mignore_reader(migDir)
         end
     
         % only collect data, jump lines with matlab comment `%`
-        if ~strcmp(tline,'%')
+        if ~strcmp(tline, '%')
             c(y, 1) = {tline};
         end
         y = y + 1;
@@ -39,8 +39,7 @@ function c = mignore_reader(migDir)
 
     % only collect cells with data
 	empt = cellfun('isempty', c); 
-
 	c = c(~empt);
-
 	fclose(fid);
 end
+

@@ -18,20 +18,20 @@ function builder_rmPath()
     % 
     % 
      
-    rmpath(fullfile('firstplugin','mfiles'));
-    rmpath(fullfile('functions','auto_generated'));
-    rmpath(fullfile('functions','building'));
-    rmpath(fullfile('functions','package'));
-    rmpath(fullfile('functions','panel_visibility'));
-    rmpath(fullfile('functions','setup'));
-    rmpath(fullfile('functions','sphinx'));
-    rmpath(fullfile('functions','start_up'));
-    rmpath(fullfile('functions','templates'));
-    rmpath(fullfile('host','mfiles'));
-    rmpath(fullfile('popups','mfiles'));
-    rmpath(fullfile('static','audio'));
-    rmpath(fullfile('static','icons'));
-    rmpath(fullfile('static','img'));
-    rmpath(fullfile('static','misc'));
-    rmpath(genpath(fullfile('static')));
+    addpath(fullfile('firstplugin', 'mfiles'));
+    addpath(fullfile('functions', 'auto_generated'));
+    addpath(fullfile('functions', 'building'));
+    addpath(fullfile('functions', 'package'));
+    addpath(fullfile('functions', 'panel_visibility'));
+    addpath(fullfile('functions', 'setup'));
+    addpath(fullfile('functions', 'sphinx'));
+    addpath(fullfile('functions', 'start_up'));
+    addpath(fullfile('functions', 'templates'));
+    addpath(fullfile('host', 'mfiles'));
+    addpath(fullfile('popups', 'mfiles'));
+    addpath(fullfile('static', 'audio'));
+    addpath(fullfile('static', 'icons'));
+    addpath(fullfile('static', 'img'));
+    addpath(fullfile('static', 'misc'));
+    addpath(genpath(fullfile('static')));
 end
