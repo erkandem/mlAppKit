@@ -18,13 +18,13 @@ function ext_start_up(app)
     %% get the name of the ui figure 
     
     fn_app      = fieldnames(app);
-    fn_app_type = cell(numel(fn_app),1);
+    fn_app_type = cell(numel(fn_app), 1);
 
     for i = 1 : numel(fn_app)
         fn_app_type{i}= class(app.(fn_app{i}));
     end
     
-    [isisnot,~]=ismember( fn_app_type,{'matlab.ui.Figure'});
+    [isisnot, ~] = ismember(fn_app_type, {'matlab.ui.Figure'});
     f = cell2mat(fn_app(isisnot));
     
     %% [ 1 ] create an instance...
@@ -55,7 +55,7 @@ function ext_start_up(app)
     %----------95% of the users can save and exit ;) ---------------------% 
     %---------------------------------------------------------------------%
     % turn off everyone else but "home"
-    panel_visibility_switch(app,'home')
+    panel_visibility_switch(app, 'home')
 
     
     %% Center window and apply deployment target resultion
@@ -63,16 +63,16 @@ function ext_start_up(app)
     value = '1024x640'; % a default target resolution
             
     xPos = regexp(value,'x');
-    d1 = str2double( value(  1     : xPos-1 )) ;
-    d2 = str2double( value( xPos+1 : end    )) ;
+    d1 = str2double(value(1      : xPos-1));
+    d2 = str2double(value(xPos+1 : end   ));
             
     % center the application window on the screen of the user
     st = get(0,'ScreenSize');
             
-    xDif = (st(3)-d1)/2;
-    yDif = (st(4)-d2)/2;
+    xDif = (st(3) - d1) / 2;
+    yDif = (st(4) - d2) / 2;
             
-    nSize=[xDif, yDif, d1, d2];
+    nSize = [xDif, yDif, d1, d2];
     app.(f).Position = nSize;  
     
 end  

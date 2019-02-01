@@ -1,20 +1,27 @@
-
 function pdflatex_via_matlab()
+    %% a way of executing pdflatex within the MATLAB workflow
+    % .. todo:: export settings into a external settings file
+    %
+    % .. seealso:: `Python Invoke <https://www.pyinvoke.org/ >`_
+    %
+    %
+    % https://en.wikipedia.org/wiki/Comparison_of_documentation_generators
+    
+    [status, ~] = system('python --version');
+    if status ~= 0
+        error([' `python --version` returned an error,',... 
+               ' \n Python installed and added to systempath?'])     
+    end
 
-[syscode, ~] = system('python --version');
-if syscode ~= 0
-    error(' `python --version` was returned with an errorcode, Python installed and on systempath ?')     
+    currentdir  = pwd();
+    parts       = strsplit(currentdir, filesep());
+    cd('..')
+    cd(fullfile ( [parts{end}, '-docs'],'latex'))
+    [status, ~] = system(['pdflatex ', parts{end},'.tex'],'-echo');
+        if status ~= 0 
+            error([' pdflatex raised an error,',... 
+               ' \nDo you have a verion of pdflatex installed on your system?'])     
+        end
+    cd(currentdir);
+
 end
-
-
-
-currentdir = pwd();
-parts = strsplit(currentdir, filesep());
-cd ..
-cd(fullfile ( [parts{end},'-docs'],'latex'))
-[~, ~] = system(['pdflatex ',parts{end},'.tex'],'-echo');
-
-cd(currentdir);
-
-end
-

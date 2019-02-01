@@ -3,10 +3,10 @@ function app_launch()
     %
     %
 
-    a=dir('host/*.mlapp');%a=dir('host/mfiles');
+    a = dir('host/*.mlapp'); %a=dir('host/mfiles');
     a_IsDir = {a.isdir};
     a_Name  = {a.name};
-    a_Name_dir  =   a_Name(~cell2mat(a_IsDir )) ;
+    a_Name_dir  =   a_Name(~cell2mat(a_IsDir)) ;
     a_Name_dir  =   a_Name_dir(:);
     a_Name_dir  =   a_Name_dir{1};
 
@@ -15,8 +15,8 @@ function app_launch()
     fName  =  a_Name_dir(1:dotloc-1);
     
     %
-    out=[datestr(now()),'  |  starting app: `',fName,'`'];
-    disp( out )
+    out = [datestr(now()),'  |  starting app: `', fName,'`'];
+    disp(out)
     
     eval(fName);
 

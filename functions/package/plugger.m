@@ -7,17 +7,9 @@ function plugger(opt)
 %
 %
 fn = fieldnames(opt);
-
-
-for i =1 : numel(fn)
-    
+for i = 1 : numel(fn)
     cfn = fieldnames(opt.(fn{i}));
-    
     for j = 1: numel(cfn)
-        
        % {'Properties'}
-       
     end
-    
-
 end

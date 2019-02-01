@@ -1,5 +1,4 @@
-
-function     utf8_write_to_file(target_path, file_name, my_m_code )
+function utf8_write_to_file(target_path, file_name, my_m_code )
     %% Write code [n x 1] cell array to text-file in unicode encoding
     %
     % :param target_path: relative path to target 
@@ -11,14 +10,14 @@ function     utf8_write_to_file(target_path, file_name, my_m_code )
     %
     
     % [1] check for an existing 
-    if exist(target_path ,'dir')~=7
-        mkdir(target_path );
+    if exist(target_path, 'dir') ~= 7
+        mkdir(target_path);
     end
     
     % [2] create file write code
-    fid=fopen(fullfile(target_path,file_name),'w');
+    fid = fopen(fullfile(target_path, file_name), 'w');
     
-    if fid <3
+    if fid < 3
         error([target_path,file_name,' could not be created '])
     end
     
@@ -28,6 +27,6 @@ function     utf8_write_to_file(target_path, file_name, my_m_code )
     end
 
     fclose(fid);
-    out= [datestr(now()),'  |  ',fullfile(target_path,file_name),' created'];
+    out= [datestr(now()),'  |  ', fullfile(target_path,file_name), ' created'];
     disp(out)
 end

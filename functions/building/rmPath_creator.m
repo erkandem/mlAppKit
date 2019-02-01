@@ -31,7 +31,7 @@ function rmPath_creator(project_dir)
     %
     % :todo: change addpath to addpath(genpath('file')) ?
     %
-    target_path = fullfile(project_dir,'functions','auto_generated');
+    target_path = fullfile(project_dir,v'functions',v'auto_generated');
     file_name = ('builder_rmPath.m');
     
     utf8_write_to_file(target_path, file_name, code_cell )

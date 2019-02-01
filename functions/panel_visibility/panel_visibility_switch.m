@@ -1,4 +1,4 @@
-function panel_visibility_switch(app,target_tag)
+function panel_visibility_switch(app, target_tag)
 % regulates the visibility of panels/views in the main app. so
 % instead of replicating on/off switches with each menu
 %
@@ -19,67 +19,58 @@ function panel_visibility_switch(app,target_tag)
     fn_app_type = cell(numel(fn_app),1);
 
     for i = 1 : numel(fn_app)
-        fn_app_type{i}= class(app.(fn_app{i}));
+        fn_app_type{i} = class(app.(fn_app{i}));
     end
-% strip off unwanted element
-% :todo: extend on other elements
+    % strip off unwanted element
+    % :todo: extend on other elements
 
     dList= {'matlab.ui.container.Menu';...
             'matlab.ui.Figure';...
             'matlab.ui.control.TextArea'};
           
-    [boolV,~]=ismember(fn_app_type,dList);
+    [boolV, ~] = ismember(fn_app_type, dList);
     fn_app_type = fn_app_type(~boolV);
     fn_app      = fn_app(~boolV);
 
-    % who called the function?
-    call_raised_by=target_tag;
+    call_raised_by = target_tag;
 
-    for i =1: numel( fn_app )
-    % skip if it is the uifigure
-    fgh = 1 + 1; % debugging hook
+    for i = 1: numel(fn_app)
+        % skip if it is the uifigure
+        debugging_hook = 1;
         if isa(app.(fn_app{i}),'matlab.ui.Figure')
             continue
         end
         try
-            level3_fn=fieldnames(app.(fn_app{i}));
-            for z =1:numel( level3_fn)
+           level_3_fn = fieldnames(app.(fn_app{i}));
+            for z = 1:numel(level_3_fn)
                 try
-                    level4_fn=fieldnames(app.(fn_app{i}).(level3_fn{z}));
-                    if isa(app.(fn_app{i}).(level3_fn{z}), 'struct')
+                   level_4_fn = fieldnames(app.(fn_app{i}).(level_3_fn{z}));
+                    if isa(app.(fn_app{i}).(level_3_fn{z}), 'struct')
                         % new
-                        for jj = 1:numel(level4_fn) 
-                            level5_fn=fieldnames(app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}));
+                        for jj = 1 : numel(level_4_fn) 
+                           level_5_fn = fieldnames(app.(fn_app{i}).(level_3_fn{z}).(level_4_fn{jj}));
                             if ismember('main_Panel',level5_fn)
-                         
-                                if isa(app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}).main_Panel,'matlab.ui.container.Panel')
+                                if isa(app.(fn_app{i}).(level_3_fn{z}).(level_4_fn{jj}).main_Panel, 'matlab.ui.container.Panel')
                                     % compare the tag
-                                    if strcmp(call_raised_by,app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}).main_Panel.Tag)
-                                        app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}).main_Panel.Visible ='On';
+                                    if strcmp(call_raised_by, app.(fn_app{i}).(level_3_fn{z}).(level_4_fn{jj}).main_Panel.Tag)
+                                        app.(fn_app{i}).(level_3_fn{z}).(level_4_fn{jj}).main_Panel.Visible ='On';
                                     else
-                                        app.(fn_app{i}).(level3_fn{z}).(level4_fn{jj}).main_Panel.Visible ='Off';
+                                        app.(fn_app{i}).(level_3_fn{z}).(level_4_fn{jj}).main_Panel.Visible ='Off';
                                     end
-                            
                                 end    
-                        
                             end
-
                         end
-                        
                     else 
                         % old
                     end
-                    if ismember('main_Panel',level4_fn)
-                        if isa(app.(fn_app{i}).(level3_fn{z}).main_Panel,'matlab.ui.container.Panel')
-                        % compare the tag
-                            
-                            
-                            if strcmp(call_raised_by,app.(fn_app{i}).(level3_fn{z}).main_Panel.Tag)
-                                app.(fn_app{i}).(level3_fn{z}).main_Panel.Visible ='On';
+                    if ismember('main_Panel', level_4_fn)
+                        if isa(app.(fn_app{i}).(level_3_fn{z}).main_Panel, 'matlab.ui.container.Panel')
+                            % compare the tag
+                            if strcmp(call_raised_by, app.(fn_app{i}).(level_3_fn{z}).main_Panel.Tag)
+                                app.(fn_app{i}).(level_3_fn{z}).main_Panel.Visible = 'On';
                             else
-                                app.(fn_app{i}).(level3_fn{z}).main_Panel.Visible ='Off';
+                                app.(fn_app{i}).(level_3_fn{z}).main_Panel.Visible = 'Off';
                             end
-                            
                         end
                     end
                 catch

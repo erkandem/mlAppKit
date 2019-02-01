@@ -9,10 +9,10 @@ function meta_Name_dir  = levelOneDirQuery(qPar)
 % Level one ( one subdirecotry below, as defined by qPar)
 
 	if nargin == 0
-		qPar=pwd();
+		qPar = pwd();
 	end
         
-	meta          = dir ( fullfile(qPar));
+	meta          = dir(fullfile(qPar));
 	meta_IsDir    = {meta.isdir};
 	meta_Name     = {meta.name};
 	meta_Name_dir = meta_Name(cell2mat(meta_IsDir )) ; 

@@ -1,7 +1,10 @@
-% this file is an analogon to th .gitignore files
-% which serve as tool to seperate the grain from the chaff
-% only for matlab
-% only for my purpose
+% this file is an analogon to .gitignore files
+% .mignore is a tool to seperate the grain from the chaff
+%
+% only.... for schMATLAB!
+%
+%
+%
 
 _bkp
 .
@@ -9,3 +12,5 @@ _bkp
 .git
 settings
 docs
+crypto
+tests

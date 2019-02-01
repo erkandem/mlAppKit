@@ -14,7 +14,7 @@ function addPath_creator(project_dir)
     pFolder_dirNames = levelOneDirQuery();
     % read in .mignore file and disscard unneded files
     delList           = mignore_reader();
-    [del_index, ~]    = ismember(pFolder_dirNames , delList);
+    [del_index, ~]    = ismember(pFolder_dirNames, delList);
     pFolder_dirNames_screened = pFolder_dirNames(~del_index) ;
 
     % options struct to hold the configureation  
@@ -33,10 +33,9 @@ function addPath_creator(project_dir)
     %
     % :todo: change addpath to addpath(genpath('file')) ?
     %
-    target_path = fullfile(project_dir,'functions','auto_generated');
+    target_path = fullfile(project_dir, 'functions', 'auto_generated');
     file_name = ('builder_addPath.m');
-    
-    utf8_write_to_file(target_path, file_name, code_cell )
+    utf8_write_to_file(target_path, file_name, code_cell)
 %     addPath_creator_write(code_cell)
 % 
 %     out= [datestr(now()),'  |  builder_addpath() created'];
@@ -53,8 +52,8 @@ function code_cell = addPath_creator_core(opt)
     % 
 
     % define some strings 
-	func_dec={'function builder_addPath()'};
-    func_end={'end'};
+	func_dec = {'function builder_addPath()'};
+    func_end = {'end'};
 
     rb_o  = '(';
     rb_c  = ')';
@@ -64,35 +63,33 @@ function code_cell = addPath_creator_core(opt)
     ap = 'addpath';
     ff = 'fullfile';
     st = 'static';
-    
     four_spaces='    ';
 
     %% create the code for the functions folders
 
-    cPar_array=fieldnames(opt);
-    k=1; % line counter
+    cPar_array = fieldnames(opt);
+    k = 1; % line counter
 
     for i = 1:numel(cPar_array)
-
-        cPar = cPar_array{i} ;
+        cPar = cPar_array{i};
         cf   = fieldnames(opt.(cPar));
     % sure,... preallocate and stuff
-        for jj= 1: numel(cf)
-   
-            code_cell{k,1}= [four_spaces,...
-                            ap,rb_o,...
-                            ff,rb_o,...
-                            char(39),cPar,char(39),comma,...
-                            char(39),cf{jj},char(39),...
-                            rb_c,...
-                            rb_c,sm...
-                            ];
+        for jj = 1 : numel(cf)
+            % code_cell{k, 1} = sprintf('    addpath(fullfile(''%s'', ''%s''));', cPar, cf{jj});
+            code_cell{k, 1}= [four_spaces,...
+                             ap,rb_o,...
+                             ff,rb_o,...
+                             char(39), cPar, char(39), comma,...
+                             char(39), cf{jj}, char(39),...
+                             rb_c,...
+                             rb_c, sm...
+                             ];
             
-            k=k+1; % +1 loop counter
+            k = k + 1;
         end
     end
     
-    k=k+1;
+    k = k + 1;
 
     % insert comment header
     header = {...
@@ -118,11 +115,11 @@ function code_cell = addPath_creator_core(opt)
         '    % ';
         '     ';
         };
-        
-    static_folder={[four_spaces,ap,rb_o, gp,rb_o, ff, rb_o, char(39),st, char(39),rb_c,rb_c,rb_c,sm]};
+    %static_folder = {sprintf('    addpath(genpath((fullfile(''static''))) ;')};
+    static_folder={[four_spaces,ap,rb_o, gp,rb_o, ff, rb_o, char(39),st, char(39), rb_c, rb_c, rb_c, sm]};
 
 
-    code_cell=[ func_dec;
+    code_cell = [func_dec;
                 header;
                 code_cell;
                 static_folder;
