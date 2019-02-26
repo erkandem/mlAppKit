@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Packaging f(x) &mdash; mlAppKit v2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Building f(x)" href="building_functions.html" />
+    <link rel="prev" title="Setup f(x)" href="setup_functions.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> mlAppKit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../includeme.html">mlAppKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../includeme.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cutOutFromReadme.html">The Long Story</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../f_index.html">Functions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup_functions.html">Setup  f(x)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Packaging   f(x)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-functions.package">quickstart_template_creator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mlappkit-static-bundle-creator">mlappkit_static_bundle_creator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-app">package_app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plugger">plugger</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="building_functions.html">Building f(x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility_functions.html">utility  f(x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui_functions.html">The GUI to Develope GUIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update_functions.html">Updating</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../views_index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues_index.html">Issues, FAQ, Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_index.html">Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mlAppKit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../f_index.html">Functions</a> &raquo;</li>
+        
+      <li>Packaging   f(x)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functions/packaging_functions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="packaging-f-x">
+<h1>Packaging   f(x)<a class="headerlink" href="#packaging-f-x" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-functions.package">
+<span id="quickstart-template-creator"></span><h2>quickstart_template_creator<a class="headerlink" href="#module-functions.package" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="functions.package.quickstart_template_creator">
+<code class="descclassname">functions.package.</code><code class="descname">quickstart_template_creator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.package.quickstart_template_creator" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a boilerplate from the current app 
+and save it into functions/template/ &lt;projectName&gt;</p>
+<p>working directory == currentPrj</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">automate the quickstart template generation</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="mlappkit-static-bundle-creator">
+<h2>mlappkit_static_bundle_creator<a class="headerlink" href="#mlappkit-static-bundle-creator" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="functions.package.mlappkit_static_bundle_creator">
+<code class="descclassname">functions.package.</code><code class="descname">mlappkit_static_bundle_creator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.package.mlappkit_static_bundle_creator" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates s bundle of static parts of mlappkkit
+these functions are share with each project, since there is nothing
+project specific about them</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">untested</p>
+</div>
+<p>system([‘tree ‘,pwd(),’ /f /a &gt; foo.txt ‘])</p>
+</dd></dl>
+
+</div>
+<div class="section" id="package-app">
+<h2>package_app<a class="headerlink" href="#package-app" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This function is in development</p>
+</div>
+<dl class="function">
+<dt id="functions.package.package_app">
+<code class="descclassname">functions.package.</code><code class="descname">package_app</code><span class="sig-paren">(</span><em>confi</em><span class="sig-paren">)</span><a class="headerlink" href="#functions.package.package_app" title="Permalink to this definition">¶</a></dt>
+<dd><p>enable the user to create copy all dependencies into a single folder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>confi</strong> (<em>struct</em>) – configuration struct (optional)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<ol class="last loweralpha simple">
+<li>beware of duplicate filename conflict !</li>
+</ol>
+</div>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<ol class="last loweralpha simple" start="2">
+<li>offer option to reproduce source directory structure</li>
+</ol>
+</div>
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Todo</p>
+<ol class="last loweralpha simple" start="3">
+<li>also copy the <cite>static</cite> folder, with assets like icon…</li>
+</ol>
+</div>
+<div class="admonition-todo admonition" id="index-4">
+<p class="first admonition-title">Todo</p>
+<p class="last">(d) some kind of <cite>launch_app</cite> routine, to account fot the
+different file locations seethe  <cite>todos</cite> (a), (b) and(c)</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="plugger">
+<h2>plugger<a class="headerlink" href="#plugger" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This function is in development</p>
+</div>
+<dl class="function">
+<dt id="functions.package.plugger">
+<code class="descclassname">functions.package.</code><code class="descname">plugger</code><span class="sig-paren">(</span><em>opt</em><span class="sig-paren">)</span><a class="headerlink" href="#functions.package.plugger" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates the <cite>properties</cite>, visbility settings, in</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>opt</strong> – input struct reflecting the views of the project</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="building_functions.html" class="btn btn-neutral float-right" title="Building f(x)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup_functions.html" class="btn btn-neutral" title="Setup f(x)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Erkan Demiralay.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

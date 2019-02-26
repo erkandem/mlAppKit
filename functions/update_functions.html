@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Updating &mdash; mlAppKit v2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="../views_index.html" />
+    <link rel="prev" title="The GUI to Develope GUIs" href="gui_functions.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> mlAppKit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../includeme.html">mlAppKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../includeme.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cutOutFromReadme.html">The Long Story</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../f_index.html">Functions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup_functions.html">Setup  f(x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_functions.html">Packaging   f(x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_functions.html">Building f(x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility_functions.html">utility  f(x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui_functions.html">The GUI to Develope GUIs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Updating</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-functions.setup">mlappkit_version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../views_index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues_index.html">Issues, FAQ, Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_index.html">Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mlAppKit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../f_index.html">Functions</a> &raquo;</li>
+        
+      <li>Updating</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functions/update_functions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="updating">
+<h1>Updating<a class="headerlink" href="#updating" title="Permalink to this headline">¶</a></h1>
+<p><strong>The folowing funtions attempt to enable updating.</strong></p>
+<p><strong>Long Strory</strong></p>
+<p>The MATLAB File Exchange is a treasure trove.But it design seems outdated to me.</p>
+<ul class="simple">
+<li>TOS require submissions to be licensed by &lt; research the licesetype&gt;</li>
+<li>no updating</li>
+<li>only for registered users …</li>
+</ul>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">To</span> <span class="n">submit</span> <span class="ow">or</span> <span class="n">download</span> <span class="n">files</span><span class="p">,</span> <span class="n">sign</span> <span class="ow">in</span> <span class="n">to</span> <span class="n">your</span> <span class="n">MathWorks</span> <span class="n">Account</span> <span class="ow">or</span> <span class="n">create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">one</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>no version history</li>
+<li>also no pakacage managing</li>
+</ul>
+<p>The absense of these features makes the usage much more simple.
+But I think simplicity should be implemented by leaving out parameters if a user makes a call.</p>
+<p>If you want to order a Coke you order a coke. And you will get a Coke.
+If you order a Diet Coke without ice and please with  a drinking straw. You will get …</p>
+<p>When I thought about the advantages of the WordPress plugin space or the pip functionality in python
+I  wished there was a package manging system for MATLAB code.
+<a class="reference external" href="https://github.com/mobeets/mpm">matlab package manager</a></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">in Development</p>
+</div>
+<div class="section" id="module-functions.setup">
+<span id="mlappkit-version"></span><h2>mlappkit_version<a class="headerlink" href="#module-functions.setup" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="functions.setup.mlappkit_version">
+<code class="descclassname">functions.setup.</code><code class="descname">mlappkit_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.setup.mlappkit_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>API to gather intel about the current version to be used by some
+kind of updating API accessing remoteGiT or a local file storage</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">write a updatig toolset</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">might watch out for <a class="reference external" href="https://github.com/mobeets/mpm">matlab package manager</a></p>
+</div>
+<p><strong>python-sphinx  directives ?</strong></p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">App Name:</th><td class="field-body">mlappkit</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Git:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Description:</th><td class="field-body">Default</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Contact:</th><td class="field-body">Default</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Version:</th><td class="field-body">Default</td>
+</tr>
+<tr class="field-even field"><th class="field-name">License:</th><td class="field-body">Default</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">PlaceHolder1:</th><td class="field-body">Default</td>
+</tr>
+<tr class="field-even field"><th class="field-name">PlaceHolder2:</th><td class="field-body">Default</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">PlaceHolder3:</th><td class="field-body">Default</td>
+</tr>
+<tr class="field-even field"><th class="field-name">PlaceHolder3:</th><td class="field-body">Default</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>JSON?</strong></p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://github.com/fangq/jsonlab">JSON for MATLAB</a></p>
+</div>
+<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fid</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
+<span class="nb">str</span> <span class="o">=</span>  <span class="n">fread</span><span class="p">(</span><span class="n">fid</span><span class="p">);</span>
+<span class="nb">str</span> <span class="o">=</span>   <span class="n">char</span><span class="p">(</span><span class="nb">str</span><span class="p">);</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fid</span><span class="p">);</span>
+<span class="n">resr</span> <span class="o">=</span> <span class="n">jsondecode</span><span class="p">(</span><span class="nb">str</span><span class="p">);</span> <span class="o">%</span> <span class="n">built</span> <span class="ow">in</span> <span class="n">fucntion</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../views_index.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gui_functions.html" class="btn btn-neutral" title="The GUI to Develope GUIs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Erkan Demiralay.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

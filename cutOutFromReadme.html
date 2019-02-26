@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Long Story &mdash; mlAppKit v2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Functions" href="f_index.html" />
+    <link rel="prev" title="mlAppKit" href="includeme.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> mlAppKit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">mlAppKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Long Story</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#state-of-app-designer">State of App Designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#existing-workarounds">Existing Workarounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#approach-presented-via-mlappkit">Approach Presented Via <strong>mlAppKit</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#anatomy">Anatomy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extract-code-from-mlapp">Extract Code from .mlapp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#project-file-and-folder-structure">Project File and Folder  Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="f_index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="views_index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issues_index.html">Issues, FAQ, Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_index.html">Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mlAppKit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>The Long Story</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/cutOutFromReadme.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-long-story">
+<h1>The Long Story<a class="headerlink" href="#the-long-story" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="state-of-app-designer">
+<h2>State of App Designer<a class="headerlink" href="#state-of-app-designer" title="Permalink to this headline">¶</a></h2>
+<p>using MATLAB App Designer (AD) is almost as easy as working with a spreadsheets.
+However, anyone with some experience with spreadsheets, knows that with
+increasing complexity you’re likly to hit an efficiency wall.
+It is not different with AD:</p>
+<ol class="arabic simple">
+<li>slows down the editor</li>
+<li>doesn’t offer code folding</li>
+<li>doesn’t have a visual hierarchy on the code level</li>
+<li>editable area is safe guarded</li>
+<li>favors a monolithic design structure</li>
+<li>which then is hard to maintain and keep tidy and</li>
+<li>makes it more painful to introduce new features</li>
+</ol>
+<p>As a result apps tend to be single use apps.</p>
+</div>
+<div class="section" id="existing-workarounds">
+<h2>Existing Workarounds<a class="headerlink" href="#existing-workarounds" title="Permalink to this headline">¶</a></h2>
+<p>Most of the issues can be simply avoided by calling an external script, function, class or application from within the editable area:</p>
+<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">callbackOfSomeUserInterfaceElementPushed</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+    <span class="n">someFunctionLocatedInAnOtherFile</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">event</span><span class="p">);</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>Functions are favorable to scripts since they offer separate namespaces.
+Classes can be great to work with. Maintaining function might be easier.</p>
+<p>Linking different apps from  one central app is is an intuitive way to go.
+However, I would not like to open, rearrange and close ten different windows during my workflow.</p>
+<p>Tabs and panels offer a simple way to structure different parts of an app.
+Unfortunately this structure is not reflected in the code base.
+Except, if someone would be chuzpe enough to use container UI elements as <strong>namespaces</strong>.
+The key to the success of this approach would be:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Goal:</th><td class="field-body">retaining the visual  drag and drop user experience and add as little pain as possible</td>
+</tr>
+</tbody>
+</table>
+<p>Is there a way to bridge the gap between programmatic and visual app design in MATLAB?
+Since .mlapp files are container files the source code could be modified and zipped back.
+While it sounds like a easy patch. Note that surgery is avoided for a reason.
+It may work now, but the next version could break everything. <a class="footnote-reference" href="#id2" id="id1">[1]</a>
+In other words the procedure should be noninvasive - or - at least not rely upon keeping the patient alive.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Some analysis on the .mlapp file format <a class="reference external" href="https://undocumentedmatlab.com/blog/appdesigner-mlapp-file-format">https://undocumentedmatlab.com/blog/appdesigner-mlapp-file-format</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="approach-presented-via-mlappkit">
+<h2>Approach Presented Via <strong>mlAppKit</strong><a class="headerlink" href="#approach-presented-via-mlappkit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="anatomy">
+<h3>Anatomy<a class="headerlink" href="#anatomy" title="Permalink to this headline">¶</a></h3>
+<p>Let’s … borrow … the concept of <strong>views</strong> and <strong>activities</strong> from
+other IDEs such as Android Studio or any other.</p>
+<p>Going through the possible combinations I came up with three different
+views/activities:</p>
+<ul>
+<li><p class="first"><strong>host</strong> which has a <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Figure</span></code> serving as a socket</p>
+</li>
+<li><p class="first"><strong>plugins</strong> which (each) have a <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Panel</span></code> as the highest
+structural element</p>
+</li>
+<li><p class="first"><strong>popups</strong> with an <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Figure</span></code> to save real estate</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="23%" />
+<col width="22%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">host</th>
+<th class="head">plugin</th>
+<th class="head">popup</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>highest structural element</td>
+<td><code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Figure</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Panel</span></code></td>
+<td>both</td>
+</tr>
+<tr class="row-odd"><td>can live…</td>
+<td>autonomous</td>
+<td>dependent</td>
+<td>both</td>
+</tr>
+<tr class="row-even"><td>serves as…</td>
+<td>socket board</td>
+<td>content</td>
+<td>both</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+<div class="section" id="extract-code-from-mlapp">
+<h3>Extract Code from .mlapp<a class="headerlink" href="#extract-code-from-mlapp" title="Permalink to this headline">¶</a></h3>
+<p>in courtesy of <a class="reference external" href="https://github.com/StackOverflowMATLABchat">StackOverflowMATLABchat</a></p>
+<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">evalcstr</span> <span class="o">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s1">&#39;type(&#39;&#39;</span><span class="si">%s</span><span class="s1">‘’)’, &#39;</span><span class="n">app</span><span class="o">.</span><span class="n">mlapp</span><span class="s1">&#39;));</span>
+<span class="n">myMcode</span>  <span class="o">=</span> <span class="n">evalc</span><span class="p">(</span><span class="n">evalcstr</span><span class="p">);</span> <span class="o">%</span> <span class="n">evalcstr</span><span class="p">:</span> <span class="s1">&#39;type(&#39;</span><span class="n">app</span><span class="o">.</span><span class="n">mlapp</span><span class="s1">&#39;)&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="project-file-and-folder-structure">
+<h2>Project File and Folder  Structure<a class="headerlink" href="#project-file-and-folder-structure" title="Permalink to this headline">¶</a></h2>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── mlAppKit                      # project folder
+│    ├── .mignore                 # files and folders for make to ignore
+│    ├── buildTheApp.m            # make-function
+│    ├── [ ... ]                  # e.g. .gitignore
+│    ├── host                     # host app:
+│    │    ├── host_app.mlapp      #
+│    │    └── mfiles              # contains the extracted and edited code
+│    │        └──host_app.m       #
+│    │
+│    ├── firstplugin              # plugin: a standalone app byitself
+│    │    ├── redbutton.mlapp     #         into your project
+│    │    ├── [ ... ]             #
+│    │    └── mfiles              # extracted and edited classdef code
+│    │        └── redbutton.m     #
+│    │        └── [ ... ]
+│    │
+│    ├── [ ... ]                  # the key is that you may have as much
+│    │                            # plugins as you want
+│    ├── popups
+│    │    ├── settings.mlapp
+│    │    ├── [ ... ]
+│    │    └── mfiles
+│    │        └── settings.m
+│    │        └── [ ... ]
+│    │
+│    ├── functions                # both project and mlAppKit specific f(x)
+│    │    └── [ ... ]             # f(x) to parse the project files
+│    │
+│    └── static                   # App Designer related static assets like
+│        ├── icons                # Icons used within UI Buttons
+│        └── [ ... ]
+│
+└── mlAppKit-docs
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="f_index.html" class="btn btn-neutral float-right" title="Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="includeme.html" class="btn btn-neutral" title="mlAppKit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Erkan Demiralay.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

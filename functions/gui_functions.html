@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The GUI to Develope GUIs &mdash; mlAppKit v2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Updating" href="update_functions.html" />
+    <link rel="prev" title="utility f(x)" href="utility_functions.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> mlAppKit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../includeme.html">mlAppKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../includeme.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cutOutFromReadme.html">The Long Story</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../f_index.html">Functions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup_functions.html">Setup  f(x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging_functions.html">Packaging   f(x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_functions.html">Building f(x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utility_functions.html">utility  f(x)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The GUI to Develope GUIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#guis-to-create-guis">GUIs to create GUIs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mlappkitgui">mlAppKitGUI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="update_functions.html">Updating</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../views_index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues_index.html">Issues, FAQ, Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_index.html">Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mlAppKit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../f_index.html">Functions</a> &raquo;</li>
+        
+      <li>The GUI to Develope GUIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functions/gui_functions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-gui-to-develope-guis">
+<h1>The GUI to Develope GUIs<a class="headerlink" href="#the-gui-to-develope-guis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="guis-to-create-guis">
+<h2>GUIs to create GUIs<a class="headerlink" href="#guis-to-create-guis" title="Permalink to this headline">¶</a></h2>
+<p>Command Line tools are great. Since most users are going to use this toolset wihtout
+deploying it remotly a nice GUI to create a GUIs would be nice.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">in Development</p>
+</div>
+<div class="section" id="mlappkitgui">
+<h3>mlAppKitGUI<a class="headerlink" href="#mlappkitgui" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This part is in development</p>
+</div>
+<span class="target" id="module-functions.package"></span><dl class="class">
+<dt id="functions.package.mlAppKitGUI">
+<em class="property">class </em><code class="descclassname">functions.package.</code><code class="descname">mlAppKitGUI</code><a class="headerlink" href="#functions.package.mlAppKitGUI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>to initiate the build and packaging process</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="update_functions.html" class="btn btn-neutral float-right" title="Updating" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="utility_functions.html" class="btn btn-neutral" title="utility f(x)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Erkan Demiralay.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

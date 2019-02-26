@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>About &mdash; mlAppKit v2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Appendix" href="appendix_index.html" />
+    <link rel="prev" title="Issues, FAQ, Debugging" href="issues_index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> mlAppKit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">mlAppKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html#getting-started">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cutOutFromReadme.html">The Long Story</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f_index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="views_index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issues_index.html">Issues, FAQ, Debugging</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-is-this-done">How is this done?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#feedback">Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#services">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#support">Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rate-it">Rate it</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_index.html">Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mlAppKit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>About</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/about.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="about">
+<h1>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
+<p>mlAppKit was written to enhence app development workflow.</p>
+<p>The general idea is to bridge the gap between the highly
+customizable but intensly labourous and bugprone programmatic
+and drag and drop comfy way using App Designer.
+App Desinger is going to abreviated by AD</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Mathworks Developers did a great job in creating AD.
+It was the first GUI design tool I worked with which
+obvously results in a bias towards it.
+Looking at what’s genrally possible to create for desktop
+apps and what’s possible with AD I took a look at
+couple of points are unsatifying</p>
+<ul class="simple">
+<li>creating apps is easy peasy, combining existing applications into a single app can get very messy.</li>
+<li>the coding experience in AD is pretty weak and gets quite sluggish passing a system specific magic number of lines</li>
+<li>the structuring capabilities are to the designlevel but not to the coding level</li>
+<li>code folding unavailable</li>
+</ul>
+<p>As a result of  these issues the general result is an monstrous monolithic apps which comes with is:</p>
+<ul class="simple">
+<li>bug prone</li>
+<li>hard to read</li>
+<li>aglomates unneeded code</li>
+<li>performance is slowed down.</li>
+</ul>
+<p>The other extreme is that you might have couple of
+apps which are started from one menu. This keeps every
+sub app clean but having 10 applications on your desktop
+is not the way to go.</p>
+<p>Creating some apps for myself I realized that most of
+what I created was single use only. This is cynic since the
+rockbottom of these apps are classes which are intended
+to be reusable objects.</p>
+<p>Trying to get more experience I used tools like:</p>
+<ul class="simple">
+<li>Android Stuido</li>
+<li>Visual Studio</li>
+<li>Java Swing</li>
+<li>Qt Designer</li>
+<li>various Pythonic ways</li>
+</ul>
+<p>Qt would be my choice professional apps despite.
+Obviously Android Studio is for mobile only.
+Java Swing and Visual Studio could be Great things if you know Java or C++</p>
+<p>There are many python ways of creating GUIs including Qt bindings.</p>
+</div>
+<div class="section" id="how-is-this-done">
+<h2>How is this done?<a class="headerlink" href="#how-is-this-done" title="Permalink to this headline">¶</a></h2>
+<p>Package them for deployment compilaton etc
+sample documentation included</p>
+<div class="section" id="feedback">
+<h3>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h3>
+<p>This project is meant to be a referance. An was used developed during the core
+I would certainly enjoy developing it further. But I will need your feedback.</p>
+<ul class="simple">
+<li>Help &gt; “Send Feedback” Screenshot ?</li>
+<li>GitHub issues</li>
+<li>Send me an email LINK!</li>
+<li>MATLAB FileExchange</li>
+</ul>
+</div>
+</div>
+<div class="section" id="services">
+<h2>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h2>
+<p>Additionally Services are available</p>
+<ul class="simple">
+<li>user authentification</li>
+<li>remote database integration</li>
+<li>documentation service</li>
+<li>licensing keygeneration</li>
+<li>license server setup</li>
+<li>web-application</li>
+<li>combine the patches</li>
+</ul>
+</div>
+<div class="section" id="support">
+<h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
+<p>Support is available.
+Pay what it’s worth.</p>
+<ul class="simple">
+<li>commercial:</li>
+<li>startup:</li>
+<li>academics:</li>
+<li>personal :</li>
+</ul>
+</div>
+<div class="section" id="rate-it">
+<h2>Rate it<a class="headerlink" href="#rate-it" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/erkandem">Github</a></li>
+<li><a class="reference external" href="https://github.com/erkandem">MATLAB FileExchange</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="appendix_index.html" class="btn btn-neutral float-right" title="Appendix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="issues_index.html" class="btn btn-neutral" title="Issues, FAQ, Debugging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Erkan Demiralay.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
