@@ -61,19 +61,15 @@ There are many pythonic ways of creating GUIs including Qt bindings.
 How is this done?
 """"""""""""""""""""""
 
-Package them for deployment compilation etc
-sample documentation included
+<elaborate>
 
 
 Feedback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This project is meant to be a referance. An was used developed during the core  
 I would certainly enjoy developing it further. But I will need your feedback.
 
-
-* Help > "Send Feedback" Screenshot ? 
-* GitHub issues 
-* Send me an email LINK!
+* GitHub issues
+* Send me an email
 * MATLAB FileExchange
 
 
