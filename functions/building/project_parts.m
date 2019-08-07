@@ -24,8 +24,8 @@ function opt = project_parts()
     fName  =  lfn{j}(1 : dotloc-1);
     opt.host.(fName) = true;
         
-    [a, b] = ismember('host', a_Name_dir_filted);
-    a_Name_dir_filted(b(a)) = [];
+    [a, b] = ismember('host', sub_folders_screened);
+    sub_folders_screened(b(a)) = [];
     clear a b j
     
 %% scan the the pop-ups folder
@@ -44,8 +44,8 @@ function opt = project_parts()
     end
     
     % remove "pop-ups" from "to parse" list
-    [a, b] = ismember('popups', a_Name_dir_filted);
-    a_Name_dir_filted(b(a)) = [];
+    [a, b] = ismember('popups', sub_folders_screened);
+    sub_folders_screened(b(a)) = [];
 
     clear a b 
 
@@ -54,17 +54,17 @@ function opt = project_parts()
 % :todo: figure out a way to deal with child menus in the menu
 %
     opt.views = struct();
-    for i = 1 : numel(a_Name_dir_filted)
+    for i = 1 : numel(sub_folders_screened)
     
-        opt.views.(a_Name_dir_filted{i}) = struct();
-        meta = dir(fullfile(a_Name_dir_filted{i}, '*mlapp'));
+        opt.views.(sub_folders_screened{i}) = struct();
+        meta = dir(fullfile(sub_folders_screened{i}, '*mlapp'));
         lfn = {meta.name};
     
         for j=1:numel(lfn)
             % strip of file extension
             dotloc =  regexp(lfn{j}, '[.]');
             fName  =  lfn{j}(1:dotloc-1);
-            opt.views.(a_Name_dir_filted{i}).(fName) = true;
+            opt.views.(sub_folders_screened{i}).(fName) = true;
         end
     end
     
