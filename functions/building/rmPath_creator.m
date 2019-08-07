@@ -1,5 +1,5 @@
 function rmPath_creator(project_dir) 
-    %% create a function to remove app realted folders from the **current** MATLAB path
+    %% create a function to remove app related folders from the **current** MATLAB path
     % .. seealso:: :ref:`addPath_creator`_
     %
      
