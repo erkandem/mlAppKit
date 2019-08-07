@@ -1,23 +1,27 @@
 function panel_visibility_switch(app, target_tag)
-% regulates the visibility of panels/views in the main app. so
-% instead of replicating on/off switches with each menu
-%
-%
-% :param app: an  MATLAB ``app`` class to which contains all parts of the
-%             applications. Important in this case are the handles to each panel which
-%             can be comfortably access via ``app`` instead of collecting and passing
-%             it manually to this function
-% :type app: app
-% :param target_tag: marks the tag of the tab which raised the function
-%                    call, as such, that panel is going to be made visible while every other
-%                    panel will be set to invisable
-%
-% :type target_tag: str
-% :returns: ` void `
-%
+    % regulates the visibility of panels/views in the main app.
+    % so instead of replicating on/off switches with each menu
+    % this will turn off everything except the ``target_tag``.
+    % Can be improved (to say the least).
+    %
+    % :param app: an  MATLAB ``app`` class to which contains 
+    %             all parts of the applications. Important in this case
+    %             are the handles to each panel which can be comfortably 
+    %             accessed via ``app`` instead of collecting and passing
+    %             it manually to this function
+    % :type app: app
+    % :param target_tag: marks the tag of the tab which raised 
+    %                    the function call, as such, that panel 
+    %                    is going to be  made visible while every 
+    %                    other panel will be set to invisable
+    %
+    % :type target_tag: str
+    % :returns: `void `
+    %
+    
     fn_app      = fieldnames(app);
     fn_app_type = cell(numel(fn_app),1);
-
+    
     for i = 1 : numel(fn_app)
         fn_app_type{i} = class(app.(fn_app{i}));
     end
@@ -61,7 +65,7 @@ function panel_visibility_switch(app, target_tag)
                             end
                         end
                     else 
-                        % old
+                        % deprecated code. removed.
                     end
                     if ismember('main_Panel', level_4_fn)
                         if isa(app.(fn_app{i}).(level_3_fn{z}).main_Panel, 'matlab.ui.container.Panel')

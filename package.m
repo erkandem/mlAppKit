@@ -16,24 +16,34 @@ mlappkit_static_bundle_creator()
 
 %% prepare new batch of documentation files
 s.folderName = [s.projectFolder, '-docs'];
-
-rmdir(fullfile('..', s.folderName, 'latex'   ), 's');    
-rmdir(fullfile('..', s.folderName, 'html'    ), 's');    
-rmdir(fullfile('..', s.folderName, 'doctrees'), 's');
+try
+    rmdir(fullfile('..', s.folderName, 'latex'   ), 's');
+catch
+end
+try
+%    rmdir(fullfile('..', s.folderName, 'html'    ), 's');   % GIT !!!!
+catch
+end
+try
+    rmdir(fullfile('..', s.folderName, 'doctrees'), 's');
+catch
+end
 
 %% execute sphinx  and  pdflatex build
 % pdflatex is called multiple times because elements
 % like the table of contents and internal references are not created
-% corectly after the first parse
+% corectly after the first run
 sphinx_make_via_matlab({'html'; 'latex'});
 pdflatex_via_matlab();
 pdflatex_via_matlab();
 pdflatex_via_matlab();
 
 %% copy pdf into new folder
+copyfile(...
+    fullfile('..', s.folderName, 'latex', [s.projectFolder, '.pdf']), ...
+    pwd()...
+);
 
-copyfile( fullfile ( '..', s.folderName, 'latex', [s.projectFolder, '.pdf']), ...
-          pwd());
 %% copy installation bundle and pdf into a new folder
 nowstr_ = datestr(now(), 'yyyymmdd_HHMMSS');
 s.new_folderName      = [s.projectFolder, '-egg-', nowstr_];
@@ -47,4 +57,4 @@ copyfile(fullfile('..', s.folderName, 'latex', [s.projectFolder, '.pdf']), ...
 copyfile(fullfile('functions', 'templates', [s.projectFolder, '_static_bundle.zip']), ...
                 s.new_fullProjectPath);
    
-fprintf('The egg was sucessfully layed.\nHowever the egg was not tested\n');
+fprintf('The egg was sucessfully layed.\nHowever, the egg was not tested\n');

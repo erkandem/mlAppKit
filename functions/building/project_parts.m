@@ -44,11 +44,11 @@ function opt = project_parts()
         opt.popups.popups.(fName) = true;
     end
     
-% remove "pop-ups" from "to parse" list
+    % remove "pop-ups" from "to parse" list
     [a, b] = ismember('popups', a_Name_dir_filted);
     a_Name_dir_filted(b(a)) = [];
 
-clear a b 
+    clear a b 
 
 %% any other folder lavel 1 plugin 
 %
@@ -58,7 +58,6 @@ clear a b
     for i = 1 : numel(a_Name_dir_filted)
     
         opt.views.(a_Name_dir_filted{i}) = struct();
-    
         meta = dir(fullfile(a_Name_dir_filted{i}, '*mlapp'));
         lfn = {meta.name};
     

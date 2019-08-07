@@ -1,7 +1,6 @@
 % this file is an analogon to .gitignore files
-% .mignore is a tool to seperate the grain from the chaff
+% .mignore is a tool to separate the grain from the chaff
 %
-% only.... for schMATLAB!
 %
 %
 %
@@ -9,8 +8,10 @@
 _bkp
 .
 ..
+
 .git
 settings
 docs
 crypto
 tests
+.idea

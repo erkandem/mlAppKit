@@ -8,8 +8,8 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set SOURCEDIR=source
-set BUILDDIR=../../mlAppKit-docs
-set SPHINXPROJ=mlAppKit
+set BUILDDIR=../../mlappkit-docs
+set SPHINXPROJ=mlappkit
 
 if "%1" == "" goto help
 

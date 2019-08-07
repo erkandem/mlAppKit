@@ -1,20 +1,21 @@
 function package_app(confi)
-%% enable the user to create copy all dependencies into a single folder
-%
-% :param confi: configuration struct (optional)
-% :type confi: struct
-% 
-% .. todo:: (a) beware of duplicate filename conflict !
-%        
-% 
-% .. todo:: (b) offer option to reproduce source directory structure 
-%
-% 
-% .. todo:: (c) also copy the `static` folder, with assets like icon...
-%
-% .. todo:: (d) some kind of `launch_app` routine, to account fot the
-%           different file locations seethe  `todos` (a), (b) and(c)
-%
+    %% enable the user to create copy all dependencies into a single folder
+    %
+    % :param confi: configuration struct (optional)
+    % :type confi: struct
+    %
+    % .. todo:: (a) beware of duplicate filename conflict !
+    %
+    %
+    % .. todo:: (b) offer option to reproduce source directory structure
+    %
+    %
+    % .. todo:: (c) also copy the `static` folder, with assets like icon...
+    %
+    % .. todo:: (d) some kind of `launch_app` routine, to account fot the
+    %           different file locations seethe  `todos` (a), (b) and(c)
+    %
+
     if nargin == 0
         confi = struct();
         confi = package_app_query_part(confi);
@@ -22,13 +23,13 @@ function package_app(confi)
 
     % final configuration could be offered to the user
     package_app_export_part(confi)
-    
-    msgbox('Done!');
+    fprintf('<strong>Done!</strong>\n');
     
 end
 
 function confi = package_app_query_part(confi)
-%% returns some default (source) packaging options
+    %% returns some default (source) packaging options
+
     fn_confi = fieldnames(confi);
     
     % make a default selection of the parts of the application to package
@@ -61,7 +62,7 @@ function confi = package_app_query_part(confi)
         confi.('fList') = fList;
     end
 
-    %% add  contents of the static/icons .. folder
+    %% add contents of the static/icons .. folder
     fn_static = {'icons', 'audio', 'img', 'misc'};
 
     for j = 1:numel(fn_static)
@@ -82,9 +83,9 @@ function confi = package_app_query_part(confi)
 end
 
 function package_app_export_part(confi)
-%% apply the previously obtained export configuration 
+    %% apply the previously obtained export configuration
 
-% create a  project directory
+    % create a  project directory
     targetDir = fullfile(confi.('folderPath'), confi.('fileName'));
     confi.('targetDir') = targetDir ;
     
@@ -95,7 +96,7 @@ function package_app_export_part(confi)
 
     for i = 1: numel(confi.('fList'))
         % copies files into one single directory
-        % .. todo:: write a filename check to prevent overwriting
+        % .. todo:: write a filename check to prevent overwriting existing files
         %
         slashpos = regexp(confi.('fList'){i}, filesep());
         fName = confi.('fList'){i}(slashpos(end)+1 : end);
@@ -108,9 +109,10 @@ function package_app_export_part(confi)
     target_isdir = [target_dir.isdir];
     target_names = target_names(~target_isdir );
      
-    % zip(zipfilename,filenames,rootfolder)
+    % zip(zipfilename, filenames, rootfolder)
     zip(fullfile(confi.('targetDir'), [confi.fileName, '.zip']),...
         target_names,...
         confi.('targetDir'))
-
+    fprintf('The project was packaged at:\n %s\n', target_dir)
+    
 end

@@ -2,20 +2,21 @@ classdef popup_about < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-        uifpopup               matlab.ui.Figure
-        AboutPanel             matlab.ui.container.Panel
-        creditLabel            matlab.ui.control.Label
-        linkedbutton           matlab.ui.control.Button
-        crLabel                matlab.ui.control.Label
-        LicenseBoilerplateAppTextAreaLabel  matlab.ui.control.Label
-        LicenseTextArea        matlab.ui.control.TextArea
-        FeedbackTextAreaLabel  matlab.ui.control.Label
-        AboutTextArea          matlab.ui.control.TextArea
-        ghbutton               matlab.ui.control.Button
-        mailButton             matlab.ui.control.Button
-        linkToProject          matlab.ui.control.TextArea
+        uifpopup                    matlab.ui.Figure
+        AboutPanel                  matlab.ui.container.Panel
+        creditLabel                 matlab.ui.control.Label
+        linkedbutton                matlab.ui.control.Button
+        crLabel                     matlab.ui.control.Label
+        LicenseBoilerplateAppLabel  matlab.ui.control.Label
+        LicenseTextArea             matlab.ui.control.TextArea
+        FeedbackTextAreaLabel       matlab.ui.control.Label
+        AboutTextArea               matlab.ui.control.TextArea
+        ghbutton                    matlab.ui.control.Button
+        mailButton                  matlab.ui.control.Button
+        linkToProject               matlab.ui.control.TextArea
     end
 
+    % Callbacks that handle component events
     methods (Access = private)
 
         % Button pushed function: linkedbutton
@@ -36,14 +37,14 @@ classdef popup_about < matlab.apps.AppBase
         end
     end
 
-    % App initialization and construction
+    % Component initialization
     methods (Access = private)
 
         % Create UIFigure and components
         function createComponents(app)
 
-            % Create uifpopup
-            app.uifpopup = uifigure;
+            % Create uifpopup and hide until all components are created
+            app.uifpopup = uifigure('Visible', 'off');
             app.uifpopup.AutoResizeChildren = 'off';
             app.uifpopup.Position = [100 100 640 480];
             app.uifpopup.Name = 'Settings';
@@ -71,13 +72,13 @@ classdef popup_about < matlab.apps.AppBase
             % Create crLabel
             app.crLabel = uilabel(app.AboutPanel);
             app.crLabel.Position = [151 8 260 22];
-            app.crLabel.Text = '© 2018 all rights reserved --- Erkan Demiralay';
+            app.crLabel.Text = '© 2019 all rights reserved --- Erkan Demiralay';
 
-            % Create LicenseBoilerplateAppTextAreaLabel
-            app.LicenseBoilerplateAppTextAreaLabel = uilabel(app.AboutPanel);
-            app.LicenseBoilerplateAppTextAreaLabel.HorizontalAlignment = 'center';
-            app.LicenseBoilerplateAppTextAreaLabel.Position = [55 220 134 22];
-            app.LicenseBoilerplateAppTextAreaLabel.Text = 'License - Boilerplate App:';
+            % Create LicenseBoilerplateAppLabel
+            app.LicenseBoilerplateAppLabel = uilabel(app.AboutPanel);
+            app.LicenseBoilerplateAppLabel.HorizontalAlignment = 'center';
+            app.LicenseBoilerplateAppLabel.Position = [50.5 220 143 22];
+            app.LicenseBoilerplateAppLabel.Text = 'License - Boilerplate App:';
 
             % Create LicenseTextArea
             app.LicenseTextArea = uitextarea(app.AboutPanel);
@@ -117,15 +118,19 @@ classdef popup_about < matlab.apps.AppBase
             app.linkToProject.HorizontalAlignment = 'center';
             app.linkToProject.Position = [33 283 567 20];
             app.linkToProject.Value = {'https://github.com/erkandem/mlappkit'};
+
+            % Show the figure after all components are created
+            app.uifpopup.Visible = 'on';
         end
     end
 
+    % App creation and deletion
     methods (Access = public)
 
         % Construct app
         function app = popup_about
 
-            % Create and configure components
+            % Create UIFigure and components
             createComponents(app)
 
             % Register the app with App Designer

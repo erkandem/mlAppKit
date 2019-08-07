@@ -13,10 +13,9 @@ function conversion_launcher(project_dir)
     % 
      
     
-    if nargin == 1 
-    elseif nargin == 0 
-        project_dir = pwd(); 
-    end  
+    if nargin == 0
+        project_dir = pwd();
+    end
     
     mlapp_to_m(fullfile(project_dir, 'firstplugin', 'calculator.mlapp'), 'plugin');
     mlapp_to_m(fullfile(project_dir, 'firstplugin', 'redbutton.mlapp'), 'plugin');

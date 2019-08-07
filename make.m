@@ -49,5 +49,5 @@ function make(pdir)
     %% launch the app 
     % started from the obtained m-files not the .mlapp file
     app_launch();
-    sprintf('%s', 'Aplication built successfully!');
+    sprintf('%s', 'Aplication was built successfully!');
 end

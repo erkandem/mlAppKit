@@ -1,6 +1,5 @@
 function mlappkit_setup()
-    % :func:`mlappkit_setup` will walk a GUI designer (i.e. regular user)
-    % through the setup during the first run on the user machine.
+    %% will walk user through the setup during the first run on the user machine.
     % It will:
     %
     % #. suggest a target directory and let you confirm or change it
@@ -17,7 +16,7 @@ function mlappkit_setup()
     %
     
     % suggest a installation path
-    install_path    =  fullfile(userpath(), 'mlAppKit');
+    install_path    =  fullfile(userpath(), 'mlappkit');
     opt.Interpreter = 'tex';
     opt.Resize      = 'on';
     prompt = ['\fontsize{12} mlAppKit will be installed here ',... 
@@ -36,19 +35,19 @@ function mlappkit_setup()
         mkdir(install_path)
     end
     
-    unzip('mlAppKit_static_bundle.zip', install_path);
+    unzip('mlappkit_static_bundle.zip', install_path);
     addpath(genpath(install_path));
     savepath;
     
     
-    fprintf('%s\n', '  Done. mlAppKit is installed in: ')
+    fprintf('%s\n', '  Done. mlAppKit was installed in:')
     fprintf('%s\n',   install_path );
     fprintf('%s\n', '  ');
     fprintf('%s\n', ' Next Steps:');
     fprintf('%s\n', '  ');
     fprintf('%s\n', ' target_dir = pwd(); ');
-    fprintf('%s\n', ' prj_name = ''helloWorld'' ');
-    fprintf('%s\n', ' mlappkit_quickstart( target_dir , prj_name ) ');
+    fprintf('%s\n', ' project_name = ''helloWorld''; ');
+    fprintf('%s\n', ' mlappkit_quickstart(target_dir, project_name)');
     
     
 end

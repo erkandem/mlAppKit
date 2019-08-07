@@ -14,18 +14,20 @@ function ext_start_up(app)
     % :todo: mandatory tag names  of plugins? Way to automate that ? 
     %
     % :todo: mandatory name  `main_Panel` for UIPanel  of plugins? (main_Panel)
+    % 
+    % 
 
-    %% get the name of the ui figure 
+    %% get the name of the UI figure 
     
     fn_app      = fieldnames(app);
     fn_app_type = cell(numel(fn_app), 1);
 
     for i = 1 : numel(fn_app)
-        fn_app_type{i}= class(app.(fn_app{i}));
+        fn_app_type{i} = class(app.(fn_app{i}));
     end
     
-    [isisnot, ~] = ismember(fn_app_type, {'matlab.ui.Figure'});
-    f = cell2mat(fn_app(isisnot));
+    [is_member, ~] = ismember(fn_app_type, {'matlab.ui.Figure'});
+    f = cell2mat(fn_app(is_member));
     
     %% [ 1 ] create an instance...
     % ... of your plugin class and save its handle inside
@@ -46,7 +48,7 @@ function ext_start_up(app)
     % syntax example:
     % app.plugins.<yourGroup>.<yourApp>        =  <yourApp>(app.(f));
     
-	%% [ 2 ] assign a tag to each individual app (simply use its appname e.g.)
+	%% [ 2 ] assign a tag to each individual app (e.g. simply use its appname)
     app.plugins.firstPlugin.redbutton.main_Panel.Tag = 'redbutton';
     app.plugins.firstPlugin.calculator.main_Panel.Tag = 'calculator';
     
@@ -58,9 +60,9 @@ function ext_start_up(app)
     % turn visibility "Off" for everything but "home"
     panel_visibility_switch(app, 'home')
 
-    %----------95% of the users can save and exit ;) ---------------------% 
-    %% Center window and apply deployment target resultion
-    % see wikipedia for a list some default resolutions
+    %----------95% of the users can save and exit here ;) ----------------% 
+    %% Center the window on screen and apply deployment target resultion
+    % see wikipedia for a list of some default resolutions
     value = '1024x640';  % a default target resolution
             
     xPos = regexp(value, 'x');
@@ -72,8 +74,8 @@ function ext_start_up(app)
             
     xDif = (st(3) - d1) / 2;
     yDif = (st(4) - d2) / 2;
-            
+    
     nSize = [xDif, yDif, d1, d2];
     app.(f).Position = nSize;  
     
-end  
+end

@@ -1,45 +1,32 @@
 function addPath_creator(project_dir)
     %% create a function to add all relevant folders to the **current** MATLAB path
     %
-    % 1. filter out any level 1  directory 
+    % 1. filter out any level one directory 
     % 2. create the file calls 
     % 3. write the function to an .m-file
     %
-    if nargin == 1
-    elseif nargin == 0
+    if nargin == 0
         project_dir = pwd();
     end
 
-    %% [1] 
     pFolder_dirNames = levelOneDirQuery();
-    % read in .mignore file and disscard unneded files
-    delList           = mignore_reader();
-    [del_index, ~]    = ismember(pFolder_dirNames, delList);
-    pFolder_dirNames_screened = pFolder_dirNames(~del_index) ;
+    delList = mignore_reader();
+    [del_index, ~] = ismember(pFolder_dirNames, delList);
+    pFolder_dirNames_screened = pFolder_dirNames(~del_index);
 
     % options struct to hold the configureation  
-    opt     =   struct();
+    opt = struct();
     for i = 1 :numel(pFolder_dirNames_screened)
-        % wtf does add_subfolder do ???
         qPar       = pFolder_dirNames_screened{i};
         m          = add_subfolder(qPar);
         m          = m.(qPar);
         opt.(qPar) = m;
     end
-    %% [2] 
-    code_cell = addPath_creator_core(opt);
 
-    %% [3] 
-    %
-    % :todo: change addpath to addpath(genpath('file')) ?
-    %
+    code_cell = addPath_creator_core(opt);
     target_path = fullfile(project_dir, 'functions', 'auto_generated');
     file_name = 'builder_addPath.m';
     utf8_write_to_file(target_path, file_name, code_cell)
-%     addPath_creator_write(code_cell)
-% 
-%     out= [datestr(now()),'  |  builder_addpath() created'];
-%     disp(out)
 
 end
 
@@ -50,9 +37,8 @@ function code_cell = addPath_creator_core(opt)
     % :type opt: struct
     % 
 
-    %% create the code for the functions folders
     cPar_array = fieldnames(opt);
-    k = 1;  % line counter
+    k = 1;
 
     for i = 1:numel(cPar_array)
         cPar = cPar_array{i};
@@ -64,9 +50,6 @@ function code_cell = addPath_creator_core(opt)
         end
     end
     
-    k = k + 1;
-
-    % insert comment header
     header = {...
         '    %% adds `builder` and custom function folders(only first level)';
         '    % in a second run this function will also add the `mfiles` subdirectories';

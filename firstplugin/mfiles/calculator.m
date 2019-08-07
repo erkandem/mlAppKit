@@ -32,14 +32,10 @@ classdef calculator < matlab.apps.AppBase
             % executed when a number button is pushed
             % convert to char and append to list
             if isa(value, 'char')
-                
                 if  strcmp(value,'.')
                     if isempty(app.screenField.Value ) &&  ismember(app.screenField.Value(end),{'+';'-';'/';'*'})
-                        
-                        app.screenField.Value = {sprintf('0%s', value)};
-                        
-                    elseif isempty(app.screenField.Value ) &&  ~ismember(app.screenField.Value(end),{'+';'-';'/';'*'});
-                        
+                        app.screenField.Value = {sprintf('0%s', value)};     
+                    elseif isempty(app.screenField.Value ) &&  ~ismember(app.screenField.Value(end),{'+';'-';'/';'*'})
                         app.screenField.Value = [app.screenField.Value{1},...
                                                 {sprintf('%s', value)}];    
                     end
@@ -50,33 +46,20 @@ classdef calculator < matlab.apps.AppBase
                         calc_operator_pushed(app, value);
                     end
                 end
-                
             elseif isa(value, 'double')
-                
                 if isempty (app.screenField.Value{1} ) 
-                    
                     app.screenField.Value = {sprintf('%d', value)};
-                    
                 else 
-                    
                     if ismember(app.screenField.Value{end}(end),{'+';'-';'/';'*'}) && size(app.screenField.Value,1)>1  % newline without any character
                         app.screenField.Value = [app.screenField.Value ;
                                                 { sprintf('%d', value)}];
-                                                 
-                                             
                     elseif ~ismember(app.screenField.Value{end}(end),{'+';'-';'/';'*'}) && size(app.screenField.Value,1)>1
-                        
                          app.screenField.Value(end) =  { [app.screenField.Value{end}, sprintf('%d', value)]};
-                                             
                     elseif ~ismember(app.screenField.Value(end),{'+';'-';'/';'*'}) && ~(size(app.screenField.Value,1)>1)
-                        
                          app.screenField.Value = { [app.screenField.Value{end}, sprintf('%d', value)]};
-                  
-                  
                     end
                 end
             end
-            
         end
         
         function  calc_operator_pushed(app,value )
@@ -107,8 +90,7 @@ classdef calculator < matlab.apps.AppBase
             elseif  size(app.screenField.Value,1) == 1
                 return
             end
-            
-            
+           
             switch operator
                 case {'+'}
                      sol= str2double(para_first) + str2double(para_second); 
@@ -119,13 +101,12 @@ classdef calculator < matlab.apps.AppBase
                 case {'*'}
                      sol= str2double(para_first) * str2double(para_second); 
             end
-            app.screenField.Value = {sprintf('%.5f' , sol) };
-                
+            app.screenField.Value = {sprintf('%.5f' , sol) };    
         end
-        
     end
 
 
+    % Callbacks that handle component events
     methods (Access = private)
 
         % Code that executes after component creation
@@ -185,22 +166,22 @@ classdef calculator < matlab.apps.AppBase
 
         % Button pushed function: dial_sub
         function dial_subButtonPushed(app, event)
-                 dial_button_pushed(app, '-');
+            dial_button_pushed(app, '-');
         end
 
         % Button pushed function: dial_mult
         function dial_multButtonPushed(app, event)
-                 dial_button_pushed(app, '*');
+            dial_button_pushed(app, '*');
         end
 
         % Button pushed function: dial_div
         function dial_divButtonPushed(app, event)
-                 dial_button_pushed(app, '/');
+            dial_button_pushed(app, '/');
         end
 
         % Button pushed function: dial_equal
         function dial_equalButtonPushed(app, event)
-                 dial_button_pushed(app, '=');
+            dial_button_pushed(app, '=');
         end
 
         % Button pushed function: dial_decimal
@@ -220,14 +201,14 @@ classdef calculator < matlab.apps.AppBase
         end
     end
 
-    % App initialization and construction
+    % Component initialization
     methods (Access = private)
 
         % Create UIFigure and components
         function  createComponents(app,external_handle) % $_$ flipped 
 
-            % Create UIFigure
-%            app.UIFigure = uifigure;
+            % Create UIFigure and hide until all components are created
+%            app.UIFigure = uifigure('Visible', 'off');
 %            app.UIFigure.Position = [100 100 1024 640];
 %            app.UIFigure.Name = 'UI Figure';
 
@@ -347,15 +328,19 @@ classdef calculator < matlab.apps.AppBase
             app.CButton.ButtonPushedFcn = createCallbackFcn(app, @CButtonPushed, true);
             app.CButton.Position = [191 230 48 40];
             app.CButton.Text = 'C';
+
+            % Show the figure after all components are created
+%            app.UIFigure.Visible = 'on';
         end
     end
 
+    % App creation and deletion
     methods (Access = public)
 
         % Construct app
             function app = calculator(external_handle) % $_$ flipped 
 
-            % Create and configure components
+            % Create UIFigure and components
              createComponents(app,external_handle) % $_$ flipped 
 
             % Register the app with App Designer

@@ -1,5 +1,5 @@
 function mlappkit_quickstart(path_to_project, projectName)
-    % inspired by the sphinx-quickstart utility
+    % inspired by the ``sphinx-quickstart`` utility
     %
     % ask for the author ?
     % ask for the project name ?

@@ -16,8 +16,12 @@ function pdflatex_via_matlab()
     currentdir  = pwd();
     parts       = strsplit(currentdir, filesep());
     cd('..')
-    cd(fullfile ( [parts{end}, '-docs'],'latex'))
-    [status, ~] = system(['pdflatex ', parts{end},'.tex'],'-echo');
+    latex_dir = fullfile([parts{end}, '-docs'], 'latex');
+    if ~(exist(latex_dir, 'dir'))
+        mkdir(latex_dir);
+    end
+    cd(latex_dir)
+    [status, ~] = system(['pdflatex ', parts{end},'.tex'], '-echo');
         if status ~= 0 
             error([' pdflatex raised an error,',... 
                ' \nDo you have a verion of pdflatex installed on your system?'])     

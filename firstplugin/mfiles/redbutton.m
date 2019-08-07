@@ -13,6 +13,7 @@ classdef redbutton < matlab.apps.AppBase
     end
     
 
+    % Callbacks that handle component events
     methods (Access = private)
 
         % Button pushed function: LAUNCHButton
@@ -23,14 +24,14 @@ classdef redbutton < matlab.apps.AppBase
         end
     end
 
-    % App initialization and construction
+    % Component initialization
     methods (Access = private)
 
         % Create UIFigure and components
         function  createComponents(app,external_handle) % $_$ flipped 
 
-            % Create uif_redbutton
-%            app.uif_redbutton = uifigure;
+            % Create uif_redbutton and hide until all components are created
+%            app.uif_redbutton = uifigure('Visible', 'off');
 %            app.uif_redbutton.Position = [1 1 1024 640];
 %            app.uif_redbutton.Name = 'Ultra Mega Super Duper Bien App';
 
@@ -47,15 +48,19 @@ classdef redbutton < matlab.apps.AppBase
             app.LAUNCHButton.FontWeight = 'bold';
             app.LAUNCHButton.Position = [449 313 125 110];
             app.LAUNCHButton.Text = 'LAUNCH';
+
+            % Show the figure after all components are created
+%            app.uif_redbutton.Visible = 'on';
         end
     end
 
+    % App creation and deletion
     methods (Access = public)
 
         % Construct app
             function app = redbutton(external_handle) % $_$ flipped 
 
-            % Create and configure components
+            % Create UIFigure and components
              createComponents(app,external_handle) % $_$ flipped 
 
             % Register the app with App Designer

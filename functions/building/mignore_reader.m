@@ -1,17 +1,17 @@
 function c = mignore_reader(migDir)
-%% reads in the .mignore file, analogon to.gitignore with respect to the app
-% 
-% :param migDir:  path to the .mignore file 
-% :type migDir: char array
-%
-% :returns: name of files and folders to ignore
-% :rtype: cell-array
-%
+    %% reads in the .mignore file, analogon to .gitignore
+    % 
+    % :param migDir:  path to the .mignore file 
+    % :type migDir: char array
+    %
+    % :returns: name of files and folders to ignore
+    % :rtype: cell-array
+    %
    
     if nargin == 1        
         fid = fopen(fullfile(migDir, '.mignore'));
     else
-        fid = fopen('.mignore'); % assumes .mignore is in the working directory
+        fid = fopen('.mignore');  % assumes .mignore is in the working directory
     end
     
     if fid == -1
@@ -42,4 +42,3 @@ function c = mignore_reader(migDir)
 	c = c(~empt);
 	fclose(fid);
 end
-
