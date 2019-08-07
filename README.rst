@@ -6,7 +6,7 @@ mlAppKit
 --------------------------------
 
 :Author: Erkan Demiralay
-:Email:   `erkan@erkan.io <mailto:ed@erkan.io>`_
+:Email:   `erkan.dem@pm.me <mailto:erkan.dem@pm.me>`_
 :Web:    `erkandem.github.io/ <https://https://erkandem.github.io/>`_
 :GitHub: `erkandem/mlAppKit <https://github.com/erkandem/mlAppKit>`_
 

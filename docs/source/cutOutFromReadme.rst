@@ -1,14 +1,13 @@
 
 The Long Story
-==========================
-
+==============
 
 
 State of App Designer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 using MATLAB App Designer (AD) is almost as easy as working with a spreadsheets. 
 However, anyone with some experience with spreadsheets, knows that with 
-increasing complexity you're likly to hit an efficiency wall.
+increasing complexity you're likely to hit an efficiency wall.
 It is not different with AD:
 
 #. slows down the editor
@@ -22,7 +21,7 @@ It is not different with AD:
 As a result apps tend to be single use apps.
 
 Existing Workarounds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Most of the issues can be simply avoided by calling an external script, function, class or application from within the editable area:
 
@@ -55,12 +54,12 @@ In other words the procedure should be noninvasive - or - at least not rely upon
 .. [1] Some analysis on the .mlapp file format `<https://undocumentedmatlab.com/blog/appdesigner-mlapp-file-format>`_
 
 Approach Presented Via **mlAppKit**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
 Anatomy
-""""""""""""""""""""""""""""""""""""""""""""""
+"""""""
 Let's ... borrow ... the concept of **views** and **activities** from
 other IDEs such as Android Studio or any other.
 
@@ -136,4 +135,5 @@ Project File and Folder  Structure
    │        ├── icons                # Icons used within UI Buttons 
    │        └── [ ... ]              
    │                                 
-   └── mlAppKit-docs                
+   └── mlAppKit-docs
+
