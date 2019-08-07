@@ -122,12 +122,13 @@ function code_cell_array = mat_codegen(opt)
     };
 
     % split codel_cell and recompose
-    fDef      = code_cell_array(1, :);
-    fBody     = code_cell_array(2:end, :);
+    func_def      = code_cell_array(1, :);
+    func_body     = code_cell_array(2:end, :);
     
-    code_cell_array = [fDef;
-                       header;
-                       abs_path;
-                       fBody];
+    code_cell_array = [...
+        func_def;
+        header;
+        abs_path;
+        func_body];
 
 end
