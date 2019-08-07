@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>mlAppKit &mdash; mlAppKit v2018 documentation</title>
+  <title>mlAppKit &mdash; mlAppKit v2019.8 documentation</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                4.1
+                2019.8
               </div>
             
           
@@ -90,8 +90,9 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">mlAppKit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#project-summary">Project Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-and-usage">Installing and Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adding-your-own-app">adding your own app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-development-version">Installing Development Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-user-version">Installing the User Version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-your-own-apps">Adding Your Own Apps</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#support-feature-requests-suggestions">Support, Feature Requests, Suggestions</a></li>
@@ -181,7 +182,7 @@
 <dd class="field-even"><p><a class="reference external" href="mailto:ed&#37;&#52;&#48;erkan&#46;io">erkan<span>&#64;</span>erkan<span>&#46;</span>io</a></p>
 </dd>
 <dt class="field-odd">Web</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://erkan.io">erkan.io</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://https://erkandem.github.io/">erkandem.github.io/</a></p>
 </dd>
 <dt class="field-even">GitHub</dt>
 <dd class="field-even"><p><a class="reference external" href="https://github.com/erkandem/mlAppKit">erkandem/mlAppKit</a></p>
@@ -203,36 +204,52 @@ your standalone apps small and easy to maintain. Create more complex apps
 more professionaly without loosing the benefits of the drag and drop experience
 of <code class="docutils literal notranslate"><span class="pre">App</span> <span class="pre">Designer</span></code> once you go offroad by editing the underlying <code class="docutils literal notranslate"><span class="pre">classdef</span></code> code.</p>
 </div>
-<div class="section" id="installing-and-usage">
-<h2>Installing and Usage<a class="headerlink" href="#installing-and-usage" title="Permalink to this headline">¶</a></h2>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> or download the zipped repository and run the <a class="reference internal" href="functions/setup_functions.html#module-functions.setup"><span class="std std-ref">mlappkit_setup</span></a></p>
+<div class="section" id="installing-development-version">
+<h2>Installing Development Version<a class="headerlink" href="#installing-development-version" title="Permalink to this headline">¶</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> or download the zipped repository and run the <a class="reference internal" href="functions/building_functions.html#make"><span class="std std-ref">make</span></a> script.
+You’re ready to modify files as you like (boilerplate included)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/erkandem/mlAppKit.git
 </pre></div>
 </div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">make</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-the-user-version">
+<h2>Installing the User Version<a class="headerlink" href="#installing-the-user-version" title="Permalink to this headline">¶</a></h2>
+<p>The user version assumes that you want to package your applications instead
+of working on the tool itself.
+Download the <a class="reference external" href="https://github.com/erkandem/mlAppKit/releases/latest/download/mlappkit_static_bundle.zip">latest build</a></p>
+<p>The unzipped folder includes a setup script which will place
+frequently used functions into a directory within your <code class="docutils literal notranslate"><span class="pre">userpath</span></code> and
+add the the directory to your MATLAB path permanently.
+You can modify the installation path during setup.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">mlappkit_setup</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The <a class="reference internal" href="functions/setup_functions.html#mlappkit-quickstart"><span class="std std-ref">mlappkit_quickstart</span></a> command is inspired by sphinx_quickstart.
-It will launch a dialog and unzip a boilerplate.</p>
+<p>After running <code class="docutils literal notranslate"><span class="pre">mlappkit_setup</span></code> you can access a boilerplate generator.
+The <a class="reference internal" href="functions/setup_functions.html#mlappkit-quickstart"><span class="std std-ref">mlappkit_quickstart</span></a> command is inspired by sphinx_quickstart.
+It will launch a dialog and unzip a boilerplate project.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">target_dir</span> <span class="p">=</span> <span class="n">pwd</span><span class="p">();</span>
-<span class="o">&gt;&gt;</span> <span class="n">prj_name</span>   <span class="p">=</span> <span class="s">&#39;helloWorld&#39;</span> <span class="p">;</span>
-<span class="o">&gt;&gt;</span> <span class="n">mlappkit_quickstart</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="n">prj_name</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span> <span class="n">project_name</span>   <span class="p">=</span> <span class="s">&#39;hello_world&#39;</span><span class="p">;</span>
+<span class="o">&gt;&gt;</span> <span class="n">mlappkit_quickstart</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="n">project_name</span><span class="p">);</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">cd</span></code> into the directory and run the <code class="docutils literal notranslate"><span class="pre">make</span></code> command.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">cd</span> <span class="n">helloWorld</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">cd</span> <span class="n">hello_world</span>
 <span class="o">&gt;&gt;</span> <span class="n">make</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The next step is to develop your App or reshape existing code into
+<p>The next step is to develop your app of apps or reshape existing code into
 what you want. This will be discussed in the next paragraph.</p>
-<p>Ultimately, using your own tools is great. You can easily package it
-using the <a class="reference internal" href="functions/packaging_functions.html#package-app"><span class="std std-ref">package_app</span></a> function.</p>
+<p>You can easily package a your final app using the <a class="reference internal" href="functions/packaging_functions.html#package-app"><span class="std std-ref">package_app</span></a> function.
+This command will extract all m-files and static files into a single folder
+which you can redistribute.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">package_app</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="section" id="adding-your-own-app">
-<h3>adding your own app<a class="headerlink" href="#adding-your-own-app" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="adding-your-own-apps">
+<h3>Adding Your Own Apps<a class="headerlink" href="#adding-your-own-apps" title="Permalink to this headline">¶</a></h3>
 <dl class="simple">
 <dt>Currently, migrating to mlAppKit boils down to:</dt><dd><ol class="lowerroman simple">
 <li><p>preparing your apps (i.e. make them recognizable)</p></li>
@@ -298,14 +315,15 @@ the callback.</p>
 </pre></div>
 </div>
 <p>Your Done! Call the <a class="reference internal" href="functions/building_functions.html#make"><span class="std std-ref">make</span></a> function in the project root directory.
-This will start a cascade code extraction, modification and creation.</p>
+This will start a cascade of code extraction, modification and creation.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt; make<span class="o">()</span>
 </pre></div>
 </div>
 <p>The expected outcome is that the class definition code of all your <code class="docutils literal notranslate"><span class="pre">.mlapp</span></code>
-files will be extracted and slightly modified to play nice.</p>
-<p>Since MatLab has one global namespace the <a class="reference internal" href="functions/building_functions.html#make"><span class="std std-ref">make</span></a> command will create functions
-to add and remove project specific functions to the MatLab path.</p>
+files will be extracted and slightly modified to play nice with each other.</p>
+<p>Since <code class="docutils literal notranslate"><span class="pre">MatLab</span></code> has one global namespace the <a class="reference internal" href="functions/building_functions.html#make"><span class="std std-ref">make</span></a> command will create functions
+to add and remove project specific functions to the <code class="docutils literal notranslate"><span class="pre">MatLab</span> <span class="pre">path</span></code> defined in <code class="docutils literal notranslate"><span class="pre">pathdef.m</span></code>.
+They will be removed from the <code class="docutils literal notranslate"><span class="pre">MatLab</span> <span class="pre">path</span></code> if you close the IDE (recommended).</p>
 </div>
 </div>
 <div class="section" id="support-feature-requests-suggestions">
@@ -318,11 +336,11 @@ first months after publication.</p>
 <div class="section" id="contributions">
 <h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">¶</a></h2>
 <p>MatLab doesn’t have a PEP8. That doesn’t mean that PEP8 guide can’t be applied
-to MatLab code.</p>
+to MatLab code with some adjustments.</p>
 </div>
 <div class="section" id="final-notes">
 <h2>Final Notes<a class="headerlink" href="#final-notes" title="Permalink to this headline">¶</a></h2>
-<p>The project is licensed with under MIT <a class="reference internal" href="license.html#license"><span class="std std-ref">License</span></a> .</p>
+<p>The project is licensed under terms of the MIT <a class="reference internal" href="license.html#license"><span class="std std-ref">License</span></a>.</p>
 </div>
 </div>
 
@@ -346,7 +364,7 @@ to MatLab code.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Erkan Demiralay
+        &copy; Copyright 2019, Erkan Demiralay
 
     </p>
   </div>
