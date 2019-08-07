@@ -4,12 +4,11 @@ function opt = project_parts()
 %
 
 %% filter out any level 1  directory 
-    a_Name_dir            = levelOneDirQuery();
+    sub_folders           = levelOneDirQuery();
     ignore_list           = [mignore_reader(); {'functions'}];
-    [del_index, line_num] = ismember(ignore_list, a_Name_dir);
-    a_Name_dir_filted     = a_Name_dir;
-
-    a_Name_dir_filted(line_num(del_index)) = [];
+    [del_index, line_num] = ismember(ignore_list, sub_folders);
+    sub_folders_screened  = sub_folders;
+    sub_folders_screened(line_num(del_index)) = [];
 
 %% the host folder contains
 % remove "main" from "to parse" list
