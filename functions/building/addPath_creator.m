@@ -9,15 +9,15 @@ function addPath_creator(project_dir)
         project_dir = pwd();
     end
 
-    pFolder_dirNames = levelOneDirQuery();
-    delList = mignore_reader();
-    [del_index, ~] = ismember(pFolder_dirNames, delList);
-    pFolder_dirNames_screened = pFolder_dirNames(~del_index);
+    dir_names = levelOneDirQuery();
+    ignore_list = mignore_reader();
+    [del_index, ~] = ismember(dir_names, ignore_list);
+    dir_names_screened = dir_names(~del_index);
 
     % options struct to hold the configureation  
     opt = struct();
-    for i = 1 :numel(pFolder_dirNames_screened)
-        qPar       = pFolder_dirNames_screened{i};
+    for i = 1 :numel(dir_names_screened)
+        qPar       = dir_names_screened{i};
         m          = add_subfolder(qPar);
         m          = m.(qPar);
         opt.(qPar) = m;
