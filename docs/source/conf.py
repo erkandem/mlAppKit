@@ -28,13 +28,13 @@ StandaloneHTMLBuilder.supported_image_types = [
 # -- Project information -----------------------------------------------------
 
 project = 'mlAppKit'
-copyright = '2018, Erkan Demiralay'
+copyright = '2019, Erkan Demiralay'
 author = 'Erkan Demiralay'
 
 # The short X.Y version
-version = '4.1'
+version = '2019.8'
 # The full version, including alpha/beta/rc tags
-release = 'v2018'
+release = 'v2019.8'
 
 
 # -- General configuration ---------------------------------------------------
