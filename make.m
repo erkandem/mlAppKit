@@ -1,5 +1,5 @@
 function make(pdir)
-% Actually a script in a function shell is going to "build" and run the app 
+% Actually a script in a function shell. "build" and run the app.
 
     %% Look at the  dependencies 
     if nargin == 0
