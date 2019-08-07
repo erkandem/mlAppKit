@@ -11,7 +11,7 @@ function app_launch()
     a_Name_dir  =   a_Name_dir{1};
 
     % strip off extension
-    dotloc =  regexp(a_Name_dir,'[.]');
+    dotloc =  regexp(a_Name_dir, '[.]');
     fName  =  a_Name_dir(1:dotloc-1);
     
     %
