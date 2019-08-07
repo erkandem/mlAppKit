@@ -3,7 +3,7 @@ function app_launch()
     %
     %
 
-    a = dir('host/*.mlapp'); %a=dir('host/mfiles');
+    a = dir(fullfile('host', '*.mlapp')); %a=dir('host/mfiles');
     a_IsDir = {a.isdir};
     a_Name  = {a.name};
     a_Name_dir  =   a_Name(~cell2mat(a_IsDir)) ;
