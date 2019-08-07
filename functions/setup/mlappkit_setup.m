@@ -40,13 +40,13 @@ function mlappkit_setup()
     savepath();
     
     
-    fprintf('%s\n', '  Done. mlAppKit was installed in:')
+    fprintf('%s\n', ' Done! mlAppKit was installed in:')
     fprintf('%s\n',   install_path );
     fprintf('%s\n', '  ');
     fprintf('%s\n', ' Next Steps:');
     fprintf('%s\n', '  ');
     fprintf('%s\n', ' target_dir = pwd(); ');
-    fprintf('%s\n', ' project_name = ''helloWorld''; ');
+    fprintf('%s\n', ' project_name = ''hello_world''; ');
     fprintf('%s\n', ' mlappkit_quickstart(target_dir, project_name)');
     
     
