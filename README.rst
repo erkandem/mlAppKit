@@ -180,6 +180,6 @@ to MatLab code.
 Final Notes
 ---------------
 
-The project is licensed with under MIT :ref:`License` .
+The project is licensed under terms of the MIT :ref:`License`.
 
 
