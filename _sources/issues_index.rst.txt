@@ -1,5 +1,5 @@
 Issues, FAQ, Debugging
-========================
+======================
 
 If you come across a Bug or other issue please report it in 
 the `Github Section <https://github.com/erkandem/mlAppFlex/issues>`_
@@ -10,10 +10,10 @@ section on GitHub should be checked first.
 But here are some aspect which I came across:
 
 Migration
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
 
 "My apps  already have  a menu" 
-""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
 Three  considerations:
    
    #. Change the menu bar to an panel of buttons 
@@ -41,7 +41,7 @@ This is valid for:
 
 
 "Too many input arguments ..."
-""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 
 .. code:: matlab 
 
@@ -59,8 +59,8 @@ This is valid for:
 
 
 
-Unable to find function ...""
-""""""""""""""""""""""""""""""""
+"Unable to find function ..."
+"""""""""""""""""""""""""""""
 .. code:: matlab
 
    Error using `plugin`
@@ -72,3 +72,4 @@ Unable to find function ...""
          (Not to be confused with the label of the `uipanel`)
 
 :Solution: Remove it from the MATLAB searchpath
+

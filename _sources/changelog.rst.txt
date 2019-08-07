@@ -1,7 +1,7 @@
 
 
 Changelog
------------------
+---------
 
 
 .. git_changelog::
