@@ -37,7 +37,7 @@ function mlappkit_setup()
     
     unzip('mlappkit_static_bundle.zip', install_path);
     addpath(genpath(install_path));
-    savepath;
+    savepath();
     
     
     fprintf('%s\n', '  Done. mlAppKit was installed in:')
