@@ -60,7 +60,7 @@ function opt = project_parts()
         meta = dir(fullfile(sub_folders_screened{i}, '*mlapp'));
         lfn = {meta.name};
     
-        for j=1:numel(lfn)
+        for j = 1 : numel(lfn)
             % strip of file extension
             dotloc =  regexp(lfn{j}, '[.]');
             fName  =  lfn{j}(1:dotloc-1);
