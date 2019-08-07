@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Acknowledgments" href="acknowledgments.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -168,69 +170,87 @@
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <ul>
-<li><strong class="first">polished.</strong><span> by </span><em>erkandem</em><span> at </span><em>2019-02-01 20:36:38</em><p>added host app menu usage examples
+<li><strong>switched  CRLF -&gt; LF in documentation files</strong><span> by </span><em>kan</em><span> at </span><em>2019-08-07 16:22:51</em></li>
+<li><strong>Last build was on a Windows 10 machine.</strong><span> by </span><em>kan</em><span> at </span><em>2019-08-07 16:18:06</em><p>Typical issues on mac/linux machines arose:
+ - LF / CR / CRLF -&gt; unify to LF
+ - windows CMD is Case insensitive.
+   switch from ``mlAppKit`` to ``mlappkit``
+   (e.g. sphinx `.bat` `make` files)
+ - typos all over the place
+ - encoding mistake in .gitignore file
+ - copyright 2018 -&gt; 2019
+ - PEP8 inspired moves:
+   - remove trailing whitespaces
+   - space between operand operator operand combo
+   - indentation using 4 x space
+   - space after comma
+   - convert tab to 4 x spaces
+   - eliminated empty lines used for highlighting
+   - variables snake_case instead of camelCase</p>
+</li>
+<li><strong>polished.</strong><span> by </span><em>erkandem</em><span> at </span><em>2019-02-01 20:36:38</em><p>added host app menu usage examples
 enabled sprintf(%s, value) format for auto functions</p>
 </li>
-<li><strong class="first">deleted whitespaces in function calls</strong><span> by </span><em>erkandem</em><span> at </span><em>2019-02-01 19:10:45</em><p>coma + whitespace rule
+<li><strong>deleted whitespaces in function calls</strong><span> by </span><em>erkandem</em><span> at </span><em>2019-02-01 19:10:45</em><p>coma + whitespace rule
 changed some vars from camelCase to snake_case
 changed auto function creators to sprintf(%s, value) format</p>
 </li>
-<li><strong class="first"></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-18 22:31:07</em></li>
-<li><strong class="first">changed docstring —egg—</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 02:21:29</em></li>
-<li><strong class="first">–egg–</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 02:15:21</em></li>
-<li><strong class="first">changed to abs path rather then rel path call of mlapp_to_m</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 02:14:59</em></li>
-<li><strong class="first">changes in setup file was not saved? rewritten now</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 01:50:49</em></li>
-<li><strong class="first">create a  f(x) to remove previously added paths</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 01:44:47</em></li>
-<li><strong class="first">generalized references to folder names</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-13 20:15:18</em><p>created a subfolder strucutre for f(x) docs</p>
+<li><strong></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-18 22:31:07</em></li>
+<li><strong>changed docstring —egg—</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 02:21:29</em></li>
+<li><strong>–egg–</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 02:15:21</em></li>
+<li><strong>changed to abs path rather then rel path call of mlapp_to_m</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 02:14:59</em></li>
+<li><strong>changes in setup file was not saved? rewritten now</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 01:50:49</em></li>
+<li><strong>create a  f(x) to remove previously added paths</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-14 01:44:47</em></li>
+<li><strong>generalized references to folder names</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-13 20:15:18</em><p>created a subfolder strucutre for f(x) docs</p>
 </li>
-<li><strong class="first">fresh egg</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-12 22:27:17</em></li>
-<li><strong class="first">added icons to the packaging process</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-12 22:12:01</em></li>
-<li><strong class="first">documentation work</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-12 01:39:35</em></li>
-<li><strong class="first">bugfix</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 23:37:57</em></li>
-<li><strong class="first">bugfixes (package_script first tests)</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 23:28:44</em></li>
-<li><strong class="first">—– VERSION 1.0 ——-</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:21:46</em></li>
-<li><strong class="first"></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:20:43</em></li>
-<li><strong class="first"></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:20:27</em></li>
-<li><strong class="first"></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:12:41</em></li>
-<li><strong class="first"></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:05:10</em></li>
-<li><strong class="first">implemented installation of static files</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:48:40</em></li>
-<li><strong class="first">spelling error</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:43:13</em></li>
-<li><strong class="first">added mlappkit_setup_bundle_creator</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:42:12</em></li>
-<li><strong class="first"></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:23:22</em></li>
-<li><strong class="first"></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:22:41</em></li>
-<li><strong class="first"></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:16:58</em></li>
-<li><strong class="first">wrote boilerplate packager</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 18:09:59</em></li>
-<li><strong class="first">split up functions documentation in sub sections</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 17:49:44</em></li>
-<li><strong class="first">rename plugin tags</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 17:48:41</em></li>
-<li><strong class="first">rename plugin</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 17:44:24</em></li>
-<li><strong class="first">rename plugin</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 17:43:58</em></li>
-<li><strong class="first">startupfcn</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 15:17:36</em></li>
-<li><strong class="first">bugfix</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 14:41:28</em></li>
-<li><strong class="first">renamed functions to sth shorter, restructured docs ( functtions)</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 14:34:10</em></li>
-<li><strong class="first">restructured the documentation, streamlined README</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-10 21:25:10</em></li>
-<li><strong class="first">added setup.m</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-10 17:05:29</em></li>
-<li><strong class="first">prepare for packaging,</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 11:37:04</em><p>seperated generic ( installed 1x on  the system) 
+<li><strong>fresh egg</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-12 22:27:17</em></li>
+<li><strong>added icons to the packaging process</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-12 22:12:01</em></li>
+<li><strong>documentation work</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-12 01:39:35</em></li>
+<li><strong>bugfix</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 23:37:57</em></li>
+<li><strong>bugfixes (package_script first tests)</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 23:28:44</em></li>
+<li><strong>—– VERSION 1.0 ——-</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:21:46</em></li>
+<li><strong></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:20:43</em></li>
+<li><strong></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:20:27</em></li>
+<li><strong></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:12:41</em></li>
+<li><strong></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 22:05:10</em></li>
+<li><strong>implemented installation of static files</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:48:40</em></li>
+<li><strong>spelling error</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:43:13</em></li>
+<li><strong>added mlappkit_setup_bundle_creator</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:42:12</em></li>
+<li><strong></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:23:22</em></li>
+<li><strong></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:22:41</em></li>
+<li><strong></strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 20:16:58</em></li>
+<li><strong>wrote boilerplate packager</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 18:09:59</em></li>
+<li><strong>split up functions documentation in sub sections</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 17:49:44</em></li>
+<li><strong>rename plugin tags</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 17:48:41</em></li>
+<li><strong>rename plugin</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 17:44:24</em></li>
+<li><strong>rename plugin</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 17:43:58</em></li>
+<li><strong>startupfcn</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 15:17:36</em></li>
+<li><strong>bugfix</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 14:41:28</em></li>
+<li><strong>renamed functions to sth shorter, restructured docs ( functtions)</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-11 14:34:10</em></li>
+<li><strong>restructured the documentation, streamlined README</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-10 21:25:10</em></li>
+<li><strong>added setup.m</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-10 17:05:29</em></li>
+<li><strong>prepare for packaging,</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 11:37:04</em><p>seperated generic ( installed 1x on  the system) 
 and project specific files  ( copied with every new project)</p>
 </li>
-<li><strong class="first">changes gittatributes, renamed mlappkit_quickstart</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 10:42:26</em></li>
-<li><strong class="first">renamed buildTheApp to make - keep it simple</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 09:25:29</em></li>
-<li><strong class="first">worked on documentation</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 05:45:23</em></li>
-<li><strong class="first">worked on documentation, added calculator</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 04:53:20</em></li>
-<li><strong class="first">removed gui uis alltother</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-04 05:21:04</em></li>
-<li><strong class="first">error build in</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-04 05:20:22</em></li>
-<li><strong class="first">removed mlapp Gui GUis</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-04 05:03:20</em></li>
-<li><strong class="first">converted the GUI GUIs</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-04 05:01:37</em><p>added init.m in static folder to generate it when cloning a the git</p>
+<li><strong>changes gittatributes, renamed mlappkit_quickstart</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 10:42:26</em></li>
+<li><strong>renamed buildTheApp to make - keep it simple</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 09:25:29</em></li>
+<li><strong>worked on documentation</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 05:45:23</em></li>
+<li><strong>worked on documentation, added calculator</strong><span> by </span><em>erkandem</em><span> at </span><em>2018-09-09 04:53:20</em></li>
+<li><strong>removed gui uis alltother</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-04 05:21:04</em></li>
+<li><strong>error build in</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-04 05:20:22</em></li>
+<li><strong>removed mlapp Gui GUis</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-04 05:03:20</em></li>
+<li><strong>converted the GUI GUIs</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-04 05:01:37</em><p>added init.m in static folder to generate it when cloning a the git</p>
 </li>
-<li><strong class="first">fixed docstrings worked on documentation</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 20:37:44</em></li>
-<li><strong class="first">changed the documentation of functions due to changes in the underlyings</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 19:03:17</em></li>
-<li><strong class="first">changed window size</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 15:23:51</em></li>
-<li><strong class="first"></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 15:17:55</em></li>
-<li><strong class="first"></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 15:17:43</em></li>
-<li><strong class="first"></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 15:17:15</em></li>
-<li><strong class="first">added docstring to utf8 writer</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 14:56:01</em></li>
-<li><strong class="first">streamlined mlapp_to_m</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 14:39:24</em><p>added utf8 writer and replaced 3 subfunctions in 3 mfiles =)</p>
+<li><strong>fixed docstrings worked on documentation</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 20:37:44</em></li>
+<li><strong>changed the documentation of functions due to changes in the underlyings</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 19:03:17</em></li>
+<li><strong>changed window size</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 15:23:51</em></li>
+<li><strong></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 15:17:55</em></li>
+<li><strong></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 15:17:43</em></li>
+<li><strong></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 15:17:15</em></li>
+<li><strong>added docstring to utf8 writer</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 14:56:01</em></li>
+<li><strong>streamlined mlapp_to_m</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 14:39:24</em><p>added utf8 writer and replaced 3 subfunctions in 3 mfiles =)</p>
 </li>
-<li><strong class="first">removed deprecated functions from mlapp_to_m</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 13:46:51</em><p>added 1 tab indentation to autogenerated functions
+<li><strong>removed deprecated functions from mlapp_to_m</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-09-03 13:46:51</em><p>added 1 tab indentation to autogenerated functions
 
 app_launch: get the appname from the mlapp filename instead of the “first file in mfiles”. Now functions can be placed in the mfiles subfolder
 
@@ -238,69 +258,67 @@ also. the host application can now be named  freely. the the folder still needs 
 
 Preparing to clean up mlapp_to_m</p>
 </li>
-<li><strong class="first">created first draft of packaging and quickstart GUI </strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 21:30:20</em></li>
-<li><strong class="first">removed mfiles and added first draft of a packaging file</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 20:39:03</em></li>
-<li><strong class="first">deleted bloated comments</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 18:46:49</em></li>
-<li><strong class="first">changed location of startupfunction</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 18:26:42</em></li>
-<li><strong class="first">saved the startup function in an different m-file outside the main application</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 18:09:44</em></li>
-<li><strong class="first">renamed run to avoid conflicts</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 00:07:54</em></li>
-<li><strong class="first">took care of unfirom indentation (1x tab per level)</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 21:17:56</em><p>optimized most of the comments</p>
+<li><strong>created first draft of packaging and quickstart GUI </strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 21:30:20</em></li>
+<li><strong>removed mfiles and added first draft of a packaging file</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 20:39:03</em></li>
+<li><strong>deleted bloated comments</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 18:46:49</em></li>
+<li><strong>changed location of startupfunction</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 18:26:42</em></li>
+<li><strong>saved the startup function in an different m-file outside the main application</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 18:09:44</em></li>
+<li><strong>renamed run to avoid conflicts</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-31 00:07:54</em></li>
+<li><strong>took care of unfirom indentation (1x tab per level)</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 21:17:56</em><p>optimized most of the comments</p>
 </li>
-<li><strong class="first">sanitized names - works =)</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 17:51:18</em></li>
-<li><strong class="first">edited bindings</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 17:47:32</em></li>
-<li><strong class="first">remove old plugins</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 17:36:01</em></li>
-<li><strong class="first">worked on documentation</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 17:35:30</em><p>changed plugin names</p>
+<li><strong>sanitized names - works =)</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 17:51:18</em></li>
+<li><strong>edited bindings</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 17:47:32</em></li>
+<li><strong>remove old plugins</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 17:36:01</em></li>
+<li><strong>worked on documentation</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-30 17:35:30</em><p>changed plugin names</p>
 </li>
-<li><strong class="first">streamlined comments in run()</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 11:45:36</em><p>simplified variablenames in host_app
+<li><strong>streamlined comments in run()</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 11:45:36</em><p>simplified variablenames in host_app
 attributions introduced
 extended functions documentation</p>
 </li>
-<li><strong class="first">go to sleep. inserted links from functions reference to an other function</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 03:02:49</em></li>
-<li><strong class="first">worked on the documentation via sphinx </strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 02:36:08</em><p>aswell as the internal comment headers</p>
+<li><strong>go to sleep. inserted links from functions reference to an other function</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 03:02:49</em></li>
+<li><strong>worked on the documentation via sphinx </strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 02:36:08</em><p>aswell as the internal comment headers</p>
 </li>
-<li><strong class="first">added documentation</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 01:34:25</em></li>
-<li><strong class="first"></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 01:11:37</em></li>
-<li><strong class="first">part 2</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 01:09:42</em></li>
-<li><strong class="first">major changes in the function</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 01:06:01</em><p>simplified folder structure 
+<li><strong>added documentation</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 01:34:25</em></li>
+<li><strong></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 01:11:37</em></li>
+<li><strong>part 2</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 01:09:42</em></li>
+<li><strong>major changes in the function</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-29 01:06:01</em><p>simplified folder structure 
 renamed functions to sth more meaningful
 unified variables ( still  not 100% unified)
 changed sub functions to standalones
 and therefore reduced SLOCs 
 added comment headers to the automatically generated functions</p>
 </li>
-<li><strong class="first"></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-26 02:49:33</em></li>
-<li><strong class="first">changeg readme [2/2]</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 19:59:42</em><p>and added a record into the changelog</p>
+<li><strong></strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-26 02:49:33</em></li>
+<li><strong>changeg readme [2/2]</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 19:59:42</em><p>and added a record into the changelog</p>
 </li>
-<li><strong class="first">added images</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 19:57:00</em><p>and changing readme file from other folder</p>
+<li><strong>added images</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 19:57:00</em><p>and changing readme file from other folder</p>
 </li>
-<li><strong class="first">changed from frprintf to fwrite  ensuring UTF8 </strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 19:30:31</em><p>more documentation</p>
+<li><strong>changed from frprintf to fwrite  ensuring UTF8 </strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 19:30:31</em><p>more documentation</p>
 </li>
-<li><strong class="first">included some docstrings for testing out sphinxs</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 12:26:09</em><p>looks good =)</p>
+<li><strong>included some docstrings for testing out sphinxs</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 12:26:09</em><p>looks good =)</p>
 </li>
-<li><strong class="first">added Licence file and inserted markup for sphinx ( test)</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 04:56:18</em></li>
-<li><strong class="first">prepare for pub</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-07-23 19:28:06</em></li>
-<li><strong class="first">commented the run.m file</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-07-23 19:16:24</em></li>
-<li><strong class="first">changed output message</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-07-23 13:59:47</em></li>
-<li><strong class="first">unified command line output</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 16:30:54</em></li>
-<li><strong class="first">debugged </strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 16:26:04</em></li>
-<li><strong class="first">deleted pre v0.5 files</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:47:31</em></li>
-<li><strong class="first">remove source</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:41:08</em></li>
-<li><strong class="first">changed folder</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:39:58</em></li>
-<li><strong class="first">adjusted for v0.5</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:28:43</em></li>
-<li><strong class="first">v 0.5</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:17:09</em></li>
-<li><strong class="first">changed visibility mechanism from title to tag base- the tag is assigned during the creation of the plugin in the host app</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-07 18:30:51</em></li>
-<li><strong class="first">tested </strong><span> by </span><em>kan</em><span> at </span><em>2018-07-07 16:17:09</em></li>
-<li><strong class="first">app_template_path_adder”  automation was completed</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-07 16:08:49</em></li>
-<li><strong class="first">started the path_adder_creator</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-07 02:48:51</em></li>
-<li><strong class="first">added todo</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:51:44</em></li>
-<li><strong class="first">revert some changes (content folder)</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:47:15</em></li>
-<li><strong class="first"></strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:40:04</em></li>
-<li><strong class="first"></strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:39:44</em></li>
-<li><strong class="first"></strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:36:29</em></li>
-<li><strong class="first">addded link</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 12:54:00</em></li>
-<li><strong class="first">changed names</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 12:52:26</em></li>
-<li><strong class="first">added two templates</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 12:50:46</em></li>
-<li><strong class="first">debug app_launch</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 11:12:41</em></li>
+<li><strong>added Licence file and inserted markup for sphinx ( test)</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-08-25 04:56:18</em></li>
+<li><strong>prepare for pub</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-07-23 19:28:06</em></li>
+<li><strong>commented the run.m file</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-07-23 19:16:24</em></li>
+<li><strong>changed output message</strong><span> by </span><em>pandakan</em><span> at </span><em>2018-07-23 13:59:47</em></li>
+<li><strong>unified command line output</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 16:30:54</em></li>
+<li><strong>debugged </strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 16:26:04</em></li>
+<li><strong>deleted pre v0.5 files</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:47:31</em></li>
+<li><strong>remove source</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:41:08</em></li>
+<li><strong>changed folder</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:39:58</em></li>
+<li><strong>adjusted for v0.5</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:28:43</em></li>
+<li><strong>v 0.5</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-09 15:17:09</em></li>
+<li><strong>changed visibility mechanism from title to tag base- the tag is assigned during the creation of the plugin in the host app</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-07 18:30:51</em></li>
+<li><strong>tested </strong><span> by </span><em>kan</em><span> at </span><em>2018-07-07 16:17:09</em></li>
+<li><strong>app_template_path_adder”  automation was completed</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-07 16:08:49</em></li>
+<li><strong>started the path_adder_creator</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-07 02:48:51</em></li>
+<li><strong>added todo</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:51:44</em></li>
+<li><strong>revert some changes (content folder)</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:47:15</em></li>
+<li><strong></strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:40:04</em></li>
+<li><strong></strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:39:44</em></li>
+<li><strong></strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 13:36:29</em></li>
+<li><strong>addded link</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 12:54:00</em></li>
+<li><strong>changed names</strong><span> by </span><em>kan</em><span> at </span><em>2018-07-06 12:52:26</em></li>
 </ul>
 </div>
 
@@ -313,7 +331,7 @@ added comment headers to the automatically generated functions</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="acknowledgments.html" class="btn btn-neutral" title="Acknowledgments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="acknowledgments.html" class="btn btn-neutral float-left" title="Acknowledgments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -322,7 +340,7 @@ added comment headers to the automatically generated functions</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Erkan Demiralay.
+        &copy; Copyright 2018, Erkan Demiralay
 
     </p>
   </div>
@@ -339,32 +357,16 @@ added comment headers to the automatically generated functions</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'v2018',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

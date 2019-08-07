@@ -17,13 +17,20 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="author" title="About these documents" href="../about.html" />
@@ -31,21 +38,16 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Packaging f(x)" href="packaging_functions.html" />
     <link rel="prev" title="Functions" href="../f_index.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -177,14 +179,14 @@
 <span id="mlappkit-setup"></span><h2>mlappkit_setup<a class="headerlink" href="#module-functions.setup" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="functions.setup.mlappkit_setup">
-<code class="descclassname">functions.setup.</code><code class="descname">mlappkit_setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.setup.mlappkit_setup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">functions.setup.</code><code class="sig-name descname">mlappkit_setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#functions.setup.mlappkit_setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>will walk user through the setup during the first run on the user machine.
 It will:</p>
 <ol class="arabic simple">
-<li>suggest a target directory and let you confirm or change it</li>
-<li>unpack the <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">files</span></code> into the confirmed location</li>
-<li>add those particular files to your MATLAB searchpath</li>
-<li>and save your current MATLAB searchpath</li>
+<li><p>suggest a target directory and let you confirm or change it</p></li>
+<li><p>unpack the <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">files</span></code> into the confirmed location</p></li>
+<li><p>add those particular files to your MATLAB searchpath</p></li>
+<li><p>and save your current MATLAB searchpath</p></li>
 </ol>
 <p>A list of the files added as well as the procedure executed will be
 saved in a log file.</p>
@@ -196,12 +198,12 @@ personal data.</p>
 <div class="section" id="mlappkit-quickstart">
 <h2>mlappkit_quickstart<a class="headerlink" href="#mlappkit-quickstart" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This part is in development</p>
+<p class="admonition-title">Warning</p>
+<p>This part is in development</p>
 </div>
 <dl class="class">
 <dt id="functions.setup.mlappkit_quickstart">
-<em class="property">class </em><code class="descclassname">functions.setup.</code><code class="descname">mlappkit_quickstart</code><a class="headerlink" href="#functions.setup.mlappkit_quickstart" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">functions.setup.</code><code class="sig-name descname">mlappkit_quickstart</code><a class="headerlink" href="#functions.setup.mlappkit_quickstart" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>inspired by the sphinx_quickstart way of creating a boilerplate
@@ -221,7 +223,7 @@ routine which is executed. kept sepererate from the GUI file for easier access</
         <a href="packaging_functions.html" class="btn btn-neutral float-right" title="Packaging f(x)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../f_index.html" class="btn btn-neutral" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../f_index.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -230,7 +232,7 @@ routine which is executed. kept sepererate from the GUI file for easier access</
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Erkan Demiralay.
+        &copy; Copyright 2018, Erkan Demiralay
 
     </p>
   </div>
@@ -247,32 +249,16 @@ routine which is executed. kept sepererate from the GUI file for easier access</
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'v2018',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

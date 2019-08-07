@@ -17,13 +17,20 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="author" title="About these documents" href="about.html" />
@@ -31,21 +38,16 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Functions" href="f_index.html" />
     <link rel="prev" title="mlAppKit" href="includeme.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -176,22 +178,22 @@ However, anyone with some experience with spreadsheets, knows that with
 increasing complexity you’re likly to hit an efficiency wall.
 It is not different with AD:</p>
 <ol class="arabic simple">
-<li>slows down the editor</li>
-<li>doesn’t offer code folding</li>
-<li>doesn’t have a visual hierarchy on the code level</li>
-<li>editable area is safe guarded</li>
-<li>favors a monolithic design structure</li>
-<li>which then is hard to maintain and keep tidy and</li>
-<li>makes it more painful to introduce new features</li>
+<li><p>slows down the editor</p></li>
+<li><p>doesn’t offer code folding</p></li>
+<li><p>doesn’t have a visual hierarchy on the code level</p></li>
+<li><p>editable area is safe guarded</p></li>
+<li><p>favors a monolithic design structure</p></li>
+<li><p>which then is hard to maintain and keep tidy and</p></li>
+<li><p>makes it more painful to introduce new features</p></li>
 </ol>
 <p>As a result apps tend to be single use apps.</p>
 </div>
 <div class="section" id="existing-workarounds">
 <h2>Existing Workarounds<a class="headerlink" href="#existing-workarounds" title="Permalink to this headline">¶</a></h2>
 <p>Most of the issues can be simply avoided by calling an external script, function, class or application from within the editable area:</p>
-<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">callbackOfSomeUserInterfaceElementPushed</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
-    <span class="n">someFunctionLocatedInAnOtherFile</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">event</span><span class="p">);</span>
-<span class="n">end</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">callbackOfSomeUserInterfaceElementPushed</span><span class="p">(</span>app, event<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">someFunctionLocatedInAnOtherFile</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">event</span><span class="p">);</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>Functions are favorable to scripts since they offer separate namespaces.
@@ -202,25 +204,21 @@ However, I would not like to open, rearrange and close ten different windows dur
 Unfortunately this structure is not reflected in the code base.
 Except, if someone would be chuzpe enough to use container UI elements as <strong>namespaces</strong>.
 The key to the success of this approach would be:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Goal:</th><td class="field-body">retaining the visual  drag and drop user experience and add as little pain as possible</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Goal</dt>
+<dd class="field-odd"><p>retaining the visual  drag and drop user experience and add as little pain as possible</p>
+</dd>
+</dl>
 <p>Is there a way to bridge the gap between programmatic and visual app design in MATLAB?
 Since .mlapp files are container files the source code could be modified and zipped back.
 While it sounds like a easy patch. Note that surgery is avoided for a reason.
-It may work now, but the next version could break everything. <a class="footnote-reference" href="#id2" id="id1">[1]</a>
+It may work now, but the next version could break everything. <a class="footnote-reference brackets" href="#id2" id="id1">1</a>
 In other words the procedure should be noninvasive - or - at least not rely upon keeping the patient alive.</p>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Some analysis on the .mlapp file format <a class="reference external" href="https://undocumentedmatlab.com/blog/appdesigner-mlapp-file-format">https://undocumentedmatlab.com/blog/appdesigner-mlapp-file-format</a></td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Some analysis on the .mlapp file format <a class="reference external" href="https://undocumentedmatlab.com/blog/appdesigner-mlapp-file-format">https://undocumentedmatlab.com/blog/appdesigner-mlapp-file-format</a></p>
+</dd>
+</dl>
 </div>
 <div class="section" id="approach-presented-via-mlappkit">
 <h2>Approach Presented Via <strong>mlAppKit</strong><a class="headerlink" href="#approach-presented-via-mlappkit" title="Permalink to this headline">¶</a></h2>
@@ -231,41 +229,39 @@ other IDEs such as Android Studio or any other.</p>
 <p>Going through the possible combinations I came up with three different
 views/activities:</p>
 <ul>
-<li><p class="first"><strong>host</strong> which has a <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Figure</span></code> serving as a socket</p>
-</li>
-<li><p class="first"><strong>plugins</strong> which (each) have a <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Panel</span></code> as the highest
-structural element</p>
-</li>
-<li><p class="first"><strong>popups</strong> with an <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Figure</span></code> to save real estate</p>
-<table border="1" class="docutils">
+<li><p><strong>host</strong> which has a <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Figure</span></code> serving as a socket</p></li>
+<li><p><strong>plugins</strong> which (each) have a <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Panel</span></code> as the highest
+structural element</p></li>
+<li><p><strong>popups</strong> with an <code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Figure</span></code> to save real estate</p>
+<table class="docutils align-default">
 <colgroup>
-<col width="45%" />
-<col width="23%" />
-<col width="22%" />
-<col width="11%" />
+<col style="width: 45%" />
+<col style="width: 23%" />
+<col style="width: 22%" />
+<col style="width: 11%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">&#160;</th>
-<th class="head">host</th>
-<th class="head">plugin</th>
-<th class="head">popup</th>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>host</p></th>
+<th class="head"><p>plugin</p></th>
+<th class="head"><p>popup</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>highest structural element</td>
-<td><code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Figure</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Panel</span></code></td>
-<td>both</td>
+<tbody>
+<tr class="row-even"><td><p>highest structural element</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Figure</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UI</span> <span class="pre">Panel</span></code></p></td>
+<td><p>both</p></td>
 </tr>
-<tr class="row-odd"><td>can live…</td>
-<td>autonomous</td>
-<td>dependent</td>
-<td>both</td>
+<tr class="row-odd"><td><p>can live…</p></td>
+<td><p>autonomous</p></td>
+<td><p>dependent</p></td>
+<td><p>both</p></td>
 </tr>
-<tr class="row-even"><td>serves as…</td>
-<td>socket board</td>
-<td>content</td>
-<td>both</td>
+<tr class="row-even"><td><p>serves as…</p></td>
+<td><p>socket board</p></td>
+<td><p>content</p></td>
+<td><p>both</p></td>
 </tr>
 </tbody>
 </table>
@@ -275,46 +271,46 @@ structural element</p>
 <div class="section" id="extract-code-from-mlapp">
 <h3>Extract Code from .mlapp<a class="headerlink" href="#extract-code-from-mlapp" title="Permalink to this headline">¶</a></h3>
 <p>in courtesy of <a class="reference external" href="https://github.com/StackOverflowMATLABchat">StackOverflowMATLABchat</a></p>
-<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">evalcstr</span> <span class="o">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s1">&#39;type(&#39;&#39;</span><span class="si">%s</span><span class="s1">‘’)’, &#39;</span><span class="n">app</span><span class="o">.</span><span class="n">mlapp</span><span class="s1">&#39;));</span>
-<span class="n">myMcode</span>  <span class="o">=</span> <span class="n">evalc</span><span class="p">(</span><span class="n">evalcstr</span><span class="p">);</span> <span class="o">%</span> <span class="n">evalcstr</span><span class="p">:</span> <span class="s1">&#39;type(&#39;</span><span class="n">app</span><span class="o">.</span><span class="n">mlapp</span><span class="s1">&#39;)&#39;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">evalcstr</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;type(&#39;&#39;%s‘’)’, &#39;</span><span class="n">app</span><span class="p">.</span><span class="n">mlapp</span><span class="o">&#39;</span><span class="p">));</span>
+<span class="n">myMcode</span>  <span class="p">=</span> <span class="n">evalc</span><span class="p">(</span><span class="n">evalcstr</span><span class="p">);</span> <span class="c">% evalcstr: &#39;type(&#39;app.mlapp&#39;)&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="project-file-and-folder-structure">
 <h2>Project File and Folder  Structure<a class="headerlink" href="#project-file-and-folder-structure" title="Permalink to this headline">¶</a></h2>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>.
-├── mlAppKit                      # project folder
-│    ├── .mignore                 # files and folders for make to ignore
-│    ├── buildTheApp.m            # make-function
-│    ├── [ ... ]                  # e.g. .gitignore
-│    ├── host                     # host app:
-│    │    ├── host_app.mlapp      #
-│    │    └── mfiles              # contains the extracted and edited code
-│    │        └──host_app.m       #
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
+├── mlAppKit                      <span class="c1"># project folder</span>
+│    ├── .mignore                 <span class="c1"># files and folders for make to ignore</span>
+│    ├── buildTheApp.m            <span class="c1"># make-function</span>
+│    ├── <span class="o">[</span> ... <span class="o">]</span>                  <span class="c1"># e.g. .gitignore</span>
+│    ├── host                     <span class="c1"># host app:</span>
+│    │    ├── host_app.mlapp      <span class="c1">#</span>
+│    │    └── mfiles              <span class="c1"># contains the extracted and edited code</span>
+│    │        └──host_app.m       <span class="c1">#</span>
 │    │
-│    ├── firstplugin              # plugin: a standalone app byitself
-│    │    ├── redbutton.mlapp     #         into your project
-│    │    ├── [ ... ]             #
-│    │    └── mfiles              # extracted and edited classdef code
-│    │        └── redbutton.m     #
-│    │        └── [ ... ]
+│    ├── firstplugin              <span class="c1"># plugin: a standalone app byitself</span>
+│    │    ├── redbutton.mlapp     <span class="c1">#         into your project</span>
+│    │    ├── <span class="o">[</span> ... <span class="o">]</span>             <span class="c1">#</span>
+│    │    └── mfiles              <span class="c1"># extracted and edited classdef code</span>
+│    │        └── redbutton.m     <span class="c1">#</span>
+│    │        └── <span class="o">[</span> ... <span class="o">]</span>
 │    │
-│    ├── [ ... ]                  # the key is that you may have as much
-│    │                            # plugins as you want
+│    ├── <span class="o">[</span> ... <span class="o">]</span>                  <span class="c1"># the key is that you may have as much</span>
+│    │                            <span class="c1"># plugins as you want</span>
 │    ├── popups
 │    │    ├── settings.mlapp
-│    │    ├── [ ... ]
+│    │    ├── <span class="o">[</span> ... <span class="o">]</span>
 │    │    └── mfiles
 │    │        └── settings.m
-│    │        └── [ ... ]
+│    │        └── <span class="o">[</span> ... <span class="o">]</span>
 │    │
-│    ├── functions                # both project and mlAppKit specific f(x)
-│    │    └── [ ... ]             # f(x) to parse the project files
+│    ├── functions                <span class="c1"># both project and mlAppKit specific f(x)</span>
+│    │    └── <span class="o">[</span> ... <span class="o">]</span>             <span class="c1"># f(x) to parse the project files</span>
 │    │
-│    └── static                   # App Designer related static assets like
-│        ├── icons                # Icons used within UI Buttons
-│        └── [ ... ]
+│    └── static                   <span class="c1"># App Designer related static assets like</span>
+│        ├── icons                <span class="c1"># Icons used within UI Buttons</span>
+│        └── <span class="o">[</span> ... <span class="o">]</span>
 │
 └── mlAppKit-docs
 </pre></div>
@@ -333,7 +329,7 @@ structural element</p>
         <a href="f_index.html" class="btn btn-neutral float-right" title="Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="includeme.html" class="btn btn-neutral" title="mlAppKit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="includeme.html" class="btn btn-neutral float-left" title="mlAppKit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -342,7 +338,7 @@ structural element</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Erkan Demiralay.
+        &copy; Copyright 2018, Erkan Demiralay
 
     </p>
   </div>
@@ -359,32 +355,16 @@ structural element</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'v2018',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

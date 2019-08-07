@@ -17,13 +17,20 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="author" title="About these documents" href="about.html" />
@@ -31,21 +38,16 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Issues, FAQ, Debugging" href="issues_index.html" />
     <link rel="prev" title="Updating" href="functions/update_functions.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -181,10 +183,10 @@
 <p>The git  project comes with a basic but nontheless working example
 consisting of:</p>
 <ol class="arabic simple">
-<li>documentation sample</li>
-<li>host application</li>
-<li>pop-up views</li>
-<li>one group of plugin views</li>
+<li><p>documentation sample</p></li>
+<li><p>host application</p></li>
+<li><p>pop-up views</p></li>
+<li><p>one group of plugin views</p></li>
 </ol>
 <div class="section" id="structuring-your-own-documentation-on-the-go">
 <h3>Structuring your own documentation on the go<a class="headerlink" href="#structuring-your-own-documentation-on-the-go" title="Permalink to this headline">¶</a></h3>
@@ -211,120 +213,54 @@ Apart from some naming conventions, declare but uninitialized properties, a star
 and callbacks for the navigation menu there is nothing special about the  file</p>
 <p>Except that:</p>
 <ol class="arabic simple">
-<li>it is located in the <cite>host</cite> folder within the project root folder</li>
-<li>and that their may only be one host</li>
+<li><p>it is located in the <cite>host</cite> folder within the project root folder</p></li>
+<li><p>and that their may only be one host</p></li>
 </ol>
 <p>Of course, you could chain up multiple <cite>classdef</cite> files in a series.
 But I did not go to far into that</p>
 <span class="target" id="module-host.mfiles"></span><dl class="class">
 <dt id="host.mfiles.host_app">
-<em class="property">class </em><code class="descclassname">host.mfiles.</code><code class="descname">host_app</code><a class="headerlink" href="#host.mfiles.host_app" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">host.mfiles.</code><code class="sig-name descname">host_app</code><a class="headerlink" href="#host.mfiles.host_app" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref mat mat-class docutils literal notranslate"><span class="pre">matlab.apps.AppBase</span></code></p>
-<dl class="method">
-<dt id="host.mfiles.host_app.AboutMenuSelected">
-<code class="descname">AboutMenuSelected</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.AboutMenuSelected" title="Permalink to this definition">¶</a></dt>
-<dd><p>firstplugin   <code class="xref mat mat-class docutils literal notranslate"><span class="pre">popup_about</span></code></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="host.mfiles.host_app.DocumentationMenuSelected">
-<code class="descname">DocumentationMenuSelected</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.DocumentationMenuSelected" title="Permalink to this definition">¶</a></dt>
-<dd><p>e.g. open a fil or website, launch a second application</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="host.mfiles.host_app.HomeMenuSelected">
-<code class="descname">HomeMenuSelected</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.HomeMenuSelected" title="Permalink to this definition">¶</a></dt>
-<dd><p>change the view to the landing / home / neutral page</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="host.mfiles.host_app.SettingsMenuSelected">
-<code class="descname">SettingsMenuSelected</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.SettingsMenuSelected" title="Permalink to this definition">¶</a></dt>
-<dd><p>firstplugin a pop-up <code class="xref mat mat-class docutils literal notranslate"><span class="pre">popup_settings</span></code></p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="host.mfiles.host_app.cache">
-<code class="descname">cache</code><em class="property"> = None</em><a class="headerlink" href="#host.mfiles.host_app.cache" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cache</code><em class="property"> = None</em><a class="headerlink" href="#host.mfiles.host_app.cache" title="Permalink to this definition">¶</a></dt>
 <dd><p>in-app cache (unused in boilerplate)</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="host.mfiles.host_app.calculatorMenuSelected">
-<code class="descname">calculatorMenuSelected</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.calculatorMenuSelected" title="Permalink to this definition">¶</a></dt>
-<dd><p>switch the view</p>
-<p>see also: <a class="reference internal" href="functions/utility_functions.html#module-functions.panel_visibility"><span class="std std-ref">panel_visibility_switch()</span></a></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="host.mfiles.host_app.createComponents">
-<code class="descname">createComponents</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.createComponents" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create uif</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="host.mfiles.host_app.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete UIFigure when app is deleted</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="host.mfiles.host_app.dummyPublicMethod">
-<code class="descname">dummyPublicMethod</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.dummyPublicMethod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dummyPublicMethod</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.dummyPublicMethod" title="Permalink to this definition">¶</a></dt>
 <dd><p>a dummy public mehtod</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Props app:</th><td class="field-body">handle</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="host.mfiles.host_app.dummy_private_var">
-<code class="descname">dummy_private_var</code><em class="property"> = None</em><a class="headerlink" href="#host.mfiles.host_app.dummy_private_var" title="Permalink to this definition">¶</a></dt>
-<dd><p>None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Props app</dt>
+<dd class="field-odd"><p>handle</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="host.mfiles.host_app.home">
-<code class="descname">home</code><em class="property"> = None</em><a class="headerlink" href="#host.mfiles.host_app.home" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">home</code><em class="property"> = None</em><a class="headerlink" href="#host.mfiles.host_app.home" title="Permalink to this definition">¶</a></dt>
 <dd><p>e.g. display a welcome message</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="host.mfiles.host_app.host_app">
-<code class="descname">host_app</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.host_app" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">host_app</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.host_app" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create and configure components</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="host.mfiles.host_app.plugins">
-<code class="descname">plugins</code><em class="property"> = None</em><a class="headerlink" href="#host.mfiles.host_app.plugins" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plugins</code><em class="property"> = None</em><a class="headerlink" href="#host.mfiles.host_app.plugins" title="Permalink to this definition">¶</a></dt>
 <dd><p>plugin, for firstplugin carrying the red buttons</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="host.mfiles.host_app.redbuttonMenuSelected">
-<code class="descname">redbuttonMenuSelected</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.redbuttonMenuSelected" title="Permalink to this definition">¶</a></dt>
-<dd><p>switch the view</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="host.mfiles.host_app.startupFcn">
-<code class="descname">startupFcn</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#host.mfiles.host_app.startupFcn" title="Permalink to this definition">¶</a></dt>
-<dd><p>instead of hardcoding plugins, this app (host_app)
-is rahter meant to put the pieces together.
-Likewise, the ‘recipe’ is layed out in <code class="xref mat mat-func docutils literal notranslate"><span class="pre">ext_start_up()</span></code></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="host.mfiles.host_app.uif">
-<code class="descname">uif</code><em class="property"> = None</em><a class="headerlink" href="#host.mfiles.host_app.uif" title="Permalink to this definition">¶</a></dt>
-<dd><p>None</p>
 </dd></dl>
 
 </dd></dl>
@@ -340,35 +276,23 @@ of its  <cite>UIfigure</cite> and load it into a plugin view</p>
 <span id="redbutton"></span><h4>redbutton<a class="headerlink" href="#module-firstplugin.mfiles" title="Permalink to this headline">¶</a></h4>
 <dl class="class">
 <dt id="firstplugin.mfiles.redbutton">
-<em class="property">class </em><code class="descclassname">firstplugin.mfiles.</code><code class="descname">redbutton</code><span class="sig-paren">(</span><em>external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.redbutton" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">firstplugin.mfiles.</code><code class="sig-name descname">redbutton</code><span class="sig-paren">(</span><em class="sig-param">external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.redbutton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref mat mat-class docutils literal notranslate"><span class="pre">matlab.apps.AppBase</span></code></p>
 <dl class="method">
-<dt id="firstplugin.mfiles.redbutton.LAUNCHButtonPushed">
-<code class="descname">LAUNCHButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.redbutton.LAUNCHButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.redbutton.createComponents">
-<code class="descname">createComponents</code><span class="sig-paren">(</span><em>app</em>, <em>external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.redbutton.createComponents" title="Permalink to this definition">¶</a></dt>
-<dd><p>$_$ flipped</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="firstplugin.mfiles.redbutton.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.redbutton.delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.redbutton.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete UIFigure when app is deleted
 delete(app.uif_redbutton)</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="firstplugin.mfiles.redbutton.main_Panel">
-<code class="descname">main_Panel</code><em class="property"> = None</em><a class="headerlink" href="#firstplugin.mfiles.redbutton.main_Panel" title="Permalink to this definition">¶</a></dt>
-<dd><p>None</p>
-</dd></dl>
+<code class="sig-name descname">main_Panel</code><em class="property"> = None</em><a class="headerlink" href="#firstplugin.mfiles.redbutton.main_Panel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="firstplugin.mfiles.redbutton.redbutton">
-<code class="descname">redbutton</code><span class="sig-paren">(</span><em>external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.redbutton.redbutton" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">redbutton</code><span class="sig-paren">(</span><em class="sig-param">external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.redbutton.redbutton" title="Permalink to this definition">¶</a></dt>
 <dd><p>$_$ flipped</p>
 </dd></dl>
 
@@ -379,138 +303,24 @@ delete(app.uif_redbutton)</p>
 <h4>calculator<a class="headerlink" href="#calculator" title="Permalink to this headline">¶</a></h4>
 <dl class="class">
 <dt id="firstplugin.mfiles.calculator">
-<em class="property">class </em><code class="descclassname">firstplugin.mfiles.</code><code class="descname">calculator</code><span class="sig-paren">(</span><em>external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">firstplugin.mfiles.</code><code class="sig-name descname">calculator</code><span class="sig-paren">(</span><em class="sig-param">external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref mat mat-class docutils literal notranslate"><span class="pre">matlab.apps.AppBase</span></code></p>
 <dl class="method">
-<dt id="firstplugin.mfiles.calculator.CButtonPushed">
-<code class="descname">CButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.CButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.calc_operator_pushed">
-<code class="descname">calc_operator_pushed</code><span class="sig-paren">(</span><em>app</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.calc_operator_pushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="firstplugin.mfiles.calculator.calculator">
-<code class="descname">calculator</code><span class="sig-paren">(</span><em>external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.calculator" title="Permalink to this definition">¶</a></dt>
-<dd><p>$_$ flipped</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.createComponents">
-<code class="descname">createComponents</code><span class="sig-paren">(</span><em>app</em>, <em>external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.createComponents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calculator</code><span class="sig-paren">(</span><em class="sig-param">external_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.calculator" title="Permalink to this definition">¶</a></dt>
 <dd><p>$_$ flipped</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="firstplugin.mfiles.calculator.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete UIFigure when app is deleted
 delete(app.UIFigure)</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_addButtonPushed">
-<code class="descname">dial_addButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_addButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_button_pushed">
-<code class="descname">dial_button_pushed</code><span class="sig-paren">(</span><em>app</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_button_pushed" title="Permalink to this definition">¶</a></dt>
-<dd><p>executed when a number button is pushed
-convert to char and append to list</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_decimalButtonPushed">
-<code class="descname">dial_decimalButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_decimalButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_divButtonPushed">
-<code class="descname">dial_divButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_divButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_eightButtonPushed">
-<code class="descname">dial_eightButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_eightButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_equalButtonPushed">
-<code class="descname">dial_equalButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_equalButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_fiveButtonPushed">
-<code class="descname">dial_fiveButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_fiveButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_fourButtonPushed">
-<code class="descname">dial_fourButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_fourButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_multButtonPushed">
-<code class="descname">dial_multButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_multButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_nineButtonPushed">
-<code class="descname">dial_nineButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_nineButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_oneButtonPushed">
-<code class="descname">dial_oneButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_oneButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_sevenButtonPushed">
-<code class="descname">dial_sevenButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_sevenButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_sixButtonPushed">
-<code class="descname">dial_sixButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_sixButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_subButtonPushed">
-<code class="descname">dial_subButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_subButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_threeButtonPushed">
-<code class="descname">dial_threeButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_threeButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_twoButtonPushed">
-<code class="descname">dial_twoButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_twoButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.dial_zeroButtonPushed">
-<code class="descname">dial_zeroButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.dial_zeroButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.eval_calc">
-<code class="descname">eval_calc</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.eval_calc" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="attribute">
 <dt id="firstplugin.mfiles.calculator.main_Panel">
-<code class="descname">main_Panel</code><em class="property"> = None</em><a class="headerlink" href="#firstplugin.mfiles.calculator.main_Panel" title="Permalink to this definition">¶</a></dt>
-<dd><p>None</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="firstplugin.mfiles.calculator.startupFcn">
-<code class="descname">startupFcn</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#firstplugin.mfiles.calculator.startupFcn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">main_Panel</code><em class="property"> = None</em><a class="headerlink" href="#firstplugin.mfiles.calculator.main_Panel" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -527,47 +337,24 @@ I included two samples <code class="xref mat mat-class docutils literal notransl
 <span id="popup-about"></span><h4>popup_about<a class="headerlink" href="#module-popups.mfiles" title="Permalink to this headline">¶</a></h4>
 <dl class="class">
 <dt id="popups.mfiles.popup_about">
-<em class="property">class </em><code class="descclassname">popups.mfiles.</code><code class="descname">popup_about</code><a class="headerlink" href="#popups.mfiles.popup_about" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">popups.mfiles.</code><code class="sig-name descname">popup_about</code><a class="headerlink" href="#popups.mfiles.popup_about" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref mat mat-class docutils literal notranslate"><span class="pre">matlab.apps.AppBase</span></code></p>
 <dl class="method">
-<dt id="popups.mfiles.popup_about.createComponents">
-<code class="descname">createComponents</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_about.createComponents" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create uifpopup</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="popups.mfiles.popup_about.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_about.delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_about.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete UIFigure when app is deleted</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="popups.mfiles.popup_about.ghbuttonButtonPushed">
-<code class="descname">ghbuttonButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_about.ghbuttonButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="popups.mfiles.popup_about.linkedbuttonPushed">
-<code class="descname">linkedbuttonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_about.linkedbuttonPushed" title="Permalink to this definition">¶</a></dt>
-<dd><p>launch the system browser to open a (company/ project) specific webpage</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="popups.mfiles.popup_about.mailButtonButtonPushed">
-<code class="descname">mailButtonButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_about.mailButtonButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="popups.mfiles.popup_about.popup_about">
-<code class="descname">popup_about</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_about.popup_about" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create and configure components</p>
+<code class="sig-name descname">popup_about</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_about.popup_about" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create UIFigure and components</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="popups.mfiles.popup_about.uifpopup">
-<code class="descname">uifpopup</code><em class="property"> = None</em><a class="headerlink" href="#popups.mfiles.popup_about.uifpopup" title="Permalink to this definition">¶</a></dt>
-<dd><p>None</p>
-</dd></dl>
+<code class="sig-name descname">uifpopup</code><em class="property"> = None</em><a class="headerlink" href="#popups.mfiles.popup_about.uifpopup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -576,36 +363,24 @@ I included two samples <code class="xref mat mat-class docutils literal notransl
 <h4>settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h4>
 <dl class="class">
 <dt id="popups.mfiles.popup_settings">
-<em class="property">class </em><code class="descclassname">popups.mfiles.</code><code class="descname">popup_settings</code><a class="headerlink" href="#popups.mfiles.popup_settings" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">popups.mfiles.</code><code class="sig-name descname">popup_settings</code><a class="headerlink" href="#popups.mfiles.popup_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref mat mat-class docutils literal notranslate"><span class="pre">matlab.apps.AppBase</span></code></p>
 <dl class="method">
-<dt id="popups.mfiles.popup_settings.EditButtonPushed">
-<code class="descname">EditButtonPushed</code><span class="sig-paren">(</span><em>app</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_settings.EditButtonPushed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="popups.mfiles.popup_settings.createComponents">
-<code class="descname">createComponents</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_settings.createComponents" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create uifpopup</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="popups.mfiles.popup_settings.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_settings.delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_settings.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete UIFigure when app is deleted</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="popups.mfiles.popup_settings.popup_settings">
-<code class="descname">popup_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_settings.popup_settings" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">popup_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#popups.mfiles.popup_settings.popup_settings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create and configure components</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="popups.mfiles.popup_settings.uifpopup">
-<code class="descname">uifpopup</code><em class="property"> = None</em><a class="headerlink" href="#popups.mfiles.popup_settings.uifpopup" title="Permalink to this definition">¶</a></dt>
-<dd><p>None</p>
-</dd></dl>
+<code class="sig-name descname">uifpopup</code><em class="property"> = None</em><a class="headerlink" href="#popups.mfiles.popup_settings.uifpopup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -625,7 +400,7 @@ I included two samples <code class="xref mat mat-class docutils literal notransl
         <a href="issues_index.html" class="btn btn-neutral float-right" title="Issues, FAQ, Debugging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="functions/update_functions.html" class="btn btn-neutral" title="Updating" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="functions/update_functions.html" class="btn btn-neutral float-left" title="Updating" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -634,7 +409,7 @@ I included two samples <code class="xref mat mat-class docutils literal notransl
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Erkan Demiralay.
+        &copy; Copyright 2018, Erkan Demiralay
 
     </p>
   </div>
@@ -651,32 +426,16 @@ I included two samples <code class="xref mat mat-class docutils literal notransl
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'v2018',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
