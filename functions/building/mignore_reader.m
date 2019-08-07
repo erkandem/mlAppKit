@@ -1,4 +1,4 @@
-function c = mignore_reader(migDir)
+function c = mignore_reader(mignore_dir)
     %% reads in the .mignore file, analogon to .gitignore
     % 
     % :param migDir:  path to the .mignore file 
@@ -9,7 +9,7 @@ function c = mignore_reader(migDir)
     %
    
     if nargin == 1        
-        fid = fopen(fullfile(migDir, '.mignore'));
+        fid = fopen(fullfile(mignore_dir, '.mignore'));
     else
         fid = fopen('.mignore');  % assumes .mignore is in the working directory
     end
