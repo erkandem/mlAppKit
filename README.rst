@@ -7,7 +7,7 @@ mlAppKit
 
 :Author: Erkan Demiralay
 :Email:   `erkan@erkan.io <mailto:ed@erkan.io>`_
-:Web:    `erkan.io <https://erkan.io>`_
+:Web:    `erkandem.github.io/ <https://https://erkandem.github.io/>`_
 :GitHub: `erkandem/mlAppKit <https://github.com/erkandem/mlAppKit>`_
 
 :Requirement: MatLab R2016b or later
@@ -20,59 +20,77 @@ Project Summary
 
 Creating GUIs with ``MatLab`` has become very easy with ``App Designer``.
 However, these GUIs usually stay either quite simple or
-get **too big to maintain**. Leverage your work with ``App Designer`` by using **mlAppKit** 
-which joins multiple standalone apps to one production app. Keep 
-your standalone apps small and easy to maintain. Create more complex apps 
-more professionaly without loosing the benefits of the drag and drop experience 
+get **too big to maintain**. Leverage your work with ``App Designer`` by using **mlAppKit**
+which joins multiple standalone apps to one production app. Keep
+your standalone apps small and easy to maintain. Create more complex apps
+more professionaly without loosing the benefits of the drag and drop experience
 of ``App Designer`` once you go offroad by editing the underlying ``classdef`` code.
 
 
 
-Installing and Usage 
-----------------------
+Installing Development Version
+-------------------------------
 
-Use the ``git clone`` or download the zipped repository and run the :ref:`mlappkit_setup`
+Use the ``git clone`` or download the zipped repository and run the :ref:`make` script.
+You're ready to modify files as you like (boilerplate included)
 
 .. code:: bash
-   
+
    $ git clone https://github.com/erkandem/mlAppKit.git
 
 
 .. code:: matlab
 
-   >> mlappkit_setup()
+   >> make()
 
 
-The :ref:`mlappkit_quickstart` command is inspired by sphinx_quickstart.
-It will launch a dialog and unzip a boilerplate.
+Installing the User Version
+-------------------------------
+The user version assumes that you want to package your applications instead
+of working on the tool itself.
+Download the `latest build <https://github.com/erkandem/mlAppKit/releases/latest/download/mlappkit_static_bundle.zip>`_
+
+The unzipped folder includes a setup script which will place
+frequently used functions into a directory within your ``userpath`` and
+add the the directory to your MATLAB path permanently.
+You can modify the installation path during setup.
 
 .. code:: matlab
-   
+
+   >> mlappkit_setup()
+
+After running ``mlappkit_setup`` you can access a boilerplate generator.
+The :ref:`mlappkit_quickstart` command is inspired by sphinx_quickstart.
+It will launch a dialog and unzip a boilerplate project.
+
+.. code:: matlab
+
    >> target_dir = pwd();
-   >> prj_name   = 'helloWorld' ;
-   >> mlappkit_quickstart(target_dir, prj_name);
+   >> project_name   = 'hello_world';
+   >> mlappkit_quickstart(target_dir, project_name);
 
 
 ``cd`` into the directory and run the ``make`` command.
 
 .. code:: matlab
    
-   >> cd helloWorld
+   >> cd hello_world
    >> make()
 
-The next step is to develop your App or reshape existing code into
+The next step is to develop your app of apps or reshape existing code into
 what you want. This will be discussed in the next paragraph.
 
-Ultimately, using your own tools is great. You can easily package it 
-using the :ref:`package_app` function. 
+You can easily package a your final app using the :ref:`package_app` function.
+This command will extract all m-files and static files into a single folder
+which you can redistribute.
 
 .. code:: matlab
    
    >> package_app()
 
    
-adding your own app
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adding Your Own Apps
+^^^^^^^^^^^^^^^^^^^^
 Currently, migrating to mlAppKit boils down to:
    i. preparing your apps (i.e. make them recognizable)
    ii. adding your app to the startup function
@@ -108,7 +126,7 @@ Open up the :ref:`ext_start_up` function and edit two sections.
     I'd recommend to match the name of the of folder previously selected.
 
 .. code:: matlab
-   
+
    app.plugins.<yourGroup>.<yourApp> =  <yourApp>(app.(f));
 
 
@@ -119,7 +137,7 @@ Open up the :ref:`ext_start_up` function and edit two sections.
 
    app.plugins.<yourGroup>.<yourApp>.main_Panel.Tag = '<yourApp>';
 
-   
+
 **iii. Creating a Menu Entry for you App**
 
 Open the ``host_app.mlapp`` from ``App Designer``.
@@ -148,18 +166,19 @@ the callback.
 
 
 Your Done! Call the :ref:`make` function in the project root directory.
-This will start a cascade code extraction, modification and creation.
+This will start a cascade of code extraction, modification and creation.
 
 .. code:: bash
-   
+
    >> make()
 
 
 The expected outcome is that the class definition code of all your ``.mlapp``
-files will be extracted and slightly modified to play nice.
+files will be extracted and slightly modified to play nice with each other.
 
-Since MatLab has one global namespace the :ref:`make` command will create functions
-to add and remove project specific functions to the MatLab path.
+Since ``MatLab`` has one global namespace the :ref:`make` command will create functions
+to add and remove project specific functions to the ``MatLab path`` defined in ``pathdef.m``.
+They will be removed from the ``MatLab path`` if you close the IDE (recommended).
 
 
 Support, Feature Requests, Suggestions
@@ -172,9 +191,9 @@ Write me an email. I'll try to get back to you as soon as possible. Especially d
 first months after publication.
 
 Contributions
----------------
+-------------
 MatLab doesn't have a PEP8. That doesn't mean that PEP8 guide can't be applied
-to MatLab code.
+to MatLab code with some adjustments.
 
 
 Final Notes
