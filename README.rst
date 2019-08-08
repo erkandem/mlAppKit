@@ -198,7 +198,7 @@ The project is licensed under terms of the MIT :ref:`License`.
 
 :Author: Erkan Demiralay
 :Email:   `erkan.dem@pm.me <mailto:erkan.dem@pm.me>`_
-:Web:    `erkandem.github.io/ <https://https://erkandem.github.io/>`_
+:Web:    `erkandem.github.io/ <https://erkandem.github.io/>`_
 :GitHub: `erkandem/mlAppKit <https://github.com/erkandem/mlAppKit>`_
 :Issues: `Issues (public) <https://github.com/erkandem/mlAppKit/issues>`_
 :Requirement: MatLab R2016b or later
