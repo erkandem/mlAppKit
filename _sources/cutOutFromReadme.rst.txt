@@ -5,12 +5,12 @@ The Long Story
 
 State of App Designer
 ^^^^^^^^^^^^^^^^^^^^^
-using MATLAB App Designer (AD) is almost as easy as working with a spreadsheets. 
-However, anyone with some experience with spreadsheets, knows that with 
-increasing complexity you're likely to hit an efficiency wall.
+using MATLAB App Designer (AD) is almost as easy as working with spreadsheets.
+However, anyone with some  spreadsheet experience knows that with
+increasing complexity you're likely to hit an efficiency barrier.
 It is not different with AD:
 
-#. slows down the editor
+#. size slows down the editor
 #. doesn't offer code folding
 #. doesn't have a visual hierarchy on the code level
 #. editable area is safe guarded
@@ -18,12 +18,13 @@ It is not different with AD:
 #. which then is hard to maintain and keep tidy and
 #. makes it more painful to introduce new features
 
-As a result apps tend to be single use apps.
+As a result, apps tend to be single use apps.
 
 Existing Workarounds
 ^^^^^^^^^^^^^^^^^^^^
 
-Most of the issues can be simply avoided by calling an external script, function, class or application from within the editable area:
+Most of the issues can be simply avoided by calling an external script, function, class or application
+from within the editable area. Separating UI  from the logic and data is a general concept:
 
 .. code:: matlab
 
@@ -84,8 +85,8 @@ views/activities:
    +-----------------------------+---------------+--------------+-------+
 
    
-Extract Code from .mlapp
-""""""""""""""""""""""""""""""""""""""""""""""
+Extract Code from ``.mlapp``
+""""""""""""""""""""""""""""
 
 
 in courtesy of `StackOverflowMATLABchat <https://github.com/StackOverflowMATLABchat>`_

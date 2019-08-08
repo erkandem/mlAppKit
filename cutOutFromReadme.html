@@ -94,7 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#existing-workarounds">Existing Workarounds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#approach-presented-via-mlappkit">Approach Presented Via <strong>mlAppKit</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#anatomy">Anatomy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#extract-code-from-mlapp">Extract Code from .mlapp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extract-code-from-mlapp">Extract Code from <code class="docutils literal notranslate"><span class="pre">.mlapp</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#project-file-and-folder-structure">Project File and Folder  Structure</a></li>
@@ -173,12 +173,12 @@
 <h1>The Long Story<a class="headerlink" href="#the-long-story" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="state-of-app-designer">
 <h2>State of App Designer<a class="headerlink" href="#state-of-app-designer" title="Permalink to this headline">¶</a></h2>
-<p>using MATLAB App Designer (AD) is almost as easy as working with a spreadsheets.
-However, anyone with some experience with spreadsheets, knows that with
-increasing complexity you’re likely to hit an efficiency wall.
+<p>using MATLAB App Designer (AD) is almost as easy as working with spreadsheets.
+However, anyone with some  spreadsheet experience knows that with
+increasing complexity you’re likely to hit an efficiency barrier.
 It is not different with AD:</p>
 <ol class="arabic simple">
-<li><p>slows down the editor</p></li>
+<li><p>size slows down the editor</p></li>
 <li><p>doesn’t offer code folding</p></li>
 <li><p>doesn’t have a visual hierarchy on the code level</p></li>
 <li><p>editable area is safe guarded</p></li>
@@ -186,11 +186,12 @@ It is not different with AD:</p>
 <li><p>which then is hard to maintain and keep tidy and</p></li>
 <li><p>makes it more painful to introduce new features</p></li>
 </ol>
-<p>As a result apps tend to be single use apps.</p>
+<p>As a result, apps tend to be single use apps.</p>
 </div>
 <div class="section" id="existing-workarounds">
 <h2>Existing Workarounds<a class="headerlink" href="#existing-workarounds" title="Permalink to this headline">¶</a></h2>
-<p>Most of the issues can be simply avoided by calling an external script, function, class or application from within the editable area:</p>
+<p>Most of the issues can be simply avoided by calling an external script, function, class or application
+from within the editable area. Separating UI  from the logic and data is a general concept:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">callbackOfSomeUserInterfaceElementPushed</span><span class="p">(</span>app, event<span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">someFunctionLocatedInAnOtherFile</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">event</span><span class="p">);</span>
 <span class="k">end</span>
@@ -269,7 +270,7 @@ structural element</p></li>
 </ul>
 </div>
 <div class="section" id="extract-code-from-mlapp">
-<h3>Extract Code from .mlapp<a class="headerlink" href="#extract-code-from-mlapp" title="Permalink to this headline">¶</a></h3>
+<h3>Extract Code from <code class="docutils literal notranslate"><span class="pre">.mlapp</span></code><a class="headerlink" href="#extract-code-from-mlapp" title="Permalink to this headline">¶</a></h3>
 <p>in courtesy of <a class="reference external" href="https://github.com/StackOverflowMATLABchat">StackOverflowMATLABchat</a></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">evalcstr</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;type(&#39;&#39;%s‘’)’, &#39;</span><span class="n">app</span><span class="p">.</span><span class="n">mlapp</span><span class="o">&#39;</span><span class="p">));</span>
 <span class="n">myMcode</span>  <span class="p">=</span> <span class="n">evalc</span><span class="p">(</span><span class="n">evalcstr</span><span class="p">);</span> <span class="c">% evalcstr: &#39;type(&#39;app.mlapp&#39;)&#39;</span>

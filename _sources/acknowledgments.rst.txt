@@ -3,38 +3,47 @@
 
 Acknowledgments
 ---------------
-I won't reinvent the wheel. There Are sources I get inspired to.
-Unlike the main project, these links are collected and or recreated after most of both the code and documentation was written.
-It is updated occasionaly
+I won't reinvent the wheel. There are sources I get inspired of.
+These links are collected during development and
+writing the documentation. It's not considered to be complete.
+
+
+mlapptools
+""""""""""
+set of utilities to modify GUIs
+https://github.com/StackOverflowMATLABchat/mlapptools
+
+mlapp2classdef
+""""""""""""""
+original inspiration now archived because of a built in extraction:
+https://github.com/StackOverflowMATLABchat/mlapp2classdef
+
+General MATLAB ``hacks``
+""""""""""""""""""""""""
+I don't remember at which point, but I don't have a doubt that his work did influenced mine.
+https://undocumentedmatlab.com
+
 
 sphinx - Documentation
 """"""""""""""""""""""
-http://www.sphinx-doc.org/
+https://www.sphinx-doc.org/
 
 
-MATLAB specific parsing
-""""""""""""""""""""""""
+MATLAB specific parsing for sphinx
+""""""""""""""""""""""""""""""""""
 https://github.com/sphinx-contrib/matlabdomain
 
-.rst Cheat Sheets
-"""""""""""""""""
+.rst language Cheat Sheets
+""""""""""""""""""""""""""
 
 https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html
 
-http://docutils.sourceforge.net/docs/user/rst/quickref.html
+https://docutils.sourceforge.net/docs/user/rst/quickref.html
 
-http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html
-
-
+https://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html
 
 
-online .rst editor 
+online .rst editor
 """"""""""""""""""
-http://rst.ninjs.org/?theme=nature
-
-
-JSON SYNTAX CHECK
-"""""""""""""""""
-
-https://www.beautifyconverter.com/json-beautifier.php
+https://rst.ninjs.org
 
