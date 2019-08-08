@@ -13,6 +13,7 @@ classdef host_app < matlab.apps.AppBase
         DocumentationMenu  matlab.ui.container.Menu
         LicenceMenu        matlab.ui.container.Menu
         homePanel          matlab.ui.container.Panel
+        Button             matlab.ui.control.Button
     end
 
     
@@ -48,6 +49,7 @@ classdef host_app < matlab.apps.AppBase
     end
     
 
+    % Callbacks that handle component events
     methods (Access = private)
 
         % Code that executes after component creation
@@ -105,7 +107,7 @@ classdef host_app < matlab.apps.AppBase
         function DocumentationMenuSelected(app, event)
             % e.g. open a fil or website, launch a second application
             %
-            link = 'https://erkandem.github.io/mlappkit';
+            link = 'http://mlappkit.com';
             if ispc()
                 system(sprintf('start %s', link));
             elseif ismac()
@@ -117,18 +119,18 @@ classdef host_app < matlab.apps.AppBase
 
         % Menu selected function: LicenceMenu
         function LicenceMenuSelected(app, event)
-            uialert(app.uif, 'MIT for this example, GPLv3 for mlappkit', 'License', 'Icon','info')
+            uialert(app.uif, 'MIT for this example, MIT for mlappkit', 'License', 'Icon','info')
         end
     end
 
-    % App initialization and construction
+    % Component initialization
     methods (Access = private)
 
         % Create UIFigure and components
         function createComponents(app)
 
-            % Create uif
-            app.uif = uifigure;
+            % Create uif and hide until all components are created
+            app.uif = uifigure('Visible', 'off');
             app.uif.AutoResizeChildren = 'off';
             app.uif.Color = [0.9412 0.9412 0.9412];
             app.uif.Position = [1 1 1024 640];
@@ -184,15 +186,27 @@ classdef host_app < matlab.apps.AppBase
             app.homePanel.AutoResizeChildren = 'off';
             app.homePanel.BackgroundColor = [1 1 1];
             app.homePanel.Position = [1 1 1024 640];
+
+            % Create Button
+            app.Button = uibutton(app.homePanel, 'push');
+            app.Button.Icon = 'logo.png';
+            app.Button.IconAlignment = 'center';
+            app.Button.BackgroundColor = [1 1 1];
+            app.Button.Position = [1 4 1023 635];
+            app.Button.Text = '';
+
+            % Show the figure after all components are created
+            app.uif.Visible = 'on';
         end
     end
 
+    % App creation and deletion
     methods (Access = public)
 
         % Construct app
         function app = host_app
 
-            % Create and configure components
+            % Create UIFigure and components
             createComponents(app)
 
             % Register the app with App Designer

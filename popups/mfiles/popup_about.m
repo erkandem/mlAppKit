@@ -9,11 +9,10 @@ classdef popup_about < matlab.apps.AppBase
         crLabel                     matlab.ui.control.Label
         LicenseBoilerplateAppLabel  matlab.ui.control.Label
         LicenseTextArea             matlab.ui.control.TextArea
-        FeedbackTextAreaLabel       matlab.ui.control.Label
+        AboutFeedbackLabel          matlab.ui.control.Label
         AboutTextArea               matlab.ui.control.TextArea
         ghbutton                    matlab.ui.control.Button
         mailButton                  matlab.ui.control.Button
-        linkToProject               matlab.ui.control.TextArea
     end
 
     % Callbacks that handle component events
@@ -23,12 +22,12 @@ classdef popup_about < matlab.apps.AppBase
         function linkedbuttonPushed(app, event)
             % launch the system browser to open a (company/ project) specific webpage
             % 
-            web('https://erkan.io');
+            web('https://erkandem.github.io');
         end
 
         % Button pushed function: mailButton
         function mailButtonButtonPushed(app, event)
-            web('mailto:ed@erkan.io');
+            web('mailto:erkan.dem@pm.me');
         end
 
         % Button pushed function: ghbutton
@@ -77,24 +76,24 @@ classdef popup_about < matlab.apps.AppBase
             % Create LicenseBoilerplateAppLabel
             app.LicenseBoilerplateAppLabel = uilabel(app.AboutPanel);
             app.LicenseBoilerplateAppLabel.HorizontalAlignment = 'center';
-            app.LicenseBoilerplateAppLabel.Position = [50.5 220 143 22];
+            app.LicenseBoilerplateAppLabel.Position = [38 295 143 22];
             app.LicenseBoilerplateAppLabel.Text = 'License - Boilerplate App:';
 
             % Create LicenseTextArea
             app.LicenseTextArea = uitextarea(app.AboutPanel);
-            app.LicenseTextArea.Position = [31 70 579 142];
-            app.LicenseTextArea.Value = {'MIT License'; ''; 'Copyright (c) 2018 Erkan Demiralay'; ''; 'Permission is hereby granted, free of charge, to any person obtaining a copy'; 'of this software and associated documentation files (the "Software"), to deal'; 'in the Software without restriction, including without limitation the rights'; 'to use, copy, modify, merge, publish, distribute, sublicense, and/or sell'; 'copies of the Software, and to permit persons to whom the Software is'; 'furnished to do so, subject to the following conditions:'; ''; 'The above copyright notice and this permission notice shall be included in all'; 'copies or substantial portions of the Software.'; ''; 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR'; 'IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,'; 'FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE'; 'AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER'; 'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,'; 'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE'; 'SOFTWARE.'};
+            app.LicenseTextArea.Position = [38 81 564 206];
+            app.LicenseTextArea.Value = {'MIT License'; ''; 'Copyright (c) 2019 Erkan Demiralay'; ''; 'Permission is hereby granted, free of charge, to any person obtaining a copy'; 'of this software and associated documentation files (the "Software"), to deal'; 'in the Software without restriction, including without limitation the rights'; 'to use, copy, modify, merge, publish, distribute, sublicense, and/or sell'; 'copies of the Software, and to permit persons to whom the Software is'; 'furnished to do so, subject to the following conditions:'; ''; 'The above copyright notice and this permission notice shall be included in all'; 'copies or substantial portions of the Software.'; ''; 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR'; 'IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,'; 'FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE'; 'AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER'; 'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,'; 'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE'; 'SOFTWARE.'};
 
-            % Create FeedbackTextAreaLabel
-            app.FeedbackTextAreaLabel = uilabel(app.AboutPanel);
-            app.FeedbackTextAreaLabel.Position = [31 408 55 22];
-            app.FeedbackTextAreaLabel.Text = 'Feedback';
+            % Create AboutFeedbackLabel
+            app.AboutFeedbackLabel = uilabel(app.AboutPanel);
+            app.AboutFeedbackLabel.Position = [36 426 107 22];
+            app.AboutFeedbackLabel.Text = 'About & Feedback ';
 
             % Create AboutTextArea
             app.AboutTextArea = uitextarea(app.AboutPanel);
             app.AboutTextArea.Editable = 'off';
-            app.AboutTextArea.Position = [33 310 567 90];
-            app.AboutTextArea.Value = {'This Project is based on mlAppKit.'; ''; 'mlAppKit was developed to bridge the gap between programmatic GUI design'; 'and the semi automatic drag and drop experience from MATLAB App Designer.'; 'The project is available at Github:'};
+            app.AboutTextArea.Position = [38 328 567 90];
+            app.AboutTextArea.Value = {'This project is based on mlAppKit.'; ''; 'mlAppKit was developed to bridge the gap between programmatic GUI design'; 'and the semi automatic drag and drop experience from MATLAB App Designer.'; 'The project is available at Github: https://github.com/erkandem/mlAppKit or http://mlappkit.com'};
 
             % Create ghbutton
             app.ghbutton = uibutton(app.AboutPanel, 'push');
@@ -111,13 +110,6 @@ classdef popup_about < matlab.apps.AppBase
             app.mailButton.IconAlignment = 'center';
             app.mailButton.Position = [491 8 30 32];
             app.mailButton.Text = '';
-
-            % Create linkToProject
-            app.linkToProject = uitextarea(app.AboutPanel);
-            app.linkToProject.Editable = 'off';
-            app.linkToProject.HorizontalAlignment = 'center';
-            app.linkToProject.Position = [33 283 567 20];
-            app.linkToProject.Value = {'https://github.com/erkandem/mlappkit'};
 
             % Show the figure after all components are created
             app.uifpopup.Visible = 'on';
