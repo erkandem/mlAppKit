@@ -46,10 +46,12 @@ Download the `latest build <https://github.com/erkandem/mlAppKit/releases/latest
 
 .. code:: bash
 
-   $ wget 'https://github.com/erkandem/mlAppKit/releases/latest/download/mlappkit_static_bundle.zip' \
-       && unzip mlappkit_static_bundle.zip \
-       && cd mlappkit_static_bundle
+   $ wget 'https://github.com/erkandem/mlAppKit/releases/latest/download/mlappkit_static_bundle.zip'
 
+.. code:: bash
+
+   $ unzip mlappkit_static_bundle.zip && cd mlappkit_static_bundle
+   
 
 The unzipped folder includes a setup script which will place
 frequently used functions into a directory within your ``userpath`` and
