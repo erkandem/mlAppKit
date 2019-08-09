@@ -42,7 +42,14 @@ Installing the User Version
 -------------------------------
 The user version assumes that you want to package your applications instead
 of working on the tool itself.
-Download the `latest build <https://github.com/erkandem/mlAppKit/releases/latest/download/mlappkit_static_bundle.zip>`_
+Download the `latest build <https://github.com/erkandem/mlAppKit/releases/latest>`_
+
+.. code:: bash
+
+   $ wget 'https://github.com/erkandem/mlAppKit/releases/latest/download/mlappkit_static_bundle.zip' \
+       && unzip mlappkit_static_bundle.zip \
+       && cd mlappkit_static_bundle
+
 
 The unzipped folder includes a setup script which will place
 frequently used functions into a directory within your ``userpath`` and
