@@ -32,15 +32,15 @@ classdef calculator < matlab.apps.AppBase
             % executed when a number button is pushed
             % convert to char and append to list
             if isa(value, 'char')
-                if  strcmp(value,'.')
-                    if isempty(app.screenField.Value ) &&  ismember(app.screenField.Value(end),{'+';'-';'/';'*'})
+                if  strcmp(value, '.')
+                    if isempty(app.screenField.Value ) &&  ismember(app.screenField.Value(end), {'+'; '-'; '/'; '*'})
                         app.screenField.Value = {sprintf('0%s', value)};     
-                    elseif isempty(app.screenField.Value ) &&  ~ismember(app.screenField.Value(end),{'+';'-';'/';'*'})
+                    elseif isempty(app.screenField.Value ) &&  ~ismember(app.screenField.Value(end),{'+'; '-'; '/'; '*'})
                         app.screenField.Value = [app.screenField.Value{1},...
                                                 {sprintf('%s', value)}];    
                     end
                 else
-                    if strcmp(value ,'=')
+                    if strcmp(value, '=')
                         eval_calc(app);
                     else
                         calc_operator_pushed(app, value);
@@ -50,27 +50,27 @@ classdef calculator < matlab.apps.AppBase
                 if isempty (app.screenField.Value{1} ) 
                     app.screenField.Value = {sprintf('%d', value)};
                 else 
-                    if ismember(app.screenField.Value{end}(end),{'+';'-';'/';'*'}) && size(app.screenField.Value,1)>1  % newline without any character
+                    if ismember(app.screenField.Value{end}(end),{'+'; '-'; '/'; '*'}) && size(app.screenField.Value, 1) > 1  % newline without any character
                         app.screenField.Value = [app.screenField.Value ;
                                                 { sprintf('%d', value)}];
-                    elseif ~ismember(app.screenField.Value{end}(end),{'+';'-';'/';'*'}) && size(app.screenField.Value,1)>1
+                    elseif ~ismember(app.screenField.Value{end}(end), {'+'; '-'; '/'; '*'}) && size(app.screenField.Value, 1) > 1
                          app.screenField.Value(end) =  { [app.screenField.Value{end}, sprintf('%d', value)]};
-                    elseif ~ismember(app.screenField.Value(end),{'+';'-';'/';'*'}) && ~(size(app.screenField.Value,1)>1)
+                    elseif ~ismember(app.screenField.Value(end), {'+'; '-'; '/'; '*'}) && ~(size(app.screenField.Value, 1) > 1)
                          app.screenField.Value = { [app.screenField.Value{end}, sprintf('%d', value)]};
                     end
                 end
             end
         end
         
-        function  calc_operator_pushed(app,value )
+        function  calc_operator_pushed(app, value)
         
             if ~isempty(app.screenField.Value )
-                if ~ismember(app.screenField.Value(end),{'+';'-';'/';'*'})
+                if ~ismember(app.screenField.Value(end), {'+'; '-'; '/'; '*'})
                     cV = app.screenField.Value ;
                   %  app.screenField.Value = [cV; {[repmat(' ',1 , max(cellfun(@numel,cV)*2 )-1), value]} ];
                      app.screenField.Value = [cV; value];
                 else
-                            app.screenField.Value(end) = {value} ;
+                     app.screenField.Value(end) = {value};
                 end
             end
 
@@ -78,30 +78,30 @@ classdef calculator < matlab.apps.AppBase
         
         function eval_calc(app)
                
-            if size(app.screenField.Value,1 ) == 3
+            if size(app.screenField.Value, 1) == 3
                 para_first  = app.screenField.Value{1};
                 para_second = app.screenField.Value{end};
                 operator    = app.screenField.Value{2};
-            elseif  size(app.screenField.Value,1 ) == 2
+            elseif  size(app.screenField.Value, 1 ) == 2
                 para_first  = app.screenField.Value{1};
                 para_second = para_first;
                 operator    = app.screenField.Value{2};
             
-            elseif  size(app.screenField.Value,1) == 1
+            elseif  size(app.screenField.Value, 1) == 1
                 return
             end
            
             switch operator
                 case {'+'}
-                     sol= str2double(para_first) + str2double(para_second); 
+                     sol = str2double(para_first) + str2double(para_second); 
                 case {'-'}
-                     sol= str2double(para_furst) - str2double(para_second); 
+                     sol = str2double(para_first) - str2double(para_second); 
                 case {'/'}
-                     sol= str2double(para_first) / str2double(para_second); 
+                     sol = str2double(para_first) / str2double(para_second); 
                 case {'*'}
-                     sol= str2double(para_first) * str2double(para_second); 
+                     sol = str2double(para_first) * str2double(para_second); 
             end
-            app.screenField.Value = {sprintf('%.5f' , sol) };    
+            app.screenField.Value = {sprintf('%.5f', sol)};    
         end
     end
 
